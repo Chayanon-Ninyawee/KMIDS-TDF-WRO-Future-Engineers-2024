@@ -8,8 +8,8 @@ Here give examples of the changes you've made in this pull request. Include an i
 Put image(s) of 3D model if you can.
 
 
-### 🧪 Quality check
+### 🧪 Merging Checklists
 
-- [ ] No temporary sketchs, or constraints in your changes.
+- [ ] No temporary sketches, or constraints in your changes.
       
-- [ ] Merging with main branch and open inventor to make sure that the assembly and part are working and looking as intended.
+- [ ] Merging with main branch and open inventor to make sure that the assembly and parts are working and looking as intended.
