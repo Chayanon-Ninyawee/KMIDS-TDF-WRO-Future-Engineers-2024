@@ -26,7 +26,8 @@ tba
 
 **Obstacle Challenge**
 
-![WRO-obstacle round drawio](https://github.com/24prame/test/assets/171052010/8874668a-fa04-4400-87a3-b16574519196)
+![WRO-obstacle round_02 drawio](https://github.com/24prame/test/assets/171052010/e8ee1627-8017-4cc5-a990-957394a3c871)
+
 
 
 # Pictures - Team and vehicle
