@@ -17,10 +17,16 @@ when turning corners
 We use a single TT Motor to provide because of the power that it can
 generate. We put the motor in the middle of the vehicle and connected
 it to a differentian made from lego to provide power to the two back-wheel
-and avoid unnecessary waste of space.
+and avoid unnecessary waste of space. Our vehicle use a single servo at the
+front bridge to turn the front wheel.
 
 ## Power and Sense Management
-tba
+We incorporate 4 ultrasonic sensors at each side of the vehicle to give the vehicle the
+ability to detect walls that surround it and for it to be able to correct it's distance
+to the wall so that it doesn't come into contact with it. We also have 1 camera at the
+front of the vehicle to detect the various pillas and the colors of thoes pillars. The
+vehicle is powered by 2 li-on battery. the information from the various sensors are 
+directed to a raspberry pi to process and then we have an arduino to control the motors
 
 ## Obstacle Management
 **Open Challenge**
