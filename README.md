@@ -18,7 +18,7 @@ it to a differentian made from lego to provide power to the two back-wheel
 and avoid unnecessary waste of space. Our vehicle use a single servo at the
 front bridge to turn the front wheel.
 
-## Power and Sense Management
+## Power and Sensor Management
 - We incorporate 4 ultrasonic sensors at each side of the vehicle(front , back
 and both side)
 - We have a camera at the front of the vehicle
