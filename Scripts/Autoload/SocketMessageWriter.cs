@@ -8,11 +8,12 @@ public partial class SocketMessageWriter: Node
 
     private const int ImageBytesLength = 854 * 480 * 3;
     private const int UltrasonicBytesLength = 4;
+    private const int GyroBytesLength = 4;
 
     private SocketServer socketServer;
 
-    // Message Format: image[2764800], frontUltrasonic[4], backUltrasonic[4], leftUltrasonic[4], rightUltrasonic[4]
-    private byte[] message = new byte[ImageBytesLength + UltrasonicBytesLength*4];
+    // Message Format: image[2764800], frontUltrasonic[4], backUltrasonic[4], leftUltrasonic[4], rightUltrasonic[4], gyro[4]
+    private byte[] message = new byte[ImageBytesLength + UltrasonicBytesLength*4 + GyroBytesLength];
 
     public void SendImageBytes(byte[] imageBytes)
     {
@@ -60,6 +61,15 @@ public partial class SocketMessageWriter: Node
         }
         
         Array.Copy(rightUltrasonic, 0, message, ImageBytesLength + UltrasonicBytesLength*3, UltrasonicBytesLength);
+    }
+
+    public void SendGyroBytes(byte[] gyro) {
+        if (gyro.Length != GyroBytesLength) 
+        {
+            throw new ArgumentException("Gyro data length must be " + GyroBytesLength + " bytes");
+        }
+        
+        Array.Copy(gyro, 0, message, ImageBytesLength + UltrasonicBytesLength*4, GyroBytesLength);
     }
 
     // Use _EnterTree to make sure the Singleton instance is avaiable in _Ready()

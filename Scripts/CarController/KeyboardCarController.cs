@@ -6,15 +6,15 @@ public class KeyboardCarController : CarControllerHandler
     {
         if (Input.IsActionPressed("accelerate"))
         {
-            car.Accelerate(1.0f); // Full acceleration
+            car.SetSpeed(99999.0f); // Full acceleration
         }
         else if (Input.IsActionPressed("brake"))
         {
-            car.Accelerate(-1.0f); // Full reverse
+            car.SetSpeed(-99999.0f); // Full reverse
         }
         else
         {
-            car.Accelerate(0.0f); // Stop acceleration
+            car.SetSpeed(0.0f); // Stop
         }
 
         if (Input.IsActionPressed("left"))

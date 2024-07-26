@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://e16g8gc42r0f"]
+[gd_scene load_steps=32 format=3 uid="uid://e16g8gc42r0f"]
 
 [ext_resource type="Script" path="res://Scripts/Node/Car.cs" id="1_a8kb7"]
 [ext_resource type="ArrayMesh" uid="uid://6da8h7wjypa4" path="res://Models/Car_Assembly.obj" id="1_isey6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Node/Ultrasonic/LeftUltrasonic.cs" id="6_liiuc"]
 [ext_resource type="Script" path="res://Scripts/Node/Ultrasonic/RightUltrasonic.cs" id="7_h10j7"]
 [ext_resource type="Texture2D" uid="uid://cx8o0wcvuallr" path="res://Models/Game_Mat_WRO-2023_FutureEngineers_Playfield - Approved.png" id="8_ppb77"]
+[ext_resource type="Script" path="res://Scripts/Node/TrafficLightController.cs" id="9_we3e2"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_buker"]
 
@@ -266,7 +267,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2y04c")
 
 [node name="Car" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.705339, 0, -0.286361)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.25964, 0, 0.266761)
 script = ExtResource("1_a8kb7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Car"]
@@ -345,624 +346,629 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GameMatInnerWall"]
 shape = SubResource("ConcavePolygonShape3D_8nxnl")
 
-[node name="GreenTrafficLights" type="Node" parent="."]
+[node name="TrafficLights" type="Node" parent="."]
+script = ExtResource("9_we3e2")
 
-[node name="GreenTrafficLight1" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight1" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900702, 0, 0)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight1"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight1"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight1"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight2" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight2" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10036, 0, 0)
+visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight2"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight2"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight2"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight3" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight3" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900614, 0, 0.500118)
+visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight3"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight3"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight3"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight4" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight4" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10036, 0, 0.500118)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight4"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight4"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight4"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight5" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight5" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499893, 0, 0.900977)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight5"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight5"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight5"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight6" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight6" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499893, 0, 1.10079)
+visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight6"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight6"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight6"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight7" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight7" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86992e-06, 0, 0.900977)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight7"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight7"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight7"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight8" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight8" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86992e-06, 0, 1.10079)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight8"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight8"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight8"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight8"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight9" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight9" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 0.900977)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight9"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight9"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight10" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight10" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 1.10079)
+visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight10"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight10"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight10"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight10"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight11" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight11" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, 0.500063)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight11"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight11"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight11"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight11"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight12" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight12" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09936, 0, 0.500063)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight12"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight12"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight12"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight12"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight13" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight13" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, 3.91835e-05)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight13"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight13"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight13"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight13"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight14" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight14" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09936, 0, 3.91835e-05)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight14"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight14"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight14"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight14"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight15" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight15" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, -0.499808)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight15"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight15"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight15"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight15"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight16" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight16" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09936, 0, -0.499808)
+visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight16"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight16"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight16"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight16"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight17" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight17" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500113, 0, -0.899419)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight17"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight17"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight17"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight17"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight18" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight18" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500113, 0, -1.09904)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight18"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight18"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight18"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight18"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight19" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight19" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98527e-05, 0, -0.899419)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight19"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight19"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight19"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight19"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight20" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight20" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98527e-05, 0, -1.09904)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight20"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight20"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight20"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight20"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight21" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight21" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -0.899419)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight21"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight21"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight21"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight21"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight22" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight22" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -1.09904)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight22"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight22"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight22"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight22"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight23" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight23" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900727, 0, -0.499868)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight23"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight23"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight23"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight23"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="GreenTrafficLight24" type="StaticBody3D" parent="GreenTrafficLights"]
+[node name="GreenTrafficLight24" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10035, 0, -0.499868)
 visible = false
 
-[node name="GreenTrafficLight" type="MeshInstance3D" parent="GreenTrafficLights/GreenTrafficLight24"]
+[node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight24"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aar1s")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GreenTrafficLights/GreenTrafficLight24"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/GreenTrafficLight24"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLights" type="Node" parent="."]
-
-[node name="RedTrafficLight1" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight1" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900702, 0, 0)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight1"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight1"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight1"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight2" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight2" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10036, 0, 0)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight2"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight2"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight2"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight3" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight3" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900614, 0, 0.500118)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight3"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight3"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight3"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight4" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight4" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10036, 0, 0.500118)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight4"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight4"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight4"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight5" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight5" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499893, 0, 0.900977)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight5"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight5"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight5"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight6" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight6" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499893, 0, 1.10079)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight6"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight6"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight6"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight7" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight7" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86992e-06, 0, 0.900977)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight7"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight7"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight7"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight8" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight8" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86992e-06, 0, 1.10079)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight8"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight8"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight8"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight8"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight9" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight9" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 0.900977)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight9"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight9"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight10" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight10" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 1.10079)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight10"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight10"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight10"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight10"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight11" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight11" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, 0.500063)
+visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight11"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight11"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight11"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight11"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight12" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight12" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09936, 0, 0.500063)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight12"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight12"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight12"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight12"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight13" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight13" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, 3.91835e-05)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight13"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight13"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight13"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight13"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight14" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight14" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09936, 0, 3.91835e-05)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight14"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight14"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight14"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight14"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight15" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight15" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, -0.499808)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight15"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight15"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight15"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight15"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight16" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight16" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09936, 0, -0.499808)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight16"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight16"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight16"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight16"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight17" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight17" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500113, 0, -0.899419)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight17"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight17"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight17"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight17"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight18" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight18" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500113, 0, -1.09904)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight18"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight18"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight18"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight18"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight19" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight19" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98527e-05, 0, -0.899419)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight19"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight19"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight19"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight19"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight20" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight20" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.98527e-05, 0, -1.09904)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight20"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight20"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight20"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight20"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight21" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight21" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -0.899419)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight21"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight21"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight21"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight21"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight22" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight22" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -1.09904)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight22"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight22"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight22"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight22"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight23" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight23" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900727, 0, -0.499868)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight23"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight23"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight23"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight23"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
-[node name="RedTrafficLight24" type="StaticBody3D" parent="RedTrafficLights"]
+[node name="RedTrafficLight24" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10035, 0, -0.499868)
 visible = false
 
-[node name="RedTrafficLight" type="MeshInstance3D" parent="RedTrafficLights/RedTrafficLight24"]
+[node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight24"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3cqxq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedTrafficLights/RedTrafficLight24"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrafficLights/RedTrafficLight24"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_cxtqt")

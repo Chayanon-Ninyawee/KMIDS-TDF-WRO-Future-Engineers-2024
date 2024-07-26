@@ -13,10 +13,11 @@ class SocketClient:
         image_width (int): The width of the image to be received.
         image_height (int): The height of the image to be received.
         ultrasonic_data_size (int): The size of the ultrasonic sensor data in bytes.
+        gyro_data_size (int): The size of the gyro sensor data in bytes.
         buffer_size (int): The total size of the buffer for receiving data.
     """
 
-    def __init__(self, ip_address: str, port: int, image_width: int, image_height: int, ultrasonic_data_size: int):
+    def __init__(self, ip_address: str, port: int, image_width: int, image_height: int, ultrasonic_data_size: int, gyro_data_size):
         """
         Initializes the SocketClient with the specified IP address, port, image dimensions, and ultrasonic data size.
 
@@ -26,23 +27,25 @@ class SocketClient:
             image_width (int): The width of the image to be received.
             image_height (int): The height of the image to be received.
             ultrasonic_data_size (int): The size of the ultrasonic sensor data in bytes.
+            gyro_data_size (int): The size of the gyro sensor data in bytes.
         """
         self.ip_address: str = ip_address
         self.port: int = port
-        self.image_width = image_width
-        self.image_height = image_height
-        self.ultrasonic_data_size = ultrasonic_data_size
-        self.buffer_size = self.image_width * self.image_height * 3 + self.ultrasonic_data_size
+        self.image_width: int = image_width
+        self.image_height: int = image_height
+        self.ultrasonic_data_size: int = ultrasonic_data_size
+        self.gyro_data_size: int = gyro_data_size
+        self.buffer_size: int = self.image_width * self.image_height * 3 + self.ultrasonic_data_size + self.gyro_data_size
 
         self._packet_buffer: bytes = b''
 
         server_address = (self.ip_address, self.port)
 
         # Connect to the server
-        self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._sock: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._sock.connect(server_address)
 
-    def __receive_data(self):
+    def __receive_data(self) -> bytes:
         """
         Receives data from the socket until the buffer size is reached.
 
@@ -57,7 +60,7 @@ class SocketClient:
             self._packet_buffer = self._packet_buffer[self.buffer_size:]
             return dequeued_packet_buffer
 
-    def process_data(self):
+    def process_data(self) -> None:
         """
         Processes the received data, separating the image and ultrasonic sensor data.
 
@@ -66,56 +69,23 @@ class SocketClient:
         """
         data = self.__receive_data()
 
-        image_data = data[:-4*4]
-        ultrasonic_data = data[-4*4:]
-
-        self._front_ultrasonic = struct.unpack('f', ultrasonic_data[:4])[0]
-        self._back_ultrasonic = struct.unpack('f', ultrasonic_data[4:8])[0]
-        self._left_ultrasonic = struct.unpack('f', ultrasonic_data[8:12])[0]
-        self._right_ultrasonic = struct.unpack('f', ultrasonic_data[12:16])[0]
+        image_data = data[:self.image_width * self.image_height * 3]
+        ultrasonic_data = data[self.image_width * self.image_height * 3:][:self.ultrasonic_data_size]
+        gyro_data = data[self.image_width * self.image_height * 3 + self.ultrasonic_data_size:]
 
         # Convert the raw image_data to a numpy array
-        self._image = np.frombuffer(image_data, dtype=np.uint8)
+        self._image: cv2.typing.MatLike = np.frombuffer(image_data, dtype=np.uint8)
         self._image = self._image.reshape((self.image_height, self.image_width, 3))
         self._image = cv2.cvtColor(self._image, cv2.COLOR_RGB2BGR)
 
-    def get_front_ultrasonic(self):
-        """
-        Returns the front ultrasonic sensor data.
+        self._front_ultrasonic: float = struct.unpack('f', ultrasonic_data[:4])[0]
+        self._back_ultrasonic: float = struct.unpack('f', ultrasonic_data[4:8])[0]
+        self._left_ultrasonic: float = struct.unpack('f', ultrasonic_data[8:12])[0]
+        self._right_ultrasonic: float = struct.unpack('f', ultrasonic_data[12:16])[0]
 
-        Returns:
-            float: The front ultrasonic sensor data.
-        """
-        return self._front_ultrasonic
+        self._gyro: float = struct.unpack('f', gyro_data)[0]
 
-    def get_back_ultrasonic(self):
-        """
-        Returns the back ultrasonic sensor data.
-
-        Returns:
-            float: The back ultrasonic sensor data.
-        """
-        return self._back_ultrasonic
-
-    def get_left_ultrasonic(self):
-        """
-        Returns the left ultrasonic sensor data.
-
-        Returns:
-            float: The left ultrasonic sensor data.
-        """
-        return self._left_ultrasonic
-
-    def get_right_ultrasonic(self):
-        """
-        Returns the right ultrasonic sensor data.
-
-        Returns:
-            float: The right ultrasonic sensor data.
-        """
-        return self._right_ultrasonic
-
-    def get_image(self):
+    def get_image(self) -> cv2.typing.MatLike:
         """
         Returns the received image data.
 
@@ -129,7 +99,7 @@ class SocketClient:
         """
         return self._image
 
-    def get_image_copy(self):
+    def get_image_copy(self) -> cv2.typing.MatLike:
         """
         Returns a copy of the received image data.
 
@@ -137,3 +107,25 @@ class SocketClient:
             np.ndarray: A copy of the received image data as a NumPy array.
         """
         return self._image.copy()
+    
+    def get_ultasonic_data(self) -> tuple[float, float, float, float]:
+        """
+        Retrieve ultrasonic sensor data for the front, back, left, and right directions.
+
+        Returns:
+            tuple: A tuple containing four float values representing the ultrasonic sensor readings:
+                - front ultrasonic reading
+                - back ultrasonic reading
+                - left ultrasonic reading
+                - right ultrasonic reading
+        """
+        return self._front_ultrasonic, self._back_ultrasonic, self._left_ultrasonic, self._right_ultrasonic
+    
+    def get_gyro_data(self) -> float:
+        """
+        Retrieve gyro sensor data.
+
+        Returns:
+            float: Float value representing the gyro sensor reading
+        """
+        return self._gyro

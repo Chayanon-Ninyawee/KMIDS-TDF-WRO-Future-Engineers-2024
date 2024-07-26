@@ -8,8 +8,8 @@ public class SocketCarController : CarControllerHandler
 
     public void Update(Car car, double delta)
     {
-        car.Accelerate(
-            socketMessageReader.AccelerationPercent
+        car.SetSpeed(
+            socketMessageReader.SpeedTarget
         );
 
         car.SetSteeringPercent(

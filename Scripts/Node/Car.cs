@@ -13,22 +13,35 @@ public partial class Car : StaticBody3D
     private double speed = 0.0;
     private double steeringPercent = 0.0;
 
-    private double powerPercent = 0.0;
+    private double speedTarget = 0.0;
     private double steeringPercentTarget = 0.0;
 
     private CarControllerHandler controllerHandler;
 
+    private SocketMessageWriter socketMessageWriter;
+    private float initialRotationDegrees_Y;
+
     public override void _Ready()
     {
-        controllerHandler = new KeyboardCarController();
+        controllerHandler = new SocketCarController();
+
+        socketMessageWriter = SocketMessageWriter.Instance;
+        initialRotationDegrees_Y = RotationDegrees.Y;
     }
 
     public override void _Process(double delta)
     {
+        float angle = RotationDegrees.Y - initialRotationDegrees_Y;
+        angle = angle % 360;
+        if (angle < 0) { angle += 360; }
+        socketMessageWriter.SendGyroBytes(
+            BitConverter.GetBytes(angle)
+        );
+
         controllerHandler.Update(this, delta);
 
-        speed += powerPercent*acceleration*delta;
-        if (Math.Abs(speed) >= maxSpeed) speed = Math.Sign(speed)*maxSpeed;
+        speed += acceleration*delta;
+        if (Math.Abs(speed) >= speedTarget) speed = Math.Sign(speed)*speedTarget;
 
         var newSteeringPercent = steeringPercent + Math.Sign(steeringPercentTarget-steeringPercent)*5.0*delta;
         var minSteeringPercent = Math.Min(steeringPercent, steeringPercentTarget);
@@ -53,9 +66,10 @@ public partial class Car : StaticBody3D
         return wheelBase / Math.Tan(Mathf.DegToRad(steeringPercent*maxSteeringAngle));
     }
 
-    public void Accelerate(float percent)
+    public void SetSpeed(float speed)
     {
-        powerPercent = percent;
+        speedTarget = speed;
+        if (speedTarget > maxSpeed) speedTarget = maxSpeed;
     }
 
     public void SetSteeringPercent(float percent)

@@ -10,9 +10,9 @@ public partial class SocketMessageReader: Node
 
     private SocketServer socketServer;
 
-    private float accelerationPercent = 0.0f;
-    public float AccelerationPercent {
-        get { return accelerationPercent; }
+    private float speedTarget = 0.0f;
+    public float SpeedTarget {
+        get { return speedTarget; }
     }
 
     private float steeringPercent = 0.0f;
@@ -43,13 +43,13 @@ public partial class SocketMessageReader: Node
 
     private void HandleMessageReceived(TcpClient client, byte[] message)
     {
-        // Message Format: accelerationPercent[4], steeringPercent[4]
+        // Message Format: speedTarget[4], steeringPercent[4]
         if (message.Length != 8) return;
 
-        byte[] accelerationPercentBytes = message.Take(message.Length/2).ToArray();
+        byte[] speedTargetBytes = message.Take(message.Length/2).ToArray();
         byte[] steeringPercentBytes = message.Skip(message.Length/2).ToArray();
 
-        accelerationPercent = BitConverter.ToSingle(accelerationPercentBytes, 0);
+        speedTarget = BitConverter.ToSingle(speedTargetBytes, 0);
         steeringPercent = BitConverter.ToSingle(steeringPercentBytes, 0);
     }
 }
