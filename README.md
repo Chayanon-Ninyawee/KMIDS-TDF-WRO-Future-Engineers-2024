@@ -29,6 +29,7 @@ and both side)
 bridge
 - A MPU-6050 help us keep track of the acceleration of the vehicle
 
+![Screenshot 2024-07-27 153831](https://github.com/user-attachments/assets/81ff4f33-e13d-408e-8a66-d3ccc6d15219)
 **Wiring Diagram**
 tba
 
@@ -38,6 +39,7 @@ tba
 **Obstacle Challenge**
 
 ![WRO-obstacle round_02 drawio](https://github.com/24prame/test/assets/171052010/e8ee1627-8017-4cc5-a990-957394a3c871)
+
 
 
 
