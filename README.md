@@ -31,12 +31,15 @@ bridge
 
 
 **Wiring Diagram**
-tba
+
+![circuit (1)](https://github.com/user-attachments/assets/c34df00c-26d5-41fc-b7e5-970560ee5f46)
+
 
 ## Obstacle Management
 **Open Challenge**
 
 **Obstacle Challenge**
+
 
 ![WRO-obstacle round_02 drawio](https://github.com/24prame/test/assets/171052010/e8ee1627-8017-4cc5-a990-957394a3c871)
 
@@ -45,7 +48,9 @@ tba
 
 ## Pictures - Team and vehicle
 
-tba
+**Vehicle Picture**
+![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/e0066bca-ebf5-45b9-8d32-52aec4c62f70)
+
 
 ## Performance video
 tba
