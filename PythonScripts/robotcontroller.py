@@ -1,11 +1,25 @@
 import numpy as np
 import cv2
-import struct
 import math
 import time
 
 import socketclient
 import pidcontroller
+
+
+robot_data = socketclient.SocketClient('127.0.0.1', 12345, 854, 480, 4*4, 4)
+
+suggested_heading = 0
+
+first_conner_ideal_wall_distance = 0.5
+ideal_wall_distance = 0.2
+
+heading_pid = pidcontroller.PIDController(kp=0.1, ki=0.0, kd=0.01)
+wall_distance_pid = pidcontroller.PIDController(kp=150.0, ki=0.0, kd=0)
+
+is_first_conner = True
+is_clockwise = None
+last_turn_time = 0
 
 
 def average_x_coordinate(mask):
@@ -80,19 +94,7 @@ def process_image(image: cv2.typing.MatLike):
     return blue_line_info, orange_line_info, red_light_info, green_light_info
 
 
-suggested_heading = 0
-
-first_conner_ideal_wall_distance = 0.5
-ideal_wall_distance = 0.2
-
-wall_distance_pid = pidcontroller.PIDController(kp=1.9, ki=0.0, kd=2.2)
-heading_pid = pidcontroller.PIDController(kp=0.001, ki=0.0, kd=0.0001)
-
-is_first_conner = True
-is_clockwise = None
-last_turn_time = 0
-
-def process_data(ultrasonic_info: tuple[int, int, int, int],
+def process_data_open(ultrasonic_info: tuple[int, int, int, int],
                 gyro_info: float,
                 blue_line_info: tuple[cv2.typing.MatLike, int, int],
                 orange_line_info: tuple[cv2.typing.MatLike, int, int],
@@ -118,15 +120,13 @@ def process_data(ultrasonic_info: tuple[int, int, int, int],
     """
     global suggested_heading
     global first_conner_ideal_wall_distance, ideal_wall_distance
-    global wall_distance_pid, heading_pid
+    global heading_pid, wall_distance_pid
     global is_first_conner, is_clockwise, last_turn_time
     
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
     blue_line_mask, blue_line_y, blue_line_size = blue_line_info
     orange_line_mask, orange_line_y, orange_line_size = orange_line_info
-    red_light_mask, red_light_x, red_light_size = red_light_info
-    green_light_mask, green_light_x, green_light_size = green_light_info
 
     heading_error = gyro_info - suggested_heading
     heading_error = (heading_error + 180) % 360 - 180
@@ -136,7 +136,7 @@ def process_data(ultrasonic_info: tuple[int, int, int, int],
             if blue_line_size - orange_line_size > 1500: is_clockwise = False
             elif orange_line_size - blue_line_size > 1500: is_clockwise = True
     else:
-        if front_ultrasonic < 0.5 and time.time() - last_turn_time > 3:
+        if front_ultrasonic < 0.8 and time.time() - last_turn_time > 3:
             is_first_conner = False
             if is_clockwise: suggested_heading -= 90
             else: suggested_heading += 90
@@ -155,13 +155,17 @@ def process_data(ultrasonic_info: tuple[int, int, int, int],
         else:
             wall_error = right_ultrasonic*math.cos(math.radians(abs(heading_error))) - ideal_distance_from_wall
 
-    steering_adjustment = 0
-    steering_adjustment += wall_distance_pid.update(wall_error, delta_time)
-    steering_adjustment += heading_pid.update(math.copysign(heading_error**2, heading_error), delta_time)
+    heading_correction = wall_distance_pid.update(wall_error, delta_time)
+    heading_correction = max(min(heading_correction, 30.0), -30.0)
+
+    heading_error += heading_correction
+    heading_error = (heading_error + 180) % 360 - 180
+
+    steering_adjustment = heading_pid.update(heading_error, delta_time)
 
     steering_percent = max(min(steering_adjustment, 1.00), -1.00)
 
-    print(steering_percent)
+    print(heading_correction)
     return 0.33, steering_percent
 
 
@@ -213,17 +217,11 @@ def show_window(image: cv2.typing.MatLike,
     cv2.imshow('image', image)
     cv2.imshow('result', result)
 
-    # print(f"B: {blue_line_size}")
-    # print(f"O: {orange_line_size}")
-
-    # return cv2.waitKey(0) & 0xFF == ord('q') # TODO: Remove This
     return cv2.waitKey(1) & 0xFF == ord('q')
 
 
 def main():
-    socket_client = socketclient.SocketClient('127.0.0.1', 12345, 854, 480, 4*4, 4)
-    sock = socket_client._sock
-
+    global robot_data
     last_update_time = time.time()
 
     try:
@@ -232,17 +230,16 @@ def main():
             delta_time = current_time - last_update_time
             last_update_time = current_time
 
-            socket_client.process_data()
+            robot_data.process_data()
 
-            image = socket_client.get_image()
-            ultrasonic_info = socket_client.get_ultasonic_data()
-            gyro_info = socket_client.get_gyro_data()
+            image = robot_data.get_image()
+            ultrasonic_info = robot_data.get_ultasonic_data()
+            gyro_info = robot_data.get_gyro_data()
 
             blue_line_info, orange_line_info, red_light_info, green_light_info = process_image(image)
-            speed_target, steering_percent = process_data(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
+            speed_target, steering_percent = process_data_open(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
 
-            message = struct.pack('f', speed_target) + struct.pack('f', steering_percent)
-            sock.send(message)
+            robot_data.send_data(speed_target, steering_percent)
 
             # if show_window(image, blue_line_info, orange_line_info, red_light_info, green_light_info): break
     except Exception as e: print(e)

@@ -129,3 +129,21 @@ class SocketClient:
             float: Float value representing the gyro sensor reading
         """
         return self._gyro
+    
+    def send_data(self, speed_target: float, steering_percent: float) -> None:
+        """
+        Send the speed and steering data to the connected socket.
+
+        This method packs the given speed target and steering percentage into a 
+        binary format using the 'struct' module, then sends the packed message 
+        through the socket.
+
+        Args:
+            speed_target (float): The target speed value to be sent.
+            steering_percent (float): The steering percentage to be sent.
+
+        Returns:
+            None
+        """
+        message = struct.pack('f', speed_target) + struct.pack('f', steering_percent)
+        self._sock.send(message)
