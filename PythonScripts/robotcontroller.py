@@ -11,13 +11,11 @@ robot_data = socketclient.SocketClient('127.0.0.1', 12345, 854, 480, 4*4, 4)
 
 suggested_heading = 0
 
-first_conner_ideal_wall_distance = 0.5
-ideal_wall_distance = 0.2
+ideal_wall_distance = 0.4
 
 heading_pid = pidcontroller.PIDController(kp=0.1, ki=0.0, kd=0.01)
 wall_distance_pid = pidcontroller.PIDController(kp=150.0, ki=0.0, kd=0)
 
-is_first_conner = True
 is_clockwise = None
 last_turn_time = 0
 
@@ -119,9 +117,9 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
             - steering_percent (float): The steering percentage, ranging from -1.00 to 1.00, where 1.00 is full right and -1.00 is full left.
     """
     global suggested_heading
-    global first_conner_ideal_wall_distance, ideal_wall_distance
+    global ideal_wall_distance
     global heading_pid, wall_distance_pid
-    global is_first_conner, is_clockwise, last_turn_time
+    global is_clockwise, last_turn_time
     
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
@@ -133,30 +131,28 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
 
     if is_clockwise == None:
         if not (blue_line_size == None or orange_line_size == None):
-            if blue_line_size - orange_line_size > 1500: is_clockwise = False
-            elif orange_line_size - blue_line_size > 1500: is_clockwise = True
+            if blue_line_size - orange_line_size > 1000: is_clockwise = False
+            elif orange_line_size - blue_line_size > 1000: is_clockwise = True
     else:
-        if front_ultrasonic < 0.8 and time.time() - last_turn_time > 3:
-            is_first_conner = False
+        if front_ultrasonic*math.cos(math.radians(abs(heading_error))) < 0.6 and time.time() - last_turn_time > 3:
             if is_clockwise: suggested_heading -= 90
             else: suggested_heading += 90
             suggested_heading = suggested_heading % 360
             last_turn_time = time.time()
 
-    ideal_distance_from_wall = first_conner_ideal_wall_distance
-    if not is_first_conner: ideal_distance_from_wall = ideal_wall_distance
-
     wall_error = 0
     if is_clockwise == None:
-        wall_error = right_ultrasonic*math.cos(math.radians(abs(heading_error))) - ideal_distance_from_wall
+        wall_error = (right_ultrasonic-left_ultrasonic)*math.cos(math.radians(abs(heading_error))) / 2.0
     else:
         if is_clockwise:
-            wall_error = -left_ultrasonic*math.cos(math.radians(abs(heading_error))) + ideal_distance_from_wall
+            wall_error = -left_ultrasonic*math.cos(math.radians(abs(heading_error))) + ideal_wall_distance
         else:
-            wall_error = right_ultrasonic*math.cos(math.radians(abs(heading_error))) - ideal_distance_from_wall
+            wall_error = right_ultrasonic*math.cos(math.radians(abs(heading_error))) - ideal_wall_distance
 
     heading_correction = wall_distance_pid.update(wall_error, delta_time)
     heading_correction = max(min(heading_correction, 30.0), -30.0)
+
+
 
     heading_error += heading_correction
     heading_error = (heading_error + 180) % 360 - 180
