@@ -37,8 +37,7 @@ left and right)
 ## Obstacle Management
 **Open Challenge**
 
-![open challenge drawio (1)](https://github.com/user-attachments/assets/ee4b849c-4d49-44f2-a857-a601a6de1e85)
-
+![open challenge2 drawio](https://github.com/user-attachments/assets/1de2232d-f0d9-41ad-a15a-7fc9c8a928f4)
 
 **Obstacle Challenge**  
 (need fixing)
