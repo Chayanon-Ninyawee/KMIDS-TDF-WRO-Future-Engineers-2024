@@ -5,7 +5,7 @@
 - [Mobility Management](#Mobility-Management)
 - [Power and Sensor Management](#Power&Sensor-Management)
 - [Obstacle Management](#Obstacle-Management)
-- [Picture(s) and vieos](#Pictures&videos)
+- [Picture(s) and videos](#Pictures/videos)
 
 ## Introduction
 
@@ -65,7 +65,7 @@ left and right)
 
 ![WRO-obstacle round_02 drawio (1)](https://github.com/user-attachments/assets/f55a3f9a-e7dc-4366-b21c-5738887686cb)
 
-## Pictures&videos
+## Pictures/videos
 
 **Vehicle Picture**
 ![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/e0066bca-ebf5-45b9-8d32-52aec4c62f70)
