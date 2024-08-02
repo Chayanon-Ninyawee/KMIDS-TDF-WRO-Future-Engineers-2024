@@ -5,7 +5,7 @@
 - [Mobility Management](#Mobility-Management)
 - [Power and Sensor Management](#Power&Sensor-Management)
 - [Obstacle Management](#Obstacle-Management)
-- [Picture(s) and videos](#Pictures/videos)
+- [Picture(s)](#Pictures)
 
 ## Introduction
 
@@ -71,14 +71,13 @@ autonomous vehicle that can navigate around a field with various rules and restr
 ## Obstacle-Management
 **Open Challenge**
 
-![open challenge2 drawio](https://github.com/user-attachments/assets/1de2232d-f0d9-41ad-a15a-7fc9c8a928f4)
+![open challenge2 drawio (1)](https://github.com/user-attachments/assets/29609437-159f-4914-81d7-570c17d80eff)
 
 **Obstacle Challenge**  
-(need fixing)
 
-![WRO-obstacle round_02 drawio (1)](https://github.com/user-attachments/assets/f55a3f9a-e7dc-4366-b21c-5738887686cb)
+![ObstacleChallenge2 drawio](https://github.com/user-attachments/assets/226d0d06-ef2b-4151-918d-a48813322abe)
 
-## Pictures/videos
+## Pictures
 
 **Vehicle Picture**
 ![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/e0066bca-ebf5-45b9-8d32-52aec4c62f70)
