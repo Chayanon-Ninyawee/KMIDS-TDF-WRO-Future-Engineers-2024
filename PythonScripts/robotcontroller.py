@@ -164,7 +164,7 @@ class OpenChallange:
         print(heading_correction)
         return 0.33, steering_percent
 
-class ObstacleChallenge:
+class ObstacleChallenge: # TODO: Fix corner that the robot see both red and green
     suggested_heading = 0
 
     ideal_wall_distance = 0.42
