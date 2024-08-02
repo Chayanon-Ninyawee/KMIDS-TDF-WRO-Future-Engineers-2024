@@ -31,29 +31,42 @@ autonomous vehicle that can navigate around a field with various rules and restr
     to help the motor distribute it's power to the back wheel as needed.
 
 ## Power&Sensor-Management
-- We incorporate 4 ultrasonic sensors at each side of the vehicle(front , back,
-left and right)
-  - Reason: We use 4 ultrasonic sensor to detect the distance of the vehicle from
-    the wall so that the vehicle can stay within a certain distance from the wall
-    without crashing
-- We use Raspberry pi to process the video taken by the camera
-  - Reason: A raspberry pi can act as our vehicle's image processing unit that can
-    process the video sent by the camera and process it into instruction for the whole
-    vehicle. 
-- We have a raspberry pi camera at the front of the vehicle
+- Raspberry pi
+  - Reason: A raspberry pi is used to process the video from the camera which decides where
+    and what direction the vehicle shouldd head. It's also connected to the Arduino nano and
+    issue commands to it.
+- Raspberry pi camera
   - Reason: A raspberry pi camera can be intergrate easily into the raspberry pi as
     the raspberry pi have dedicated pins to connect to the camera, couple with the
     camera's good quality make it a good choice for our vehicle.
-- We use 1 lithium ion battry to power the whole vehicle
-- We have a Maker Drive to distribute the power to the motors in the back wheels
-- We have an arduino to manage the control of the motors and the servo at the front bridge
-- A BNO055 help us keep track of the acceleration of the vehicle
+- ultrasonic sensors
+  - Placement: front, back, left and right side
+  - Reason: We use 4 ultrasonic sensor to detect the distance of the vehicle from
+    the wall so that the vehicle can stay within a certain distance from the wall
+    without crashing
+- Servo motor
+  - Reason: We need the vehicle to be able to turn sharp corners, that's why we choose to
+    implement a servo motor into the front bridge of our vehicle for it to be able to turn
+- 1 lithium ion battry
+  - Reason: 1 lithium ion cell has enough voltage necessary to power all of our electronics
+    and it has the ability to be recharge which reduce the waste that would be cause if
+    we were to use a normal battery.
+- BNO055
+  - Reason: The BNO055 is used to measure the acceleration and orientation that it is in,
+    improving the naigational ability of the vehicle and lessen the load on the host
+    processor.
+- Maker Drive
+  - Reason: To control the motor, we implement a maker drive to regulate the power and
+    direction of the motor.
+- Arduino nano
+  - Reason: The arduino nano are connected to various electronics(Maker Drive, Raspberry pi,
+    BNO055) and help control all of it for the raspberry pi.
+
 
 
 **Wiring Diagram**
 
-![circuit (1)](https://github.com/user-attachments/assets/c34df00c-26d5-41fc-b7e5-970560ee5f46)
-
+![circuit (2)](https://github.com/user-attachments/assets/ee321578-954b-4a7f-b899-d265ed52cab6)
 
 ## Obstacle-Management
 **Open Challenge**
