@@ -135,7 +135,7 @@ area for parking the vehicle.
 **Vehicle Picture**  
 
 
-![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/e0066bca-ebf5-45b9-8d32-52aec4c62f70)
+![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/c0cd4dee-8e1f-4f86-b47a-b6981887564f)
 
 
 ## Performance video
