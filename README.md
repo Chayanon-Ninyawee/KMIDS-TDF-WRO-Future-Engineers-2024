@@ -125,15 +125,14 @@ inner or outer walls.
 In the obstacle challenge, our vehicle will also needed to complete the requirement as said above,
 but the vehicle will also need to avoid additional pillars of green and red that is scatter around
 the field. The pillars also have it's individual rules that the vehicle must obey plus a now designated
-area for parking the vehicle. 
+area for parking the vehicle. <br/>
 
 
 ![ObstacleChallenge2 drawio](https://github.com/user-attachments/assets/226d0d06-ef2b-4151-918d-a48813322abe)
 
 
 ## Pictures
-
-**Vehicle Picture**
+**Vehicle Picture** <br/>
 
 
 ![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/e0066bca-ebf5-45b9-8d32-52aec4c62f70)
