@@ -18,7 +18,7 @@ vehicle capable of performing complex tasks autonomously.
 ## Mobility-Management
 
 1. Chassis
-  - Material: Plastic
+  - Material: Plastic(pla+ from esun)
   - Description: The chassis for our vehicle is designed with plastic to ease the design
     and prototyping process. The use of 3D printing with plastic helps us keep the chassis
     lightweight. It also includes mounting points for the various parts of the vehicle, reducing
@@ -117,7 +117,6 @@ in a total of 3 laps around the field, additionally must not come into contact w
 of the field. The vehicle also must not come into contact with the walls whether it be the 
 inner or outer walls.
 
-&nbsp;
 
 ![open challenge2 drawio (1)](https://github.com/user-attachments/assets/29609437-159f-4914-81d7-570c17d80eff)
 
@@ -128,7 +127,6 @@ but the vehicle will also need to avoid additional pillars of green and red that
 the field. The pillars also have it's individual rules that the vehicle must obey plus a now designated
 area for parking the vehicle.  
 
-&nbsp;
 
 ![ObstacleChallenge2 drawio](https://github.com/user-attachments/assets/226d0d06-ef2b-4151-918d-a48813322abe)
 
@@ -136,7 +134,6 @@ area for parking the vehicle.
 ## Pictures
 **Vehicle Picture**  
 
-&nbsp;
 
 ![IMG_20240728_220240_HDR](https://github.com/user-attachments/assets/e0066bca-ebf5-45b9-8d32-52aec4c62f70)
 
