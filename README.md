@@ -10,7 +10,7 @@
 ## Introduction
 
 Welcome to our repository for our project submission to the World Robotic Olympiad(WRO)
-in the category of future-engineering compettition. In this project we aim to design a
+in the category of future-engineering compettition. In this project we aim to design an
 autonomous vehicle that can navigate around a field with various rules and restriction.
 
 ## Mobility-Management
@@ -57,7 +57,7 @@ autonomous vehicle that can navigate around a field with various rules and restr
 **Distance Sensing**
 - **Ultrasonic Sensors**
   - **Placement:** front, back, left and right sides
-  - **Reason:** We use 4 ultrasonic sensor to detect the distance of the vehicle from
+  - **Reason:** We use four ultrasonic sensor to detect the distance of the vehicle from
     the wall so that the vehicle can stay within an ideal distance from the wall and
     avoiding collision with objects.
 
@@ -116,5 +116,4 @@ area for parking the vehicle.
 
 
 ## Performance video
-tba
-
+To be added
