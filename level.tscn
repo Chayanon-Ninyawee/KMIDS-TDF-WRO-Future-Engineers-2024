@@ -267,7 +267,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2y04c")
 
 [node name="Car" type="StaticBody3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24888, 0, -0.26904)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.789453, 0, 0.30214)
 script = ExtResource("1_a8kb7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Car"]
@@ -416,6 +416,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="GreenTrafficLight6" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499893, 0, 1.10079)
+visible = false
 
 [node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight6"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -571,6 +572,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="GreenTrafficLight18" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500113, 0, -1.09904)
+visible = false
 
 [node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight18"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -635,6 +637,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="GreenTrafficLight23" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.900727, 0, -0.499868)
+visible = false
 
 [node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight23"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -699,6 +702,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="RedTrafficLight4" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10036, 0, 0.500118)
+visible = false
 
 [node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight4"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -763,6 +767,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="RedTrafficLight9" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 0.900977)
+visible = false
 
 [node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -814,6 +819,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="RedTrafficLight13" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.899693, 0, 3.91835e-05)
+visible = false
 
 [node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight13"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -930,6 +936,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="RedTrafficLight22" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -1.09904)
+visible = false
 
 [node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight22"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
