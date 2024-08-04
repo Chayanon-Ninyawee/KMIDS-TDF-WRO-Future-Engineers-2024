@@ -9,26 +9,9 @@ from openchallenge import process_data_open
 from obstaclechallenge import process_data_obstacle
 
 from config import *
-
+from utils import *
 
 robot_data = socketclient.SocketClient('127.0.0.1', 12345, camera_width, camera_height, 4*4, 4)
-
-
-def average_x_coordinate(mask):
-    # Find non-zero coordinates
-    coordinates = np.column_stack(np.where(mask > 0))
-    if coordinates.size == 0:
-        return None, None
-    average_x = np.mean(coordinates[:, 1])
-    return average_x, coordinates.size
-
-def average_y_coordinate(mask):
-    # Find non-zero coordinates
-    coordinates = np.column_stack(np.where(mask > 0))
-    if coordinates.size == 0:
-        return None, None
-    average_y = np.mean(coordinates[:, 0])
-    return int(average_y), coordinates.size
 
 
 def process_image(image: cv2.typing.MatLike):
@@ -154,8 +137,8 @@ def main():
             gyro_info = robot_data.get_gyro_data()
 
             blue_line_info, orange_line_info, red_light_info, green_light_info = process_image(image)
-            result = process_data_open(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
-            # speed_target, steering_percent = process_data_obstacle(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
+            # result = process_data_open(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
+            result = process_data_obstacle(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
 
             speed_target = 0
             steering_percent = 0 
