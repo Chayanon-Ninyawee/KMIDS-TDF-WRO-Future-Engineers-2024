@@ -10,7 +10,7 @@
 ## Introduction
 
 Welcome to our repository for our project submission to the World Robotic Olympiad(WRO)
-in the category of future-engineering compettition. In this project we aim to design an
+in the category of future-engineering competition. In this project we aim to design an
 autonomous vehicle that can navigate around a field with various rules and restriction
 depending on the rounds. Our goal is to create a highly efficient, reliable, and versatile 
 vehicle capable of performing complex tasks autonomously.
@@ -18,7 +18,7 @@ vehicle capable of performing complex tasks autonomously.
 ## Mobility-Management
 
 1. Chassis
-  - Material: Plastic(pla+ from esun)
+  - Material: Plastic (pla+ from esun)
   - Description: The chassis for our vehicle is designed with plastic to ease the design
     and prototyping process. The use of 3D printing with plastic helps us keep the chassis
     lightweight. It also includes mounting points for the various parts of the vehicle, reducing
@@ -33,12 +33,12 @@ vehicle capable of performing complex tasks autonomously.
   - Description: We use a single DC motor to power the two back wheels due to its high power
     output. It is connected to a differential to help distribute power to the back wheels as
     needed, ensuring smooth and efficient power distribution. The rubber wheels provide grip
-    on surfaces, preventing slippage and improving overall performance. The use of high-traction
+    on surfaces, preventing slippage and improving overall performance. The use of high traction
     rubber ensures that the vehicle can maneuver effectively on various surfaces encountered
     during the competition. The differential mechanism is crucial for maintaining balance and
     stability, especially when the vehicle makes sharp turns
 
-3. Steering Machenism
+3. Steering Mechanism
    - Servo motor: The servo motor in the front bridge of our vehicle allows for sharp cornering
      and precise steering control. This mechanism is critical for navigating tight spaces and
      obstacles efficiently. The servo motor's ability to provide fine control over the steering
@@ -51,9 +51,9 @@ vehicle capable of performing complex tasks autonomously.
 **Processing Unit**
 - **Raspberry pi**
   - **Reason:** A raspberry pi is used to process the video from the camera which calculate
-    where and in what direction the vehicle shouldd headed. The Raspberry Pi also connected
+    where and in what direction the vehicle should headed. The Raspberry Pi also connected
     to the Arduino nano and issue commands to it to lessen the load on the Raspberry Pi itself
-    as it's already processing the algorith for driving and the images from the Pi camera.
+    as it's already processing the algorithms for driving and the images from the Pi camera.
 
 **Vision System**
 - **Raspberry pi camera**
@@ -69,10 +69,10 @@ vehicle capable of performing complex tasks autonomously.
   - **Reason:** We use four ultrasonic sensor to detect the distance of the vehicle from
     the wall so that the vehicle can stay within an ideal distance from the wall and
     avoid colliding with objects that is placed on the field in certain round of
-    the compettition.
+    the competition.
 
 **Power Supply**
-- **1 lithium ion battry**
+- **1 lithium ion battery**
   - **Reason:** A single lithium-ion cell provides the necessary voltage to power all
     our electronics and is rechargeable, reducing waste compared to disposable batteries.
     The battery's high energy and rechargeability make it a efficient power source for
@@ -98,7 +98,7 @@ vehicle capable of performing complex tasks autonomously.
 
 **Micro Processor**
 - **Arduino nano**
-  - **Reason:** The arduino nano are connected to various electronics(Maker Drive, Raspberry pi,
+  - **Reason:** The Arduino nano are connected to various electronics(Maker Drive, Raspberry pi,
     BNO055) and help control all of it for the raspberry pi. The Nano serves as an intermediary,
     handling lower-level tasks and offloading some processing from the Raspberry Pi.
 
