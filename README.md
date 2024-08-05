@@ -2,20 +2,21 @@
 ## Table of contents
 
 - [Introduction](#Introduction)
-- [Mobility Management](#Mobility-Management)
-- [Power and Sensor Management](#Power&Sensor-Management)
-- [Obstacle Management](#Obstacle-Management)
+- [Mobility Management](#Mobility_Management)
+- [Power and Sensor Management](#Power&Sensor_Management)
+- [Obstacle Management](#Obstacle_Management)
 - [Picture(s)](#Pictures)
+- [Codes](#Code's_Repository)
 
 ## Introduction
 
 Welcome to our repository for our project submission to the World Robotic Olympiad(WRO)
 in the category of future-engineering competition. In this project we aim to design an
-autonomous vehicle that can navigate around a field with various rules and restriction
+autonomous vehicle that can navigate around a field with various rules and restrictions
 depending on the rounds. Our goal is to create a highly efficient, reliable, and versatile 
 vehicle capable of performing complex tasks autonomously.
 
-## Mobility-Management
+## Mobility_Management
 
 1. Chassis
   - Material: Plastic (pla+ from esun)
@@ -47,7 +48,7 @@ vehicle capable of performing complex tasks autonomously.
      also ensures that the steering system is responsive, capable of handling sudden
      changes in direction without compromising stability.
      
-## Power&Sensor-Management
+## Power&Sensor_Management
 **Processing Unit**
 - **Raspberry pi**
   - **Reason:** A raspberry pi is used to process the video from the camera which calculate
@@ -110,7 +111,7 @@ vehicle capable of performing complex tasks autonomously.
 ![circuit (2)](https://github.com/user-attachments/assets/ee321578-954b-4a7f-b899-d265ed52cab6)
 
 
-## Obstacle-Management  
+## Obstacle_Management  
 **Open Challenge**  
 In the open challenge, our vehicle must drive around a field within a time limit 3 minute and
 in a total of 3 laps around the field, additionally must not come into contact with the walls 
@@ -137,5 +138,12 @@ area for parking the vehicle.
 ![IMG_20240728_220240_HDR (1)](https://github.com/user-attachments/assets/bea13e5b-34d0-43cb-bb45-c0cf6dfb639b)
 
 
-## Performance video
+## Performance_video
 To be added
+
+## Code's_Repository  
+The repository for our vehicle's code can be found at:
+https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-Simulator.git 
+The repository contains both the simulation for the vehicle and the actual code for the
+vehicle that's going to be used in the coming competition.
+
