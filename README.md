@@ -6,7 +6,8 @@
 - [Power and Sensor Management](#Power&Sensor_Management)
 - [Obstacle Management](#Obstacle_Management)
 - [Picture(s)](#Pictures)
-- [Codes](#Code's_Repository)
+- [Performance Video](#Performance_video)
+- [Codes](#Code's_Repository)  
 
 ## Introduction
 
