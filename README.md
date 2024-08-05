@@ -2,9 +2,9 @@
 ## Table of contents
 
 - [Introduction](#Introduction)
-  - [1. Chassis](#1._Chassis)
-  - [2. Wheels and Motor](#2._Wheels_and_Motor)
-  - [3. Steering Machanism](#3._Steering_Mechanism)
+  - [1. Chassis](#1.Chassis)
+  - [2. Wheels and Motor](#2.Wheels_and_Motor)
+  - [3. Steering Machanism](#3.Steering_Mechanism)
 - [Mobility Management](#Mobility_Management)
 - [Power and Sensor Management](#Power&Sensor_Management)
 - [Obstacle Management](#Obstacle_Management)
@@ -22,7 +22,7 @@ vehicle capable of performing complex tasks autonomously.
 
 ## Mobility_Management
 
-### 1. Chassis
+### 1.Chassis
   - Material: Plastic (pla+ from esun)
   - Description: The chassis for our vehicle is designed with plastic to ease the design
     and prototyping process. The use of 3D printing with plastic helps us keep the chassis
@@ -32,7 +32,7 @@ vehicle capable of performing complex tasks autonomously.
     choice of plastic allows for easy modifications and quick iterations during the development
     phase, which is essential for refining the design based on testing and performance feedback.
     
-### 2. Wheels and Motor  
+### 2.Wheels_and_Motor  
   - Wheels: four high traction rubber wheels
   - Motor: a single TT motor
   - Description: We use a single DC motor to power the two back wheels due to its high power
@@ -43,7 +43,7 @@ vehicle capable of performing complex tasks autonomously.
     during the competition. The differential mechanism is crucial for maintaining balance and
     stability, especially when the vehicle makes sharp turns
 
-### 3. Steering Mechanism  
+### 3.Steering_Mechanism  
    - Servo motor: The servo motor in the front bridge of our vehicle allows for sharp cornering
      and precise steering control. This mechanism is critical for navigating tight spaces and
      obstacles efficiently. The servo motor's ability to provide fine control over the steering
