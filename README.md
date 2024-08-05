@@ -2,6 +2,9 @@
 ## Table of contents
 
 - [Introduction](#Introduction)
+  - [1. Chassis](#1._Chassis)
+  - [2. Wheels and Motor](#2._Wheels_and_Motor)
+  - [3. Steering Machanism](#3._Steering_Mechanism)
 - [Mobility Management](#Mobility_Management)
 - [Power and Sensor Management](#Power&Sensor_Management)
 - [Obstacle Management](#Obstacle_Management)
@@ -19,7 +22,7 @@ vehicle capable of performing complex tasks autonomously.
 
 ## Mobility_Management
 
-1. Chassis
+### 1. Chassis
   - Material: Plastic (pla+ from esun)
   - Description: The chassis for our vehicle is designed with plastic to ease the design
     and prototyping process. The use of 3D printing with plastic helps us keep the chassis
@@ -29,7 +32,7 @@ vehicle capable of performing complex tasks autonomously.
     choice of plastic allows for easy modifications and quick iterations during the development
     phase, which is essential for refining the design based on testing and performance feedback.
     
-2. Wheels and Motor
+### 2. Wheels and Motor  
   - Wheels: four high traction rubber wheels
   - Motor: a single TT motor
   - Description: We use a single DC motor to power the two back wheels due to its high power
@@ -40,7 +43,7 @@ vehicle capable of performing complex tasks autonomously.
     during the competition. The differential mechanism is crucial for maintaining balance and
     stability, especially when the vehicle makes sharp turns
 
-3. Steering Mechanism
+### 3. Steering Mechanism  
    - Servo motor: The servo motor in the front bridge of our vehicle allows for sharp cornering
      and precise steering control. This mechanism is critical for navigating tight spaces and
      obstacles efficiently. The servo motor's ability to provide fine control over the steering
@@ -50,14 +53,14 @@ vehicle capable of performing complex tasks autonomously.
      changes in direction without compromising stability.
      
 ## Power&Sensor_Management
-**Processing Unit**
+### Processing Unit  
 - **Raspberry pi**
   - **Reason:** A raspberry pi is used to process the video from the camera which calculate
     where and in what direction the vehicle should headed. The Raspberry Pi also connected
     to the Arduino nano and issue commands to it to lessen the load on the Raspberry Pi itself
     as it's already processing the algorithms for driving and the images from the Pi camera.
 
-**Vision System**
+### Vision System
 - **Raspberry pi camera**
   - **Reason:**  The Raspberry Pi camera integrates easily with the Raspberry Pi and provides
     clear, detailed images, making it a good choice for our vehicle. The camera's high resolution
@@ -65,7 +68,7 @@ vehicle capable of performing complex tasks autonomously.
     which is crucial for making real-time navigation decisions. The camera's compatibility with
     the Pi also simplifies the hardware setup, enhancing system reliability.
     
-**Distance Sensing**
+### Distance Sensing  
 - **Ultrasonic Sensors**
   - **Placement:** front, back, left and right sides
   - **Reason:** We use four ultrasonic sensor to detect the distance of the vehicle from
@@ -73,7 +76,7 @@ vehicle capable of performing complex tasks autonomously.
     avoid colliding with objects that is placed on the field in certain round of
     the competition.
 
-**Power Supply**
+### Power Supply
 - **1 lithium ion battery**
   - **Reason:** A single lithium-ion cell provides the necessary voltage to power all
     our electronics and is rechargeable, reducing waste compared to disposable batteries.
@@ -81,7 +84,7 @@ vehicle capable of performing complex tasks autonomously.
     the vehicle's prolong uses and the power consumption that come with the various
     electronics.
 
-**Orientation and Motion Sensing**
+### Orientation and Motion Sensing
 - **BNO055**
   - **Reason:** The BNO055 sensor measures acceleration and orientation, improving
     the vehicle's navigational ability and reducing the load on the host processor.
@@ -91,14 +94,14 @@ vehicle capable of performing complex tasks autonomously.
     to changes in direction. This is especially important in dynamic environments where
     the vehicle needs to make quick adjustments to avoid obstacles and stay on course.
 
-**Motor Control**
+### Motor Control
 - **Maker Drive**
   - **Reason:** To control the motor, we implement a Maker Drive to regulate the power
     and direction of the motor. This motor driver provides efficient and reliable
     control over the motor's speed and direction, essential for smooth and precise
     vehicle movement.
 
-**Micro Processor**
+### Micro Processor
 - **Arduino nano**
   - **Reason:** The Arduino nano are connected to various electronics(Maker Drive, Raspberry pi,
     BNO055) and help control all of it for the raspberry pi. The Nano serves as an intermediary,
@@ -106,14 +109,14 @@ vehicle capable of performing complex tasks autonomously.
 
 
 
-**Wiring Diagram**
+### Wiring Diagram
 
 
 ![circuit (2)](https://github.com/user-attachments/assets/ee321578-954b-4a7f-b899-d265ed52cab6)
 
 
 ## Obstacle_Management  
-**Open Challenge**  
+### Open Challenge  
 In the open challenge, our vehicle must drive around a field within a time limit 3 minute and
 in a total of 3 laps around the field, additionally must not come into contact with the walls 
 of the field. The vehicle also must not come into contact with the walls whether it be the 
@@ -123,7 +126,7 @@ inner or outer walls.
 ![open challenge2 drawio (1)](https://github.com/user-attachments/assets/29609437-159f-4914-81d7-570c17d80eff)
 
 
-**Obstacle Challenge**  
+### Obstacle Challenge  
 In the obstacle challenge, our vehicle will also needed to complete the requirement as said above,
 but the vehicle will also need to avoid additional pillars of green and red that is scatter around
 the field. The pillars also have it's individual rules that the vehicle must obey plus a now designated
