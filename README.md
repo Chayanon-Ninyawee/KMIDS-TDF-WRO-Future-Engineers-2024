@@ -2,11 +2,8 @@
 ## Table of contents
 
 - [Introduction](#Introduction)
-  - [1. Chassis](#1.Chassis)
-  - [2. Wheels and Motor](#2.Wheels_and_Motor)
-  - [3. Steering Machanism](#3.Steering_Mechanism)  
 - [Mobility Management](#Mobility_Management)
-- [Power and Sensor Management](#Power&Sensor_Management)
+- [Power and Sensor Management](#Power_and_Sensor_Management)
 - [Obstacle Management](#Obstacle_Management)
 - [Picture(s)](#Pictures)
 - [Performance Video](#Performance_video)
@@ -52,7 +49,7 @@ vehicle capable of performing complex tasks autonomously.
      also ensures that the steering system is responsive, capable of handling sudden
      changes in direction without compromising stability.
      
-## Power&Sensor_Management
+## Power_and_Sensor_Management  
 ### Processing Unit  
 - **Raspberry pi**
   - **Reason:** A raspberry pi is used to process the video from the camera which calculate
