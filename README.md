@@ -3,9 +3,9 @@
 
 - [Introduction](#Introduction)
   - [1. Chassis](#1.Chassis)
-  - [2. Wheels and Motor](#2.Wheels_and_Motor)
-  - [3. Steering Machanism](#3.Steering_Mechanism)
-- [Mobility Management](#Mobility_Management)
+  - [2. Wheels and Motor](##2.Wheels_and_Motor)
+  - [3. Steering Machanism](##3.Steering_Mechanism)
+- [Mobility Management](##Mobility_Management)
 - [Power and Sensor Management](#Power&Sensor_Management)
 - [Obstacle Management](#Obstacle_Management)
 - [Picture(s)](#Pictures)
