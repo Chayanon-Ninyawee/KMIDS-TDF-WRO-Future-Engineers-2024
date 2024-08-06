@@ -144,7 +144,6 @@ To be added
 
 ## Code's_Repository  
 The repository for our vehicle's code can be found at:
-https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-Simulator.git 
-The repository contains both the simulation for the vehicle and the actual code for the
-vehicle that's going to be used in the coming competition.
+[https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-Simulator.git](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-Simulator/tree/main/PythonScripts) 
+The repository contains the actual code for the vehicle that's going to be used in the coming competition.
 
