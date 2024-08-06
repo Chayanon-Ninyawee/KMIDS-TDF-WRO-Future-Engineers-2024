@@ -6,7 +6,7 @@
 #include <utility/imumaths.h>
 #include <EEPROM.h>
 #include <Servo.h>
-#include "CytronMotorDriver.h"
+#include <CytronMotorDriver.h>
 
 #include <UltrasonicSensor.h>
 
