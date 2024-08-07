@@ -27,10 +27,7 @@ turn_amount = 0
 
 def process_data_open(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
-                      blue_line_info: tuple[cv2.typing.MatLike, int, int],
-                      orange_line_info: tuple[cv2.typing.MatLike, int, int],
-                      red_light_info: tuple[cv2.typing.MatLike, int, int],
-                      green_light_info: tuple[cv2.typing.MatLike, int, int],
+                      image: cv2.typing.MatLike,
                       delta_time: float
                       ) -> tuple[float, float]:
     """
@@ -39,10 +36,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     Args:
         ultrasonic_info (tuple): A tuple containing the ultrasonic sensor readings for the front, back, left, and right directions.
         gyro_info (float): The gyroscope reading indicating the current heading.
-        blue_line_info (tuple): A tuple containing the mask, y-coordinate, and size of the blue line.
-        orange_line_info (tuple): A tuple containing the mask, y-coordinate, and size of the orange line.
-        red_light_info (tuple): A tuple containing the mask, x-coordinate, and size of the red light.
-        green_light_info (tuple): A tuple containing the mask, x-coordinate, and size of the green light.
+        image (cv2.typing.MatLike): The captured image from the camera.
         delta_time (float): The time elapsed since the last update.
 
     Returns:
@@ -54,8 +48,10 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     global suggested_heading, is_clockwise, last_turn_time, turn_amount
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
-    blue_line_mask, blue_line_y, blue_line_size = blue_line_info
-    orange_line_mask, orange_line_y, orange_line_size = orange_line_info
+
+    blue_line_properties, orange_line_properties = process_image(image)
+    _, blue_line_size = blue_line_properties
+    _, orange_line_size = orange_line_properties
 
     # Calculate and normalize heading error
     heading_error = normalize_angle_error(gyro_info - suggested_heading)
@@ -102,3 +98,23 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     steering_percent = max(min(steering_adjustment, 1.00), -1.00)
 
     return 0.33, steering_percent
+
+
+def process_image(image):
+    # Convert image to HSV color space
+    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    
+    # Create masks for blue and orange colors
+    mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
+    mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
+    
+    def get_line_properties(mask):
+        coordinates = np.column_stack(np.where(mask > 0))
+        # if coordinates.size == 0:
+        #     return None, 0
+        # average_y = int(np.mean(coordinates[:, 0]))
+
+        # return average_y, coordinates.size
+        return None, coordinates.size
+    
+    return get_line_properties(mask_blue), get_line_properties(mask_orange)
