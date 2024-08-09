@@ -97,7 +97,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     steering_adjustment = heading_pid.update(heading_error, delta_time)
     steering_percent = max(min(steering_adjustment, 1.00), -1.00)
 
-    return 0.33, steering_percent
+    return 1.00, steering_percent
 
 
 def process_image(image):

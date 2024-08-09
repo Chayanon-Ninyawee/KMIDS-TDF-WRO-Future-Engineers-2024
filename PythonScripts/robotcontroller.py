@@ -11,7 +11,7 @@ from obstaclechallenge import process_data_obstacle
 from config import *
 from utils import *
 
-robot_data = socketclient.SocketClient('127.0.0.1', 12345, camera_width, camera_height, 4*4, 4)
+robot_data = socketclient.SocketClient('127.0.0.1', 12345, CAMERA_WIDTH, CAMERA_HEIGHT, 4*4, 4)
 
 
 def process_image(image: cv2.typing.MatLike):
@@ -28,33 +28,12 @@ def process_image(image: cv2.typing.MatLike):
             - red_light_info (tuple): (mask, x-coordinate, size) for the red light.
             - green_light_info (tuple): (mask, x-coordinate, size) for the green light.
     """
-    # Threshold of blue line in HSV space
-    # Measured blue line HSV: 111, 198, 165
-    lower_blue_line = np.array([106, 188, 155]) 
-    upper_blue_line = np.array([116, 208, 175])
+    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) 
 
-    # Threshold of orange line in HSV space
-    # Measured orange line HSV: 12, 232, 244
-    lower_orange_line = np.array([7, 222, 234]) 
-    upper_orange_line = np.array([17, 242, 254])
-
-    # Threshold of red traffic light in HSV space
-    # Measured red traffic light HSV: 177, 213, 238
-    lower_red_light = np.array([172, 203, 70]) 
-    upper_red_light = np.array([182, 223, 255])
-
-    # Threshold of green traffic light in HSV space
-    # Measured green traffic light HSV: 56, 202, 214
-    lower_green_light = np.array([51, 192, 70]) 
-    upper_green_light = np.array([61, 212, 224])
-
-
-    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) 
-
-    blue_line_mask = cv2.inRange(hsv, lower_blue_line, upper_blue_line)
-    orange_line_mask = cv2.inRange(hsv, lower_orange_line, upper_orange_line)
-    red_light_mask = cv2.inRange(hsv, lower_red_light, upper_red_light)
-    green_light_mask = cv2.inRange(hsv, lower_green_light, upper_green_light)
+    blue_line_mask = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
+    orange_line_mask = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
+    red_light_mask = cv2.inRange(hsv_image, LOWER_RED1_LIGHT, UPPER_RED1_LIGHT)
+    green_light_mask = cv2.inRange(hsv_image, LOWER_GREEN_LIGHT, UPPER_GREEN_LIGHT)
         
     blue_line_y, blue_line_size = average_y_coordinate(blue_line_mask)
     orange_line_y, orange_line_size = average_y_coordinate(orange_line_mask)
@@ -136,9 +115,13 @@ def main():
             ultrasonic_info = robot_data.get_ultasonic_data()
             gyro_info = robot_data.get_gyro_data()
 
-            blue_line_info, orange_line_info, red_light_info, green_light_info = process_image(image)
-            # result = process_data_open(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
-            result = process_data_obstacle(ultrasonic_info, gyro_info, blue_line_info, orange_line_info, red_light_info, green_light_info, delta_time)
+            # closest_block = test_process_image(image)
+            # display_closest_block(image, closest_block)
+
+            # blue_line_info, orange_line_info, red_light_info, green_light_info = process_image(image)
+            # result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
+            result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
+            # result = (0, 0)
 
             speed_target = 0
             steering_percent = 0 
@@ -149,9 +132,10 @@ def main():
             else:
                 speed_target, steering_percent = result
 
-            robot_data.send_data(speed_target, steering_percent)
+            robot_data.send_data(speed_target*0.33, steering_percent)
 
-            # if show_window(image, blue_line_info, orange_line_info, red_light_info, green_light_info): break
+            # cv2.imshow('image', image)
+            # if cv2.waitKey(1) & 0xFF == ord('q'): break
     except Exception as e: print(e)
     finally:
         cv2.destroyAllWindows()
