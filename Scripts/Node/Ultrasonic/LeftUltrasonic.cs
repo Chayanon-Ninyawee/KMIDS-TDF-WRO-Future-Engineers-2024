@@ -3,14 +3,10 @@ using Godot;
 
 public partial class LeftUltrasonic : RayCast3D
 {
-    private Node3D parent;
-    
     private SocketMessageWriter socketMessageWriter;
 
     public override void _Ready()
     {
-        parent = GetParent<Node3D>();
-
         socketMessageWriter = SocketMessageWriter.Instance;
     }
 
@@ -19,7 +15,7 @@ public partial class LeftUltrasonic : RayCast3D
         if (IsColliding())
         {
             socketMessageWriter.SendLeftUltrasonicBytes(
-                BitConverter.GetBytes(GetCollisionPoint().DistanceTo(parent.Position))
+                BitConverter.GetBytes(GetCollisionPoint().DistanceTo(GlobalPosition))
             );
         }
     }
