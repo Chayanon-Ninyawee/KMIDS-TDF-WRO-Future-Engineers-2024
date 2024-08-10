@@ -40,8 +40,12 @@ public partial class Car : StaticBody3D
 
         controllerHandler.Update(this, delta);
 
-        speed += acceleration*delta;
-        if (Math.Abs(speed) >= speedTarget) speed = Math.Sign(speed)*speedTarget;
+        speed += Math.Sign(speedTarget)*acceleration*delta;
+        if (speedTarget > 0) {
+            if (speed >= speedTarget) speed = speedTarget;
+        } else {
+            if (speed <= speedTarget) speed = speedTarget;
+        }
 
         var newSteeringPercent = steeringPercent + Math.Sign(steeringPercentTarget-steeringPercent)*5.0*delta;
         var minSteeringPercent = Math.Min(steeringPercent, steeringPercentTarget);
@@ -70,6 +74,7 @@ public partial class Car : StaticBody3D
     {
         speedTarget = speed;
         if (speedTarget > maxSpeed) speedTarget = maxSpeed;
+        if (speedTarget < -maxSpeed) speedTarget = -maxSpeed;
     }
 
     public void SetSteeringPercent(float percent)

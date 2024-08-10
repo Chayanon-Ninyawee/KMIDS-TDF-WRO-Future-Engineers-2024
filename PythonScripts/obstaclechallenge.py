@@ -23,8 +23,8 @@ TRAFFIC_LIGHT_SIZE_THRESHOLD = 4000
 TRAFFIC_LIGHT_Y_THRESHOLD = CAMERA_HEIGHT*0.8
 TRAFFIC_LIGHT_COOLDOWN_TIME = 2.0
 TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.95
-TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.30
-TIGHT_TURN_LINGER_TIME = 2.3
+TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.35
+TIGHT_TURN_LINGER_TIME = 2.0
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 70
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD = 5
@@ -33,6 +33,9 @@ RED_WALL_DISTANCE_FROM_RIGHT = 0.25
 GREEN_DISTANCE_FROM_LEFT = 0.25
 GREEN_WALL_DISTANCE_FROM_LEFT = 0.25
 
+UTURN_ULTRASONIC_THRESHOLD = 0.5
+UTURN_HEADING_CORRECTION = 130
+UTURN_HEADING_ERROR_THRESHOLD = 5
 
 # PID Controllers
 heading_pid = pidcontroller.PIDController(kp=0.1, ki=0.0, kd=0.01)
@@ -62,6 +65,7 @@ traffic_light_1_3_list = []
 traffic_light_2_0_list = []
 
 is_uturning = False
+uturning_phase = 0
 
 def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
@@ -74,7 +78,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     global last_closest_block_color, is_last_closest_block_color_same, is_traffic_light_turning, is_traffic_light_turning_back, ideal_outer_wall_distance_override
     global is_tight_turn, is_tight_turn_ending, ultrasonic_tight_last_time_list, last_tight_turn_closest_block_color
     global traffic_light_1_0_list, traffic_light_1_3_list, traffic_light_2_0_list
-    global is_uturning
+    global is_uturning, uturning_phase
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
@@ -89,7 +93,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
-    print(f'{turn_amount} {suggested_heading} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
+    print(f'{is_clockwise} {turn_amount} {suggested_heading} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
 
     if is_clockwise is None:
         if blue_line_size is not None and orange_line_size is not None:
@@ -102,8 +106,36 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     heading_correction_override = None
 
     if is_uturning:
-        print(f'{is_clockwise} {last_closest_block_color}')
-        return False # TODO: Add uturn
+        speed = 0.60
+        if uturning_phase == 0:
+            if front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= UTURN_ULTRASONIC_THRESHOLD:
+                uturning_phase = 1
+
+        if uturning_phase == 1:
+            if last_closest_block_color == 'red':
+                uturn_heading_correction_override = -UTURN_HEADING_CORRECTION
+            elif last_closest_block_color == 'green':
+                uturn_heading_correction_override = UTURN_HEADING_CORRECTION
+
+            heading_correction_override = uturn_heading_correction_override
+
+            if abs(heading_error + uturn_heading_correction_override) <= UTURN_HEADING_ERROR_THRESHOLD:
+                uturning_phase = 2
+        
+        if uturning_phase == 2:
+            speed = -0.60
+            heading_correction_override = 180
+
+            if abs(abs(heading_error) - 180) <= UTURN_HEADING_ERROR_THRESHOLD:
+                uturning_phase = 0
+                is_uturning = False
+                is_clockwise = not is_clockwise
+                turn_amount = 8
+                speed = 0.0
+                suggested_heading = 270
+                ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
+                last_closest_block_color = None
+                is_last_closest_block_color_same = False
     elif execute_with_timing_conditions(
         is_tight_turn_ending,
         tight_turn_ending_last_time_list,
@@ -116,7 +148,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 traffic_light_1_3_list.append(last_tight_turn_closest_block_color)
             elif turn_amount == 4:
                 traffic_light_2_0_list.append(last_tight_turn_closest_block_color)
-        speed = 0.60
+        speed = 0.70
         last_tight_turn_closest_block_color = None
         is_tight_turn = False
         is_tight_turn_ending = False
@@ -124,7 +156,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
         if last_tight_turn_closest_block_color is None:
             last_tight_turn_closest_block_color = closest_block_color
         
-        speed = 0.60
+        speed = 0.70
 
         is_ultrasonic_reach = None
         new_ideal_outer_wall_distance_override = None
@@ -186,7 +218,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             is_traffic_light_turning = True
 
             if not is_last_closest_block_color_same:
-                speed = 0.60
+                speed = 0.70
                 if not is_traffic_light_turning_back:
                     traffic_light_heading_correction = None
                     is_ultrasonic_reach = None
@@ -308,6 +340,8 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     heading_error_correction = normalize_angle_error(heading_error + heading_correction)
     steering_adjustment = heading_pid.update(heading_error_correction, delta_time)
     steering_percent = max(min(steering_adjustment, 1.00), -1.00)
+
+    if speed < 0.0: steering_percent = -steering_percent
 
     return speed, steering_percent
 
