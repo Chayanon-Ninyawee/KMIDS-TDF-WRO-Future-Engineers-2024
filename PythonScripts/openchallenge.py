@@ -7,12 +7,15 @@ from utils import *
 
 # Constants
 MAX_HEADING_ERROR = 30.0
-IDEAL_WALL_DISTANCE = 0.38
+IDEAL_OUTER_WALL_DISTANCE = 0.38
 BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 1000
 ULTRASONIC_THRESHOLD = 0.6
+ULTRASONIC_TURN_TIME_WINDOW = 0.3
 TURN_COOLDOWN_TIME = 3
+
 LAPS_TO_STOP = 3
 ULTRASONIC_STOP_THRESHOLD = 1.4 # Must be more than ULTRASONIC_THRESHOLD
+ULTRASONIC_STOP_TIME_WINDOW = 0.3
 STOP_COOLDOWN_TIME = 2 # Must be less than TURN_COOLDOWN_TIME
 
 # PID Controllers
@@ -24,6 +27,8 @@ suggested_heading = 0
 is_clockwise = None
 last_turn_time = 0
 turn_amount = 0
+
+ultrasonic_last_time_list = [0.0, 0.0, 0.0]
 
 def process_data_open(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
@@ -46,68 +51,80 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     """
     global heading_pid, wall_distance_pid
     global suggested_heading, is_clockwise, last_turn_time, turn_amount
+    global ultrasonic_last_time_list
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
-    blue_line_properties, orange_line_properties = process_image(image)
+    blue_line_properties, orange_line_properties = imageprocessor.process_image(image)
     _, blue_line_size = blue_line_properties
     _, orange_line_size = orange_line_properties
 
-    # Calculate and normalize heading error
-    heading_error = normalize_angle_error(gyro_info - suggested_heading)
+    heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
-    # Determine the direction of rotation
+
     if is_clockwise is None:
         if blue_line_size is not None and orange_line_size is not None:
             if blue_line_size - orange_line_size > BLUE_ORANGE_SIZE_DIFF_THRESHOLD:
                 is_clockwise = False
             elif orange_line_size - blue_line_size > BLUE_ORANGE_SIZE_DIFF_THRESHOLD:
                 is_clockwise = True
-    else:
+    
+    if is_clockwise is not None:
         if turn_amount >= 4*LAPS_TO_STOP:
-            if front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_STOP_THRESHOLD and time.time() - last_turn_time > STOP_COOLDOWN_TIME:
+            if execute_with_timing_conditions(
+                front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_STOP_THRESHOLD,
+                ultrasonic_last_time_list, # Intentionally use the same last_time_list as the turning condition to not stop before finish turning
+                cooldown_duration=STOP_COOLDOWN_TIME,
+                time_window=ULTRASONIC_STOP_TIME_WINDOW
+            ):
                 return False
-        if front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD and time.time() - last_turn_time > TURN_COOLDOWN_TIME:
+
+        if execute_with_timing_conditions(
+            front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD,
+            ultrasonic_last_time_list,
+            cooldown_duration=TURN_COOLDOWN_TIME,
+            time_window=ULTRASONIC_TURN_TIME_WINDOW
+        ):
             if is_clockwise:
-                suggested_heading -= 90
-            else:
                 suggested_heading += 90
+            else:
+                suggested_heading -= 90
             suggested_heading %= 360
             last_turn_time = time.time()
             turn_amount += 1
 
-    # Calculate wall error
     wall_error = 0
     if is_clockwise is None:
         wall_error = (right_ultrasonic - left_ultrasonic) * math.cos(math.radians(abs(heading_error))) / 2.0
     else:
         if is_clockwise:
-            wall_error = -left_ultrasonic * math.cos(math.radians(abs(heading_error))) + IDEAL_WALL_DISTANCE
+            wall_error = -left_ultrasonic * math.cos(math.radians(abs(heading_error))) + IDEAL_OUTER_WALL_DISTANCE
         else:
-            wall_error = right_ultrasonic * math.cos(math.radians(abs(heading_error))) - IDEAL_WALL_DISTANCE
+            wall_error = right_ultrasonic * math.cos(math.radians(abs(heading_error))) - IDEAL_OUTER_WALL_DISTANCE
 
-    # Apply wall distance PID controller
     heading_correction = wall_distance_pid.update(wall_error, delta_time)
     heading_correction = max(min(heading_correction, MAX_HEADING_ERROR), -MAX_HEADING_ERROR)
 
-    # Adjust heading error with wall correction and normalize
-    heading_error = normalize_angle_error(heading_error + heading_correction)
-
-    # Apply heading PID controller
-    steering_adjustment = heading_pid.update(heading_error, delta_time)
+    heading_error_correction = normalize_angle_error(heading_error + heading_correction)
+    steering_adjustment = heading_pid.update(heading_error_correction, delta_time)
     steering_percent = max(min(steering_adjustment, 1.00), -1.00)
 
     return 1.00, steering_percent
 
 
-def process_image(image):
-    # Convert image to HSV color space
-    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+class imageprocessor:
+    @staticmethod
+    def process_image(image):
+        # Convert image to HSV color space
+        hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        
+        # Create masks for blue and orange colors
+        mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
+        mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
+        
+        return imageprocessor.get_line_properties(mask_blue), imageprocessor.get_line_properties(mask_orange)
     
-    # Create masks for blue and orange colors
-    mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
-    mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
-    
+    @staticmethod
     def get_line_properties(mask):
         coordinates = np.column_stack(np.where(mask > 0))
         # if coordinates.size == 0:
@@ -116,5 +133,3 @@ def process_image(image):
 
         # return average_y, coordinates.size
         return None, coordinates.size
-    
-    return get_line_properties(mask_blue), get_line_properties(mask_orange)

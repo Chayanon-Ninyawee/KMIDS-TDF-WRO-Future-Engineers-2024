@@ -3,6 +3,9 @@ import numpy as np
 CAMERA_WIDTH = 854
 CAMERA_HEIGHT = 480
 
+FRONT_BACK_ULTRASONIC_DISTANCE = 0.185
+LEFT_RIGHT_ULTRASONIC_DISTANCE = 0.120
+
 # Threshold of blue line in HSV space
 # Measured blue line HSV: 111, 198, 165
 LOWER_BLUE_LINE = np.array([106, 188, 155]) 

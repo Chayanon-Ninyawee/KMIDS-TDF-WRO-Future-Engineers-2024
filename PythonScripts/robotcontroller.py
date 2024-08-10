@@ -119,8 +119,8 @@ def main():
             # display_closest_block(image, closest_block)
 
             # blue_line_info, orange_line_info, red_light_info, green_light_info = process_image(image)
-            # result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
-            result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
+            result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
+            # result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
             # result = (0, 0)
 
             speed_target = 0

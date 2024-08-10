@@ -31,7 +31,7 @@ public partial class Car : StaticBody3D
 
     public override void _Process(double delta)
     {
-        float angle = RotationDegrees.Y - initialRotationDegrees_Y;
+        float angle = initialRotationDegrees_Y - RotationDegrees.Y;
         angle = angle % 360;
         if (angle < 0) { angle += 360; }
         socketMessageWriter.SendGyroBytes(

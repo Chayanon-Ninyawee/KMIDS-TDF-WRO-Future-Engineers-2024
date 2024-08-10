@@ -71,6 +71,7 @@ last_traffic_light_time = 0
 is_last_traffic_red = None
 
 # TODO: Fix last traffic light
+# TODO: Fix the heading that is change from clockwise negative to clockwise positive
 def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
                       image: cv2.typing.MatLike,
