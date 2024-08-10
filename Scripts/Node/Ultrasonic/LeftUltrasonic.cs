@@ -15,7 +15,7 @@ public partial class LeftUltrasonic : RayCast3D
         if (IsColliding())
         {
             socketMessageWriter.SendLeftUltrasonicBytes(
-                BitConverter.GetBytes(GetCollisionPoint().DistanceTo(GlobalPosition))
+                BitConverter.GetBytes(ToLocal(GetCollisionPoint()).DistanceTo(Position))
             );
         }
     }

@@ -7,94 +7,90 @@ from utils import *
 
 # Constants
 MAX_HEADING_ERROR = 30.0
-IDEAL_WALL_DISTANCE = 0.51
+IDEAL_OUTER_WALL_DISTANCE = 0.5 - (LEFT_RIGHT_ULTRASONIC_DISTANCE / 2.0)
 BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 1000
-
-ULTRASONIC_THRESHOLD = 0.73
-ULTRASONIC_TIME_THRESHOLD = 0.4
-ULTRASONIC_ANGLE_THRESHOLD = 8
+ULTRASONIC_THRESHOLD = 0.60
+ULTRASONIC_TURN_TIME_WINDOW = 0.3
 TURN_COOLDOWN_TIME = 3
 
-ULTRASONIC_THRESHOLD_2 = 1.20
-TURN_COOLDOWN_TIME_2 = 2.7
+ULTRASONIC_TIGHT_THRESHOLD = 1.00
+ULTRASONIC_TIGHT_TURN_TIME_WINDOW = 0.3
+TIGHT_TURN_COOLDOWN_TIME = 2.7
 
 LAPS_TO_STOP = 3
 ULTRASONIC_STOP_THRESHOLD = 1.4 # Must be more than ULTRASONIC_THRESHOLD
-ULTRASONIC_STOP_TIME_THRESHOLD = 0.3
-ULTRASONIC_STOP_ANGLE_THRESHOLD = 8
+ULTRASONIC_STOP_TIME_WINDOW = 0.3
 STOP_COOLDOWN_TIME = 2 # Must be less than TURN_COOLDOWN_TIME
 
-TRAFFIC_LIGHT_THRESHOLD = 3500
-TRAFFIC_HEADING_CORRECTION = 70
-TRAFFIC_HEADING_ERROR_THRESHOLD = 5
-RED_DISTANCE_FROM_RIGHT = 0.35
-RED_WALL_DISTANCE_FROM_RIGHT = 0.25
-GREEN_DISTANCE_FROM_LEFT = 0.35
-GREEN_WALL_DISTANCE_FROM_LEFT = 0.25
-
-TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 1.15
+TRAFFIC_LIGHT_SIZE_THRESHOLD = 4000
+TRAFFIC_LIGHT_Y_THRESHOLD = CAMERA_HEIGHT*0.8
+TRAFFIC_LIGHT_COOLDOWN_TIME = 2.0
+TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.95
 TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.35
 TIGHT_TURN_LINGER_TIME = 1.7
 
-TRAFFIC_LIGHT_LIST_COOLDOWN_TIME = 3
+TRAFFIC_LIGHT_HEADING_CORRECTION = 70
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD = 5
+RED_DISTANCE_FROM_RIGHT = 0.25
+RED_WALL_DISTANCE_FROM_RIGHT = 0.25
+GREEN_DISTANCE_FROM_LEFT = 0.25
+GREEN_WALL_DISTANCE_FROM_LEFT = 0.25
+
 
 # PID Controllers
 heading_pid = pidcontroller.PIDController(kp=0.1, ki=0.0, kd=0.01)
-wall_distance_pid = pidcontroller.PIDController(kp=150.0, ki=0.01, kd=0)
+wall_distance_pid = pidcontroller.PIDController(kp=150.0, ki=0.0, kd=0)
 
 # State variables
 suggested_heading = 0
 is_clockwise = None
-is_ultrasonic_below_threshold = False
-ultrasonic_below_threshold_time = 0
-ultrasonic_below_threshold_time_2 = 0
-is_ultrasonic_below_stop_threshold = False
-is_ultrasonic_below_threshold_2 = False
-ultrasonic_below_stop_threshold_time = 0
-last_turn_time = 0
 turn_amount = 0
 
-is_traffic_adjusting = False
-is_traffic_adjusting_back = False
-last_is_closest_block_red = None
-ideal_wall_distance_override = IDEAL_WALL_DISTANCE
-is_last_is_closest_block_red_same = False
+ultrasonic_last_time_list = [0.0, 0.0, 0.0]
+
+last_closest_block_color = None
+is_last_closest_block_color_same = False
+is_traffic_light_turning = False
+is_traffic_light_turning_back = False
+ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
 
 is_tight_turn = False
-is_tight_turn_counting_down = False
-is_tight_turn_time = 0
+ultrasonic_tight_last_time_list = [0.0, 0.0, 0.0]
+is_tight_turn_ending = False
+tight_turn_ending_last_time_list = [0.0, 0.0, 0.0]
+last_tight_turn_closest_block_color = None
 
-traffic_light_area_1_list = []
-traffic_light_area_1_3_list = []
-traffic_light_area_2_list = []
-last_traffic_light_time = 0
-is_last_traffic_red = None
+traffic_light_1_0_list = []
+traffic_light_1_3_list = []
+traffic_light_2_0_list = []
 
-# TODO: Fix last traffic light
-# TODO: Fix the heading that is change from clockwise negative to clockwise positive
+# TODO: Add uturn
 def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
                       image: cv2.typing.MatLike,
                       delta_time: float
                       ) -> tuple[float, float]:
     global heading_pid, wall_distance_pid
-    global suggested_heading, is_ultrasonic_below_threshold, ultrasonic_below_threshold_time, is_ultrasonic_below_stop_threshold, ultrasonic_below_stop_threshold_time, is_clockwise, last_turn_time, turn_amount
-    global ultrasonic_below_threshold_time_2, is_ultrasonic_below_threshold_2
-    global is_traffic_adjusting, is_traffic_adjusting_back, last_is_closest_block_red, ideal_wall_distance_override, is_last_is_closest_block_red_same
-    global is_tight_turn, is_tight_turn_counting_down, is_tight_turn_time
-    global traffic_light_area_1_list, traffic_light_area_2_list, last_traffic_light_time, is_last_traffic_red
+    global suggested_heading, is_clockwise, turn_amount
+    global ultrasonic_last_time_list
+    global last_closest_block_color, is_last_closest_block_color_same, is_traffic_light_turning, is_traffic_light_turning_back, ideal_outer_wall_distance_override
+    global is_tight_turn, is_tight_turn_ending, ultrasonic_tight_last_time_list, last_tight_turn_closest_block_color
+    global traffic_light_1_0_list, traffic_light_1_3_list, traffic_light_2_0_list
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
-    blue_line_size, orange_line_size, closest_block_x, is_closest_block_red = process_image(image)
+
+    blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color = imageprocessor.process_image(image)
 
     # cv2.line(image, (closest_block_x, 0), (closest_block_x, CAMERA_HEIGHT), (0, 0, 255), 3)
+    # cv2.line(image, (0, closest_block_lowest_y), (CAMERA_WIDTH, closest_block_lowest_y), (0, 0, 255), 3)
+    # cv2.line(image, (0, blue_line_y), (CAMERA_WIDTH, blue_line_y), (255, 0, 0), 3)
+    # cv2.line(image, (0, orange_line_y), (CAMERA_WIDTH, orange_line_y), (255, 255, 0), 3)
     # cv2.imshow('image', image)
     # cv2.waitKey(1)
 
-    print(f'1: {traffic_light_area_1_list} 2: {traffic_light_area_2_list}')
+    heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
-    # Calculate and normalize heading error
-    heading_error = normalize_angle_error(gyro_info - suggested_heading)
+    print(f'{turn_amount} {suggested_heading} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
 
     if is_clockwise is None:
         if blue_line_size is not None and orange_line_size is not None:
@@ -102,308 +98,263 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 is_clockwise = False
             elif orange_line_size - blue_line_size > BLUE_ORANGE_SIZE_DIFF_THRESHOLD:
                 is_clockwise = True
-
-    if turn_amount == 8 and is_last_traffic_red == None:
-        if len(traffic_light_area_1_list) == 1 and len(traffic_light_area_2_list) == 1:
-            if traffic_light_area_1_list[0] == traffic_light_area_2_list[0]:
-                is_last_traffic_red = traffic_light_area_2_list[0]
-            else:
-                print("Error can't find last traffic")
-        elif len(traffic_light_area_1_list) == 1 and len(traffic_light_area_2_list) == 2:
-            is_last_traffic_red = traffic_light_area_2_list[0]
-        
-        print(f'1: {traffic_light_area_1_list} 2: {traffic_light_area_2_list}')
-
-    heading_correction = 0
-    speed = 1.00
-    if is_tight_turn:
-        speed = 0.40
-        if is_tight_turn_counting_down:
-            speed = 0.50
-            if time.time() - is_tight_turn_time >= TIGHT_TURN_LINGER_TIME:
-                is_tight_turn_counting_down = False
-                is_tight_turn = False
-        else:
-            if closest_block_x is not None:
-                if is_clockwise:
-                    if is_closest_block_red:
-                        if front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1:
-                            suggested_heading -= 90
-                            suggested_heading %= 360
-                            last_turn_time = time.time()
-                            last_is_closest_block_red = True
-                            ideal_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT) + 0.05
-                            is_last_is_closest_block_red_same = False
-                            turn_amount += 1
-                            is_tight_turn_time = time.time()
-                            is_tight_turn_counting_down = True
-                            if turn_amount == 4 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                                traffic_light_area_2_list.append(is_closest_block_red)
-                                last_traffic_light_time = time.time()
-                    else:
-                        if front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2:
-                            suggested_heading -= 90
-                            suggested_heading %= 360
-                            last_turn_time = time.time()
-                            last_is_closest_block_red = False
-                            ideal_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
-                            is_last_is_closest_block_red_same = False
-                            turn_amount += 1
-                            is_tight_turn_time = time.time()
-                            is_tight_turn_counting_down = True
-                            if turn_amount == 4 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                                traffic_light_area_2_list.append(is_closest_block_red)
-                                last_traffic_light_time = time.time()
-                else:
-                    if is_closest_block_red:
-                        if front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2:
-                            suggested_heading += 90
-                            suggested_heading %= 360
-                            last_turn_time = time.time()
-                            last_is_closest_block_red = True
-                            ideal_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
-                            is_last_is_closest_block_red_same = False
-                            turn_amount += 1
-                            is_tight_turn_time = time.time()
-                            is_tight_turn_counting_down = True
-                            if turn_amount == 4 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                                traffic_light_area_2_list.append(is_closest_block_red)
-                                last_traffic_light_time = time.time()
-                    else:
-                        if front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1:
-                            suggested_heading += 90
-                            suggested_heading %= 360
-                            last_turn_time = time.time()
-                            last_is_closest_block_red = False
-                            ideal_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT) + 0.05
-                            is_last_is_closest_block_red_same = False
-                            turn_amount += 1
-                            is_tight_turn_time = time.time()
-                            is_tight_turn_counting_down = True
-                            if turn_amount == 4 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                                traffic_light_area_2_list.append(is_closest_block_red)
-                                last_traffic_light_time = time.time()
-    elif is_traffic_adjusting:
-        speed = 0.50
-        if is_clockwise == None or is_clockwise == True:
-            if last_is_closest_block_red:
-                if is_traffic_adjusting_back:
-                    heading_correction = 0
-
-                    if abs(heading_error) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                        ideal_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT) + 0.05
-                        is_traffic_adjusting = False
-                        is_traffic_adjusting_back = False
-                elif abs(heading_error + TRAFFIC_HEADING_CORRECTION) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                    if back_ultrasonic * math.sin(math.radians(abs(heading_error))) >= (1.0 - RED_DISTANCE_FROM_RIGHT) + 0.05:
-                        heading_correction = 0
-                        is_traffic_adjusting_back = True
-                    else:
-                        heading_correction = TRAFFIC_HEADING_CORRECTION
-                else:
-                    heading_correction = TRAFFIC_HEADING_CORRECTION
-            else:
-                if is_traffic_adjusting_back:
-                    heading_correction = 0
-
-                    if abs(heading_error) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                        ideal_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
-                        is_traffic_adjusting = False
-                        is_traffic_adjusting_back = False
-                elif abs(heading_error - TRAFFIC_HEADING_CORRECTION) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                    if front_ultrasonic * math.sin(math.radians(abs(heading_error))) <= GREEN_DISTANCE_FROM_LEFT:
-                        heading_correction = 0
-                        is_traffic_adjusting_back = True
-                    else:
-                        heading_correction = -TRAFFIC_HEADING_CORRECTION
-                else:
-                    heading_correction = -TRAFFIC_HEADING_CORRECTION
-        else:
-            if last_is_closest_block_red:
-                if is_traffic_adjusting_back:
-                    heading_correction = 0
-
-                    if abs(heading_error) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                        ideal_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
-                        is_traffic_adjusting = False
-                        is_traffic_adjusting_back = False
-                elif abs(heading_error + TRAFFIC_HEADING_CORRECTION) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                    if front_ultrasonic * math.sin(math.radians(abs(heading_error))) <= RED_DISTANCE_FROM_RIGHT:
-                        heading_correction = 0
-                        is_traffic_adjusting_back = True
-                    else:
-                        heading_correction = TRAFFIC_HEADING_CORRECTION
-                else:
-                    heading_correction = TRAFFIC_HEADING_CORRECTION
-            else:
-                if is_traffic_adjusting_back:
-                    heading_correction = 0
-
-                    if abs(heading_error) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                        ideal_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT) + 0.05
-                        is_traffic_adjusting = False
-                        is_traffic_adjusting_back = False
-                elif abs(heading_error - TRAFFIC_HEADING_CORRECTION) <= TRAFFIC_HEADING_ERROR_THRESHOLD:
-                    if back_ultrasonic * math.sin(math.radians(abs(heading_error))) >= (1.0 - GREEN_DISTANCE_FROM_LEFT) + 0.05:
-                        heading_correction = 0
-                        is_traffic_adjusting_back = True
-                    else:
-                        heading_correction = -TRAFFIC_HEADING_CORRECTION
-                else:
-                    heading_correction = -TRAFFIC_HEADING_CORRECTION
-    elif closest_block_x is not None:
-        if is_clockwise is not None:
-            if (is_clockwise and closest_block_x <= CAMERA_WIDTH*0.8) or (not is_clockwise and closest_block_x >= CAMERA_WIDTH*0.2):
-                if turn_amount == 0 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                    traffic_light_area_1_list.append(is_closest_block_red)
-                    last_traffic_light_time = time.time()
-                if turn_amount == 4 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                    traffic_light_area_2_list.append(is_closest_block_red)
-                    last_traffic_light_time = time.time()
-        else:
-            if turn_amount == 0 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                traffic_light_area_1_list.append(is_closest_block_red)
-                last_traffic_light_time = time.time()
-            if turn_amount == 4 and time.time() - last_traffic_light_time >= TRAFFIC_LIGHT_LIST_COOLDOWN_TIME:
-                traffic_light_area_2_list.append(is_closest_block_red)
-                last_traffic_light_time = time.time()
-
-        if last_is_closest_block_red is None:
-            if is_closest_block_red:
-                heading_correction = TRAFFIC_HEADING_CORRECTION
-            else:
-                heading_correction = -TRAFFIC_HEADING_CORRECTION
-            speed = 0.50
-            is_traffic_adjusting = True
-            last_is_closest_block_red = is_closest_block_red
-        else:
-            if not last_is_closest_block_red == is_closest_block_red:
-                if is_closest_block_red:
-                    heading_correction = TRAFFIC_HEADING_CORRECTION
-                else:
-                    heading_correction = -TRAFFIC_HEADING_CORRECTION
-                speed = 0.50
-                is_traffic_adjusting = True
-                last_is_closest_block_red = is_closest_block_red
-            else:
-                if not is_last_is_closest_block_red_same:
-                    is_last_is_closest_block_red_same = True
-    else:
-        if not front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD:
-            ultrasonic_below_threshold_time = time.time()
-            is_ultrasonic_below_threshold = False
-        elif time.time() - ultrasonic_below_threshold_time >= ULTRASONIC_TIME_THRESHOLD:
-            if is_clockwise is None:
-                is_ultrasonic_below_threshold = False
-            else:
-                if is_clockwise and heading_error <= ULTRASONIC_ANGLE_THRESHOLD:
-                    is_ultrasonic_below_threshold = True
-                elif not is_clockwise and heading_error >= -ULTRASONIC_ANGLE_THRESHOLD:
-                    is_ultrasonic_below_threshold = True
-                else:
-                    is_ultrasonic_below_threshold = False
-        
-        if not front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD_2:
-            ultrasonic_below_threshold_time_2 = time.time()
-            is_ultrasonic_below_threshold_2 = False
-        elif time.time() - ultrasonic_below_threshold_time_2 >= ULTRASONIC_TIME_THRESHOLD:
-            if is_clockwise is None:
-                is_ultrasonic_below_threshold_2 = False
-            else:
-                if is_clockwise and heading_error <= ULTRASONIC_ANGLE_THRESHOLD:
-                    is_ultrasonic_below_threshold_2 = True
-                elif not is_clockwise and heading_error >= -ULTRASONIC_ANGLE_THRESHOLD:
-                    is_ultrasonic_below_threshold_2 = True
-                else:
-                    is_ultrasonic_below_threshold_2 = False
-
-        if front_ultrasonic * math.cos(math.radians(abs(heading_error))) > ULTRASONIC_STOP_THRESHOLD:
-            ultrasonic_below_stop_threshold_time = time.time()
-            is_ultrasonic_below_stop_threshold = False
-        elif time.time() - ultrasonic_below_stop_threshold_time >= ULTRASONIC_STOP_TIME_THRESHOLD:
-            if is_clockwise is None:
-                is_ultrasonic_below_stop_threshold = False
-            else:
-                if is_clockwise and heading_error <= ULTRASONIC_STOP_ANGLE_THRESHOLD:
-                    is_ultrasonic_below_stop_threshold = True
-                elif not is_clockwise and heading_error >= -ULTRASONIC_STOP_ANGLE_THRESHOLD:
-                    is_ultrasonic_below_stop_threshold = True
-                else:
-                    is_ultrasonic_below_stop_threshold = False
-
-        if is_clockwise is not None:
-            if turn_amount >= 4*LAPS_TO_STOP:
-                if is_ultrasonic_below_stop_threshold and time.time() - last_turn_time > STOP_COOLDOWN_TIME:
-                    return False
-            if is_ultrasonic_below_threshold and time.time() - last_turn_time > TURN_COOLDOWN_TIME:
-                if is_clockwise:
-                    suggested_heading -= 90
-                else:
-                    suggested_heading += 90
-                suggested_heading %= 360
-                last_turn_time = time.time()
-                last_is_closest_block_red = None
-                ideal_wall_distance_override = IDEAL_WALL_DISTANCE
-                is_last_is_closest_block_red_same = False
-                turn_amount += 1
-            elif is_ultrasonic_below_threshold_2 and time.time() - last_turn_time > TURN_COOLDOWN_TIME_2 and last_is_closest_block_red is not None:
-                if is_clockwise and last_is_closest_block_red:
-                    is_tight_turn = True
-                elif not is_clockwise and not last_is_closest_block_red:
-                    is_tight_turn = True
-
-
-        if is_clockwise is None:
-            wall_error = (right_ultrasonic - left_ultrasonic) * math.cos(math.radians(abs(heading_error))) / 2.0
-        else:
-            wall_error = 0
-            if is_clockwise:
-                wall_error = -left_ultrasonic * math.cos(math.radians(abs(heading_error))) + ideal_wall_distance_override
-            else:
-                wall_error = right_ultrasonic * math.cos(math.radians(abs(heading_error))) - ideal_wall_distance_override
-            
-            heading_correction = wall_distance_pid.update(wall_error, delta_time)
-            heading_correction = max(min(heading_correction, MAX_HEADING_ERROR), -MAX_HEADING_ERROR)
     
-    heading_error = normalize_angle_error(heading_error + heading_correction)
+    speed = 1.00
+    heading_correction_override = None
 
-    # Apply heading PID controller
-    steering_adjustment = heading_pid.update(heading_error, delta_time)
+    if execute_with_timing_conditions(
+        is_tight_turn_ending,
+        tight_turn_ending_last_time_list,
+        linger_duration=TIGHT_TURN_LINGER_TIME
+    ):
+        if is_tight_turn_ending:
+            if turn_amount == 0:
+                traffic_light_1_0_list.append(last_tight_turn_closest_block_color)
+            elif turn_amount == 3:
+                traffic_light_1_3_list.append(last_tight_turn_closest_block_color)
+            elif turn_amount == 4:
+                traffic_light_2_0_list.append(last_tight_turn_closest_block_color)
+        speed = 0.50
+        is_tight_turn = False
+        is_tight_turn_ending = False
+    elif closest_block_color is not None and closest_block_size >= TRAFFIC_LIGHT_SIZE_THRESHOLD or is_traffic_light_turning:
+        is_doing = False
+        if is_traffic_light_turning:
+            is_doing = True
+        elif blue_line_y is None and orange_line_y is None or closest_block_color is None:
+            is_doing = True
+        elif blue_line_y is not None:
+            is_doing = closest_block_lowest_y > blue_line_y
+        elif orange_line_y is not None:
+            is_doing = closest_block_lowest_y > orange_line_y
+        elif blue_line_y is not None and orange_line_y is not None:
+            is_doing = closest_block_lowest_y > orange_line_y and closest_block_lowest_y > blue_line_y
+
+        if is_doing:
+            if not is_traffic_light_turning and not is_last_closest_block_color_same:
+                is_last_closest_block_color_same = closest_block_color == last_closest_block_color
+
+                last_closest_block_color = closest_block_color
+                if turn_amount == 0:
+                    traffic_light_1_0_list.append(closest_block_color)
+                elif turn_amount == 3:
+                    traffic_light_1_3_list.append(closest_block_color)
+                elif turn_amount == 4:
+                    traffic_light_2_0_list.append(closest_block_color)
+
+            is_traffic_light_turning = True
+
+            if not is_last_closest_block_color_same:
+                speed = 0.50
+                if not is_traffic_light_turning_back:
+                    traffic_light_heading_correction = None
+                    is_ultrasonic_reach = None
+
+                    if last_closest_block_color == 'red':
+                        traffic_light_heading_correction = TRAFFIC_LIGHT_HEADING_CORRECTION
+                        if is_clockwise is None or is_clockwise == True:
+                            is_ultrasonic_reach = (back_ultrasonic + (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) >= 1.0 - RED_DISTANCE_FROM_RIGHT
+                        else:
+                            is_ultrasonic_reach = (front_ultrasonic - (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) <= RED_DISTANCE_FROM_RIGHT
+                    elif last_closest_block_color == 'green':
+                        traffic_light_heading_correction = -TRAFFIC_LIGHT_HEADING_CORRECTION
+                        if is_clockwise is None or is_clockwise == True:
+                            is_ultrasonic_reach = (front_ultrasonic - (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) <= GREEN_DISTANCE_FROM_LEFT
+                        else:
+                            is_ultrasonic_reach = (back_ultrasonic + (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) >= 1.0 - GREEN_DISTANCE_FROM_LEFT
+
+                    if traffic_light_heading_correction == None or is_ultrasonic_reach == None:
+                        raise ValueError(f'traffic_light_heading_correction: {traffic_light_heading_correction}, is_ultrasonic_reach: {is_ultrasonic_reach}')
+
+                    if abs(heading_error + traffic_light_heading_correction) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD:
+                        if is_ultrasonic_reach:
+                            heading_correction_override = 0
+                            is_traffic_light_turning_back = True
+                        else:
+                            heading_correction_override = traffic_light_heading_correction
+                    else:
+                        heading_correction_override = traffic_light_heading_correction
+                else:
+                    heading_correction_override = 0
+
+                    if abs(heading_error) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD:
+                        if last_closest_block_color == 'red':
+                            if is_clockwise is None or is_clockwise == True:
+                                ideal_outer_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT)
+                            else:
+                                ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+                        elif last_closest_block_color == 'green':
+                            if is_clockwise is None or is_clockwise == True:
+                                ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
+                            else:
+                                ideal_outer_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT)
+                        
+                        is_traffic_light_turning = False
+                        is_traffic_light_turning_back = False
+            else:
+                heading_correction_override = 0
+
+                if last_closest_block_color == 'red':
+                    if is_clockwise is None or is_clockwise == True:
+                        ideal_outer_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT)
+                    else:
+                        ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+                elif last_closest_block_color == 'green':
+                    if is_clockwise is None or is_clockwise == True:
+                        ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
+                    else:
+                        ideal_outer_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT)
+        
+                is_traffic_light_turning = False
+                is_traffic_light_turning_back = False
+    elif is_clockwise is not None:
+        if turn_amount >= 4*LAPS_TO_STOP:
+            if execute_with_timing_conditions(
+                front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_STOP_THRESHOLD,
+                ultrasonic_last_time_list, # Intentionally use the same last_time_list as the turning condition to not stop before finish turning
+                cooldown_duration=STOP_COOLDOWN_TIME,
+                time_window=ULTRASONIC_STOP_TIME_WINDOW
+            ):
+                return False
+
+        if execute_with_timing_conditions(
+            front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_TIGHT_THRESHOLD,
+            ultrasonic_tight_last_time_list,
+            cooldown_duration=TIGHT_TURN_COOLDOWN_TIME,
+            time_window=ULTRASONIC_TIGHT_TURN_TIME_WINDOW
+        ) or is_tight_turn:
+            if is_clockwise and last_closest_block_color == 'red':
+                is_tight_turn = True
+            elif not is_clockwise and last_closest_block_color == 'green':
+                is_tight_turn = True
+
+            if is_tight_turn and closest_block_color is not None:
+                speed = 0.40
+
+                is_ultrasonic_reach = None
+                new_ideal_outer_wall_distance_override = None
+
+                if last_closest_block_color == 'red':
+                    traffic_light_heading_correction = TRAFFIC_LIGHT_HEADING_CORRECTION
+                    if is_clockwise:
+                        is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1
+                        new_ideal_outer_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT)
+                    else:
+                        front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
+                        new_ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+                elif last_closest_block_color == 'green':
+                    traffic_light_heading_correction = -TRAFFIC_LIGHT_HEADING_CORRECTION
+                    if is_clockwise:
+                        is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
+                        new_ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
+                    else:
+                        is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1
+                        new_ideal_outer_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT)
+
+                if is_ultrasonic_reach == None:
+                    raise ValueError(f'is_ultrasonic_reach: {is_ultrasonic_reach}, new_ideal_outer_wall_distance_override: {new_ideal_outer_wall_distance_override}')
+                
+                if is_ultrasonic_reach:
+                    if is_clockwise:
+                        suggested_heading += 90
+                    else:
+                        suggested_heading -= 90
+                    suggested_heading %= 360
+                    last_tight_turn_closest_block_color = last_closest_block_color
+                    last_closest_block_color = None
+                    is_last_closest_block_color_same = False
+                    ideal_outer_wall_distance_override = new_ideal_outer_wall_distance_override
+                    turn_amount += 1
+                    is_tight_turn_ending = True
+        elif execute_with_timing_conditions(
+            front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD,
+            ultrasonic_last_time_list,
+            cooldown_duration=TURN_COOLDOWN_TIME,
+            time_window=ULTRASONIC_TURN_TIME_WINDOW
+        ):
+            if is_clockwise:
+                suggested_heading += 90
+            else:
+                suggested_heading -= 90
+            suggested_heading %= 360
+            last_closest_block_color = None
+            is_last_closest_block_color_same = False
+            ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
+            turn_amount += 1
+
+    wall_error = 0
+    if is_clockwise is None:
+        wall_error = (right_ultrasonic - left_ultrasonic) * math.cos(math.radians(abs(heading_error))) / 2.0
+    else:
+        if is_clockwise:
+            wall_error = -left_ultrasonic * math.cos(math.radians(abs(heading_error))) + ideal_outer_wall_distance_override
+        else:
+            wall_error = right_ultrasonic * math.cos(math.radians(abs(heading_error))) - ideal_outer_wall_distance_override
+
+    heading_correction = wall_distance_pid.update(wall_error, delta_time)
+    heading_correction = max(min(heading_correction, MAX_HEADING_ERROR), -MAX_HEADING_ERROR)
+
+    if heading_correction_override is not None: heading_correction = heading_correction_override
+
+    heading_error_correction = normalize_angle_error(heading_error + heading_correction)
+    steering_adjustment = heading_pid.update(heading_error_correction, delta_time)
     steering_percent = max(min(steering_adjustment, 1.00), -1.00)
 
     return speed, steering_percent
 
-def process_image(image):
-    # Convert image to HSV color space
-    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+class imageprocessor:
+    @staticmethod
+    def process_image(image):
+        # Convert image to HSV color space
+        hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        
+        # Create masks for blue and orange colors
+        mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
+        mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
+
+        blue_line_y, blue_line_size = imageprocessor.get_line_properties(mask_blue)
+        orange_line_y, orange_line_size = imageprocessor.get_line_properties(mask_orange)
+
+
+        # Create masks for red and green colors
+        mask_red1 = cv2.inRange(hsv_image, LOWER_RED1_LIGHT, UPPER_RED1_LIGHT)
+        mask_red2 = cv2.inRange(hsv_image, LOWER_RED2_LIGHT, UPPER_RED2_LIGHT)
+        mask_red = mask_red1 | mask_red2
+        mask_green = cv2.inRange(hsv_image, LOWER_GREEN_LIGHT, UPPER_GREEN_LIGHT)
+        
+        # Find contours for red and green blocks
+        contours_red, _ = cv2.findContours(mask_red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours_green, _ = cv2.findContours(mask_green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        
+        # Get centroids and areas for red and green blocks
+        red_blocks = [imageprocessor.get_centroid_and_area(c) for c in contours_red if imageprocessor.get_centroid_and_area(c)[0] is not None]
+        green_blocks = [imageprocessor.get_centroid_and_area(c) for c in contours_green if imageprocessor.get_centroid_and_area(c)[0] is not None]
+        
+        closest_red_block = imageprocessor.find_closest_block(red_blocks)
+        closest_green_block = imageprocessor.find_closest_block(green_blocks)
+
+        closest_block, closest_block_color = imageprocessor.get_closest_block_to_camera(closest_red_block, closest_green_block)
+
+        closest_block_x = closest_block_y = closest_block_size = closest_block_lowest_y = None
+        if closest_block is not None:
+            closest_block_x = closest_block[0][0]
+            closest_block_y = closest_block[0][1]
+            closest_block_size = closest_block[1]
+            closest_block_lowest_y = closest_block[2][1]
+        
+        return blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color
     
-    # Create masks for blue and orange colors
-    mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
-    mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
-    
+    @staticmethod
     def get_line_properties(mask):
         coordinates = np.column_stack(np.where(mask > 0))
-        # if coordinates.size == 0:
-        #     return None, 0
-        # average_y = int(np.mean(coordinates[:, 0]))
+        if coordinates.size == 0:
+            return None, 0
+        average_y = int(np.mean(coordinates[:, 0]))
 
-        # return average_y, coordinates.size
-        return None, coordinates.size
+        return average_y, coordinates.size
 
-    _, blue_line_size = get_line_properties(mask_blue)
-    _, orange_line_size = get_line_properties(mask_orange)
-
-
-    # Create masks for red and green colors
-    mask_red1 = cv2.inRange(hsv_image, LOWER_RED1_LIGHT, UPPER_RED1_LIGHT)
-    mask_red2 = cv2.inRange(hsv_image, LOWER_RED2_LIGHT, UPPER_RED2_LIGHT)
-    mask_red = mask_red1 | mask_red2
-    mask_green = cv2.inRange(hsv_image, LOWER_GREEN_LIGHT, UPPER_GREEN_LIGHT)
-    
-    # Find contours for red and green blocks
-    contours_red, _ = cv2.findContours(mask_red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    contours_green, _ = cv2.findContours(mask_green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    
+    @staticmethod
     def get_centroid_and_area(contour):
         M = cv2.moments(contour, True)
         if M["m00"] == 0:
@@ -411,12 +362,9 @@ def process_image(image):
         cx = int(M["m10"] / M["m00"])
         cy = int(M["m01"] / M["m00"])
         area = cv2.contourArea(contour)
-        return (cx, cy), area
-    
-    # Get centroids and areas for red and green blocks
-    red_blocks = [get_centroid_and_area(c) for c in contours_red if get_centroid_and_area(c)[0] is not None]
-    green_blocks = [get_centroid_and_area(c) for c in contours_green if get_centroid_and_area(c)[0] is not None]
+        return (cx, cy), area, tuple(contour[contour[:, :, 1].argmax()][0])
 
+    @staticmethod
     def find_closest_block(blocks):
         if not blocks:
             return None
@@ -424,33 +372,24 @@ def process_image(image):
         # Sort blocks by area (descending) and then by y-coordinate of the centroid (ascending)
         sorted_blocks = sorted(blocks, key=lambda b: (-b[1], b[0][1]))
         
-        if sorted_blocks[0][1] < TRAFFIC_LIGHT_THRESHOLD: return None
-        return sorted_blocks[0][0]
+        return sorted_blocks[0]
     
-    closest_red_block = find_closest_block(red_blocks)
-    closest_green_block = find_closest_block(green_blocks)
-    
+    @staticmethod
     def get_closest_block_to_camera(red_block, green_block):
-        if red_block is None:
-            return green_block, False
+        if red_block is None and green_block is None:
+            return None, None
+        elif red_block is None:
+            return green_block, 'green'
         elif green_block is None:
-            return red_block, True
+            return red_block, 'red'
         
         # Compare areas and y-coordinates to find the closest block
-        if red_block[1] < green_block[1]:
-            return green_block, False
-        elif red_block[1] > green_block[1]:
-            return red_block, True
+        if red_block[0][1] < green_block[0][1]:
+            return green_block, 'green'
+        elif red_block[0][1] > green_block[0][1]:
+            return red_block, 'red'
         else:
-            if red_block[0][1] > green_block[0][1]:
-                return green_block, False
+            if red_block[1] > green_block[1]:
+                return green_block, 'green'
             else:
-                return red_block, True
-    
-    closest_block, is_closest_block_red = get_closest_block_to_camera(closest_red_block, closest_green_block)
-
-    closest_block_x = None
-    if closest_block is not None:
-        closest_block_x = closest_block[0]
-    
-    return blue_line_size, orange_line_size, closest_block_x, is_closest_block_red
+                return red_block, 'red'
