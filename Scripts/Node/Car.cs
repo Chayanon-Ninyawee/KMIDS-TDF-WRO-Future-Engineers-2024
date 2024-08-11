@@ -43,8 +43,10 @@ public partial class Car : StaticBody3D
         speed += Math.Sign(speedTarget)*acceleration*delta;
         if (speedTarget > 0) {
             if (speed >= speedTarget) speed = speedTarget;
-        } else {
+        } else if (speedTarget < 0) {
             if (speed <= speedTarget) speed = speedTarget;
+        } else {
+            speed = 0;
         }
 
         var newSteeringPercent = steeringPercent + Math.Sign(steeringPercentTarget-steeringPercent)*5.0*delta;

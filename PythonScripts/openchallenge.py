@@ -55,7 +55,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
-    blue_line_properties, orange_line_properties = imageprocessor.process_image(image)
+    blue_line_properties, orange_line_properties = ImageProcessor.process_image(image)
     _, blue_line_size = blue_line_properties
     _, orange_line_size = orange_line_properties
 
@@ -112,7 +112,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     return 1.00, steering_percent
 
 
-class imageprocessor:
+class ImageProcessor:
     @staticmethod
     def process_image(image):
         # Convert image to HSV color space
@@ -122,7 +122,7 @@ class imageprocessor:
         mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
         mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
         
-        return imageprocessor.get_line_properties(mask_blue), imageprocessor.get_line_properties(mask_orange)
+        return ImageProcessor.get_line_properties(mask_blue), ImageProcessor.get_line_properties(mask_orange)
     
     @staticmethod
     def get_line_properties(mask):
