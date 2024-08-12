@@ -9,9 +9,9 @@
 * **Reason:** The Raspberry Pi camera integrates easily with the Raspberry Pi and provides clear, detailed images, making it a good choice for our vehicle. The camera's high resolution and fast frame rate ensure that the Raspberry Pi receives timely and accurate visual data, which is crucial for making real-time navigation decisions. The camera's compatibility with the Pi also simplifies the hardware setup, enhancing system reliability.
 
 ## Distance Sensing
-* **Ultrasonic Sensors**
+* **gy-530vl53l0x**
 * **Placement:** front, back, left and right sides
-Reason: We use four ultrasonic sensors to detect the distance of the vehicle from the wall so that the vehicle can stay within an ideal distance from the wall and avoid colliding with objects that is placed on the field in certain rounds of the competition.
+Reason: We use four gy-530vl53l0x sensors to detect the distance of the vehicle from the wall so that the vehicle can stay within an ideal distance from the wall and avoid colliding with objects that is placed on the field in certain rounds of the competition.
 
 ## Power Supply
 * **1 lithium-ion battery**
