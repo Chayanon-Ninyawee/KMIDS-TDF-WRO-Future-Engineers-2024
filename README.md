@@ -6,7 +6,8 @@
 3. [Power and Sensor Management](#Power_and_Sensor_Management)
 4. [Obstacle Management](#Obstacle_Management)
 5. [Picture(s)](#Pictures)
-6. [Codes](#Code's_Repository)  
+6. [Simulator](#Simulator)
+7. [Codes](#Code's_Repository)  
 
 ## Introduction
 
