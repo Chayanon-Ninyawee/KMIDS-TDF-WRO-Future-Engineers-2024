@@ -18,7 +18,7 @@ autonomous vehicle that can navigate around a field with various rules and restr
 depending on the rounds. Our goal is to create a highly efficient, dependable, and versatile 
 vehicle capable of performing complex tasks autonomously.
 
-## Mobility_Management
+## Mobility Management
 
 ### 1.Chassis
   - Material: Plastic (pla+ from esun)
@@ -49,8 +49,9 @@ vehicle capable of performing complex tasks autonomously.
      steering system is responsive, capable of handling sudden changes in direction without compromising stability.
 
 ## 4.3D_Model
-The actual model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-CAD.git 
+The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-CAD.git 
 
+**Preview**
 ![model1](https://github.com/user-attachments/assets/f41a2135-810c-4ccf-9b6c-103ac6d18c37)
 ![model2](https://github.com/user-attachments/assets/d45dcc8f-3008-4ca5-84d4-a537edc13299)
 ![model3](https://github.com/user-attachments/assets/24de6c65-e1ef-495b-adf7-759964857b95)
@@ -116,7 +117,7 @@ The actual model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF
 ### Wiring Diagram
 
 
-![circuit (2)](https://github.com/user-attachments/assets/ee321578-954b-4a7f-b899-d265ed52cab6)
+![circuit (2)](https://github.com/user-attachments/assets/f2e377d0-6cdc-46d0-8369-a7eadb77a23c)
 
 
 ## Obstacle_Management  
