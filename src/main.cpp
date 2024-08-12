@@ -7,12 +7,12 @@
 #include <EEPROM.h>
 #include <Servo.h>
 #include <CytronMotorDriver.h>
+#include <NewPing.h>
 
-#include <UltrasonicSensor.h>
-
-UltrasonicSensor front_ultrasonic(6, 7);
-UltrasonicSensor left_ultrasonic(10, 11);
-UltrasonicSensor right_ultrasonic(4, 5);
+NewPing front_ultrasonic(6, 7, 200);
+NewPing back_ultrasonic(A0, A1, 200);
+NewPing left_ultrasonic(10, 11, 200);
+NewPing right_ultrasonic(4, 5, 200);
 
 /* Set the delay between fresh samples */
 #define SAMPLERATE_DELAY_MS (10)
@@ -33,21 +33,20 @@ Servo steering_servo;
 CytronMD motor(PWM_PWM, 2, 3);
 
 
-float front_ultrasonic_distance, left_ultrasonic_distance, right_ultrasonic_distance;
+float front_ultrasonic_distance, back_ultrasonic_distance, left_ultrasonic_distance, right_ultrasonic_distance;
 float gyro_x;
+
+NewPing ultrasonic_list[] = {front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic};
+float* ultrasonic_distance_list[] = {&front_ultrasonic_distance, &back_ultrasonic_distance, &left_ultrasonic_distance, &right_ultrasonic_distance};
+int current_ultrasonic = 0;
 
 float power_percent = 0, steering_percent = 0;
 float last_power_percent = power_percent, last_steering_percent = steering_percent;
 
 void setup() {
-  Serial.begin(9600);
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   delay(3000); // Booting up
-
-  front_ultrasonic.begin();
-  left_ultrasonic.begin();
-  right_ultrasonic.begin();
 
   /* Initialise the sensor */
     if (!bno.begin())
@@ -142,22 +141,32 @@ void setup() {
 }
 
 void loop() {
-  front_ultrasonic_distance = front_ultrasonic.getDistance();
-  left_ultrasonic_distance = left_ultrasonic.getDistance();
-  right_ultrasonic_distance = right_ultrasonic.getDistance();
+  *ultrasonic_distance_list[current_ultrasonic] = ultrasonic_list[current_ultrasonic].ping_cm() / 100.0;
+  current_ultrasonic = (current_ultrasonic + 1) % 4;
+  delayMicroseconds(10000);
 
-  /* Get a new sensor event */
+  // front_ultrasonic_distance = front_ultrasonic.ping_cm() / 100.0;
+  // delayMicroseconds(5000);
+  // back_ultrasonic_distance = back_ultrasonic.ping_cm() / 100.0;
+  // delayMicroseconds(5000);
+  // left_ultrasonic_distance = left_ultrasonic.ping_cm() / 100.0;
+  // delayMicroseconds(5000);
+  // right_ultrasonic_distance = right_ultrasonic.ping_cm() / 100.0;
+
   sensors_event_t event;
   bno.getEvent(&event);
 
   gyro_x = event.orientation.x;
 
-  Serial.write((byte*)&front_ultrasonic_distance, sizeof(front_ultrasonic_distance));
-  Serial.write((byte*)&left_ultrasonic_distance, sizeof(left_ultrasonic_distance));
-  Serial.write((byte*)&right_ultrasonic_distance, sizeof(right_ultrasonic_distance));
+  float data[] = {
+    front_ultrasonic_distance,
+    back_ultrasonic_distance,
+    left_ultrasonic_distance,
+    right_ultrasonic_distance,
+    gyro_x
+  };
 
-  Serial.write((byte*)&gyro_x, sizeof(gyro_x));
-
+  Serial.write((byte*)data, sizeof(data));
   Serial.flush();
 
   float recieveData[2];
@@ -180,7 +189,4 @@ void loop() {
     motor.setSpeed(round(255*power_percent));
     last_power_percent = power_percent;
   }
-
-  /* Wait the specified delay before requesting new data */
-  delay(SAMPLERATE_DELAY_MS);
 }
