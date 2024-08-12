@@ -145,6 +145,10 @@ area for parking the vehicle.
 
 ![IMG_20240728_220240_HDR (1)](https://github.com/user-attachments/assets/bea13e5b-34d0-43cb-bb45-c0cf6dfb639b)
 
+## Simulator
+Before we implement the vehicle’s code into the actual robot, we need to test if the code can work first.
+Our solution to this is to create a simulator to test the code in Godot.
+
 
 ## Code's_Repository  
 The repository for our vehicle's code can be found at:
