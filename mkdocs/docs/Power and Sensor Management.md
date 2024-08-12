@@ -1,7 +1,7 @@
 # Power and Sensor Management
 
 ## Processing Unit
-* **Raspberry pi**
+* **Raspberry Pi**
 * **Reason:** A raspberry pi is used to process video from the camera which calculates where and in what direction the vehicle should headed. The Raspberry Pi also connected to the Arduino nano and issued commands to it to lessen the load on the Raspberry Pi itself as it's already processing the algorithm for driving and the images from the Pi camera.
 
 ## Vision System
