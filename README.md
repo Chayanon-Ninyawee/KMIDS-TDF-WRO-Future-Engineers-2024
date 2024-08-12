@@ -1,13 +1,13 @@
 # WRO-2024-Future_Engineer
 ## Table of contents
 
-- [Introduction](#Introduction)
-- [Mobility Management](#Mobility_Management)
-- [Power and Sensor Management](#Power_and_Sensor_Management)
-- [Obstacle Management](#Obstacle_Management)
-- [Picture(s)](#Pictures)
-- [Performance Video](#Performance_video)
-- [Codes](#Code's_Repository)  
+1. [Introduction](#Introduction)
+2. [Mobility Management](#Mobility_Management)
+3. [Power and Sensor Management](#Power_and_Sensor_Management)
+4. [Obstacle Management](#Obstacle_Management)
+5. [Picture(s)](#Pictures)
+6. [Performance Video](#Performance_video)
+7. [Codes](#Code's_Repository)  
 
 ## Introduction
 
@@ -48,6 +48,9 @@ vehicle capable of performing complex tasks autonomously.
      through challenging courses. The integration of the servo motor into the front bridge design
      also ensures that the steering system is responsive, capable of handling sudden
      changes in direction without compromising stability.
+
+## 4.3D_Model
+  
      
 ## Power_and_Sensor_Management  
 ### Processing Unit  
@@ -120,7 +123,7 @@ of the field. The vehicle also must not come into contact with the walls whether
 inner or outer walls.
 
 
-![open challenge2 drawio (1)](https://github.com/user-attachments/assets/29609437-159f-4914-81d7-570c17d80eff)
+![open challenge2(dark) drawio](https://github.com/user-attachments/assets/a4d2849d-4b81-46ae-acda-06fecf008ce3)
 
 
 ### Obstacle Challenge  
@@ -130,7 +133,7 @@ the field. The pillars also have it's individual rules that the vehicle must obe
 area for parking the vehicle.  
 
 
-![ObstacleChallenge2 drawio](https://github.com/user-attachments/assets/226d0d06-ef2b-4151-918d-a48813322abe)
+![ObstacleChallenge2(dark) drawio](https://github.com/user-attachments/assets/2b8b057d-6421-4a8c-8a0d-3db446a31536)
 
 
 ## Pictures
