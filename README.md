@@ -6,8 +6,7 @@
 3. [Power and Sensor Management](#Power_and_Sensor_Management)
 4. [Obstacle Management](#Obstacle_Management)
 5. [Picture(s)](#Pictures)
-6. [Performance Video](#Performance_video)
-7. [Codes](#Code's_Repository)  
+6. [Codes](#Code's_Repository)  
 
 ## Introduction
 
@@ -50,7 +49,12 @@ vehicle capable of performing complex tasks autonomously.
      changes in direction without compromising stability.
 
 ## 4.3D_Model
-  
+
+![model1](https://github.com/user-attachments/assets/f41a2135-810c-4ccf-9b6c-103ac6d18c37)
+![model2](https://github.com/user-attachments/assets/d45dcc8f-3008-4ca5-84d4-a537edc13299)
+![model3](https://github.com/user-attachments/assets/24de6c65-e1ef-495b-adf7-759964857b95)
+![model4](https://github.com/user-attachments/assets/885f3590-4642-4a53-9ade-b99cad2d2453)
+
      
 ## Power_and_Sensor_Management  
 ### Processing Unit  
@@ -141,9 +145,6 @@ area for parking the vehicle.
 
 ![IMG_20240728_220240_HDR (1)](https://github.com/user-attachments/assets/bea13e5b-34d0-43cb-bb45-c0cf6dfb639b)
 
-
-## Performance_video
-To be added
 
 ## Code's_Repository  
 The repository for our vehicle's code can be found at:
