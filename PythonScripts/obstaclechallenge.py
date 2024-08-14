@@ -23,12 +23,12 @@ LAPS_TO_STOP = 3
 TRAFFIC_LIGHT_SIZE_THRESHOLD = 4000
 TRAFFIC_LIGHT_Y_THRESHOLD = CAMERA_HEIGHT*0.8
 TRAFFIC_LIGHT_COOLDOWN_TIME = 2.0
-TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.95
-TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.35
+TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.90
+TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.32
 TIGHT_TURN_LINGER_TIME = 2.0
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 70
-TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD = 5
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD = 10
 RED_DISTANCE_FROM_RIGHT = 0.25
 RED_WALL_DISTANCE_FROM_RIGHT = 0.25
 GREEN_DISTANCE_FROM_LEFT = 0.25
@@ -94,12 +94,12 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color = ImageProcessor.process_image(image)
 
-    cv2.line(image, (closest_block_x, 0), (closest_block_x, CAMERA_HEIGHT), (0, 0, 255), 3)
+    # cv2.line(image, (closest_block_x, 0), (closest_block_x, CAMERA_HEIGHT), (0, 0, 255), 3)
     # cv2.line(image, (0, closest_block_lowest_y), (CAMERA_WIDTH, closest_block_lowest_y), (0, 0, 255), 3)
     # cv2.line(image, (0, blue_line_y), (CAMERA_WIDTH, blue_line_y), (255, 0, 0), 3)
     # cv2.line(image, (0, orange_line_y), (CAMERA_WIDTH, orange_line_y), (255, 255, 0), 3)
-    cv2.imshow('image', image)
-    cv2.waitKey(1)
+    # cv2.imshow('image', image)
+    # cv2.waitKey(1)
 
     heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
@@ -202,15 +202,15 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             if last_closest_block_color == 'red':
                 traffic_light_heading_correction = TRAFFIC_LIGHT_HEADING_CORRECTION
                 if is_clockwise is None or is_clockwise == True:
-                    is_ultrasonic_reach = (back_ultrasonic + (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) >= 1.0 - RED_DISTANCE_FROM_RIGHT
+                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - RED_DISTANCE_FROM_RIGHT
                 else:
-                    is_ultrasonic_reach = (front_ultrasonic - (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) <= RED_DISTANCE_FROM_RIGHT
+                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= RED_DISTANCE_FROM_RIGHT
             elif last_closest_block_color == 'green':
                 traffic_light_heading_correction = -TRAFFIC_LIGHT_HEADING_CORRECTION
                 if is_clockwise is None or is_clockwise == True:
-                    is_ultrasonic_reach = (front_ultrasonic - (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) <= GREEN_DISTANCE_FROM_LEFT
+                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= GREEN_DISTANCE_FROM_LEFT
                 else:
-                    is_ultrasonic_reach = (back_ultrasonic + (FRONT_BACK_ULTRASONIC_DISTANCE / 2.0)) * math.sin(math.radians(abs(heading_error))) >= 1.0 - GREEN_DISTANCE_FROM_LEFT
+                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - GREEN_DISTANCE_FROM_LEFT
 
             if traffic_light_heading_correction == None or is_ultrasonic_reach == None:
                 raise ValueError(f'traffic_light_heading_correction: {traffic_light_heading_correction}, is_ultrasonic_reach: {is_ultrasonic_reach}')
@@ -254,6 +254,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             is_linger = False
     elif current_state == State.TRAFFIC_TIGHT_TURNING:
         speed = 0.70
+        heading_correction_override = 0
 
         is_linger = True
 
