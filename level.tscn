@@ -498,7 +498,6 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="GreenTrafficLight9" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 0.900977)
-visible = false
 
 [node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -653,6 +652,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="GreenTrafficLight21" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -0.899419)
+visible = false
 
 [node name="GreenTrafficLight" type="MeshInstance3D" parent="TrafficLights/GreenTrafficLight21"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -807,6 +807,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="RedTrafficLight9" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500064, 0, 0.900977)
+visible = false
 
 [node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight9"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -961,7 +962,6 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 
 [node name="RedTrafficLight21" type="StaticBody3D" parent="TrafficLights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499885, 0, -0.899419)
-visible = false
 
 [node name="RedTrafficLight" type="MeshInstance3D" parent="TrafficLights/RedTrafficLight21"]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
@@ -1015,6 +1015,7 @@ shape = SubResource("ConvexPolygonShape3D_cxtqt")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.293, 0, 1.5)
 
 [node name="Parking_Wall" type="StaticBody3D" parent="ParkingWalls"]
+visible = false
 
 [node name="Parking_Wall" type="MeshInstance3D" parent="ParkingWalls/Parking_Wall"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -1024,9 +1025,11 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParkingWalls/Parking_Wall"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_c3m6s")
+disabled = true
 
 [node name="Parking_Wall2" type="StaticBody3D" parent="ParkingWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.238)
+visible = false
 
 [node name="Parking_Wall" type="MeshInstance3D" parent="ParkingWalls/Parking_Wall2"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -1036,3 +1039,4 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParkingWalls/Parking_Wall2"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_c3m6s")
+disabled = true
