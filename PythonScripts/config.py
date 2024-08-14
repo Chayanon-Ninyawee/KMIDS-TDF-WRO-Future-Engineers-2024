@@ -27,3 +27,8 @@ UPPER_RED2_LIGHT = np.array([2, 223, 255])
 # Measured green traffic light HSV: 56, 202, 214
 LOWER_GREEN_LIGHT = np.array([51, 192, 70]) 
 UPPER_GREEN_LIGHT = np.array([61, 212, 224])
+
+# Threshold of green traffic light in HSV space
+# Measured green traffic light HSV: 150, 218, 196
+LOWER_PINK_LIGHT = np.array([145, 198, 20]) 
+UPPER_PINK_LIGHT = np.array([155, 252, 244])

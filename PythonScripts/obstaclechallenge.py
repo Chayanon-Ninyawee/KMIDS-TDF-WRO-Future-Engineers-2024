@@ -92,7 +92,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
-    blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color = ImageProcessor.process_image(image)
+    blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color, pink_x, pink_y, pink_size = ImageProcessor.process_image(image)
 
     # cv2.line(image, (closest_block_x, 0), (closest_block_x, CAMERA_HEIGHT), (0, 0, 255), 3)
     # cv2.line(image, (0, closest_block_lowest_y), (CAMERA_WIDTH, closest_block_lowest_y), (0, 0, 255), 3)
@@ -384,8 +384,13 @@ class ImageProcessor:
         mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
         mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
 
-        blue_line_y, blue_line_size = ImageProcessor.get_line_properties(mask_blue)
-        orange_line_y, orange_line_size = ImageProcessor.get_line_properties(mask_orange)
+        blue_coordinates = ImageProcessor.get_coordinates(mask_blue)
+        blue_line_size = blue_coordinates.size
+        blue_line_y = ImageProcessor.get_average_y(blue_coordinates)
+
+        orange_coordinates = ImageProcessor.get_coordinates(mask_orange)
+        orange_line_size = orange_coordinates.size
+        orange_line_y = ImageProcessor.get_average_y(orange_coordinates)
 
 
         # Create masks for red and green colors
@@ -393,7 +398,7 @@ class ImageProcessor:
         mask_red2 = cv2.inRange(hsv_image, LOWER_RED2_LIGHT, UPPER_RED2_LIGHT)
         mask_red = mask_red1 | mask_red2
         mask_green = cv2.inRange(hsv_image, LOWER_GREEN_LIGHT, UPPER_GREEN_LIGHT)
-        
+
         # Find contours for red and green blocks
         contours_red, _ = cv2.findContours(mask_red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         contours_green, _ = cv2.findContours(mask_green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -414,16 +419,31 @@ class ImageProcessor:
             closest_block_size = closest_block[1]
             closest_block_lowest_y = closest_block[2][1]
         
-        return blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color
+
+        mask_pink = cv2.inRange(hsv_image, LOWER_PINK_LIGHT, UPPER_PINK_LIGHT)
+
+        pink_coordinates = ImageProcessor.get_coordinates(mask_pink)
+        pink_size = pink_coordinates.size
+        pink_x = ImageProcessor.get_average_x(pink_coordinates)
+        pink_y = ImageProcessor.get_average_y(pink_coordinates)
+        
+        return blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color, pink_x, pink_y, pink_size
     
     @staticmethod
-    def get_line_properties(mask):
-        coordinates = np.column_stack(np.where(mask > 0))
+    def get_coordinates(mask):
+        return np.column_stack(np.where(mask > 0))
+    
+    @staticmethod
+    def get_average_x(coordinates):
         if coordinates.size == 0:
-            return None, 0
-        average_y = int(np.mean(coordinates[:, 0]))
-
-        return average_y, coordinates.size
+            return None
+        return int(np.mean(coordinates[:, 1]))
+    
+    @staticmethod
+    def get_average_y(coordinates):
+        if coordinates.size == 0:
+            return None
+        return int(np.mean(coordinates[:, 0]))
 
     @staticmethod
     def get_centroid_and_area(contour):
