@@ -108,7 +108,7 @@ class SocketClient:
         """
         return self._image.copy()
     
-    def get_ultasonic_data(self) -> tuple[float, float, float, float]:
+    def get_ultrasonic_data(self) -> tuple[float, float, float, float]:
         """
         Retrieve ultrasonic sensor data for the front, back, left, and right directions.
 
