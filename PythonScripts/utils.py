@@ -127,6 +127,9 @@ def execute_with_timing_conditions(
 
         if time_window is not None:
             is_all_timing_met = is_all_timing_met and (current_time - last_time_list[1] >= time_window)
+    else:
+        if time_window is not None:
+            last_time_list[1] = current_time
 
     if linger_duration is not None:
         if is_all_timing_met:
@@ -134,16 +137,13 @@ def execute_with_timing_conditions(
 
         if current_time - last_time_list[2] <= linger_duration:
             if cooldown_duration is not None:
-                last_time_list[0] = time.time()
+                last_time_list[0] = current_time
             
             return True
     elif is_all_timing_met:
         if cooldown_duration is not None:
-            last_time_list[0] = time.time()
+            last_time_list[0] = current_time
         
         return True
-    
-    if time_window is not None and (condition):
-        last_time_list[1] = time.time()
     
     return False

@@ -10,13 +10,13 @@ from enum import Enum
 MAX_HEADING_ERROR = 30.0
 IDEAL_OUTER_WALL_DISTANCE = 0.5 - (LEFT_RIGHT_ULTRASONIC_DISTANCE / 2.0)
 BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 1000
-ULTRASONIC_THRESHOLD = 0.60
+ULTRASONIC_THRESHOLD = 0.70
 ULTRASONIC_TURN_TIME_WINDOW = 0.3
-TURN_COOLDOWN_TIME = 3
+TURN_COOLDOWN_TIME = 5
 
-ULTRASONIC_TIGHT_THRESHOLD = 1.00
+ULTRASONIC_TIGHT_THRESHOLD = 1.10
 ULTRASONIC_TIGHT_TURN_TIME_WINDOW = 0.3
-TIGHT_TURN_COOLDOWN_TIME = 2.7
+TIGHT_TURN_COOLDOWN_TIME = 5
 
 LAPS_TO_STOP = 3
 
@@ -25,6 +25,7 @@ TRAFFIC_LIGHT_Y_THRESHOLD = CAMERA_HEIGHT*0.8
 TRAFFIC_LIGHT_COOLDOWN_TIME = 2.0
 TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.90
 TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.32
+TIGHT_TURN_ULTRASONIC_THRESHOLD_NO = 0.60
 TIGHT_TURN_LINGER_TIME = 2.0
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 70
@@ -38,11 +39,18 @@ UTURN_ULTRASONIC_THRESHOLD = 0.5
 UTURN_HEADING_CORRECTION = 130
 UTURN_HEADING_ERROR_THRESHOLD = 5
 
+PINK_THRESHOLD = 12000
+NEW_RED_DISTANCE_FROM_RIGHT = 0.30
+NEW_RED_WALL_DISTANCE_FROM_RIGHT = 0.30
+NEW_GREEN_DISTANCE_FROM_LEFT = 0.30
+NEW_GREEN_WALL_DISTANCE_FROM_LEFT = 0.30
+
 # PID Controllers
 heading_pid = pidcontroller.PIDController(kp=0.1, ki=0.0, kd=0.01)
-wall_distance_pid = pidcontroller.PIDController(kp=150.0, ki=0.0, kd=0)
+wall_distance_pid = pidcontroller.PIDController(kp=200.0, ki=0.0, kd=0)
 
 class State(Enum):
+    DO_NOTHING = -1
     NORMAL = 0
     TRAFFIC_TURNING = 1
     TRAFFIC_TURNING_BACK = 2
@@ -76,6 +84,9 @@ traffic_light_2_0_list = []
 is_uturning = False
 uturning_phase = 0
 
+is_parking_here = False
+is_parking_left = None
+
 def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
                       image: cv2.typing.MatLike,
@@ -89,6 +100,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     global is_tight_turn_ending, ultrasonic_tight_last_time_list, last_tight_turn_closest_block_color
     global traffic_light_1_0_list, traffic_light_1_3_list, traffic_light_2_0_list
     global is_uturning, uturning_phase
+    global is_parking_here, is_parking_left
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
@@ -160,6 +172,56 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     else:
         current_state = State.NORMAL
 
+    red_distance_from_right = RED_DISTANCE_FROM_RIGHT
+    red_wall_distance_from_right = RED_WALL_DISTANCE_FROM_RIGHT
+    green_distance_from_left = GREEN_DISTANCE_FROM_LEFT
+    green_wall_distance_from_left = GREEN_WALL_DISTANCE_FROM_LEFT
+
+    if pink_size is not None:
+        if pink_size >= PINK_THRESHOLD:
+            is_parking_here = True
+
+            if current_state == State.NORMAL:
+                current_state = State.DO_NOTHING
+    
+    if is_parking_here:
+        if is_clockwise is None:
+            if is_parking_left is not None:
+                if is_parking_left:
+                    green_distance_from_left = NEW_GREEN_DISTANCE_FROM_LEFT
+                    green_wall_distance_from_left = NEW_GREEN_WALL_DISTANCE_FROM_LEFT
+                    if ideal_outer_wall_distance_override == GREEN_WALL_DISTANCE_FROM_LEFT:
+                        ideal_outer_wall_distance_override = NEW_GREEN_WALL_DISTANCE_FROM_LEFT
+                else:
+                    red_distance_from_right = NEW_RED_DISTANCE_FROM_RIGHT
+                    red_wall_distance_from_right = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+                    if ideal_outer_wall_distance_override == RED_WALL_DISTANCE_FROM_RIGHT:
+                        ideal_outer_wall_distance_override = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+            elif pink_x is not None:
+                if pink_x >= CAMERA_WIDTH*0.5:
+                    green_distance_from_left = NEW_GREEN_DISTANCE_FROM_LEFT
+                    green_wall_distance_from_left = NEW_GREEN_WALL_DISTANCE_FROM_LEFT
+                    is_parking_left = True
+                    if ideal_outer_wall_distance_override == GREEN_WALL_DISTANCE_FROM_LEFT:
+                        ideal_outer_wall_distance_override = NEW_GREEN_WALL_DISTANCE_FROM_LEFT
+                else:
+                    red_distance_from_right = NEW_RED_DISTANCE_FROM_RIGHT
+                    red_wall_distance_from_right = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+                    is_parking_left = False
+                    if ideal_outer_wall_distance_override == RED_WALL_DISTANCE_FROM_RIGHT:
+                        ideal_outer_wall_distance_override = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+        else:
+            if is_clockwise:
+                green_distance_from_left = NEW_GREEN_DISTANCE_FROM_LEFT
+                green_wall_distance_from_left = NEW_GREEN_WALL_DISTANCE_FROM_LEFT
+                if ideal_outer_wall_distance_override == GREEN_WALL_DISTANCE_FROM_LEFT:
+                    ideal_outer_wall_distance_override = NEW_GREEN_WALL_DISTANCE_FROM_LEFT
+            else:
+                red_distance_from_right = NEW_RED_DISTANCE_FROM_RIGHT
+                red_wall_distance_from_right = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+                if ideal_outer_wall_distance_override == RED_WALL_DISTANCE_FROM_RIGHT:
+                    ideal_outer_wall_distance_override = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+
     speed = 1.00
     heading_correction_override = None
 
@@ -179,6 +241,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 last_closest_block_color = None
                 is_last_closest_block_color_same = False
                 ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
+                is_parking_here = False
                 turn_amount += 1
     elif current_state == State.TRAFFIC_TURNING:
         if not is_linger and not is_last_closest_block_color_same:
@@ -202,15 +265,15 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             if last_closest_block_color == 'red':
                 traffic_light_heading_correction = TRAFFIC_LIGHT_HEADING_CORRECTION
                 if is_clockwise is None or is_clockwise == True:
-                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - RED_DISTANCE_FROM_RIGHT
+                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - red_distance_from_right
                 else:
-                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= RED_DISTANCE_FROM_RIGHT
+                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= red_distance_from_right
             elif last_closest_block_color == 'green':
                 traffic_light_heading_correction = -TRAFFIC_LIGHT_HEADING_CORRECTION
                 if is_clockwise is None or is_clockwise == True:
-                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= GREEN_DISTANCE_FROM_LEFT
+                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= green_distance_from_left
                 else:
-                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - GREEN_DISTANCE_FROM_LEFT
+                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - green_distance_from_left
 
             if traffic_light_heading_correction == None or is_ultrasonic_reach == None:
                 raise ValueError(f'traffic_light_heading_correction: {traffic_light_heading_correction}, is_ultrasonic_reach: {is_ultrasonic_reach}')
@@ -225,14 +288,14 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
             if last_closest_block_color == 'red':
                 if is_clockwise is None or is_clockwise == True:
-                    ideal_outer_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT)
+                    ideal_outer_wall_distance_override = (1.0 - red_wall_distance_from_right)
                 else:
-                    ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+                    ideal_outer_wall_distance_override = red_wall_distance_from_right
             elif last_closest_block_color == 'green':
                 if is_clockwise is None or is_clockwise == True:
-                    ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
+                    ideal_outer_wall_distance_override = green_wall_distance_from_left
                 else:
-                    ideal_outer_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT)
+                    ideal_outer_wall_distance_override = (1.0 - green_wall_distance_from_left)
         
             is_linger = False
     elif current_state == State.TRAFFIC_TURNING_BACK:
@@ -242,14 +305,14 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
         if abs(heading_error) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD:
             if last_closest_block_color == 'red':
                 if is_clockwise is None or is_clockwise == True:
-                    ideal_outer_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT)
+                    ideal_outer_wall_distance_override = (1.0 - red_wall_distance_from_right)
                 else:
-                    ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+                    ideal_outer_wall_distance_override = red_wall_distance_from_right
             elif last_closest_block_color == 'green':
                 if is_clockwise is None or is_clockwise == True:
-                    ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
+                    ideal_outer_wall_distance_override = green_wall_distance_from_left
                 else:
-                    ideal_outer_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT)
+                    ideal_outer_wall_distance_override = (1.0 - green_wall_distance_from_left)
             
             is_linger = False
     elif current_state == State.TRAFFIC_TIGHT_TURNING:
@@ -267,24 +330,20 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
         if last_tight_turn_closest_block_color == 'red':
             if is_clockwise:
                 is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1
-                new_ideal_outer_wall_distance_override = (1.0 - RED_WALL_DISTANCE_FROM_RIGHT)
+                new_ideal_outer_wall_distance_override = (1.0 - red_wall_distance_from_right)
             else:
                 is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
-                new_ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+                new_ideal_outer_wall_distance_override = red_wall_distance_from_right
         elif last_tight_turn_closest_block_color == 'green':
             if is_clockwise:
                 is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
-                new_ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
+                new_ideal_outer_wall_distance_override = green_wall_distance_from_left
             else:
                 is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1
-                new_ideal_outer_wall_distance_override = (1.0 - GREEN_WALL_DISTANCE_FROM_LEFT)
+                new_ideal_outer_wall_distance_override = (1.0 - green_wall_distance_from_left)
         else:
-            if is_clockwise:
-                is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
-                new_ideal_outer_wall_distance_override = GREEN_WALL_DISTANCE_FROM_LEFT
-            else:
-                is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
-                new_ideal_outer_wall_distance_override = RED_WALL_DISTANCE_FROM_RIGHT
+            is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_NO
+            new_ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
 
 
 
@@ -297,9 +356,10 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             else:
                 suggested_heading -= 90
             suggested_heading %= 360
-            last_closest_block_color = None
+            last_closest_block_color = last_tight_turn_closest_block_color
             is_last_closest_block_color_same = False
             ideal_outer_wall_distance_override = new_ideal_outer_wall_distance_override
+            is_parking_here = False
             turn_amount += 1
             is_tight_turn_ending = True
             is_linger = False
