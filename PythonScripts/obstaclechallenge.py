@@ -112,8 +112,8 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     # cv2.line(image, (0, closest_block_lowest_y), (CAMERA_WIDTH, closest_block_lowest_y), (0, 0, 255), 3)
     # cv2.line(image, (0, blue_line_y), (CAMERA_WIDTH, blue_line_y), (255, 0, 0), 3)
     # cv2.line(image, (0, orange_line_y), (CAMERA_WIDTH, orange_line_y), (255, 255, 0), 3)
-    # cv2.imshow('image', image)
-    # cv2.waitKey(1)
+    cv2.imshow('image', image)
+    cv2.waitKey(1)
 
     heading_error = normalize_angle_error(suggested_heading - gyro_info)
 

@@ -27,6 +27,8 @@ def main():
             robot_data.process_data()
 
             image = robot_data.get_image()
+            image = image[IMAGE_HEIGHT:, :]
+
             ultrasonic_info = robot_data.get_ultrasonic_data()
             gyro_info = robot_data.get_gyro_data()
 
