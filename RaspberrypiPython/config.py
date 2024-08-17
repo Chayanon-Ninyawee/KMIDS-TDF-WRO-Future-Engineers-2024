@@ -7,14 +7,14 @@ FRONT_BACK_ULTRASONIC_DISTANCE = 0.185
 LEFT_RIGHT_ULTRASONIC_DISTANCE = 0.120
 
 # Threshold of blue line in HSV space
-# Measured blue line HSV: 109, 218, 173
-LOWER_BLUE_LINE = np.array([99, 178, 133]) 
-UPPER_BLUE_LINE = np.array([119, 248, 213])
+# Measured blue line HSV (112, 135, 151)
+LOWER_BLUE_LINE = np.array([107, 98, 133]) 
+UPPER_BLUE_LINE = np.array([117, 248, 213])
 
 # Threshold of orange line in HSV space
-# Measured orange line HSV: 15, 163, 204
-LOWER_ORANGE_LINE = np.array([5, 23, 114]) 
-UPPER_ORANGE_LINE = np.array([25, 213, 244])
+# Measured orange line HSV (11, 166, 231)
+LOWER_ORANGE_LINE = np.array([6, 110, 199]) 
+UPPER_ORANGE_LINE = np.array([16, 186, 251])
 
 # Threshold of red traffic light in HSV space
 # Measured red traffic light HSV: 177, 213, 238

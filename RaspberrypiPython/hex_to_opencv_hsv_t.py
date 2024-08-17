@@ -38,6 +38,6 @@ def hex_to_hsv_scaled(hex_color):
     return hsv
 
 # Example usage
-hex_color = "#b5a78c"
+hex_color = "#cf7343"
 hsv_color = hex_to_hsv_scaled(hex_color)
 print(f"HEX color {hex_color} converts to HSV {hsv_color}")

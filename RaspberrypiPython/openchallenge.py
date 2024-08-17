@@ -9,18 +9,18 @@ from utils import *
 MAX_HEADING_ERROR = 30.0
 IDEAL_OUTER_WALL_DISTANCE = 0.38
 BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 1000
-ULTRASONIC_THRESHOLD = 0.8
-ULTRASONIC_TURN_AMOUNT_WINDOW = 5
-TURN_COOLDOWN_TIME = 3.0
+ULTRASONIC_THRESHOLD = 0.7
+ULTRASONIC_TURN_TIME_WINDOW = 0.2
+TURN_COOLDOWN_TIME = 4
 
 LAPS_TO_STOP = 3
 ULTRASONIC_STOP_THRESHOLD = 1.4 # Must be more than ULTRASONIC_THRESHOLD
-ULTRASONIC_STOP_AMOUNT_WINDOW = 5
-STOP_COOLDOWN_TIME = 2 # Must be less than TURN_COOLDOWN_TIME
+ULTRASONIC_STOP_TIME_WINDOW = 0.1
+STOP_COOLDOWN_TIME = 3 # Must be less than TURN_COOLDOWN_TIME
 
 # PID Controllers
 heading_pid = pidcontroller.PIDController(kp=0.07, ki=0, kd=0)
-wall_distance_pid = pidcontroller.PIDController(kp=100.0, ki=0, kd=0)
+wall_distance_pid = pidcontroller.PIDController(kp=150.0, ki=0, kd=0)
 
 # State variables
 suggested_heading = 0
@@ -61,22 +61,22 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
 
     heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
+    print(f'{is_clockwise} {turn_amount} {suggested_heading} {ultrasonic_info}')
+
     if is_clockwise is None:
         if blue_line_size is not None and orange_line_size is not None:
             if blue_line_size - orange_line_size > BLUE_ORANGE_SIZE_DIFF_THRESHOLD:
                 is_clockwise = False
             elif orange_line_size - blue_line_size > BLUE_ORANGE_SIZE_DIFF_THRESHOLD:
                 is_clockwise = True
-
-    print(f'{is_clockwise} {blue_line_size} {orange_line_size}')
-
+    
     if is_clockwise is not None:
         if turn_amount >= 4*LAPS_TO_STOP:
             if execute_with_timing_conditions(
                 front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_STOP_THRESHOLD,
                 ultrasonic_last_time_list, # Intentionally use the same last_time_list as the turning condition to not stop before finish turning
                 cooldown_duration=STOP_COOLDOWN_TIME,
-                amount_window=ULTRASONIC_STOP_AMOUNT_WINDOW
+                time_window=ULTRASONIC_STOP_TIME_WINDOW
             ):
                 return False
 
@@ -84,7 +84,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
             front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD,
             ultrasonic_last_time_list,
             cooldown_duration=TURN_COOLDOWN_TIME,
-            amount_window=ULTRASONIC_TURN_AMOUNT_WINDOW
+            time_window=ULTRASONIC_TURN_TIME_WINDOW
         ):
             if is_clockwise:
                 suggested_heading += 90

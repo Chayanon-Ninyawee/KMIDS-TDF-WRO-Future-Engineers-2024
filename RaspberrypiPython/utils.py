@@ -79,7 +79,7 @@ def execute_with_timing_conditions(
     condition: bool,
     last_time_list: List[float],
     cooldown_duration: Optional[float] = None,
-    amount_window: Optional[float] = None,
+    time_window: Optional[float] = None,
     linger_duration: Optional[float] = None
 ) -> bool:
     """
@@ -121,15 +121,15 @@ def execute_with_timing_conditions(
 
     is_all_timing_met = condition
 
-    if condition:
-        last_time_list[1] += 1
+    if condition:    
         if cooldown_duration is not None:
             is_all_timing_met = is_all_timing_met and (current_time - last_time_list[0] >= cooldown_duration)
 
-        if amount_window is not None:
-            is_all_timing_met = is_all_timing_met and (last_time_list[1] >= amount_window)
+        if time_window is not None:
+            is_all_timing_met = is_all_timing_met and (current_time - last_time_list[1] >= time_window)
     else:
-        last_time_list[1] = 0
+        if time_window is not None:
+            last_time_list[1] = current_time
 
     if linger_duration is not None:
         if is_all_timing_met:
@@ -137,12 +137,12 @@ def execute_with_timing_conditions(
 
         if current_time - last_time_list[2] <= linger_duration:
             if cooldown_duration is not None:
-                last_time_list[0] = time.time()
+                last_time_list[0] = current_time
             
             return True
     elif is_all_timing_met:
         if cooldown_duration is not None:
-            last_time_list[0] = time.time()
+            last_time_list[0] = current_time
         
         return True
     
