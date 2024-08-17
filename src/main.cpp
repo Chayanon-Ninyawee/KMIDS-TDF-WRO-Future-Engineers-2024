@@ -164,7 +164,7 @@ void setup() {
     front.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
     front.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
 
-    front.setMeasurementTimingBudget(33000);
+    front.setMeasurementTimingBudget(52000);
   }
 
   delay(10);
@@ -181,7 +181,7 @@ void setup() {
     back.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
     back.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
     
-    back.setMeasurementTimingBudget(33000);
+    back.setMeasurementTimingBudget(52000);
   }
 
   delay(10);
@@ -198,7 +198,7 @@ void setup() {
     left.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
     left.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
 
-    left.setMeasurementTimingBudget(33000);
+    left.setMeasurementTimingBudget(52000);
   }
 
   delay(10);
@@ -215,7 +215,7 @@ void setup() {
     right.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
     right.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
 
-    right.setMeasurementTimingBudget(33000);
+    right.setMeasurementTimingBudget(52000);
   }
 
   if (!is_running) {
@@ -243,23 +243,23 @@ void loop() {
   uint16_t left_data = left.readRangeContinuousMillimeters();
   uint16_t right_data = right.readRangeContinuousMillimeters();
 
-  // if (front_data < 8190) {
-  //   front_ultrasonic_distance = front_data / 1000.0;
-  // }
-  // if (back_data < 8190) {
-  //   back_ultrasonic_distance = back_data / 1000.0;
-  // }
-  // if (left_data < 8190) {
-  //   left_ultrasonic_distance = left_data / 1000.0;
-  // }
-  // if (right_data < 8190) {
-  //   right_ultrasonic_distance = right_data / 1000.0;
-  // }
+  if (front_data < 8190) {
+    front_ultrasonic_distance = front_data / 1000.0;
+  }
+  if (back_data < 8190) {
+    back_ultrasonic_distance = back_data / 1000.0;
+  }
+  if (left_data < 8190) {
+    left_ultrasonic_distance = left_data / 1000.0;
+  }
+  if (right_data < 8190) {
+    right_ultrasonic_distance = right_data / 1000.0;
+  }
 
-  front_ultrasonic_distance = front_data / 1000.0;
-  back_ultrasonic_distance = back_data / 1000.0;
-  left_ultrasonic_distance = left_data / 1000.0;
-  right_ultrasonic_distance = right_data / 1000.0;
+  // front_ultrasonic_distance = front_data / 1000.0;
+  // back_ultrasonic_distance = back_data / 1000.0;
+  // left_ultrasonic_distance = left_data / 1000.0;
+  // right_ultrasonic_distance = right_data / 1000.0;
   
   sensors_event_t event;
   bno.getEvent(&event);
