@@ -1,6 +1,4 @@
-import numpy as np
 import cv2
-import math
 import time
 
 import robotdata
@@ -26,8 +24,8 @@ def main():
 
             robot_data.process_data()
 
-            image = robot_data.get_image()
-            image = image[IMAGE_HEIGHT:, :]
+            full_image = robot_data.get_image()
+            image = full_image[IMAGE_HEIGHT:, :]
 
             ultrasonic_info = robot_data.get_ultrasonic_data()
             gyro_info = robot_data.get_gyro_data()
