@@ -201,6 +201,8 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             if current_state == State.NORMAL:
                 current_state = State.DO_NOTHING
     
+    # TODO: Add case where the robot see the pink wall before the turn so that it can pre turn and not hit the pink wall
+    # TODO: Add parking
     if is_parking_here:
         if is_clockwise is None:
             if is_parking_left is not None:
@@ -298,8 +300,10 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             is_heading_ok = False
             if ideal_outer_wall_distance_override == IDEAL_OUTER_WALL_DISTANCE:
                 is_heading_ok = abs(heading_error + traffic_light_heading_correction) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID
+                # TODO: Try make it so that it only require the curtain heading and not using ultrasonic for MID case
             else:
                 is_heading_ok = abs(heading_error + traffic_light_heading_correction) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN
+                # TODO: Investigate why sometime it turn late and why sometime it turn early
 
             if is_heading_ok and is_ultrasonic_reach:
                 heading_correction_override = 0
@@ -399,7 +403,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
         last_tight_turn_closest_block_color = None
         is_tight_turn_ending = False
-    elif current_state == State.UTURNING:
+    elif current_state == State.UTURNING: # TODO: Seperate UTURN into more state so it doesn't require inside phase
         speed = 0.60
         is_linger = True
 
