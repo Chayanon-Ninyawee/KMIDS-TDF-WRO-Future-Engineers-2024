@@ -37,8 +37,6 @@ Servo steering_servo;
 
 CytronMD motor(PWM_PWM, 2, 3);
 
-float front_ultrasonic_distance = 0, back_ultrasonic_distance = 0, left_ultrasonic_distance = 0, right_ultrasonic_distance = 0;
-
 float power_percent = 0, steering_percent = 0;
 float last_power_percent = power_percent, last_steering_percent = steering_percent;
 
@@ -242,6 +240,9 @@ void loop() {
   uint16_t back_data = back.readRangeContinuousMillimeters();
   uint16_t left_data = left.readRangeContinuousMillimeters();
   uint16_t right_data = right.readRangeContinuousMillimeters();
+
+
+  float front_ultrasonic_distance = -1.0f, back_ultrasonic_distance = -1.0f, left_ultrasonic_distance = -1.0f, right_ultrasonic_distance = -1.0f;
 
   if (front_data < 8190) {
     front_ultrasonic_distance = front_data / 1000.0;
