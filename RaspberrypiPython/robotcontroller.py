@@ -34,8 +34,8 @@ def main():
                 #print(f'{1/delta_time} {ultrasonic_info}')
                 pass
 
-            result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
-            # result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
+            # result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
+            result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
             # result = (0, 0)
 
             speed_target = 0

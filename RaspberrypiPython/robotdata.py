@@ -77,8 +77,9 @@ class RobotData:
         config = self._picam2.create_preview_configuration(main={"size": (self.image_width, self.image_height)})
         self._picam2.configure(config)
 
-        self._picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 0.5})
-        self._picam2.set_controls({"AwbEnable": False, "Brightness": 0.1})
+        self._picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 2.0})
+        self._picam2.set_controls({"AeEnable": False , "ExposureTime": 3000, "AnalogueGain": 6.2, "ColourGains": (1.9699761867523193, 1.9044568538665771)})
+        self._picam2.set_controls({"AwbEnable": False, "Brightness": 0.1, "Contrast": 1.2})
         self._picam2.set_controls({"HdrMode": controls.HdrModeEnum.Off})
 
         self._picam2.start()

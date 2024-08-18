@@ -9,12 +9,12 @@ from enum import Enum
 # TODO: Add Scenario where pink wall is after the turning line
 
 # Constants
-MAX_HEADING_ERROR = 30.0
+MAX_HEADING_ERROR = 20.0
 IDEAL_OUTER_WALL_DISTANCE = 0.5 - (LEFT_RIGHT_ULTRASONIC_DISTANCE / 2.0)
-BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 1000
-ULTRASONIC_THRESHOLD = 0.70
+BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 3000
+ULTRASONIC_THRESHOLD = 0.78
 ULTRASONIC_TURN_TIME_WINDOW = 0.3
-TURN_COOLDOWN_TIME = 3
+TURN_COOLDOWN_TIME = 4
 
 ULTRASONIC_TIGHT_THRESHOLD = 1.10
 ULTRASONIC_TIGHT_TURN_TIME_WINDOW = 0.3
@@ -22,34 +22,35 @@ TIGHT_TURN_COOLDOWN_TIME = 2.7
 
 LAPS_TO_STOP = 3
 
-TRAFFIC_LIGHT_SIZE_THRESHOLD = 4000
-TRAFFIC_LIGHT_Y_THRESHOLD = CAMERA_HEIGHT*0.8
-TRAFFIC_LIGHT_COOLDOWN_TIME = 2.0
-TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.90
-TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.32
+TRAFFIC_LIGHT_SIZE_THRESHOLD = 2800
+TRAFFIC_LIGHT_COOLDOWN_TIME = 2.2
+TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.95
+TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.38
 TIGHT_TURN_ULTRASONIC_THRESHOLD_NO = 0.60
-TIGHT_TURN_LINGER_TIME = 2.0
+TIGHT_TURN_LINGER_TIME = 1.5
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 70
-TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD = 10
-RED_DISTANCE_FROM_RIGHT = 0.25
-RED_WALL_DISTANCE_FROM_RIGHT = 0.18
-GREEN_DISTANCE_FROM_LEFT = 0.25
-GREEN_WALL_DISTANCE_FROM_LEFT = 0.18
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN = 5
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID = 25
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_OUT = 4
+RED_DISTANCE_FROM_RIGHT = 0.31
+RED_WALL_DISTANCE_FROM_RIGHT = 0.20
+GREEN_DISTANCE_FROM_LEFT = 0.31
+GREEN_WALL_DISTANCE_FROM_LEFT = 0.20
 
 UTURN_ULTRASONIC_THRESHOLD = 0.5
 UTURN_HEADING_CORRECTION = 120
 UTURN_HEADING_ERROR_THRESHOLD = 5
 
 PINK_THRESHOLD = 12000
-NEW_RED_DISTANCE_FROM_RIGHT = 0.30
-NEW_RED_WALL_DISTANCE_FROM_RIGHT = 0.30
-NEW_GREEN_DISTANCE_FROM_LEFT = 0.30
-NEW_GREEN_WALL_DISTANCE_FROM_LEFT = 0.30
+NEW_RED_DISTANCE_FROM_RIGHT = 0.50
+NEW_RED_WALL_DISTANCE_FROM_RIGHT = 0.34
+NEW_GREEN_DISTANCE_FROM_LEFT = 0.50
+NEW_GREEN_WALL_DISTANCE_FROM_LEFT = 0.34
 
 # PID Controllers
-heading_pid = pidcontroller.PIDController(kp=0.1, ki=0.0, kd=0.01)
-wall_distance_pid = pidcontroller.PIDController(kp=200.0, ki=0.0, kd=0)
+heading_pid = pidcontroller.PIDController(kp=0.07, ki=0, kd=0)
+wall_distance_pid = pidcontroller.PIDController(kp=200.0, ki=0, kd=0)
 
 class State(Enum):
     DO_NOTHING = -1
@@ -61,6 +62,9 @@ class State(Enum):
     UTURNING = 5
 
 # State variables
+last_left_ultrasonic = IDEAL_OUTER_WALL_DISTANCE
+last_right_ultrasonic = IDEAL_OUTER_WALL_DISTANCE
+
 current_state = State.NORMAL
 is_linger = False
 
@@ -68,15 +72,15 @@ suggested_heading = 0
 is_clockwise = None
 turn_amount = 0
 
-ultrasonic_last_time_list = [0.0, 0.0, 0.0]
+ultrasonic_last_time_list = [time.time() - 1.0, 0.0, 0.0]
 
 last_closest_block_color = None
 is_last_closest_block_color_same = False
 ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
 
-ultrasonic_tight_last_time_list = [0.0, 0.0, 0.0]
+ultrasonic_tight_last_time_list = [time.time() - 1.0, 0.0, 0.0]
 is_tight_turn_ending = False
-tight_turn_ending_last_time_list = [0.0, 0.0, 0.0]
+tight_turn_ending_last_time_list = [time.time() - 1.0, 0.0, 0.0]
 last_tight_turn_closest_block_color = None
 
 traffic_light_1_0_list = []
@@ -94,6 +98,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                       image: cv2.typing.MatLike,
                       delta_time: float
                       ) -> tuple[float, float]:
+    global last_left_ultrasonic, last_right_ultrasonic
     global current_state, is_linger
     global heading_pid, wall_distance_pid
     global suggested_heading, is_clockwise, turn_amount
@@ -106,6 +111,12 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
+    if left_ultrasonic == -1:
+        left_ultrasonic = last_left_ultrasonic
+    
+    if right_ultrasonic == -1:
+        right_ultrasonic = last_right_ultrasonic
+
     blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color, pink_x, pink_y, pink_size = ImageProcessor.process_image(image)
 
     # cv2.line(image, (closest_block_x, 0), (closest_block_x, CAMERA_HEIGHT), (0, 0, 255), 3)
@@ -117,7 +128,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
-    print(f'{is_clockwise} {turn_amount} {suggested_heading} {current_state} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
+    print(f'{front_ultrasonic} {heading_error} {is_clockwise} {turn_amount} {suggested_heading} {current_state} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
 
     if is_clockwise is None:
         if blue_line_size is not None and orange_line_size is not None:
@@ -150,7 +161,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     elif is_traffic_turning:
         current_state = State.TRAFFIC_TURNING
     elif execute_with_timing_conditions( # For UTURNING and TIGHT_TURNING
-        front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_TIGHT_THRESHOLD,
+        (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_TIGHT_THRESHOLD),
         ultrasonic_tight_last_time_list,
         cooldown_duration=TIGHT_TURN_COOLDOWN_TIME,
         time_window=ULTRASONIC_TIGHT_TURN_TIME_WINDOW
@@ -232,7 +243,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     if current_state == State.NORMAL:
         if is_clockwise is not None:
             if execute_with_timing_conditions(
-                front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD,
+                (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_THRESHOLD),
                 ultrasonic_last_time_list,
                 cooldown_duration=TURN_COOLDOWN_TIME,
                 time_window=ULTRASONIC_TURN_TIME_WINDOW
@@ -269,20 +280,26 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             if last_closest_block_color == 'red':
                 traffic_light_heading_correction = TRAFFIC_LIGHT_HEADING_CORRECTION
                 if is_clockwise is None or is_clockwise == True:
-                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - red_distance_from_right
+                    is_ultrasonic_reach = (not back_ultrasonic == -1) and ((back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - red_distance_from_right)
                 else:
-                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= red_distance_from_right
+                    is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.sin(math.radians(abs(heading_error))) <= red_distance_from_right)
             elif last_closest_block_color == 'green':
                 traffic_light_heading_correction = -TRAFFIC_LIGHT_HEADING_CORRECTION
                 if is_clockwise is None or is_clockwise == True:
-                    is_ultrasonic_reach = (front_ultrasonic) * math.sin(math.radians(abs(heading_error))) <= green_distance_from_left
+                    is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.sin(math.radians(abs(heading_error))) <= green_distance_from_left)
                 else:
-                    is_ultrasonic_reach = (back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - green_distance_from_left
+                    is_ultrasonic_reach = (not back_ultrasonic == -1) and ((back_ultrasonic + FRONT_BACK_ULTRASONIC_DISTANCE) * math.sin(math.radians(abs(heading_error))) >= 1.0 - green_distance_from_left)
 
             if traffic_light_heading_correction == None or is_ultrasonic_reach == None:
                 raise ValueError(f'traffic_light_heading_correction: {traffic_light_heading_correction}, is_ultrasonic_reach: {is_ultrasonic_reach}')
+            
+            is_heading_ok = False
+            if ideal_outer_wall_distance_override == IDEAL_OUTER_WALL_DISTANCE:
+                is_heading_ok = abs(heading_error + traffic_light_heading_correction) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID
+            else:
+                is_heading_ok = abs(heading_error + traffic_light_heading_correction) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN
 
-            if abs(heading_error + traffic_light_heading_correction) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD and is_ultrasonic_reach:
+            if is_heading_ok and is_ultrasonic_reach:
                 heading_correction_override = 0
                 current_state = State.TRAFFIC_TURNING_BACK # Don't turn is_linger to False since it will change the state
             else:
@@ -306,7 +323,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
         speed = 0.70
         heading_correction_override = 0
 
-        if abs(heading_error) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD:
+        if abs(heading_error) <= TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_OUT:
             if last_closest_block_color == 'red':
                 if is_clockwise is None or is_clockwise == True:
                     ideal_outer_wall_distance_override = 1.0 - red_wall_distance_from_right - LEFT_RIGHT_ULTRASONIC_DISTANCE
@@ -333,20 +350,20 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
         if last_tight_turn_closest_block_color == 'red':
             if is_clockwise:
-                is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1
+                is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1)
                 new_ideal_outer_wall_distance_override = 1.0 - red_wall_distance_from_right - LEFT_RIGHT_ULTRASONIC_DISTANCE
             else:
-                is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
+                is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2)
                 new_ideal_outer_wall_distance_override = red_wall_distance_from_right
         elif last_tight_turn_closest_block_color == 'green':
             if is_clockwise:
-                is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2
+                is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_2)
                 new_ideal_outer_wall_distance_override = green_wall_distance_from_left
             else:
-                is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1
+                is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_1)
                 new_ideal_outer_wall_distance_override = 1.0 - green_wall_distance_from_left - LEFT_RIGHT_ULTRASONIC_DISTANCE
         else:
-            is_ultrasonic_reach = front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_NO
+            is_ultrasonic_reach = (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= TIGHT_TURN_ULTRASONIC_THRESHOLD_NO)
             new_ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
 
 
@@ -386,7 +403,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
         if uturning_phase == 0:
             heading_correction_override = 0
-            if front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= UTURN_ULTRASONIC_THRESHOLD:
+            if (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) <= UTURN_ULTRASONIC_THRESHOLD):
                 uturning_phase = 1
 
         if uturning_phase == 1:
@@ -436,6 +453,9 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     if speed < 0.0: steering_percent = -steering_percent
 
+    last_left_ultrasonic = left_ultrasonic
+    last_right_ultrasonic = right_ultrasonic
+
     return speed, steering_percent
 
 
@@ -448,6 +468,18 @@ class ImageProcessor:
         # Create masks for blue and orange colors
         mask_blue = cv2.inRange(hsv_image, LOWER_BLUE_LINE, UPPER_BLUE_LINE)
         mask_orange = cv2.inRange(hsv_image, LOWER_ORANGE_LINE, UPPER_ORANGE_LINE)
+
+        contours_blue, _ = cv2.findContours(mask_blue, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours_orange, _ = cv2.findContours(mask_orange, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        large_contours_blue = [c for c in contours_blue if cv2.contourArea(c) > MIN_BLUE_LINE_AREA]
+        large_contours_orange = [c for c in contours_orange if cv2.contourArea(c) > MIN_ORANGE_LINE_AREA]
+
+        mask_blue = np.zeros_like(mask_blue)
+        mask_blue = cv2.drawContours(mask_blue, large_contours_blue, -1, 255, thickness=cv2.FILLED)
+
+        mask_orange = np.zeros_like(mask_orange)
+        mask_orange = cv2.drawContours(mask_orange, large_contours_orange, -1, 255, thickness=cv2.FILLED)
 
         blue_coordinates = ImageProcessor.get_coordinates(mask_blue)
         blue_line_size = blue_coordinates.size
@@ -467,10 +499,13 @@ class ImageProcessor:
         # Find contours for red and green blocks
         contours_red, _ = cv2.findContours(mask_red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         contours_green, _ = cv2.findContours(mask_green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        large_contours_red = [c for c in contours_red if cv2.contourArea(c) > MIN_RED_LINE_AREA]
+        large_contours_green = [c for c in contours_green if cv2.contourArea(c) > MIN_GREEN_LINE_AREA]
         
         # Get centroids and areas for red and green blocks
-        red_blocks = [ImageProcessor.get_centroid_and_area(c) for c in contours_red if ImageProcessor.get_centroid_and_area(c)[0] is not None]
-        green_blocks = [ImageProcessor.get_centroid_and_area(c) for c in contours_green if ImageProcessor.get_centroid_and_area(c)[0] is not None]
+        red_blocks = [ImageProcessor.get_centroid_and_area(c) for c in large_contours_red if ImageProcessor.get_centroid_and_area(c)[0] is not None]
+        green_blocks = [ImageProcessor.get_centroid_and_area(c) for c in large_contours_green if ImageProcessor.get_centroid_and_area(c)[0] is not None]
         
         closest_red_block = ImageProcessor.find_closest_block(red_blocks)
         closest_green_block = ImageProcessor.find_closest_block(green_blocks)
@@ -485,15 +520,19 @@ class ImageProcessor:
             closest_block_lowest_y = closest_block[2][1]
         
 
-        mask_pink = cv2.inRange(hsv_image, LOWER_PINK_LIGHT, UPPER_PINK_LIGHT)
+        # mask_pink = cv2.inRange(hsv_image, LOWER_PINK_LIGHT, UPPER_PINK_LIGHT)
 
-        pink_coordinates = ImageProcessor.get_coordinates(mask_pink)
-        pink_size = pink_coordinates.size
-        pink_x = ImageProcessor.get_average_x(pink_coordinates)
-        pink_y = ImageProcessor.get_average_y(pink_coordinates)
+        # pink_coordinates = ImageProcessor.get_coordinates(mask_pink)
+        # pink_size = pink_coordinates.size
+        # pink_x = ImageProcessor.get_average_x(pink_coordinates)
+        # pink_y = ImageProcessor.get_average_y(pink_coordinates)
+
+        pink_size = None
+        pink_x = None
+        pink_y = None
         
         return blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color, pink_x, pink_y, pink_size
-    
+
     @staticmethod
     def get_coordinates(mask):
         return np.column_stack(np.where(mask > 0))
