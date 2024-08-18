@@ -74,7 +74,7 @@ class RobotData:
         
         self._picam2 = Picamera2()
 
-        config = self._picam2.create_preview_configuration(main={"size": (self.image_width, self.image_height)})
+        config = self._picam2.create_preview_configuration(raw={"size":(2304, 1296)},main={"size": (self.image_width, self.image_height)})
         self._picam2.configure(config)
 
         self._picam2.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 2.0})
