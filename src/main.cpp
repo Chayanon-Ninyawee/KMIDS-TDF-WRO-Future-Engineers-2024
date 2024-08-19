@@ -158,11 +158,12 @@ void setup() {
   } else {
     Serial.println(F("Booted front"));
 
-    front.setSignalRateLimit(0.1);
-    front.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
-    front.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+    front.setTimeout(55);
+    // front.setSignalRateLimit(0.1);
+    // front.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
+    // front.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
 
-    front.setMeasurementTimingBudget(52000);
+    front.setMeasurementTimingBudget(53000);
   }
 
   delay(10);
@@ -175,11 +176,12 @@ void setup() {
   } else {
     Serial.println(F("Booted back"));
 
-    back.setSignalRateLimit(0.1);
-    back.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
-    back.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+    back.setTimeout(55);
+    // back.setSignalRateLimit(0.1);
+    // back.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
+    // back.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
     
-    back.setMeasurementTimingBudget(52000);
+    back.setMeasurementTimingBudget(53000);
   }
 
   delay(10);
@@ -192,11 +194,12 @@ void setup() {
   } else {
     Serial.println(F("Booted left"));
 
-    left.setSignalRateLimit(0.1);
-    left.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
-    left.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+    left.setTimeout(55);
+    // left.setSignalRateLimit(0.1);
+    // left.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
+    // left.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
 
-    left.setMeasurementTimingBudget(52000);
+    left.setMeasurementTimingBudget(53000);
   }
 
   delay(10);
@@ -209,11 +212,12 @@ void setup() {
   } else {
     Serial.println(F("Booted right"));
 
-    right.setSignalRateLimit(0.1);
-    right.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
-    right.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
+    right.setTimeout(55);
+    // right.setSignalRateLimit(0.1);
+    // right.setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);
+    // right.setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14);
 
-    right.setMeasurementTimingBudget(52000);
+    right.setMeasurementTimingBudget(53000);
   }
 
   if (!is_running) {
@@ -226,7 +230,7 @@ void setup() {
   right.startContinuous();
 }
 
-long last_micros = 0;
+long last_micros = micros();
 void loop() {
   long current_micros = micros();
   long delay_micros_duration = 55000 - (current_micros - last_micros);
@@ -246,15 +250,99 @@ void loop() {
 
   if (front_data < 8190) {
     front_ultrasonic_distance = front_data / 1000.0;
+  } else if (front_data == 65535) {
+    Serial.println(front_data);
+    
+    digitalWrite(FRONT_PIN, LOW);
+    delay(35);
+    digitalWrite(FRONT_PIN, HIGH);
+    delay(15);
+    front.setAddress(FRONT_ADDR);
+    if(!front.init()) {
+      Serial.println(F("Failed to boot front"));
+    } else {
+      Serial.println(F("Booted front"));
+
+      front.setTimeout(55);
+
+      front.setMeasurementTimingBudget(53000);
+    }
+
+    front_ultrasonic_distance = -1.0f;
+  } else {
+    front_ultrasonic_distance = -1.0f;
   }
   if (back_data < 8190) {
     back_ultrasonic_distance = back_data / 1000.0;
+  } else if (back_data == 65535) {
+    Serial.println(back_data);
+    
+    digitalWrite(BACK_PIN, LOW);
+    delay(35);
+    digitalWrite(BACK_PIN, HIGH);
+    delay(15);
+    back.setAddress(BACK_ADDR);
+    if(!back.init()) {
+      Serial.println(F("Failed to boot back"));
+    } else {
+      Serial.println(F("Booted back"));
+
+      back.setTimeout(55);
+
+      back.setMeasurementTimingBudget(53000);
+    }
+
+    back_ultrasonic_distance = -1.0f;
+  } else {
+    back_ultrasonic_distance = -1.0f;
   }
   if (left_data < 8190) {
     left_ultrasonic_distance = left_data / 1000.0;
+  } else if (left_data == 65535) {
+    Serial.println(left_data);
+    
+    digitalWrite(LEFT_PIN, LOW);
+    delay(35);
+    digitalWrite(LEFT_PIN, HIGH);
+    delay(15);
+    left.setAddress(LEFT_ADDR);
+    if(!left.init()) {
+      Serial.println(F("Failed to boot left"));
+    } else {
+      Serial.println(F("Booted left"));
+
+      left.setTimeout(55);
+
+      left.setMeasurementTimingBudget(53000);
+    }
+
+    left_ultrasonic_distance = -1.0f;
+  } else {
+    left_ultrasonic_distance = -1.0f;
   }
   if (right_data < 8190) {
     right_ultrasonic_distance = right_data / 1000.0;
+  } else if (right_data == 65535) {
+    Serial.println(right_data);
+    
+    digitalWrite(RIGHT_PIN, LOW);
+    delay(35);
+    digitalWrite(RIGHT_PIN, HIGH);
+    delay(15);
+    right.setAddress(RIGHT_ADDR);
+    if(!right.init()) {
+      Serial.println(F("Failed to boot right"));
+    } else {
+      Serial.println(F("Booted right"));
+
+      right.setTimeout(55);
+
+      right.setMeasurementTimingBudget(53000);
+    }
+
+    right_ultrasonic_distance = -1.0f;
+  } else {
+    right_ultrasonic_distance = -1.0f;
   }
 
   // front_ultrasonic_distance = front_data / 1000.0;
@@ -347,7 +435,7 @@ void loop() {
   }
 
   if (power_percent != last_power_percent) {
-    motor.setSpeed(round(255*power_percent));
+    motor.setSpeed(round(255.0*power_percent));
     last_power_percent = power_percent;
   }
 }
