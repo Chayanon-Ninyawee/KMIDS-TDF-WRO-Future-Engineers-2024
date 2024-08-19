@@ -16,6 +16,8 @@ def main():
     global robot_data
     last_update_time = time.time()
 
+    # TODO: Check ultrasonic_info if it have any error
+
     try:
         while True:
             current_time = time.time()
