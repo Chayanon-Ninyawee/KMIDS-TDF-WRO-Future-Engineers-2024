@@ -14,7 +14,7 @@ ULTRASONIC_TURN_TIME_WINDOW = 0.2
 TURN_COOLDOWN_TIME = 4
 
 LAPS_TO_STOP = 3
-ULTRASONIC_STOP_THRESHOLD = 1.4 # Must be more than ULTRASONIC_THRESHOLD
+ULTRASONIC_STOP_THRESHOLD = 0.95 # (BTW CHANGE TO USE BACK SENSOR INSTEAD)
 ULTRASONIC_STOP_TIME_WINDOW = 0.1
 STOP_COOLDOWN_TIME = 3 # Must be less than TURN_COOLDOWN_TIME
 
@@ -57,13 +57,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     global suggested_heading, is_clockwise, last_turn_time, turn_amount
     global ultrasonic_last_time_list
 
-    front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
-
-    if left_ultrasonic == -1:
-        left_ultrasonic = last_left_ultrasonic
-    
-    if right_ultrasonic == -1:
-        right_ultrasonic = last_right_ultrasonic
+    front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_manager(ultrasonic_info)
 
     blue_line_properties, orange_line_properties = ImageProcessor.process_image(image)
     _, blue_line_size = blue_line_properties
@@ -82,12 +76,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     
     if is_clockwise is not None:
         if turn_amount >= 4*LAPS_TO_STOP:
-            if execute_with_timing_conditions(
-                (not front_ultrasonic == -1) and (front_ultrasonic * math.cos(math.radians(abs(heading_error))) < ULTRASONIC_STOP_THRESHOLD),
-                ultrasonic_last_time_list, # Intentionally use the same last_time_list as the turning condition to not stop before finish turning
-                cooldown_duration=STOP_COOLDOWN_TIME,
-                time_window=ULTRASONIC_STOP_TIME_WINDOW
-            ):
+            if (not back_ultrasonic == -1) and (back_ultrasonic > ULTRASONIC_STOP_THRESHOLD) and (abs(heading_error) <= 5):
                 return False
 
         if execute_with_timing_conditions(
@@ -125,6 +114,26 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
 
     return 1.00, steering_percent
 
+
+def ultrasonic_manager(ultrasonic_info):
+    front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
+
+    if front_ultrasonic > 100:
+        front_ultrasonic = -1
+    if back_ultrasonic > 100:
+        back_ultrasonic = -1
+    if left_ultrasonic > 100:
+        left_ultrasonic = -1
+    if right_ultrasonic > 100:
+        right_ultrasonic = -1
+
+    if left_ultrasonic == -1:
+        left_ultrasonic = last_left_ultrasonic
+    
+    if right_ultrasonic == -1:
+        right_ultrasonic = last_right_ultrasonic
+    
+    return front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic
 
 class ImageProcessor:
     @staticmethod

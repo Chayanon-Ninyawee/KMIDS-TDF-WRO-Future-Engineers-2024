@@ -2,6 +2,7 @@ import cv2
 import time
 
 import robotdata
+import pgpio
 
 from openchallenge import process_data_open
 from obstaclechallenge import process_data_obstacle
@@ -10,13 +11,21 @@ from config import *
 from utils import *
 
 robot_data = robotdata.RobotData(CAMERA_WIDTH, CAMERA_HEIGHT)
-
+gpio = pgpio.PGPIO()
 
 def main():
     global robot_data
     last_update_time = time.time()
 
     # TODO: Check ultrasonic_info if it have any error
+
+    gpio.setup_gpio(13, gpio.Direction.INPUT, gpio.Pull.UP)
+    time.sleep(1)
+
+    while(gpio.input_gpio(13) == 1):
+        time.sleep(0.010)
+
+    time.sleep(1)
 
     try:
         while True:
@@ -36,8 +45,8 @@ def main():
                 #print(f'{1/delta_time} {ultrasonic_info}')
                 pass
 
-            # result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
-            result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
+            result = process_data_open(ultrasonic_info, gyro_info, image, delta_time)
+            # result = process_data_obstacle(ultrasonic_info, gyro_info, image, delta_time)
             # result = (0, 0)
 
             speed_target = 0

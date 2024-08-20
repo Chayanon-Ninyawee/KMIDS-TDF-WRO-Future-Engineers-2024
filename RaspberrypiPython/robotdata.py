@@ -148,6 +148,7 @@ class RobotData:
         time.sleep(0.1)
         self._communicator.close()
         time.sleep(0.5)
+        self._picam2.close()
 
     def get_image(self) -> np.ndarray:
         """
