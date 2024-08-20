@@ -22,16 +22,16 @@ TIGHT_TURN_COOLDOWN_TIME = 2.7
 
 LAPS_TO_STOP = 3
 
-TRAFFIC_LIGHT_SIZE_THRESHOLD = 1000
+TRAFFIC_LIGHT_SIZE_THRESHOLD = 3000
 TRAFFIC_LIGHT_COOLDOWN_TIME = 1.5
 TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 1.00
-TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.38
+TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.40
 TIGHT_TURN_ULTRASONIC_THRESHOLD_NO = 1.00
 TIGHT_TURN_LINGER_TIME = 0.9
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 75
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN = 5
-TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID = 30
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID = 28
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_OUT = 3
 RED_DISTANCE_FROM_RIGHT = 0.39
 # RED_DISTANCE_FROM_RIGHT_MID = 0.33
@@ -39,6 +39,7 @@ RED_WALL_DISTANCE_FROM_RIGHT = 0.17
 GREEN_DISTANCE_FROM_LEFT = 0.39
 # GREEN_DISTANCE_FROM_LEFT_MID = 0.33
 GREEN_WALL_DISTANCE_FROM_LEFT = 0.17
+NORMAL_WALL_KP = 10.0
 
 UTURN_ULTRASONIC_THRESHOLD = 0.65
 UTURN_HEADING_CORRECTION = 110
@@ -49,10 +50,13 @@ NEW_RED_DISTANCE_FROM_RIGHT = 0.50
 NEW_RED_WALL_DISTANCE_FROM_RIGHT = 0.34
 NEW_GREEN_DISTANCE_FROM_LEFT = 0.50
 NEW_GREEN_WALL_DISTANCE_FROM_LEFT = 0.34
+PINK_WALL_KP = 200.0
+PARKING_KP_COOLDOWN = 6.0
+PARKING_KP_TIME_WINDOW = 1.2
 
 # PID Controllers
 heading_pid = pidcontroller.PIDController(kp=0.07, ki=0, kd=0)
-wall_distance_pid = pidcontroller.PIDController(kp=200.0, ki=0, kd=0)
+wall_distance_pid = pidcontroller.PIDController(kp=10.0, ki=0, kd=0)
 
 class State(Enum):
     DO_NOTHING = -1
@@ -93,6 +97,7 @@ is_uturning = False
 uturning_phase = 0
 
 is_parking_here = False
+parking_kp_last_time_list = [time.time() - 1.0, 0.0, 0.0]
 is_parking_left = None
 
 def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
@@ -109,7 +114,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
     global is_tight_turn_ending, ultrasonic_tight_last_time_list, last_tight_turn_closest_block_color
     global traffic_light_1_0_list, traffic_light_1_3_list, traffic_light_2_0_list
     global is_uturning, uturning_phase
-    global is_parking_here, is_parking_left
+    global is_parking_here, parking_kp_last_time_list, is_parking_left
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
 
@@ -211,6 +216,8 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
             if current_state == State.NORMAL:
                 current_state = State.DO_NOTHING
     
+    wall_distance_pid.kp = NORMAL_WALL_KP
+
     # TODO: Add case where the robot see the pink wall before the turn so that it can pre turn and not hit the pink wall
     # TODO: Add parking
     if is_parking_here:
@@ -250,6 +257,15 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 red_wall_distance_from_right = NEW_RED_WALL_DISTANCE_FROM_RIGHT
                 if ideal_outer_wall_distance_override == RED_WALL_DISTANCE_FROM_RIGHT:
                     ideal_outer_wall_distance_override = NEW_RED_WALL_DISTANCE_FROM_RIGHT
+        
+
+    if execute_with_timing_conditions(
+        is_parking_here,
+        parking_kp_last_time_list,
+        cooldown_duration=PARKING_KP_COOLDOWN,
+        time_window=PARKING_KP_TIME_WINDOW
+    ):
+        wall_distance_pid.kp = PINK_WALL_KP
 
     speed = 1.00
     heading_correction_override = None
@@ -263,9 +279,9 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 time_window=ULTRASONIC_TURN_TIME_WINDOW
             ):
                 if is_clockwise:
-                    suggested_heading += 90
+                    suggested_heading += 89.4
                 else:
-                    suggested_heading -= 90
+                    suggested_heading -= 89.4
                 suggested_heading %= 360
                 last_closest_block_color = None
                 is_last_closest_block_color_same = False
@@ -396,9 +412,9 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
         
         if is_ultrasonic_reach:
             if is_clockwise:
-                suggested_heading += 90
+                suggested_heading += 89.4
             else:
-                suggested_heading -= 90
+                suggested_heading -= 89.4
             suggested_heading %= 360
             last_closest_block_color = last_tight_turn_closest_block_color
             if last_closest_block_color_override is not None:
@@ -453,9 +469,9 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 turn_amount = 8
                 speed = 0.0
                 if is_clockwise:
-                    suggested_heading = 270
+                    suggested_heading = 265.8
                 else:
-                    suggested_heading = 90
+                    suggested_heading = 85.8
                 ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
                 last_closest_block_color = None
                 is_last_closest_block_color_same = False
