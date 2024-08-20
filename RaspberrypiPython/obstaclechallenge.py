@@ -22,16 +22,16 @@ TIGHT_TURN_COOLDOWN_TIME = 2.7
 
 LAPS_TO_STOP = 3
 
-TRAFFIC_LIGHT_SIZE_THRESHOLD = 1500
+TRAFFIC_LIGHT_SIZE_THRESHOLD = 1000
 TRAFFIC_LIGHT_COOLDOWN_TIME = 1.5
 TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 1.00
 TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.38
 TIGHT_TURN_ULTRASONIC_THRESHOLD_NO = 1.00
-TIGHT_TURN_LINGER_TIME = 1.2
+TIGHT_TURN_LINGER_TIME = 0.9
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 75
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN = 5
-TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID = 28
+TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID = 30
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_OUT = 3
 RED_DISTANCE_FROM_RIGHT = 0.39
 # RED_DISTANCE_FROM_RIGHT_MID = 0.33
@@ -52,7 +52,7 @@ NEW_GREEN_WALL_DISTANCE_FROM_LEFT = 0.34
 
 # PID Controllers
 heading_pid = pidcontroller.PIDController(kp=0.07, ki=0, kd=0)
-wall_distance_pid = pidcontroller.PIDController(kp=100.0, ki=0, kd=0)
+wall_distance_pid = pidcontroller.PIDController(kp=200.0, ki=0, kd=0)
 
 class State(Enum):
     DO_NOTHING = -1
@@ -139,7 +139,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
 
     heading_error = normalize_angle_error(suggested_heading - gyro_info)
 
-    print(f'{ultrasonic_info} {heading_error} {is_clockwise} {turn_amount} {suggested_heading} {current_state} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
+    print(f'{pink_size} {heading_error} {is_clockwise} {turn_amount} {suggested_heading} {current_state} {traffic_light_1_0_list} {traffic_light_1_3_list} {traffic_light_2_0_list}')
 
     if is_clockwise is None:
         if blue_line_size is not None and orange_line_size is not None:
@@ -550,16 +550,12 @@ class ImageProcessor:
             closest_block_lowest_y = closest_block[2][1]
         
 
-        # mask_pink = cv2.inRange(hsv_image, LOWER_PINK_LIGHT, UPPER_PINK_LIGHT)
+        mask_pink = cv2.inRange(hsv_image, LOWER_PINK_LIGHT, UPPER_PINK_LIGHT)
 
-        # pink_coordinates = ImageProcessor.get_coordinates(mask_pink)
-        # pink_size = pink_coordinates.size
-        # pink_x = ImageProcessor.get_average_x(pink_coordinates)
-        # pink_y = ImageProcessor.get_average_y(pink_coordinates)
-
-        pink_size = None
-        pink_x = None
-        pink_y = None
+        pink_coordinates = ImageProcessor.get_coordinates(mask_pink)
+        pink_size = pink_coordinates.size
+        pink_x = ImageProcessor.get_average_x(pink_coordinates)
+        pink_y = ImageProcessor.get_average_y(pink_coordinates)
         
         return blue_line_y, blue_line_size, orange_line_y, orange_line_size, closest_block_x, closest_block_y, closest_block_lowest_y, closest_block_size, closest_block_color, pink_x, pink_y, pink_size
 

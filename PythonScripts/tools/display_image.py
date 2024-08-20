@@ -51,12 +51,12 @@ def process_image(image):
     pink_light_result = cv2.bitwise_and(image, image, mask = mask_pink)
 
 
-    processed_image = green_light_result
+    processed_image = red_light_result
 
     # processed_image = blue_line_result
     # processed_image = cv2.bitwise_or(processed_image, orange_line_result)
     # processed_image = cv2.bitwise_or(processed_image, red_light_result)
-    # processed_image = cv2.bitwise_or(processed_image, green_light_result)
+    processed_image = cv2.bitwise_or(processed_image, green_light_result)
     # processed_image = cv2.bitwise_or(processed_image, pink_light_result)
 
     return processed_image
@@ -124,7 +124,7 @@ def show_images_from_directory(directory):
 
 # Example usage
 # Specify the directory containing the images
-image_directory = 'PythonScripts\\tools\\20240818_085957'
+image_directory = 'PythonScripts\\tools\\20240820_092437'
 
 # Show the images from the specified directory
 show_images_from_directory(image_directory)

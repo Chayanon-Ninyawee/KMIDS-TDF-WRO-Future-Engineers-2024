@@ -7,9 +7,9 @@ from utils import *
 
 # Constants
 MAX_HEADING_ERROR = 5.0
-IDEAL_OUTER_WALL_DISTANCE = 0.69
+IDEAL_OUTER_WALL_DISTANCE = 0.72
 BLUE_ORANGE_SIZE_DIFF_THRESHOLD = 1000
-ULTRASONIC_THRESHOLD = 0.90
+ULTRASONIC_THRESHOLD = 0.95
 ULTRASONIC_TURN_TIME_WINDOW = 0.1
 TURN_COOLDOWN_TIME = 3
 
@@ -23,6 +23,9 @@ heading_pid = pidcontroller.PIDController(kp=0.07, ki=0, kd=0)
 wall_distance_pid = pidcontroller.PIDController(kp=20.0, ki=0, kd=0)
 
 # State variables
+last_left_ultrasonic = IDEAL_OUTER_WALL_DISTANCE
+last_right_ultrasonic = IDEAL_OUTER_WALL_DISTANCE
+
 suggested_heading = 0
 is_clockwise = False
 last_turn_time = 0
@@ -49,11 +52,27 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
             - speed_target (float): The target speed of the car.
             - steering_percent (float): The steering percentage, ranging from -1.00 to 1.00, where 1.00 is full right and -1.00 is full left.
     """
+    global last_left_ultrasonic, last_right_ultrasonic
     global heading_pid, wall_distance_pid
     global suggested_heading, is_clockwise, last_turn_time, turn_amount
     global ultrasonic_last_time_list
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_info
+
+    if front_ultrasonic > 100:
+        front_ultrasonic = -1
+    if back_ultrasonic > 100:
+        back_ultrasonic = -1
+    if left_ultrasonic > 100:
+        left_ultrasonic = -1
+    if right_ultrasonic > 100:
+        right_ultrasonic = -1
+
+    if left_ultrasonic == -1:
+        left_ultrasonic = last_left_ultrasonic
+    
+    if right_ultrasonic == -1:
+        right_ultrasonic = last_right_ultrasonic
 
     blue_line_properties, orange_line_properties = ImageProcessor.process_image(image)
     _, blue_line_size = blue_line_properties
@@ -73,7 +92,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     if is_clockwise is not None:
         if turn_amount >= 4*LAPS_TO_STOP:
             if execute_with_timing_conditions(
-                front_ultrasonic < ULTRASONIC_STOP_THRESHOLD,
+                (not front_ultrasonic == -1) and (front_ultrasonic < ULTRASONIC_STOP_THRESHOLD),
                 ultrasonic_last_time_list, # Intentionally use the same last_time_list as the turning condition to not stop before finish turning
                 cooldown_duration=STOP_COOLDOWN_TIME,
                 # time_window=ULTRASONIC_STOP_TIME_WINDOW
@@ -81,7 +100,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
                 return False
 
         if execute_with_timing_conditions(
-            front_ultrasonic < ULTRASONIC_THRESHOLD,
+            (not front_ultrasonic == -1) and (front_ultrasonic < ULTRASONIC_THRESHOLD),
             ultrasonic_last_time_list,
             cooldown_duration=TURN_COOLDOWN_TIME,
             # time_window=ULTRASONIC_TURN_TIME_WINDOW
