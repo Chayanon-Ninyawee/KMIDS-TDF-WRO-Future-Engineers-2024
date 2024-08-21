@@ -124,7 +124,7 @@ def show_images_from_directory(directory):
 
 # Example usage
 # Specify the directory containing the images
-image_directory = 'PythonScripts\\tools\\20240820_092437'
+image_directory = 'PythonScripts\\tools\\20240821_131400'
 
 # Show the images from the specified directory
 show_images_from_directory(image_directory)

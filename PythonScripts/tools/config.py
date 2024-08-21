@@ -30,7 +30,7 @@ MIN_RED_LINE_AREA = 200
 
 # Threshold of green traffic light in HSV space
 # Measured green traffic light HSV: 56, 202, 214
-LOWER_GREEN_LIGHT = np.array([36, 100, 90]) 
+LOWER_GREEN_LIGHT = np.array([36, 100, 60]) 
 UPPER_GREEN_LIGHT = np.array([47, 210, 215])
 MIN_GREEN_LINE_AREA = 200
 

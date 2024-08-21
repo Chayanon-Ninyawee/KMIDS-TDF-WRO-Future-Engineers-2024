@@ -84,6 +84,9 @@ class RobotData:
 
         self._picam2.start()
 
+        self.re_init_serial()
+
+    def re_init_serial(self) -> None:
         self._communicator.ser.reset_output_buffer()
         self._communicator.ser.reset_input_buffer()
         time.sleep(0.100)
@@ -132,11 +135,6 @@ class RobotData:
             self._back_ultrasonic: float = data[1]
             self._left_ultrasonic: float = data[2]
             self._right_ultrasonic: float = data[3]
-
-            if self._front_ultrasonic == 0: self._front_ultrasonic = 999.0
-            if self._back_ultrasonic == 0: self._back_ultrasonic = 999.0
-            if self._left_ultrasonic == 0: self._left_ultrasonic = 999.0
-            if self._right_ultrasonic == 0: self._right_ultrasonic = 999.0
 
             self._gyro = round(data[4] - self._init_gyro) % 360
         else:
