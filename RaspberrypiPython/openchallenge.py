@@ -28,10 +28,9 @@ last_right_ultrasonic = IDEAL_OUTER_WALL_DISTANCE
 
 suggested_heading = 0
 is_clockwise = None
-last_turn_time = 0
 turn_amount = 0
 
-ultrasonic_last_time_list = [0.0, 0.0, 0.0]
+ultrasonic_last_time_list = [time.time()-0.5, 0.0, 0.0]
 
 def process_data_open(ultrasonic_info: tuple[int, int, int, int],
                       gyro_info: float,
@@ -54,7 +53,7 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
     """
     global last_left_ultrasonic, last_right_ultrasonic
     global heading_pid, wall_distance_pid
-    global suggested_heading, is_clockwise, last_turn_time, turn_amount
+    global suggested_heading, is_clockwise, turn_amount
     global ultrasonic_last_time_list
 
     front_ultrasonic, back_ultrasonic, left_ultrasonic, right_ultrasonic = ultrasonic_manager(ultrasonic_info)
@@ -74,6 +73,8 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
             elif orange_line_size - blue_line_size > BLUE_ORANGE_SIZE_DIFF_THRESHOLD:
                 is_clockwise = True
     
+    # Optional Logic Start
+
     if is_clockwise is not None:
         if turn_amount >= 4*LAPS_TO_STOP:
             if (not back_ultrasonic == -1) and (back_ultrasonic > ULTRASONIC_STOP_THRESHOLD) and (abs(heading_error) <= 5):
@@ -90,8 +91,9 @@ def process_data_open(ultrasonic_info: tuple[int, int, int, int],
             else:
                 suggested_heading -= 90
             suggested_heading %= 360
-            last_turn_time = time.time()
             turn_amount += 1
+
+    # Optional Logic End
 
     wall_error = 0
     if is_clockwise is None:
