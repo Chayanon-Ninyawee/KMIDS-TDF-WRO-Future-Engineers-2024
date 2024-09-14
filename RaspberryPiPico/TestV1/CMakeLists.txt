@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
 
-add_subdirectory(BNO055_driver)
+add_subdirectory(libs/BNO055_driver)
 
 file(GLOB SOURCES "src/*.cpp")
 
