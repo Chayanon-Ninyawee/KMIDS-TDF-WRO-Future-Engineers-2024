@@ -1,9 +1,0 @@
-site_name: MkLorum
-nav:
-  - Home: index.md
-  - Mobility Management: Mobility Management.md
-  - Power and Sensor Management: Power and Sensor Management.md
-  - Obstacle Management: Obstacle Management.md
-  - Vehicle Picture: Vehicle Picture.md
-  - Performance Video: Performance Video.md
-theme: readthedocs
