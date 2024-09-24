@@ -37,11 +37,11 @@
         <Cell address="A3" content="BodyWidth"/>
         <Cell address="B3" content="120"/>
         <Cell address="C3" content="LinkageLength"/>
-        <Cell alias="servolinkagelength" address="D3" content="9.5"/>
+        <Cell alias="servolinkagelength" address="D3" content="15"/>
         <Cell address="A4" content="WheelDiameter"/>
         <Cell address="B4" content="56"/>
         <Cell address="C4" content="LinkageTwoHoleSeperation"/>
-        <Cell alias="servolinkagesep" address="D4" content="5"/>
+        <Cell alias="servolinkagesep" address="D4" content="10"/>
         <Cell address="A5" content="WheelDepth"/>
         <Cell address="B5" content="24"/>
         <Cell address="A6" content="Wheelbase"/>
@@ -53,11 +53,11 @@
         <Cell address="A9" content="TrackAdj"/>
         <Cell alias="track" address="B9" content="=B7 - B8 * 2"/>
         <Cell address="A10" content="TransferLinkageLength"/>
-        <Cell alias="transferlinkagelength" address="B10" content="39"/>
+        <Cell alias="transferlinkagelength" address="B10" content="37"/>
         <Cell address="A11" content="WheelLinkageLength"/>
-        <Cell alias="wheellinkagelength" address="B11" content="10"/>
+        <Cell alias="wheellinkagelength" address="B11" content="14"/>
         <Cell address="A12" content="WheelLinkageAngle"/>
-        <Cell alias="wheellinkageangle" address="B12" content="88"/>
+        <Cell alias="wheellinkageangle" address="B12" content="87.4"/>
       </Cells>
     </Property>
     <Property name="columnWidths" type="Spreadsheet::PropertyColumnWidths" status="218103808">
