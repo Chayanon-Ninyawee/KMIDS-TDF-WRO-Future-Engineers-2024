@@ -7,4 +7,10 @@
 __pycache__/
 tempCodeRunnerFile.py
 
+.pioenvs
+.piolibdeps
+.clang_complete
+.gcc-flags.json
+.pio
+
 *.zip
