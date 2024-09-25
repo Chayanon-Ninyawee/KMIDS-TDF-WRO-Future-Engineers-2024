@@ -1,0 +1,10 @@
+.vscode/
+
+# Godot 4+ specific ignores
+.godot/
+
+.venv/
+__pycache__/
+tempCodeRunnerFile.py
+
+*.zip
