@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="29fb43b2-9c4b-4732-8919-d31d7bc6f335" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="29fb43b2-9c4b-4732-8919-d31d7bc6f335" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="466">
+  <StringHasher2  count="564">
 <![CDATA[
 -1.0 0:Shape cache
 -1.0 0:;SKT;:H,E;:Hc79:5,E
@@ -381,97 +381,199 @@
 -10.2c.-33.51
 -1.2c.1a.10
 -1.2c.57.-1c
--2.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;Dc52;:Hc8e:5,V
--1.2c.1.3fd
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D365;:Hc8e:5,V
--1.2c.1.5c7
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D1e90;:Hc8e:6,V
--1.2c.1.5ca
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D2581;:Hc8e:6,V
--1.2c.1.5cd
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D1fc4;:Hc8e:6,V
--1.2c.1.5d0
--b.2c.-2b5.5cc
--1.2c.0.-2
--1.2c.0.-2
--1.2c.-35.6
--1.2c.0.2
--1.2c.69.-c
--b.2c.-4e.17
--1.2c.0.2
--1.c.0.-1b7 #5e1
--1.0 0:(#5f2;:Hc8f,E)
--3.0 0:(#5e1;:Hc8f,V)
--1.2c.16b.17
--2.28.-61.-11.18.3 ;:M#5f6;FUS;:H-c93:b,V
--4.2c.61.13
--2.2c.21.e
--3.2c.0.1
--1.28.-6f.-10.11.10 ;:M#5f3;FUS;:H-c93:b,E
--35.2c.-59.-7a
+-1b.2c.0.1d
+-53.2c.92.-62
 -a.2c.-76.d1
 -1.2c.14.a
 -a.2c.62.-d9
 -c.2c.-76.e4
 -1.2c.14.c
 -1.2c.7d.-16
--2.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;Dfb7;:Hc92:5,V
--1.2c.1.48e
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;D1289;:Hc92:6,V
--1.2c.1.493
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;D84c;:Hc92:5,V
--1.2c.1.65c
--1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;Df0;:Hc92:4,V
--1.2c.1.65f
--9.2c.-29d.65b
--1.2c.0.-2
--1.2c.-51.4
--1.2c.0.2
--1.2c.8b.-a
+-16.2c.0.17
 -1.2c.-2.1
 -1.2c.0.16
 -1.0 0:(#5c8;:Hc8f,E)
 -1.0 0:(#5ab;:Hc8f,E)
--1.2c.2ec.8.336.351.213
--1.c.-85.1 #5e4
--1.0 0:(#677;:Hc8f,E)
--1.c.2ef.2.95.1 #66f
--1.c.-85.-7 #5e3
--1.0 0:(#67a;:Hc8f,E)
--1.c.2f2.2.99.1 #670
--1.2c.0.-d
--1.0 0:(#5c9;:Hc8f,F)
+-9.0 0:(#5c9;:Hc8f,F)
 -1.0 0:(#5ac;:Hc8f,F)
--1.0 0:(#5e4;:Hc8f,V)
--1.0 0:(#5e3;:Hc8f,V)
--1.2c.296.9d
+-3.2c.296.9d
 -1.2c.0.-1b
--1.28.282.-2a5.216.3bd ;:M#46e;FUS;:H-c93:b,V
--1.2c.-1dd.348
--1.28.1de.-89.b1.6 ;:M#680;FUS;:H-c93:b,V
--1.28.1.-1.-2.1 ;:M#681;FUS;:H-c93:b,V
--1.28.d.-1dc.-162.-350 ;:G#471;FUS;:H-c93:b,V
--1.2c.-1f5.27b
+-6.2c.9c.b8
 -1.2c.0.1
 -1.2c.f.-11
 -1.2c.0.1
 -1.28.1ab.-ab.d5.19 ;:M#674;FUS;:H-c93:b,E
 -1.28.17.-1d.-1a.1 ;:M#675;FUS;:H-c93:b,E
--1.28.1d ;:M#463;FUS;:H-c93:b,E
--1.28.3 ;:M#678;FUS;:H-c93:b,E
--1.2c.-1ce.ac
--1.28.1d1 ;:M#67b;FUS;:H-c93:b,E
--1.2c.-1d1.c9
--1.2c.9.b3
--1.2c.9.-22
+-3.2c.-1ae.3a
+-2.2c.0.-1b
+-2.2c.12.91
 -1.2c.0.16
--1.2c.-2.5
--1.2c.0.3.29
--1.2c.0.3.1
--1.28.188.-b3.-a8.1c ;:M#67e;FUS;:H-c93:b,F
+-4.28.186.-a8.d2.1c ;:M#67e;FUS;:H-c93:b,F
 -1.28.17.-1d.-1d.1 ;:M#67f;FUS;:H-c93:b,F
 -1.2c.-177.97
 -1.2c.0.17
+-9d.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V
+-1.2c.1.56b
+-1.2c.0.-5
+-1.0 0:;WIR;:Hc79:4,E;:H,E;:Hcb8,E
+-1.2c.1.536
+-1.2c.-3.-200
+-1.2c.3.1fe
+-3.2c.0.-1f6
+-3.2c.-3.-9
+-1.2c.3.8
+-5.2c.0.-c
+-5.2c.-3.3
+-1.2c.3.d
+-7.2c.0.-1
+-7.2c.0.-1
+-1.0 0:;WIR;:Hcb8:4,E
+-8.0 0:;WIR;:Hcb8:4,V
+-1.2c.1.2f
+-5.2c.0.b
+-2.2c.0.-7
+-8.0 0:;FAC;:Hcb8:4,F
+-2.0 0:;:G;XTR;:Hcb8:7,F
+-9.0 0:;:G;XTR;:Hcb8:7,E
+-1.2c.1.1b
+-5.2c.0.5
+-2.2c.0.2
+-7.2c.-4a.-76c
+-1.0 0:;WIR;:Hc79:4,E;:Hcb8,E
+-1.2c.1.6d0
+-1.0 0:;WIR;:Hcb8:4,E;:H,E
+-1.2c.1.59
+-7.0 0:;WIR;:Hcb8:4,V;:H,V
+-2.2c.2.64
+-2.2c.0.15
+-6.2c.-8.f
+-1.2c.0.-7
+-1.2c.0.-7
+-1.2c.0.-6
+-1.2c.0.-5
+-1.2c.0.-4
+-1.2c.0.-3
+-1.2c.-35.55
+-1.2c.18.2
+-1.2c.2.0
+-1.2c.0.11
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-2.2c.9.-f
+-2.2c.0.2
+-e.2c.10.-6df
+7d8.2c.761.7cb
+-1.2c.1a.d
+-1.0 0:;:U;XTR;:Hcb8:7,E
+-1.2c.1.29
+-1.2c.0.2
+-1.2c.0.2
+-89.2c.-a0.-7ac
+-3.2c.0.c0
+-2b.2c.5a.-9
+-7.2c.a.6d2
+-3.2c.0.d6
+-1.2c.0.-3
+-2.2c.-3d.2e
+-1.2c.1a.d
+-1.2c.5f.-f0
+-1.2c.0.2
+-9.2c.-46.-24a
+-d.2c.-33.344
+-1.2c.1a.d
+-a.2c.19.-353
+-d.2c.-33.35e
+-1.2c.1a.d
+-1.2c.5f.-17
+-1a.2c.0.-e2
+d96.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D1a6e;:Hcb8:6,V
+-1.2c.1.d92
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D1ad;:Hcb8:5,V
+-1.2c.1.d8f
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D1189;:Hcb8:6,V
+-1.2c.1.cd1
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D2321;:Hcb8:6,V
+-1.2c.1.bd2
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D21f5;:Hcb8:6,V
+-1.2c.1.bcf
+-b.2c.-600.bcb
+-1.2c.0.-2
+-1.2c.0.-2
+-1.2c.-35.6
+-1.2c.0.2
+-9d.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D345;:Hc8e:5,V
+-1.2c.1.c7c
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D2472;:Hc8e:6,V
+-1.2c.1.e46
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D5fb;:Hc8e:5,V
+-1.2c.1.e49
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;Dc73;:Hc8e:5,V
+-1.2c.1.e4c
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D88a;:Hc8e:5,V
+-1.2c.1.e4f
+-a.2c.-b34.e4b
+-1.2c.0.-2
+-1.2c.0.-2
+-1.2c.-35.6
+-1.2c.0.2
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;D20b9;:Hc92:6,V
+-1.2c.1.c94
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;D2af;:Hc92:5,V
+-1.2c.1.c99
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;Da7a;:Hc92:5,V
+-1.2c.1.e62
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;Dd36;:Hc92:5,V
+-1.2c.1.e65
+-9.2c.-aa3.e61
+-1.2c.0.-2
+-1.2c.-51.4
+-1.2c.0.2
+-1.2c.-70.-c
+-1.2c.0.2
+-1.c.0.-a35 #e5f
+-1.0 0:(#e79;:Hc8f,E)
+-1.2c.af1.7.b3b.b56.a18
+-1.c.-85.1 #e62
+-1.0 0:(#e7c;:Hc8f,E)
+-1.c.af4.2.1c.1 #e75
+-1.c.-85.-6 #e61
+-1.0 0:(#e7f;:Hc8f,E)
+-1.c.af7.2.20.1 #e76
+-1.2c.0.-c
+-1.0 0:(#e5f;:Hc8f,V)
+-1.0 0:(#e62;:Hc8f,V)
+-1.0 0:(#e61;:Hc8f,V)
+-1.2c.9fa.28
+-1.28.9e8.-b39.a19.bc0 ;:M#46e;FUS;:H-c93:b,V
+-1.28.-a49.b29.9f1.bbc ;:M#e83;FUS;:H-c93:b,V
+-1.2c.66.25
+-1.28.9e4.-11.36.6 ;:M#e84;FUS;:H-c93:b,V
+-1.28.1.-1.-2.1 ;:M#e85;FUS;:H-c93:b,V
+-1.2c.-9ea.-1
+-1.28.9f6.-a59.a1c.b5c ;:G#471;FUS;:H-c93:b,V
+-1.2c.-9d5.a70
+-1.2c.0.1
+-1.28.-6f.-19.17.16 ;:M#e7a;FUS;:H-c93:b,E
+-1.28.a3d ;:M#463;FUS;:H-c93:b,E
+-1.28.3 ;:M#e7d;FUS;:H-c93:b,E
+-1.28.3 ;:M#e80;FUS;:H-c93:b,E
+-1.2c.-9cd.12
+-1.2c.7.-7
+-1.2c.0.3.21
+-1.2c.0.3.1
+-5.0 1:Enforce an angle offset defined as yaw-pitch-roll angle of the
+second plane performed in the order of x-y-z
+-1.0 1:The rotation angle of the second plane about its z-axis.
+You need to enable LockAngle for this to take effect.
+-1.0 1:Rotation angle of the second plane about its y-axis.
+You need to enable LockAngle for this to take effect.
+-1.0 1:Rotation angle of the second plane about its x-axis
+You need to enable LockAngle for this to take effect.
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -503,7 +605,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-25T08:37:24Z"/>
+      <String value="2024-09-25T15:08:48Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -535,7 +637,7 @@
       <String value=""/>
     </Property>
     <Property name="TipName" type="App::PropertyString" status="83886081">
-      <String value="Part"/>
+      <String value="Part001"/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
       <Uuid value="29fb43b2-9c4b-4732-8919-d31d7bc6f335"/>
@@ -544,31 +646,31 @@
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="26" Dependencies="1">
+  <Objects Count="54" Dependencies="1">
     <ObjectDeps Name="Spreadsheet" Count="0"/>
     <ObjectDeps Name="Sketch001" Count="1">
       <Dep Name="Spreadsheet"/>
     </ObjectDeps>
     <ObjectDeps Name="Group" Count="2">
-      <Dep Name="Spreadsheet"/>
       <Dep Name="Sketch001"/>
+      <Dep Name="Spreadsheet"/>
     </ObjectDeps>
     <ObjectDeps Name="Body" Count="7">
-      <Dep Name="Origin"/>
-      <Dep Name="Pad"/>
-      <Dep Name="Binder002"/>
-      <Dep Name="Pad001"/>
       <Dep Name="Pad002"/>
-      <Dep Name="Binder"/>
       <Dep Name="Binder001"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Origin"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="XY_Plane"/>
       <Dep Name="Z_Axis"/>
-      <Dep Name="Y_Axis"/>
-      <Dep Name="XZ_Plane"/>
       <Dep Name="X_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="Y_Axis"/>
       <Dep Name="YZ_Plane"/>
+      <Dep Name="XY_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -576,59 +678,176 @@
     <ObjectDeps Name="XY_Plane" Count="0"/>
     <ObjectDeps Name="XZ_Plane" Count="0"/>
     <ObjectDeps Name="YZ_Plane" Count="0"/>
-    <ObjectDeps Name="Sketch" Count="2">
+    <ObjectDeps Name="Sketch" Count="1">
       <Dep Name="Spreadsheet"/>
-      <Dep Name="XY_Plane001"/>
     </ObjectDeps>
-    <ObjectDeps Name="Part" Count="3">
-      <Dep Name="Body"/>
-      <Dep Name="Sketch"/>
-      <Dep Name="Origin001"/>
-    </ObjectDeps>
-    <ObjectDeps Name="Origin001" Count="6">
-      <Dep Name="Z_Axis001"/>
-      <Dep Name="XY_Plane001"/>
-      <Dep Name="Y_Axis001"/>
-      <Dep Name="YZ_Plane001"/>
-      <Dep Name="XZ_Plane001"/>
-      <Dep Name="X_Axis001"/>
-    </ObjectDeps>
-    <ObjectDeps Name="X_Axis001" Count="0"/>
-    <ObjectDeps Name="Y_Axis001" Count="0"/>
-    <ObjectDeps Name="Z_Axis001" Count="0"/>
-    <ObjectDeps Name="XY_Plane001" Count="0"/>
-    <ObjectDeps Name="XZ_Plane001" Count="0"/>
-    <ObjectDeps Name="YZ_Plane001" Count="0"/>
     <ObjectDeps Name="Binder" Count="2">
-      <Dep Name="Part"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
       <Dep Name="Body"/>
       <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="2">
-      <Dep Name="Part"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Pad"/>
       <Dep Name="Binder001"/>
+      <Dep Name="Pad"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="2">
-      <Dep Name="Part"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Binder002"/>
       <Dep Name="Pad001"/>
+      <Dep Name="Binder002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Body001" Count="3">
+      <Dep Name="Binder003"/>
+      <Dep Name="Pad003"/>
+      <Dep Name="Origin002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin002" Count="6">
+      <Dep Name="Z_Axis002"/>
+      <Dep Name="X_Axis002"/>
+      <Dep Name="XY_Plane002"/>
+      <Dep Name="XZ_Plane002"/>
+      <Dep Name="YZ_Plane002"/>
+      <Dep Name="Y_Axis002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis002" Count="0"/>
+    <ObjectDeps Name="Y_Axis002" Count="0"/>
+    <ObjectDeps Name="Z_Axis002" Count="0"/>
+    <ObjectDeps Name="XY_Plane002" Count="0"/>
+    <ObjectDeps Name="XZ_Plane002" Count="0"/>
+    <ObjectDeps Name="YZ_Plane002" Count="0"/>
+    <ObjectDeps Name="Binder003" Count="2">
+      <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad003" Count="2">
+      <Dep Name="Binder003"/>
+      <Dep Name="Body001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Assembly" Count="3">
+      <Dep Name="Parts"/>
+      <Dep Name="Elements"/>
+      <Dep Name="Constraints"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraints" Count="4">
+      <Dep Name="Constraint"/>
+      <Dep Name="Constraint002"/>
+      <Dep Name="Constraint001"/>
+      <Dep Name="Constraint003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Elements" Count="7">
+      <Dep Name="_Element004"/>
+      <Dep Name="_Element003"/>
+      <Dep Name="_Element"/>
+      <Dep Name="_Element002"/>
+      <Dep Name="_Element001"/>
+      <Dep Name="_Element006"/>
+      <Dep Name="_Element005"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Parts" Count="3">
+      <Dep Name="Part"/>
+      <Dep Name="Part001"/>
+      <Dep Name="Sketch"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Part" Count="2">
+      <Dep Name="Body"/>
+      <Dep Name="Origin003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin003" Count="0"/>
+    <ObjectDeps Name="Part001" Count="2">
+      <Dep Name="Origin004"/>
+      <Dep Name="Body001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin004" Count="0"/>
+    <ObjectDeps Name="Constraint" Count="2">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink" Count="2">
+      <Dep Name="Constraint"/>
+      <Dep Name="_Element"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint001" Count="3">
+      <Dep Name="ElementLink001"/>
+      <Dep Name="ElementLink002"/>
+      <Dep Name="Constraints"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink001" Count="2">
+      <Dep Name="Constraint001"/>
+      <Dep Name="_Element001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element001" Count="2">
+      <Dep Name="Part001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink002" Count="2">
+      <Dep Name="Constraint001"/>
+      <Dep Name="_Element002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element002" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint002" Count="3">
+      <Dep Name="ElementLink003"/>
+      <Dep Name="ElementLink004"/>
+      <Dep Name="Constraints"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink003" Count="2">
+      <Dep Name="Constraint002"/>
+      <Dep Name="_Element003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element003" Count="2">
+      <Dep Name="Part001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink004" Count="2">
+      <Dep Name="_Element004"/>
+      <Dep Name="Constraint002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element004" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint003" Count="3">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink005"/>
+      <Dep Name="ElementLink006"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink005" Count="2">
+      <Dep Name="Constraint003"/>
+      <Dep Name="_Element005"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element005" Count="2">
+      <Dep Name="Part001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink006" Count="2">
+      <Dep Name="_Element006"/>
+      <Dep Name="Constraint003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element006" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
     </ObjectDeps>
     <Object type="Spreadsheet::Sheet" name="Spreadsheet" id="3182" revision="0" file="Spreadsheet.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch001" id="3183" revision="1200" file="Sketch001.xml" />
     <Object type="App::DocumentObjectGroup" name="Group" id="3184" revision="5" file="Group.xml" />
-    <Object type="PartDesign::Body" name="Body" id="3185" revision="110" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="3185" revision="129" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="3186" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="3187" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="3188" revision="2" file="Y_Axis.xml" />
@@ -636,21 +855,49 @@
     <Object type="App::Plane" name="XY_Plane" id="3190" revision="1" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="3191" revision="2" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="3192" revision="2" file="YZ_Plane.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch" id="3193" revision="758" file="Sketch.xml" />
-    <Object type="App::Part" name="Part" id="3198" revision="215" file="Part.xml" />
-    <Object type="App::Origin" name="Origin001" id="3199" revision="0" file="Origin001.xml" />
-    <Object type="App::Line" name="X_Axis001" id="3200" revision="1" file="X_Axis001.xml" />
-    <Object type="App::Line" name="Y_Axis001" id="3201" revision="2" file="Y_Axis001.xml" />
-    <Object type="App::Line" name="Z_Axis001" id="3202" revision="2" file="Z_Axis001.xml" />
-    <Object type="App::Plane" name="XY_Plane001" id="3203" revision="1" file="XY_Plane001.xml" />
-    <Object type="App::Plane" name="XZ_Plane001" id="3204" revision="2" file="XZ_Plane001.xml" />
-    <Object type="App::Plane" name="YZ_Plane001" id="3205" revision="2" file="YZ_Plane001.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder" id="3214" revision="10" file="Binder.xml" />
-    <Object type="PartDesign::Pad" name="Pad" id="3215" revision="41" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="3218" revision="13" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="3219" revision="69" file="Pad001.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="3220" revision="10" file="Binder002.xml" />
-    <Object type="PartDesign::Pad" name="Pad002" id="3221" revision="29" file="Pad002.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="3193" revision="793" file="Sketch.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="3214" revision="29" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="3215" revision="66" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="3218" revision="32" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="3219" revision="94" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="3220" revision="29" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="3221" revision="54" file="Pad002.xml" />
+    <Object type="PartDesign::Body" name="Body001" id="3248" revision="124" file="Body001.xml" />
+    <Object type="App::Origin" name="Origin002" id="3249" revision="0" file="Origin002.xml" />
+    <Object type="App::Line" name="X_Axis002" id="3250" revision="1" file="X_Axis002.xml" />
+    <Object type="App::Line" name="Y_Axis002" id="3251" revision="2" file="Y_Axis002.xml" />
+    <Object type="App::Line" name="Z_Axis002" id="3252" revision="2" file="Z_Axis002.xml" />
+    <Object type="App::Plane" name="XY_Plane002" id="3253" revision="1" file="XY_Plane002.xml" />
+    <Object type="App::Plane" name="XZ_Plane002" id="3254" revision="2" file="XZ_Plane002.xml" />
+    <Object type="App::Plane" name="YZ_Plane002" id="3255" revision="2" file="YZ_Plane002.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder003" id="3256" revision="107" file="Binder003.xml" />
+    <Object type="PartDesign::Pad" name="Pad003" id="3259" revision="142" file="Pad003.xml" />
+    <Object type="Part::FeaturePython" name="Assembly" id="3260" revision="970" ViewType="Gui::ViewProviderLinkPython" file="Assembly.xml" />
+    <Object type="App::FeaturePython" name="Constraints" id="3261" revision="419" ViewType="Gui::ViewProviderLinkPython" file="Constraints.xml" />
+    <Object type="App::FeaturePython" name="Elements" id="3262" revision="422" ViewType="Gui::ViewProviderLinkPython" file="Elements.xml" />
+    <Object type="Part::FeaturePython" name="Parts" id="3263" revision="527" ViewType="Gui::ViewProviderLinkPython" file="Parts.xml" />
+    <Object type="App::Part" name="Part" id="3266" revision="33" file="Part.xml" />
+    <Object type="App::Origin" name="Origin003" id="3267" revision="0" file="Origin003.xml" />
+    <Object type="App::Part" name="Part001" id="3268" revision="409" file="Part001.xml" />
+    <Object type="App::Origin" name="Origin004" id="3269" revision="0" file="Origin004.xml" />
+    <Object type="App::FeaturePython" name="Constraint" id="3270" revision="15" ViewType="Gui::ViewProviderLinkPython" file="Constraint.xml" />
+    <Object type="App::FeaturePython" name="ElementLink" id="3271" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink.xml" />
+    <Object type="Part::FeaturePython" name="_Element" id="3272" revision="26" file="_Element.xml" />
+    <Object type="App::FeaturePython" name="Constraint001" id="3273" revision="418" ViewType="Gui::ViewProviderLinkPython" file="Constraint001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink001" id="3274" revision="1210" ViewType="Gui::ViewProviderLinkPython" file="ElementLink001.xml" />
+    <Object type="Part::FeaturePython" name="_Element001" id="3275" revision="810" file="_Element001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink002" id="3276" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink002.xml" />
+    <Object type="Part::FeaturePython" name="_Element002" id="3277" revision="26" file="_Element002.xml" />
+    <Object type="App::FeaturePython" name="Constraint002" id="3278" revision="86" ViewType="Gui::ViewProviderLinkPython" file="Constraint002.xml" />
+    <Object type="App::FeaturePython" name="ElementLink003" id="3279" revision="214" ViewType="Gui::ViewProviderLinkPython" file="ElementLink003.xml" />
+    <Object type="Part::FeaturePython" name="_Element003" id="3280" revision="146" file="_Element003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink004" id="3281" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink004.xml" />
+    <Object type="Part::FeaturePython" name="_Element004" id="3282" revision="26" file="_Element004.xml" />
+    <Object type="App::FeaturePython" name="Constraint003" id="3283" revision="85" ViewType="Gui::ViewProviderLinkPython" file="Constraint003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink005" id="3284" revision="211" ViewType="Gui::ViewProviderLinkPython" file="ElementLink005.xml" />
+    <Object type="Part::FeaturePython" name="_Element005" id="3285" revision="144" file="_Element005.xml" />
+    <Object type="App::FeaturePython" name="ElementLink006" id="3286" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink006.xml" />
+    <Object type="Part::FeaturePython" name="_Element006" id="3287" revision="26" file="_Element006.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

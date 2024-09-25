@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- FreeCAD DocumentObject -->
 <Document SchemaVersion="4" FileVersion="2">
-<Object name="Binder">
+<Object name="Binder003">
   <Properties Count="35" TransientCount="1">
     <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
     <Property name="BindCopyOnChange" type="App::PropertyEnumeration">
@@ -21,7 +21,7 @@
       </LinkSub>
     </Property>
     <Property name="Context" type="App::PropertyXLink" status="67108864">
-      <XLink file="" stamp="" name="Assembly" sub="Parts.Body.Binder."/>
+      <XLink file="" stamp="" name="Assembly" sub="Parts.Body001.Binder003."/>
     </Property>
     <Property name="EdgeTolerance" type="App::PropertyPrecision">
       <Float value="1e-06"/>
@@ -45,7 +45,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="Label" type="App::PropertyString" status="134217728">
-      <String value="Binder(TBoneLinkageSketch)"/>
+      <String value="Binder003(TBoneLinkageSketch)"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
       <String value=""/>
@@ -116,7 +116,11 @@ Locations 9
               0               0               1               2 
 2  7 -1 1 -1 4 -1 3 -1 2 -1 0
 2  3 -1 2 -1 0
-Curve2ds 12
+Curve2ds 16
+1 0 0 1 0 
+1 0 -2 1 0 
+1 0 0 1 0 
+1 0 -2 1 0 
 1 0 0 1 0 
 1 0 -2 1 0 
 1 0 0 1 0 
@@ -149,8 +153,10 @@ Curves 17
 2 -1.788753504093915e-26 -6 0 0 0 1 1 0 -0 -0 1 0 1
 Polygon3D 0
 PolygonOnTriangulations 0
-Surfaces 6
+Surfaces 8
 2 -1.788750740422061e-26 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
+2 -5 -15 0 -0 -0 -1 1 0 0 0 1 0 1
+2 5 -15 0 -0 -0 -1 1 0 0 0 1 0 1
 2 -1.788750740422061e-26 0 0 -0 -0 -1 1 0 0 0 1 0 3
 2 -5 -15 0 -0 -0 -1 1 0 0 0 1 0 2
 2 5 -15 0 -0 -0 -1 1 0 0 0 1 0 2
@@ -189,6 +195,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  2 0 0 6.28318530717959
+2  3 2 6 0 6.28318530717959
+2  4 2 8 0 6.28318530717959
 0
 
 0101100
@@ -207,6 +215,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  3 0 0 6.28318530717959
+2  5 3 6 0 6.28318530717959
+2  6 3 8 0 6.28318530717959
 0
 
 0101100
@@ -232,8 +242,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  4 0 0.25846276141528 2.88312989217451
-2  3 2 6 0.25846276141528 2.88312989217451
-2  4 2 8 0.25846276141528 2.88312989217451
+2  7 4 6 0.25846276141528 2.88312989217451
+2  8 4 8 0.25846276141528 2.88312989217451
 0
 
 0101000
@@ -262,8 +272,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  6 0 2.88312989217451 4.71238898038469
-2  5 3 6 2.88312989217451 4.71238898038469
-2  6 3 8 2.88312989217451 4.71238898038469
+2  9 5 6 2.88312989217451 4.71238898038469
+2  10 5 8 2.88312989217451 4.71238898038469
 0
 
 0101000
@@ -320,8 +330,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  10 0 4.71238898038469 6.54164806859487
-2  7 4 6 4.71238898038469 6.54164806859487
-2  8 4 8 4.71238898038469 6.54164806859487
+2  11 6 6 4.71238898038469 6.54164806859487
+2  12 6 8 4.71238898038469 6.54164806859487
 0
 
 0101000
@@ -390,8 +400,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  16 0 0 6.28318530717959
-2  9 5 6 0 6.28318530717959
-2  10 5 8 0 6.28318530717959
+2  13 7 6 0 6.28318530717959
+2  14 7 8 0 6.28318530717959
 0
 
 0101100
@@ -410,8 +420,8 @@ Ve
 Ed
  1e-07 1 1 0
 1  17 0 0 6.28318530717959
-2  11 6 6 0 6.28318530717959
-2  12 6 8 0 6.28318530717959
+2  15 8 6 0 6.28318530717959
+2  16 8 8 0 6.28318530717959
 0
 
 0101100
@@ -430,7 +440,7 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="32">
 <![CDATA[
-5 PostfixCount 4
+17 PostfixCount 4
 Edge
 Vertex
 ;WIR;:Hc79:4,E
@@ -438,7 +448,7 @@ Vertex
 
 MapCount 2
 
-ElementMap 1 6 2
+ElementMap 1 18 2
 
 Edge
 
@@ -478,7 +488,7 @@ $#1cd.4 $#1ce.4 0
 
 EndMap
 
-ElementMap 2 5 2
+ElementMap 2 17 2
 
 Edge
 
@@ -544,7 +554,7 @@ EndMap
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="44"/>
+      <Integer value="60"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>
