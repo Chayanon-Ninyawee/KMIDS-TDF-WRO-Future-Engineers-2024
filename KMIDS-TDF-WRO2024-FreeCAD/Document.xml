@@ -2,8 +2,580 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="29fb43b2-9c4b-4732-8919-d31d7bc6f335" StringHasher="1">
-  <StringHasher saveall="0" threshold="0" count="0"></StringHasher>
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="29fb43b2-9c4b-4732-8919-d31d7bc6f335" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="564">
+<![CDATA[
+-1.0 0:Shape cache
+-1.0 0:;SKT;:H,E;:Hc79:5,E
+-1.c.1 g11
+-1.0 0:;SKT;:H,V;:Hc79:5,V
+-1.c.1 g11v1
+-1.c.0 g11v2
+-1.c.0 g13v2
+-1.c.0 g16v2
+-1.c.0 g14v2
+-1.c.0 g15v2
+-5.c.-2 g13
+-1.c.0 g16
+-1.c.0 g14
+-1.c.0 g17
+-1.c.0 g15
+-a4.0 0:;SKT
+-1.c.1 g4v1
+-1.c.0 g5v1
+-1.c.0 g6v1
+-1.c.0 g4
+-1.c.0 g5
+-1.c.0 g6
+-1.0 0:;:Hc79,V
+-1.2c.1.7
+-1.0 0:;:Hc79,E
+-1.2c.1.6
+-1.2c.-2.-2
+-1.2c.2.3
+-1.2c.-2.-2
+-1.2c.2.3
+-1.c.-bc g15v1
+-1.c.0 g13v1
+-1.c.0 g16v1
+-1.c.0 g14v1
+-1.c.0 g17v1
+-1.c.0 g17v2
+-fb.c.0 g23v1
+-1.c.0 g22v1
+-1.c.0 g23v2
+-1.c.0 g26v1
+-1.c.-2 g23
+-1.c.2 g26v2
+-1.c.-2 g26
+-1.c.2 g22v2
+-1.c.0 g24v1
+-1.c.-2 g22
+-1.c.2 g24v2
+-1.c.-2 g24
+-32.c.2 g27v1
+-1.c.0 g28v1
+-1.c.0 g27v2
+-1.c.-2 g27
+-1.c.2 g28v2
+-1.c.-2 g28
+-b3.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V
+-1.2c.1.ec
+-1.2c.0.-5
+-1.0 0:;WIR;:Hc79:4,E;:H,E;:Hc8e,E
+-1.2c.1.b7
+-1.2c.-3.-200
+-1.2c.3.1fe
+-3.2c.0.-1f6
+-3.2c.-3.-9
+-1.2c.3.8
+-5.2c.0.-c
+-5.2c.-3.3
+-1.2c.3.d
+-7.2c.0.-1
+-7.2c.0.-1
+-1.0 0:;WIR;:Hc8e:4,E
+-8.0 0:;WIR;:Hc8e:4,V
+-10.0 0:;FAC;:Hc8e:4,F
+-2.0 0:;:G;XTR;:Hc8e:7,F
+-9.0 0:;:G;XTR;:Hc8e:7,E
+-f.2c.59.30f
+-1.0 0:;WIR;:Hc79:4,E;:Hc8e,E
+-1.2c.1.255
+-1.0 0:;WIR;:Hc8e:4,E;:H,E
+-1.2c.1.59
+-7.0 0:;WIR;:Hc8e:4,V;:H,V
+-1.2c.1.64
+-1.2c.0.1
+-2.2c.0.15
+-2.2c.0.-b
+-2.2c.0.-7
+-1.2c.-35.54
+-1.2c.2d.-33
+-1.2c.0.-7
+-1.2c.0.-7
+-1.2c.0.-6
+-1.2c.0.-5
+-1.2c.0.-4
+-1.2c.0.-3
+-1.2c.-35.55
+-1.2c.18.2
+-1.2c.2.0
+-1.2c.0.11
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.9.-10
+-1.2c.0.1
+-2.2c.0.2
+-2.2c.0.2
+-2.2c.0.2
+-1.2c.0.1
+-10.0 0:;:U;XTR;:Hc8e:7,E
+-1.2c.1.21
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V
+-1.2c.1.188
+-1.2c.0.-5
+-1.0 0:;WIR;:Hc79:4,E;:H,E;:Hc92,E
+-1.2c.1.153
+-1.2c.-3.-3b
+-1.2c.3.4
+-3.2c.0.-2
+-3.2c.-3.-1c9
+-1.2c.3.-3
+-5.2c.0.1c7
+-5.2c.0.2
+-1.0 0:;WIR;:Hc92:4,E
+-6.0 0:;WIR;:Hc92:4,V
+-c.0 0:;FAC;:Hc92:4,F
+-2.0 0:;:G;XTR;:Hc92:7,F
+-7.0 0:;:G;XTR;:Hc92:7,E
+-3a.0 0:;WIR;:Hc92:4,E;:H,E
+-2.0 0:;WIR;:Hc92:4,V;:H,V
+-1f.0 0:;WIR;:Hc79:4,E;:Hc92,E
+-1.2c.1.325
+-1.2c.-76.325
+3ea.2c.383.3e7
+-2.0 0:;:U;XTR;:Hc8e:7,V
+-1.2c.1.b2
+-1.2c.0.1
+-1.0 0:;:U2;XTR;:Hc8e:8,V
+-1.2c.1.9c
+-1.2c.-3.-16
+-1.2c.0.17
+-1.2c.0.-15
+-1.2c.3.16
+-1.2c.-3.-14
+-1.2c.-99.-10
+-2.2c.0.2
+-2.2c.0.2
+-2.2c.0.2
+-1.2c.0.1
+-1.0 0:;:U;XTR;:Hc92:7,V
+-2.0 0:;:U;XTR;:Hc92:7,E
+-1.2c.1.17
+-1.0 0:;:G0;XTR;:Hc92:8,F
+-2.0 0:(#330;:Hc8f,E)
+-1.2c.b2.cb
+-1.0 0:;:G0;XTR;:Hc8e:8,F
+-1.2c.1.d6
+-1.0 0:(#328;:Hc8f,V)
+-1.2c.1d.c6
+-19.2c.-95.-33e
+-1.2c.6d.356
+-5.2c.2.-3
+-1.2c.0.1
+-2.2c.0.a
+-2.2c.0.-7
+-1.2c.-51.c6
+-1.2c.4f.-b4
+-1.2c.0.-5
+-1.2c.0.-5
+-1.2c.0.-4
+-1.2c.0.-3
+-1.2c.-43.c6
+-1.2c.2.0
+-1.2c.0.c
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.7.-b
+-1.2c.0.1
+-2.2c.0.2
+-2.2c.0.2
+-b.2c.76.9
+-1.2c.0.2
+-1.2c.-2.3
+-1.2c.0.1
+-1.2c.0.f
+-1.2c.0.-d
+-1.0 0:;:U2;XTR;:Hc92:8,V
+-1.2c.1.6
+-1.2c.-53.-c
+-1.2c.0.-3f
+-1.2c.2.34
+-1.2c.0.2
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.2.-6
+-1.0 0:(#33b;:Hc8f,E)
+-1.0 0:(#33c;:Hc8f,E)
+-1.0 0:(#318;:Hc8f,E)
+-1.0 0:(#32c;:Hc8f,E)
+-1.0 0:(#407;K-5;:Hc8f:4,F)
+-1.0 0:(#407;K-6;:Hc8f:4,F)
+-1.0 0:(#407;K-3;:Hc8f:4,F)
+-1.0 0:(#407;K-4;:Hc8f:4,F)
+-2.0 0:(#340;:Hc8f,E)
+-2.0 0:(#343;:Hc8f,E)
+-1.2c.dc.38.123.13e.1
+-2.0 0:(#332;:Hc8f,F)
+-1.0 0:(#331;:Hc8f,F)
+-1.0 0:(#336;:Hc8f,F)
+-1.0 0:(#33a;:Hc8f,F)
+-1.0 0:(#320;:Hc8f,V)
+-1.0 0:(#321;:Hc8f,V)
+-1.0 0:(#325;:Hc8f,V)
+-2.0 0:(#407;K-2;:Hc8f:4,F)
+-1.0 0:(#407;K-1;:Hc8f:4,F)
+-1.0 0:;WIR;:Hc79:4,V;:Hc94,V
+-1.2c.1.3b1
+-1.0 0:;WIR;:Hc79:4,E;:Hc94,E
+-1.2c.1.3b2
+-1.0 0:;WIR;:Hc94:4,E
+-1.2c.1.2
+-1.0 0:;WIR;:Hc94:4,V
+-1.2c.1.6
+-1.0 0:;FAC;:Hc94:4,F
+-1.2c.1.4
+-1.0 0:;:G;XTR;:Hc94:7,F
+-1.2c.1.6
+-1.0 0:;:G;XTR;:Hc94:7,E
+-1.2c.1.6
+-1.2c.-c.-3b5
+-1.2c.2.1
+-1.2c.2.3bc
+-1.2c.2.-1
+-1.2c.2.2
+-1.2c.2.0
+-1.2c.2.1
+-1.28.-56.-163.1cb.1b ;:M#46c;FUS;:H-c93:b,V
+-1.0 0:;:M;FUS;:Hc8f:7,V
+-1.2c.1.9c
+-1.28.-5f.-cc.1cd.1d ;:M#46d;FUS;:H-c93:b,V
+-1.2c.5f.cd
+-1.0 0:;:Hc8f,V
+-1.2c.1.166
+-1.2c.0.ce
+-2.2c.0.-5
+-1.0 0:;:M;FUS;:H-c93:7,V
+-1.2c.1.65
+-4.28.-63.-105.8e.182 ;:M#408;FUS;:H-c93:b,V
+-1.0 0:;:H-c93,V
+-1.2c.1.4a
+-1.2c.0.-1
+-2.2c.-b.-59
+-1.2c.-4.-1
+-1.28.-48.14.16c.2d ;:G#470;FUS;:H-c93:b,V
+-1.2c.4c.-e4
+-1.2c.0.ce
+-2.2c.-4.1
+-1.2c.0.17
+-1.2c.f.46
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.1
+-1.28.-5c.-119.188.4e ;:M#45a;FUS;:H-c93:b,E
+-1.28.1.1.1.1 ;:M#45b;FUS;:H-c93:b,E
+-1.28.-19.-24.-62.1 ;:M#45c;FUS;:H-c93:b,E
+-1.0 0:;:M;FUS;:Hc8f:7,E
+-1.2c.1.b6
+-1.0 0:;:Hc8f,E
+-1.2c.1.16c
+-1.2c.-2.-13
+-1.2c.0.ce
+-2.2c.0.-d4
+-1.2c.0.2b
+-1.0 0:;:M;FUS;:H-c93:7,E
+-1.2c.1.82
+-1.2c.0.-1
+-1.28.-83.-106.1ea.5a ;:M#45d;FUS;:H-c93:b,E
+-1.2c.83.104
+-1.2c.0.-1
+-1.28.-cd.-ff.1a4.b6 ;:M#404;FUS;:H-c93:b,E
+-1.0 0:;:M2;FUS;:H-c93:8,E
+-1.2c.1.80
+-1.0 0:;:H-c93,E
+-1.2c.1.69
+-1.2c.-2.-1a
+-2.2c.-e.-10d
+-1.2c.0.ce
+-1.2c.-2.-cf
+-1.2c.0.29
+-1.28.-72.b1.194.67 ;:G#45e;FUS;:H-c93:b,E
+-1.28.1.0.0.1 ;:G#45f;FUS;:H-c93:b,E
+-1.2c.73.-c9
+-1.2c.0.-14
+-1.2c.0.ce
+-1.2c.-2.-cd
+-1.28.-75.dc.19a.6b ;:G#460;FUS;:H-c93:b,E
+-1.28.1.0.0.1 ;:G#461;FUS;:H-c93:b,E
+-1.2c.74.-b2
+-3.2c.0.a5
+-1.28.-45 ;:M#465;FUS;:H-c93:b,E
+-1.2c.45.cd
+-1.2c.12.46
+-2.2c.0.b
+-1.2c.0.-a
+-1.2c.0.b
+-1.2c.0.1
+-1.2c.0.-57
+-1.2c.-9.3f
+-2.2c.7.-2
+-1.2c.0.28
+-1.28.-86.-134.1c6.76 ;:M#468;FUS;:H-c93:b,F
+-1.0 0:;:M;FUS;:Hc8f:7,F
+-1.2c.1.1a7
+-1.2c.0.-6
+-1.28.-ab.-2.1ca.79 ;:M#469;FUS;:H-c93:b,F
+-1.0 0:;:M2;FUS;:H-c93:8,F
+-1.2c.1.af
+-1.0 0:;:Hc8f,F
+-1.2c.1.1ae
+-1.2c.0.-4
+-1.28.-ad.2.1bc.7e ;:M#46a;FUS;:H-c93:b,F
+-1.28.-4e.4.4.1 ;:M#46b;FUS;:H-c93:b,F
+-1.0 0:;:M;FUS;:H-c93:7,F
+-1.2c.1.b5
+-1.0 0:;:H-c93,F
+-1.2c.1.94
+-1.2c.-2.-1f
+-1.2c.-b.-103
+-1.2c.b.102
+-1.2c.-b.-104
+-1.2c.b.102
+-1.2c.-7.1
+-1.2c.0.-4e
+-1.0 0:;:U;XTR;:Hc94:7,V
+-1.2c.1.77
+-1.0 0:;:U;XTR;:Hc94:7,E
+-1.2c.1.7b
+-1.0 0:;:G0;XTR;:Hc94:8,F
+-1.2c.1.7f
+-1.2c.-4.b
+-1.2c.2.-1
+-1.2c.2.-1
+-1.c.-1a.-d #407
+-1.0 0:(#4fe;K-2;:Hc93:4,F)
+-1.0 0:;:M2;FUS;:Hc8f:8,F
+-1.c.1.7f #407
+-1.0 0:(#501;K-2;:Hc93:4,F)
+-1.2c.3.1d2
+-1.0 0:;:M3;FUS;:Hc8f:8,F
+-1.2c.1.1d4
+-1.0 0:(#503;K2;:Hc93:3,F)
+-1.0 0:(#505;K2;:Hc93:3,F)
+-1.0 0:(#4fe;K-1;:Hc93:4,F)
+-1.0 0:(#501;K-1;:Hc93:4,F)
+-59.c.4ab g30v1
+-1.c.0 g31v1
+-1.c.0 g30
+-1.c.0 g31
+-1.2c.7.4
+-1.2c.2.2
+-1.2c.-2.-1
+-1.2c.2.2
+-35.2c.255.4
+-d.2c.-33.35
+-1.2c.1a.d
+-c.2c.19.-44
+-10.2c.-33.51
+-1.2c.1a.10
+-1.2c.57.-1c
+-1b.2c.0.1d
+-53.2c.92.-62
+-a.2c.-76.d1
+-1.2c.14.a
+-a.2c.62.-d9
+-c.2c.-76.e4
+-1.2c.14.c
+-1.2c.7d.-16
+-16.2c.0.17
+-1.2c.-2.1
+-1.2c.0.16
+-1.0 0:(#5c8;:Hc8f,E)
+-1.0 0:(#5ab;:Hc8f,E)
+-9.0 0:(#5c9;:Hc8f,F)
+-1.0 0:(#5ac;:Hc8f,F)
+-3.2c.296.9d
+-1.2c.0.-1b
+-6.2c.9c.b8
+-1.2c.0.1
+-1.2c.f.-11
+-1.2c.0.1
+-1.28.1ab.-ab.d5.19 ;:M#674;FUS;:H-c93:b,E
+-1.28.17.-1d.-1a.1 ;:M#675;FUS;:H-c93:b,E
+-3.2c.-1ae.3a
+-2.2c.0.-1b
+-2.2c.12.91
+-1.2c.0.16
+-4.28.186.-a8.d2.1c ;:M#67e;FUS;:H-c93:b,F
+-1.28.17.-1d.-1d.1 ;:M#67f;FUS;:H-c93:b,F
+-1.2c.-177.97
+-1.2c.0.17
+-9d.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V
+-1.2c.1.56b
+-1.2c.0.-5
+-1.0 0:;WIR;:Hc79:4,E;:H,E;:Hcb8,E
+-1.2c.1.536
+-1.2c.-3.-200
+-1.2c.3.1fe
+-3.2c.0.-1f6
+-3.2c.-3.-9
+-1.2c.3.8
+-5.2c.0.-c
+-5.2c.-3.3
+-1.2c.3.d
+-7.2c.0.-1
+-7.2c.0.-1
+-1.0 0:;WIR;:Hcb8:4,E
+-8.0 0:;WIR;:Hcb8:4,V
+-1.2c.1.2f
+-5.2c.0.b
+-2.2c.0.-7
+-8.0 0:;FAC;:Hcb8:4,F
+-2.0 0:;:G;XTR;:Hcb8:7,F
+-9.0 0:;:G;XTR;:Hcb8:7,E
+-1.2c.1.1b
+-5.2c.0.5
+-2.2c.0.2
+-7.2c.-4a.-76c
+-1.0 0:;WIR;:Hc79:4,E;:Hcb8,E
+-1.2c.1.6d0
+-1.0 0:;WIR;:Hcb8:4,E;:H,E
+-1.2c.1.59
+-7.0 0:;WIR;:Hcb8:4,V;:H,V
+-2.2c.2.64
+-2.2c.0.15
+-6.2c.-8.f
+-1.2c.0.-7
+-1.2c.0.-7
+-1.2c.0.-6
+-1.2c.0.-5
+-1.2c.0.-4
+-1.2c.0.-3
+-1.2c.-35.55
+-1.2c.18.2
+-1.2c.2.0
+-1.2c.0.11
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-2.2c.9.-f
+-2.2c.0.2
+-e.2c.10.-6df
+7d8.2c.761.7cb
+-1.2c.1a.d
+-1.0 0:;:U;XTR;:Hcb8:7,E
+-1.2c.1.29
+-1.2c.0.2
+-1.2c.0.2
+-89.2c.-a0.-7ac
+-3.2c.0.c0
+-2b.2c.5a.-9
+-7.2c.a.6d2
+-3.2c.0.d6
+-1.2c.0.-3
+-2.2c.-3d.2e
+-1.2c.1a.d
+-1.2c.5f.-f0
+-1.2c.0.2
+-9.2c.-46.-24a
+-d.2c.-33.344
+-1.2c.1a.d
+-a.2c.19.-353
+-d.2c.-33.35e
+-1.2c.1a.d
+-1.2c.5f.-17
+-1a.2c.0.-e2
+d96.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D1a6e;:Hcb8:6,V
+-1.2c.1.d92
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D1ad;:Hcb8:5,V
+-1.2c.1.d8f
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D1189;:Hcb8:6,V
+-1.2c.1.cd1
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D2321;:Hcb8:6,V
+-1.2c.1.bd2
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hcb8,V;D21f5;:Hcb8:6,V
+-1.2c.1.bcf
+-b.2c.-600.bcb
+-1.2c.0.-2
+-1.2c.0.-2
+-1.2c.-35.6
+-1.2c.0.2
+-9d.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D345;:Hc8e:5,V
+-1.2c.1.c7c
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D2472;:Hc8e:6,V
+-1.2c.1.e46
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D5fb;:Hc8e:5,V
+-1.2c.1.e49
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;Dc73;:Hc8e:5,V
+-1.2c.1.e4c
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc8e,V;D88a;:Hc8e:5,V
+-1.2c.1.e4f
+-a.2c.-b34.e4b
+-1.2c.0.-2
+-1.2c.0.-2
+-1.2c.-35.6
+-1.2c.0.2
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;D20b9;:Hc92:6,V
+-1.2c.1.c94
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;D2af;:Hc92:5,V
+-1.2c.1.c99
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;Da7a;:Hc92:5,V
+-1.2c.1.e62
+-1.0 0:;WIR;:Hc79:4,V;:H,V;:Hc92,V;Dd36;:Hc92:5,V
+-1.2c.1.e65
+-9.2c.-aa3.e61
+-1.2c.0.-2
+-1.2c.-51.4
+-1.2c.0.2
+-1.2c.-70.-c
+-1.2c.0.2
+-1.c.0.-a35 #e5f
+-1.0 0:(#e79;:Hc8f,E)
+-1.2c.af1.7.b3b.b56.a18
+-1.c.-85.1 #e62
+-1.0 0:(#e7c;:Hc8f,E)
+-1.c.af4.2.1c.1 #e75
+-1.c.-85.-6 #e61
+-1.0 0:(#e7f;:Hc8f,E)
+-1.c.af7.2.20.1 #e76
+-1.2c.0.-c
+-1.0 0:(#e5f;:Hc8f,V)
+-1.0 0:(#e62;:Hc8f,V)
+-1.0 0:(#e61;:Hc8f,V)
+-1.2c.9fa.28
+-1.28.9e8.-b39.a19.bc0 ;:M#46e;FUS;:H-c93:b,V
+-1.28.-a49.b29.9f1.bbc ;:M#e83;FUS;:H-c93:b,V
+-1.2c.66.25
+-1.28.9e4.-11.36.6 ;:M#e84;FUS;:H-c93:b,V
+-1.28.1.-1.-2.1 ;:M#e85;FUS;:H-c93:b,V
+-1.2c.-9ea.-1
+-1.28.9f6.-a59.a1c.b5c ;:G#471;FUS;:H-c93:b,V
+-1.2c.-9d5.a70
+-1.2c.0.1
+-1.28.-6f.-19.17.16 ;:M#e7a;FUS;:H-c93:b,E
+-1.28.a3d ;:M#463;FUS;:H-c93:b,E
+-1.28.3 ;:M#e7d;FUS;:H-c93:b,E
+-1.28.3 ;:M#e80;FUS;:H-c93:b,E
+-1.2c.-9cd.12
+-1.2c.7.-7
+-1.2c.0.3.21
+-1.2c.0.3.1
+-5.0 1:Enforce an angle offset defined as yaw-pitch-roll angle of the
+second plane performed in the order of x-y-z
+-1.0 1:The rotation angle of the second plane about its z-axis.
+You need to enable LockAngle for this to take effect.
+-1.0 1:Rotation angle of the second plane about its y-axis.
+You need to enable LockAngle for this to take effect.
+-1.0 1:Rotation angle of the second plane about its x-axis
+You need to enable LockAngle for this to take effect.
+]]>
+  </StringHasher2>
   <Properties Count="21" TransientCount="3">
     <_Property name="FileName" type="App::PropertyString" status="50331649"/>
     <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
@@ -33,7 +605,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-24T06:59:36Z"/>
+      <String value="2024-09-25T15:08:48Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -64,8 +636,8 @@
     <Property name="ThumbnailFile" type="App::PropertyFile">
       <String value=""/>
     </Property>
-    <Property name="TipName" type="App::PropertyString" status="83886080">
-      <String value=""/>
+    <Property name="TipName" type="App::PropertyString" status="83886081">
+      <String value="Part001"/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
       <Uuid value="29fb43b2-9c4b-4732-8919-d31d7bc6f335"/>
@@ -74,13 +646,258 @@
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="2" Dependencies="1">
+  <Objects Count="54" Dependencies="1">
     <ObjectDeps Name="Spreadsheet" Count="0"/>
     <ObjectDeps Name="Sketch001" Count="1">
       <Dep Name="Spreadsheet"/>
     </ObjectDeps>
+    <ObjectDeps Name="Group" Count="2">
+      <Dep Name="Sketch001"/>
+      <Dep Name="Spreadsheet"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Body" Count="7">
+      <Dep Name="Pad002"/>
+      <Dep Name="Binder001"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Origin"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="Z_Axis"/>
+      <Dep Name="X_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="Y_Axis"/>
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="XY_Plane"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis" Count="0"/>
+    <ObjectDeps Name="Y_Axis" Count="0"/>
+    <ObjectDeps Name="Z_Axis" Count="0"/>
+    <ObjectDeps Name="XY_Plane" Count="0"/>
+    <ObjectDeps Name="XZ_Plane" Count="0"/>
+    <ObjectDeps Name="YZ_Plane" Count="0"/>
+    <ObjectDeps Name="Sketch" Count="1">
+      <Dep Name="Spreadsheet"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Binder" Count="2">
+      <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad" Count="2">
+      <Dep Name="Body"/>
+      <Dep Name="Binder"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Binder001" Count="2">
+      <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Binder001"/>
+      <Dep Name="Pad"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Binder002" Count="2">
+      <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad002" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Binder002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Body001" Count="3">
+      <Dep Name="Binder003"/>
+      <Dep Name="Pad003"/>
+      <Dep Name="Origin002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin002" Count="6">
+      <Dep Name="Z_Axis002"/>
+      <Dep Name="X_Axis002"/>
+      <Dep Name="XY_Plane002"/>
+      <Dep Name="XZ_Plane002"/>
+      <Dep Name="YZ_Plane002"/>
+      <Dep Name="Y_Axis002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis002" Count="0"/>
+    <ObjectDeps Name="Y_Axis002" Count="0"/>
+    <ObjectDeps Name="Z_Axis002" Count="0"/>
+    <ObjectDeps Name="XY_Plane002" Count="0"/>
+    <ObjectDeps Name="XZ_Plane002" Count="0"/>
+    <ObjectDeps Name="YZ_Plane002" Count="0"/>
+    <ObjectDeps Name="Binder003" Count="2">
+      <Dep Name="Sketch"/>
+      <Dep Name="Assembly"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad003" Count="2">
+      <Dep Name="Binder003"/>
+      <Dep Name="Body001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Assembly" Count="3">
+      <Dep Name="Parts"/>
+      <Dep Name="Elements"/>
+      <Dep Name="Constraints"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraints" Count="4">
+      <Dep Name="Constraint"/>
+      <Dep Name="Constraint002"/>
+      <Dep Name="Constraint001"/>
+      <Dep Name="Constraint003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Elements" Count="7">
+      <Dep Name="_Element004"/>
+      <Dep Name="_Element003"/>
+      <Dep Name="_Element"/>
+      <Dep Name="_Element002"/>
+      <Dep Name="_Element001"/>
+      <Dep Name="_Element006"/>
+      <Dep Name="_Element005"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Parts" Count="3">
+      <Dep Name="Part"/>
+      <Dep Name="Part001"/>
+      <Dep Name="Sketch"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Part" Count="2">
+      <Dep Name="Body"/>
+      <Dep Name="Origin003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin003" Count="0"/>
+    <ObjectDeps Name="Part001" Count="2">
+      <Dep Name="Origin004"/>
+      <Dep Name="Body001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin004" Count="0"/>
+    <ObjectDeps Name="Constraint" Count="2">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink" Count="2">
+      <Dep Name="Constraint"/>
+      <Dep Name="_Element"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint001" Count="3">
+      <Dep Name="ElementLink001"/>
+      <Dep Name="ElementLink002"/>
+      <Dep Name="Constraints"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink001" Count="2">
+      <Dep Name="Constraint001"/>
+      <Dep Name="_Element001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element001" Count="2">
+      <Dep Name="Part001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink002" Count="2">
+      <Dep Name="Constraint001"/>
+      <Dep Name="_Element002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element002" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint002" Count="3">
+      <Dep Name="ElementLink003"/>
+      <Dep Name="ElementLink004"/>
+      <Dep Name="Constraints"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink003" Count="2">
+      <Dep Name="Constraint002"/>
+      <Dep Name="_Element003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element003" Count="2">
+      <Dep Name="Part001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink004" Count="2">
+      <Dep Name="_Element004"/>
+      <Dep Name="Constraint002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element004" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint003" Count="3">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink005"/>
+      <Dep Name="ElementLink006"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink005" Count="2">
+      <Dep Name="Constraint003"/>
+      <Dep Name="_Element005"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element005" Count="2">
+      <Dep Name="Part001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink006" Count="2">
+      <Dep Name="_Element006"/>
+      <Dep Name="Constraint003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element006" Count="2">
+      <Dep Name="Part"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
     <Object type="Spreadsheet::Sheet" name="Spreadsheet" id="3182" revision="0" file="Spreadsheet.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch001" id="3183" revision="1194" file="Sketch001.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch001" id="3183" revision="1200" file="Sketch001.xml" />
+    <Object type="App::DocumentObjectGroup" name="Group" id="3184" revision="5" file="Group.xml" />
+    <Object type="PartDesign::Body" name="Body" id="3185" revision="129" file="Body.xml" />
+    <Object type="App::Origin" name="Origin" id="3186" revision="0" file="Origin.xml" />
+    <Object type="App::Line" name="X_Axis" id="3187" revision="1" file="X_Axis.xml" />
+    <Object type="App::Line" name="Y_Axis" id="3188" revision="2" file="Y_Axis.xml" />
+    <Object type="App::Line" name="Z_Axis" id="3189" revision="2" file="Z_Axis.xml" />
+    <Object type="App::Plane" name="XY_Plane" id="3190" revision="1" file="XY_Plane.xml" />
+    <Object type="App::Plane" name="XZ_Plane" id="3191" revision="2" file="XZ_Plane.xml" />
+    <Object type="App::Plane" name="YZ_Plane" id="3192" revision="2" file="YZ_Plane.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="3193" revision="793" file="Sketch.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="3214" revision="29" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="3215" revision="66" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="3218" revision="32" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="3219" revision="94" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="3220" revision="29" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="3221" revision="54" file="Pad002.xml" />
+    <Object type="PartDesign::Body" name="Body001" id="3248" revision="124" file="Body001.xml" />
+    <Object type="App::Origin" name="Origin002" id="3249" revision="0" file="Origin002.xml" />
+    <Object type="App::Line" name="X_Axis002" id="3250" revision="1" file="X_Axis002.xml" />
+    <Object type="App::Line" name="Y_Axis002" id="3251" revision="2" file="Y_Axis002.xml" />
+    <Object type="App::Line" name="Z_Axis002" id="3252" revision="2" file="Z_Axis002.xml" />
+    <Object type="App::Plane" name="XY_Plane002" id="3253" revision="1" file="XY_Plane002.xml" />
+    <Object type="App::Plane" name="XZ_Plane002" id="3254" revision="2" file="XZ_Plane002.xml" />
+    <Object type="App::Plane" name="YZ_Plane002" id="3255" revision="2" file="YZ_Plane002.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder003" id="3256" revision="107" file="Binder003.xml" />
+    <Object type="PartDesign::Pad" name="Pad003" id="3259" revision="142" file="Pad003.xml" />
+    <Object type="Part::FeaturePython" name="Assembly" id="3260" revision="970" ViewType="Gui::ViewProviderLinkPython" file="Assembly.xml" />
+    <Object type="App::FeaturePython" name="Constraints" id="3261" revision="419" ViewType="Gui::ViewProviderLinkPython" file="Constraints.xml" />
+    <Object type="App::FeaturePython" name="Elements" id="3262" revision="422" ViewType="Gui::ViewProviderLinkPython" file="Elements.xml" />
+    <Object type="Part::FeaturePython" name="Parts" id="3263" revision="527" ViewType="Gui::ViewProviderLinkPython" file="Parts.xml" />
+    <Object type="App::Part" name="Part" id="3266" revision="33" file="Part.xml" />
+    <Object type="App::Origin" name="Origin003" id="3267" revision="0" file="Origin003.xml" />
+    <Object type="App::Part" name="Part001" id="3268" revision="409" file="Part001.xml" />
+    <Object type="App::Origin" name="Origin004" id="3269" revision="0" file="Origin004.xml" />
+    <Object type="App::FeaturePython" name="Constraint" id="3270" revision="15" ViewType="Gui::ViewProviderLinkPython" file="Constraint.xml" />
+    <Object type="App::FeaturePython" name="ElementLink" id="3271" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink.xml" />
+    <Object type="Part::FeaturePython" name="_Element" id="3272" revision="26" file="_Element.xml" />
+    <Object type="App::FeaturePython" name="Constraint001" id="3273" revision="418" ViewType="Gui::ViewProviderLinkPython" file="Constraint001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink001" id="3274" revision="1210" ViewType="Gui::ViewProviderLinkPython" file="ElementLink001.xml" />
+    <Object type="Part::FeaturePython" name="_Element001" id="3275" revision="810" file="_Element001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink002" id="3276" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink002.xml" />
+    <Object type="Part::FeaturePython" name="_Element002" id="3277" revision="26" file="_Element002.xml" />
+    <Object type="App::FeaturePython" name="Constraint002" id="3278" revision="86" ViewType="Gui::ViewProviderLinkPython" file="Constraint002.xml" />
+    <Object type="App::FeaturePython" name="ElementLink003" id="3279" revision="214" ViewType="Gui::ViewProviderLinkPython" file="ElementLink003.xml" />
+    <Object type="Part::FeaturePython" name="_Element003" id="3280" revision="146" file="_Element003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink004" id="3281" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink004.xml" />
+    <Object type="Part::FeaturePython" name="_Element004" id="3282" revision="26" file="_Element004.xml" />
+    <Object type="App::FeaturePython" name="Constraint003" id="3283" revision="85" ViewType="Gui::ViewProviderLinkPython" file="Constraint003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink005" id="3284" revision="211" ViewType="Gui::ViewProviderLinkPython" file="ElementLink005.xml" />
+    <Object type="Part::FeaturePython" name="_Element005" id="3285" revision="144" file="_Element005.xml" />
+    <Object type="App::FeaturePython" name="ElementLink006" id="3286" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink006.xml" />
+    <Object type="Part::FeaturePython" name="_Element006" id="3287" revision="26" file="_Element006.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>
