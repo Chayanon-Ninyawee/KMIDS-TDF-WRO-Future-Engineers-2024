@@ -6,18 +6,20 @@
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
-<Expand />
+<Expand  count="1">
+  <Expand name="Group"/>
+</Expand>
   <Camera extra="0" id="4" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 24.154171 100.63973 145.89682
-  orientation 0 0 1  0
-  nearDistance 150.72923
-  farDistance 156.30392
+  position 8.6631403 -87.887505 96.412674
+  orientation 0.99483538 0.10040374 -0.014889119  0.72261608
+  nearDistance 114.47717
+  farDistance 133.26932
   aspectRatio 1
   focalDistance 100
-  height 2008.5555
+  height 24.659731
 
 }
 ## overrideMode: As Is]]>

@@ -22,7 +22,7 @@
       <Integer value="15"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
-      <Bool value="true"/>
+      <Bool value="false"/>
     </Property>
     <Property name="cells" type="Spreadsheet::PropertySheet" status="67108864">
       <Cells Count="32">

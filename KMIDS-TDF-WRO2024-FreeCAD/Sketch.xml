@@ -1,0 +1,726 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Sketch" Extensions="True">
+  <Extensions Count="1">
+    <Extension type="Part::AttachExtension" name="AttachExtension">
+    </Extension>
+  </Extensions>
+  <Properties Count="30" TransientCount="1">
+    <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
+    <Property name="ArcFitTolerance" type="App::PropertyPrecision">
+      <Float value="1e-06"/>
+    </Property>
+    <Property name="AttacherType" type="App::PropertyString" status="8">
+      <String value="Attacher::AttachEnginePlane"/>
+    </Property>
+    <Property name="AttachmentOffset" type="App::PropertyPlacement">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
+      <LinkSubList count="1">
+        <Link obj="XY_Plane001" sub=""/>
+      </LinkSubList>
+    </Property>
+    <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="Constraints" type="Sketcher::PropertyConstraintList">
+      <ConstraintList count="44">
+        <Constrain Name="" Type="1" Value="0" First="0" FirstPos="1" Second="-1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="3" Value="0" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="15" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.6611964702606201" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="14" Value="0" First="1" FirstPos="1" Second="1" SecondPos="2" Third="0" ThirdPos="2" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="2" Value="0" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="10" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.9863890409469604" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="2" FirstPos="3" Second="0" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="3" FirstPos="3" Second="1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="4" FirstPos="3" Second="1" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="ServoDiameter" Type="18" Value="3" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="1.204778432846069" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="LeftConnectorDiameter" Type="18" Value="2" First="3" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.8075871467590332" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="RightConnectorDiameter" Type="18" Value="2" First="4" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.8075871467590332" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="5" FirstPos="3" Second="2" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="6" First="5" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="-0.9719500541687012" LabelPosition="1.033108115196228" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="8" FirstPos="3" Second="3" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="9" FirstPos="3" Second="4" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="5" Value="-1.570796326794897" First="8" FirstPos="1" Second="6" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="5" Value="1.570796326794897" First="9" FirstPos="2" Second="7" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="5" Value="-1.570796326794897" First="6" FirstPos="1" Second="5" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="5" Value="1.570796326794897" First="7" FirstPos="1" Second="5" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="4" First="8" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.5413420796394348" LabelPosition="10" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="10" FirstPos="1" Second="5" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="11" FirstPos="1" Second="5" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="14" Value="0" First="10" FirstPos="2" Second="11" SecondPos="2" Third="0" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="12" FirstPos="1" Second="10" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="3" Value="0" First="12" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="13" FirstPos="1" Second="11" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="3" Value="0" First="13" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="4" First="12" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.7969756126403809" LabelPosition="0.2827510833740234" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="4" First="12" FirstPos="2" Second="13" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="0.6108894348144531" LabelPosition="0.3085851669311523" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="14" FirstPos="2" Second="12" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="2" Value="0" First="14" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="15" FirstPos="1" Second="12" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="15" FirstPos="2" Second="13" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="2" Value="0" First="15" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="16" FirstPos="1" Second="13" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="2" Value="0" First="16" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="5" Value="-1.570796326794897" First="14" FirstPos="1" Second="8" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="5" Value="-1.570796326794897" First="16" FirstPos="2" Second="9" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="1" Value="0" First="17" FirstPos="3" Second="0" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="13" Value="0" First="18" FirstPos="3" Second="0" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="2" First="18" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432132244110107" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="2" First="17" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="-0.4023164212703705" LabelPosition="-0.7933717370033264" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="6" First="2" FirstPos="3" Second="18" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.5413419008255005" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+      </ConstraintList>
+    </Property>
+    <Property name="Exports" type="App::PropertyLinkListHidden" status="67108864">
+      <LinkList count="0">
+      </LinkList>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="2" cdata="1">
+        <Expressions><![CDATA[
+0:Constraints[2]
+0:<<SteeringAckermannSpreadsheet>>.servolinkagelength
+0:
+
+0:Constraints[5]
+0:<<SteeringAckermannSpreadsheet>>.servolinkagesep
+0:
+
+]]>
+        </Expressions>
+      </ExpressionEngine>
+    </Property>
+    <Property name="ExternalBSplineMaxDegree" type="App::PropertyInteger">
+      <Integer value="5"/>
+    </Property>
+    <Property name="ExternalBSplineTolerance" type="App::PropertyPrecision">
+      <Float value="0.0001"/>
+    </Property>
+    <Property name="ExternalGeo" type="Part::PropertyGeometryList" status="67108864">
+      <GeometryList count="2">
+        <Geometry type="Part::GeomLineSegment" id="-1" migrated="1">
+          <GeoExtensions count="2">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="-1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
+            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="" Flags="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="0" StartY="0" StartZ="0" EndX="1" EndY="0" EndZ="0"/>
+          <Construction value="1"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="-2" migrated="1">
+          <GeoExtensions count="2">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="-2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
+            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="" Flags="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="0" StartY="0" StartZ="0" EndX="0" EndY="1" EndZ="0"/>
+          <Construction value="1"/>
+        </Geometry>
+      </GeometryList>
+    </Property>
+    <Property name="ExternalGeometry" type="App::PropertyLinkSubList" status="16777216">
+      <LinkSubList count="0">
+      </LinkSubList>
+    </Property>
+    <Property name="FixShape" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="FullyConstrained" type="App::PropertyBool" status="218103808">
+      <Bool value="true"/>
+    </Property>
+    <Property name="Geometry" type="Part::PropertyGeometryList" status="8192">
+      <GeometryList count="19">
+        <Geometry type="Part::GeomLineSegment" id="2" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-1.788750740422061e-26" StartY="0" StartZ="0" EndX="-1.788750740422061e-26" EndY="-15" EndZ="0"/>
+          <Construction value="1"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="3" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-5" StartY="-15" StartZ="0" EndX="5" EndY="-15" EndZ="0"/>
+          <Construction value="1"/>
+        </Geometry>
+        <Geometry type="Part::GeomCircle" id="4" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="4" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <Circle CenterX="-1.788750740422061e-26" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomCircle" id="5" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="5" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <Circle CenterX="-5" CenterY="-15" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomCircle" id="6" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="6" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <Circle CenterX="5" CenterY="-15" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomArcOfCircle" id="11" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="11" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <ArcOfCircle CenterX="-1.788750740422061e-26" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="3" StartAngle="0.2584627614152801" EndAngle="2.883129892174513"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="13" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="13" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-2.90035209085071" StartY="0.76678403028357" StartZ="0" EndX="-6.93356806056714" EndY="-14.48881064647762" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="15" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="15" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="2.90035209085071" StartY="0.7667840302835696" StartZ="0" EndX="6.933568060567138" EndY="-14.48881064647762" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomArcOfCircle" id="16" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="16" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <ArcOfCircle CenterX="-5" CenterY="-15" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="2" StartAngle="2.883129892174513" EndAngle="4.71238898038469"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomArcOfCircle" id="17" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="17" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <ArcOfCircle CenterX="5" CenterY="-15" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="2" StartAngle="4.71238898038469" EndAngle="6.541648068594867"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="22" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="22" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-2.90035209085071" StartY="0.76678403028357" StartZ="0" EndX="-2" EndY="-13" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="23" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="23" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="2.90035209085071" StartY="0.7667840302835696" StartZ="0" EndX="2" EndY="-13" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="24" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="24" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-2" StartY="-13" StartZ="0" EndX="-2" EndY="-17" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="26" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="26" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="2" StartY="-13" StartZ="0" EndX="2" EndY="-17" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="27" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="27" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-5" StartY="-17" StartZ="0" EndX="-2" EndY="-17" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="28" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="28" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="-2" StartY="-17" StartZ="0" EndX="2" EndY="-17" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomLineSegment" id="14" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="14" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <LineSegment StartX="2" StartY="-17" StartZ="0" EndX="5" EndY="-17" EndZ="0"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomCircle" id="30" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="30" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <Circle CenterX="-1.788750740422061e-26" CenterY="-15" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1"/>
+          <Construction value="0"/>
+        </Geometry>
+        <Geometry type="Part::GeomCircle" id="31" migrated="1">
+          <GeoExtensions count="1">
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="31" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
+          </GeoExtensions>
+          <Circle CenterX="-1.788753504093915e-26" CenterY="-6" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1"/>
+          <Construction value="0"/>
+        </Geometry>
+      </GeometryList>
+    </Property>
+    <Property name="InternalShape" type="Part::PropertyPartShape">
+      <Part ElementMap="0.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 0
+Curve2ds 0
+Curves 0
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 0
+Triangulations 0
+
+TShapes 0
+
+*]]>
+      </Part>
+      <ElementMap/>
+    </Property>
+    <Property name="InternalTolerance" type="App::PropertyPrecision">
+      <Float value="1e-06"/>
+    </Property>
+    <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217729">
+      <String value="TBoneLinkageSketch"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="MakeInternals" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="MapMode" type="App::PropertyEnumeration">
+      <Integer value="5"/>
+    </Property>
+    <Property name="MapPathParameter" type="App::PropertyFloat" status="8">
+      <Float value="0"/>
+    </Property>
+    <Property name="MapReversed" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388612">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="Shape" type="Part::PropertyPartShape">
+      <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 1
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+Curve2ds 0
+Curves 17
+2 -1.7887507404220607e-26 0 0 0 0 1 1 0 0 0 1 0 1.5
+2 -5 -15 0 0 0 1 1 0 0 0 1 0 1
+2 5 -15 0 0 0 1 1 0 0 0 1 0 1
+2 -1.7887507404220607e-26 0 0 0 0 1 1 0 -0 -0 1 0 3
+1 -2.9003520908507103 0.76678403028357001 0 -0.25559467676118997 -0.96678403028357007 0 
+2 -5 -15 0 0 0 1 1 0 -0 -0 1 0 2
+1 -5 -17 0 1 0 0 
+1 -2 -17 0 1 0 0 
+1 2 -17 0 1 0 0 
+2 5 -15 0 0 0 1 1 0 -0 -0 1 0 1.9999999999999996
+1 2.9003520908507103 0.76678403028356956 0 0.25559467676118991 -0.96678403028357007 0 
+1 2.9003520908507103 0.76678403028356956 0 -0.065260902609894492 -0.99786823508444344 0 
+1 2 -13 0 0 -1 0 
+1 -2 -13 0 0 -1 0 
+1 -2.9003520908507103 0.76678403028357001 0 0.065260902609894478 -0.99786823508444322 0 
+2 -1.7887507404220607e-26 -15 0 0 0 1 1 0 -0 -0 1 0 1
+2 -1.788753504093915e-26 -6 0 0 0 1 1 0 -0 -0 1 0 1
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 0
+Triangulations 0
+
+TShapes 39
+Ve
+1e-07
+1.5 0 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  1 0 0 6.28318530717959
+0
+
+0101100
++39 0 -39 0 *
+Wi
+
+0101100
++38 0 *
+Ve
+1e-07
+-4 -15 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  2 0 0 6.28318530717959
+0
+
+0101100
++36 0 -36 0 *
+Wi
+
+0101100
++35 0 *
+Ve
+1e-07
+6 -15 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  3 0 0 6.28318530717959
+0
+
+0101100
++33 0 -33 0 *
+Wi
+
+0101100
++32 0 *
+Ve
+1e-07
+2.90035209085071 0.76678403028357 0
+0 0
+
+0101101
+*
+Ve
+1.00000000477704e-07
+-2.90035209085071 0.76678403028357 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  4 0 0.25846276141528 2.88312989217451
+0
+
+0101000
++30 0 -29 0 *
+Ve
+1e-07
+-6.93356806056714 -14.4888106464776 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  5 0 0 15.7797338380595
+0
+
+0101000
++29 0 -27 0 *
+Ve
+1e-07
+-5 -17 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  6 0 2.88312989217451 4.71238898038469
+0
+
+0101000
++27 0 -25 0 *
+Ve
+1e-07
+-2 -17 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  7 0 0 3
+0
+
+0101000
++25 0 -23 0 *
+Ve
+1e-07
+2 -17 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  8 0 0 4
+0
+
+0101000
++23 0 -21 0 *
+Ve
+1e-07
+5 -17 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  9 0 0 3
+0
+
+0101000
++21 0 -19 0 *
+Ve
+1.00000001256074e-07
+6.93356806056714 -14.4888106464776 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  10 0 4.71238898038469 6.54164806859487
+0
+
+0101000
++19 0 -17 0 *
+Ed
+ 1e-07 1 1 0
+1  11 0 0 15.7797338380595
+0
+
+0101000
++30 0 -17 0 *
+Ve
+1e-07
+2 -13 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  12 0 0 13.7961942732034
+0
+
+0101000
++30 0 -14 0 *
+Ed
+ 1e-07 1 1 0
+1  13 0 0 4
+0
+
+0101000
++14 0 -21 0 *
+Ve
+1e-07
+-2 -13 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  14 0 0 4
+0
+
+0101000
++11 0 -23 0 *
+Ed
+ 1e-07 1 1 0
+1  15 0 0 13.7961942732034
+0
+
+0101000
++29 0 -11 0 *
+Wi
+
+0101000
++28 0 +26 0 +24 0 +22 0 +20 0 +18 0 +16 0 -15 0 +13 0 +12 0 
+-10 0 -9 0 *
+Ve
+1e-07
+1 -15 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  16 0 0 6.28318530717959
+0
+
+0101100
++7 0 -7 0 *
+Wi
+
+0101100
++6 0 *
+Ve
+1e-07
+1 -6 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  17 0 0 6.28318530717959
+0
+
+0101100
++4 0 -4 0 *
+Wi
+
+0101100
++3 0 *
+Co
+
+1100000
++37 0 +34 0 +31 0 +8 0 +5 0 +2 0 *
+
++1 1 ]]>
+      </Part>
+      <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
+      <ElementMap2 count="32">
+<![CDATA[
+3 PostfixCount 3
+Edge
+Vertex
+;SKT
+
+MapCount 2
+
+ElementMap 1 4 2
+
+Edge
+
+ChildCount 0
+
+NameCount 13
+0
+;g11.3 0
+;g13.3 0
+;g16.3 0
+;g27.3 0
+;g28.3 0
+;g14.3 0
+;g17.3 0
+;g15.3 0
+;g23.3 0
+;g26.3 0
+;g24.3 0
+;g22.3 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 11
+0
+;g11v1.3 ;g15v1.3 ;g23v1.3 0
+;g11v2.3 ;g13v1.3 ;g22v1.3 0
+;g13v2.3 ;g16v1.3 0
+;g16v2.3 ;g27v1.3 0
+;g24v2.3 ;g27v2.3 ;g28v1.3 0
+;g26v2.3 ;g28v2.3 ;g14v1.3 0
+;g17v1.3 ;g14v2.3 0
+;g15v2.3 ;g17v2.3 0
+;g23v2.3 ;g26v1.3 0
+;g22v2.3 ;g24v1.3 0
+
+EndMap
+
+ElementMap 2 3 2
+
+Edge
+
+ChildCount 1
+1 3 12 0 1 ;:H,E 0
+
+NameCount 18
+0
+;g4.3 0
+;g5.3 0
+;g6.3 0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+;g30.3 0
+;g31.3 0
+
+Vertex
+
+ChildCount 1
+1 3 10 0 1 ;:H,V 0
+
+NameCount 16
+0
+;g4v1.3 0
+;g5v1.3 0
+;g6v1.3 0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+;g30v1.3 0
+;g31v1.3 0
+
+EndMap
+]]>
+      </ElementMap2>
+    </Property>
+    <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
+      <LinkSubList count="1">
+        <Link obj="XY_Plane001" sub=""/>
+      </LinkSubList>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
+      <Integer value="27"/>
+    </Property>
+    <Property name="ValidateShape" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="false"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>
