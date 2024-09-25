@@ -1,3 +1,0 @@
-# Normalize EOL for all files that Git considers text files.
-* text=auto eol=lf
-Models/Car_Assembly.obj filter=lfs diff=lfs merge=lfs -text
