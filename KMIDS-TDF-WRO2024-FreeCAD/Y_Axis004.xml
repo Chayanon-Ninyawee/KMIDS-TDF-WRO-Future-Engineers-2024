@@ -20,7 +20,7 @@
       <String value="Y_Axis"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="101"/>
+      <Integer value="117"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="true"/>

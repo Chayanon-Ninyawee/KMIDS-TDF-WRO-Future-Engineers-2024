@@ -64,7 +64,7 @@
     <Property name="Uid" type="App::PropertyUUID">
       <Uuid value="1594c53c-21b7-4b35-a72f-3e2fb716a3be"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="648">
+    <Property name="Visibility" type="App::PropertyBool" status="649">
       <Bool value="false"/>
     </Property>
     <Property name="_ExportChildren" type="App::PropertyLinkList" status="218104320">

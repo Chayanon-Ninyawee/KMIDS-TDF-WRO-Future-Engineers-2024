@@ -23,7 +23,8 @@
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
     <Property name="Group" type="App::PropertyLinkList">
-      <LinkList count="1">
+      <LinkList count="2">
+        <Link value="Part__Mirroring"/>
         <Link value="Body003"/>
       </LinkList>
     </Property>
@@ -64,12 +65,12 @@
     <Property name="Uid" type="App::PropertyUUID">
       <Uuid value="1594c53c-21b7-4b35-a72f-3e2fb716a3be"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="648">
+    <Property name="Visibility" type="App::PropertyBool" status="649">
       <Bool value="false"/>
     </Property>
     <Property name="_ExportChildren" type="App::PropertyLinkList" status="218104320">
       <LinkList count="1">
-        <Link value="Body003"/>
+        <Link value="Part__Mirroring"/>
       </LinkList>
     </Property>
     <Property name="_GroupVersion" type="App::PropertyInteger" status="218103808">
