@@ -69,7 +69,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
-      <Bool value="true"/>
+      <Bool value="false"/>
     </Property>
     <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099082">
       <BoolList value="111"/>

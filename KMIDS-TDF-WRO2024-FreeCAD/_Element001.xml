@@ -56,8 +56,8 @@ Locations 15
               0               1               0               0 
               0               0               1               0 
 1
-              1 -1.81898940354668e-12               0 -4.40536496171262e-12 
-1.81898940354668e-12               1               0 -1.69038116837328e-11 
+              1               0               0 -4.40536496171262e-12 
+              0               1               0 -1.69038116837328e-11 
               0               0               1               4 
 1
               1               0               0               0 
@@ -92,13 +92,13 @@ Locations 15
 2  3 -1 12 -1 8 -1 7 -1 6 -1 5 -1 0
 Curve2ds 4
 1 0 0 0 -1 
-1 6.2831853071795898 0 0 -1 
+1 6.2831853071795862 0 0 -1 
 1 0 0 1 0 
 1 0 -2 1 0 
 Curves 3
 1 6 -15 0 0 0 1 
-2 5 -15 0 0 0 1 1 0 -0 -0 1 0 1
-2 5 -15 0 0 0 1 1 0 -0 -0 1 0 1
+2 5 -15 0 0 0 1 1 0 0 0 1 0 1
+2 5 -15 0 0 0 1 1 0 0 0 1 0 1
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
@@ -159,7 +159,7 @@ Co
 +3 3 *
 Co
 
-0100000
+1100000
 +2 2 *
 
 +1 1 ]]>
@@ -220,7 +220,7 @@ EndMap
       <Integer value="0"/>
     </Property>
     <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
-      <Integer value="0"/>
+      <Integer value="1"/>
     </Property>
     <Property name="_Parent" type="App::PropertyLinkHidden" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097162">
       <Link value="Elements"/>
