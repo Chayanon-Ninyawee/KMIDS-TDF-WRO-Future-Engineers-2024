@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="297c1f7a-7599-4c2a-9696-60928da5604c" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="89">
+<![CDATA[
+-1.0 0:;SKT
+-1.c.1 g3v1
+-1.c.0 g4v1
+-1.c.0 g5v1
+-1.c.0 g3
+-1.c.0 g4
+-1.c.0 g5
+-2.0 0:;:X;:H9:3,V
+-1.2c.1.8
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:X;:H9:3,E
+-1.2c.1.9
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:H1,V
+-1.2c.1.8
+-1.0 0:;:H1,E
+-1.2c.1.6
+-1.2c.-2.-3
+-1.2c.2.4
+-1.2c.-2.-3
+-1.2c.2.4
+-1.0 0:;SKT;:H,V;:X;:H9:8,V;:H1:10,V
+-1.c.1 g6v1
+-1.c.0 g10v1
+-1.c.0 g6v2
+-1.c.0 g9v1
+-1.0 0:;SKT;:H,E;:X;:H9:8,E;:H1:10,E
+-1.c.1 g6
+-1.c.-5 g9v2
+-1.c.0 g7v1
+-1.c.5 g9
+-1.c.-5 g7v2
+-1.c.0 g12v1
+-1.c.5 g7
+-1.c.-5 g8v1
+-1.c.0 g12v2
+-1.c.5 g12
+-1.c.-5 g10v2
+-1.c.0 g8v2
+-1.c.5 g8
+-1.c.0 g10
+-1.0 0:;WIR;:H1:4,E;:H,E
+-1.2c.1.f
+-1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V
+-1.2c.1.16
+-1.2c.0.2
+-1.2c.0.4
+-1.2c.0.3
+-1.2c.0.3
+-1.2c.0.3
+-1.0 0:;WIR;:H1:4,V;:Ha,V
+-1.2c.1.25
+-1.2c.0.3
+-1.2c.0.2
+-1.0 0:;WIR;:H1:4,E;:H,E;:Ha,E
+-1.2c.1.1c
+-1.2c.0.3
+-1.2c.0.3
+-1.2c.0.3
+-1.2c.0.3
+-1.2c.0.1
+-1.0 0:;WIR;:H1:4,E;:Ha,E
+-1.2c.1.2e
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;FAC;:H1:4,F;:Ha,F
+-1.2c.1.18
+-1.0 0:;:G;XTR;:Ha:7,F
+-1.2c.1.d
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:G;XTR;:Ha:7,E
+-1.2c.1.22
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.1
+]]>
+  </StringHasher2>
+  <Properties Count="21" TransientCount="3">
+    <_Property name="FileName" type="App::PropertyString" status="50331649"/>
+    <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
+    <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
+    <Property name="Comment" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Company" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreatedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreationDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-29T08:30:26Z"/>
+    </Property>
+    <Property name="ForceXML" type="App::PropertyInteger" status="1">
+      <Integer value="3"/>
+    </Property>
+    <Property name="Id" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="1">
+      <String value="TopWheelLinkage"/>
+    </Property>
+    <Property name="LastModifiedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-29T08:39:23Z"/>
+    </Property>
+    <Property name="License" type="App::PropertyString" status="1">
+      <String value="All rights reserved"/>
+    </Property>
+    <Property name="LicenseURL" type="App::PropertyString" status="1">
+      <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+    </Property>
+    <Property name="Material" type="App::PropertyMap" status="1">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Meta" type="App::PropertyMap" status="1">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="PreferBinary" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="ShowHidden" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SplitXML" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailFile" type="App::PropertyFile">
+      <String value=""/>
+    </Property>
+    <Property name="TipName" type="App::PropertyString" status="83886080">
+      <String value=""/>
+    </Property>
+    <Property name="Uid" type="App::PropertyUUID" status="16777217">
+      <Uuid value="297c1f7a-7599-4c2a-9696-60928da5604c"/>
+    </Property>
+    <Property name="UseHasher" type="App::PropertyBool" status="67108865">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+  <Objects Count="11" Dependencies="1">
+    <ObjectDeps Name="Link" Count="0"/>
+    <ObjectDeps Name="Body" Count="3">
+      <Dep Name="Pad"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Origin"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="X_Axis"/>
+      <Dep Name="Y_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis" Count="0"/>
+    <ObjectDeps Name="Y_Axis" Count="0"/>
+    <ObjectDeps Name="Z_Axis" Count="0"/>
+    <ObjectDeps Name="XY_Plane" Count="0"/>
+    <ObjectDeps Name="XZ_Plane" Count="0"/>
+    <ObjectDeps Name="YZ_Plane" Count="0"/>
+    <ObjectDeps Name="Binder" Count="3">
+      <Dep Name="Link"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Body"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad" Count="2">
+      <Dep Name="Binder"/>
+      <Dep Name="Body"/>
+    </ObjectDeps>
+    <Object type="App::Link" name="Link" id="1" revision="4" file="Link.xml" />
+    <Object type="PartDesign::Body" name="Body" id="2" revision="9" file="Body.xml" />
+    <Object type="App::Origin" name="Origin" id="3" revision="0" file="Origin.xml" />
+    <Object type="App::Line" name="X_Axis" id="4" revision="1" file="X_Axis.xml" />
+    <Object type="App::Line" name="Y_Axis" id="5" revision="2" file="Y_Axis.xml" />
+    <Object type="App::Line" name="Z_Axis" id="6" revision="2" file="Z_Axis.xml" />
+    <Object type="App::Plane" name="XY_Plane" id="7" revision="1" file="XY_Plane.xml" />
+    <Object type="App::Plane" name="XZ_Plane" id="8" revision="2" file="XZ_Plane.xml" />
+    <Object type="App::Plane" name="YZ_Plane" id="9" revision="2" file="YZ_Plane.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="10" revision="13" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="11" revision="15" file="Pad.xml" />
+  </Objects>
+  <ObjectData Count="0">
+  </ObjectData>
+</Document>
