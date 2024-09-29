@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="1a6aba71-6612-468a-9795-80d1cd4ead4f" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="148">
+<![CDATA[
+-1.0 0:Shape cache
+-1.0 0:;SKT;:Hdbb,E
+-1.c.1 g1
+-1.0 0:;SKT;:Hdbb,V
+-1.c.1 g1v1
+-1.c.0 g2v1
+-1.c.-2 g2
+-1.0 0:;FAC;:Hdbb:4,F
+-1.2c.1.6
+-1.0 0:;:G;XTR;:Hdbb:7,F
+-1.2c.1.8
+-1.2c.0.4
+-1.0 0:;:G;XTR;:Hdbb:7,E
+-1.2c.1.9
+-1.2c.0.1
+-1.0 0:;:U;XTR;:Hdbb:7,V
+-1.2c.1.3
+-1.2c.0.1
+-1.0 0:;:G0;XTR;:Hdbb:8,F
+-1.2c.1.b
+-1.0 0:;SKT
+-b.0 0:;FAC;:Hdc0:4,F
+-6.0 0:;:U;XTR;:Hdbb:7,E
+-1.2c.1.1c
+-1.2c.0.1
+-1f.0 0:;SKT;:Hdc0,V
+-1.c.1 g2v1
+-1.0 0:;SKT;:Hdc0,E
+-1.c.1 g2
+-1.c.-2 g4v1
+-1.c.2 g4
+-1.c.-2 g5v1
+-1.c.2 g5
+-1.c.-2 g6v1
+-1.c.2 g6
+-1.c.-2 g15v1
+-1.c.2 g15
+-34.2c.-29.3c
+-1.0 0:;:G;XTR;:Hdc0:7,F
+-1.2c.1.3e
+-1.2c.0.8
+-1.2c.0.-6
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;:G;XTR;:Hdc0:7,E
+-1.2c.1.46
+-1.2c.0.9
+-1.2c.0.-6
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;:U;XTR;:Hdc0:7,V
+-1.2c.1.5
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:U;XTR;:Hdc0:7,E
+-1.2c.1.10
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.-4
+-1.0 0:;:G0;XTR;:Hdc0:8,F
+-1.2c.1.19
+-1.2c.-b.8
+-3.c.-7e g3
+-4.0 0:;:Hdcb,E
+-1.2c.1.5
+-3.0 0:;WIR;:Hdcb:4,E
+-1.2c.1.4
+-5.0 0:;FAC;:Hdcb:4,F
+-8.0 0:;:Hdbc,V
+-1.2c.1.b5
+-1.2c.0.c
+-1.2c.0.-b
+-1.2c.0.c
+-1.0 0:;:M;FUS;:H-dc7:7,V
+-1.2c.1.77
+-1.2c.0.58
+-1.0 0:;:H-dc7,V
+-1.2c.1.71
+-1.2c.0.-6
+-1.2c.0.2
+-1.2c.0.2
+-1.2c.0.46
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:Hdbc,E
+-1.2c.1.bc
+-1.2c.0.-b
+-1.2c.0.24
+-1.2c.0.-20
+-1.2c.0.21
+-1.0 0:;:M;FUS;:Hdbc:7,E
+-1.2c.1.c1
+-1.0 0:;:M;FUS;:H-dc7:7,E
+-1.2c.1.88
+-1.2c.0.53
+-1.0 0:;:M2;FUS;:Hdbc:8,E
+-1.2c.1.c6
+-1.0 0:;:H-dc7,E
+-1.2c.1.85
+-1.2c.0.-6
+-1.2c.0.2
+-1.2c.0.2
+-1.2c.0.4a
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.-c
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:Hdbc,F
+-1.2c.1.d7
+-1.2c.0.-2
+-1.2c.0.b
+-1.0 0:;:M;FUS;:Hdbc:7,F
+-1.2c.1.da
+-1.0 0:;:M2;FUS;:Hdbc:8,F
+-1.2c.1.dc
+-1.0 0:;:M;FUS;:H-dc7:7,F
+-1.2c.1.64
+-1.0 0:;:H-dc7,F
+-1.2c.1.62
+-1.2c.0.1
+-1.2c.0.1
+-9.c.-2.20 #9f
+-6.2c.-13.-13
+-6.2c.-15.-5
+-1.0 0:;SKT;:Hdcb,E
+-1.c.1 g3
+-1.0 0:;SKT;:Hdcb,V
+-1.c.1 g3v1
+-1.c.0 g15v1
+-1.c.-2 g15
+-1.2c.-53.5
+-1.0 0:;:G;XTR;:Hdcb:7,F
+-1.2c.1.7
+-1.2c.0.4
+-1.0 0:;:G;XTR;:Hdcb:7,E
+-1.2c.1.8
+-1.2c.0.1
+-1.0 0:;:U;XTR;:Hdcb:7,V
+-1.2c.1.3
+-1.2c.0.1
+-1.0 0:;:U;XTR;:Hdcb:7,E
+-1.2c.1.9
+-1.2c.0.1
+-1.0 0:;:G0;XTR;:Hdcb:8,F
+-1.2c.1.e
+]]>
+  </StringHasher2>
+  <Properties Count="21" TransientCount="3">
+    <_Property name="FileName" type="App::PropertyString" status="50331649"/>
+    <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
+    <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
+    <Property name="Comment" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Company" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreatedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreationDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-29T15:49:03Z"/>
+    </Property>
+    <Property name="ForceXML" type="App::PropertyInteger" status="1">
+      <Integer value="3"/>
+    </Property>
+    <Property name="Id" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="1">
+      <String value="Wheel"/>
+    </Property>
+    <Property name="LastModifiedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-29T16:35:19Z"/>
+    </Property>
+    <Property name="License" type="App::PropertyString" status="1">
+      <String value="All rights reserved"/>
+    </Property>
+    <Property name="LicenseURL" type="App::PropertyString" status="1">
+      <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+    </Property>
+    <Property name="Material" type="App::PropertyMap">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Meta" type="App::PropertyMap">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="PreferBinary" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ShowHidden" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SplitXML" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailFile" type="App::PropertyFile">
+      <String value=""/>
+    </Property>
+    <Property name="TipName" type="App::PropertyString" status="83886080">
+      <String value=""/>
+    </Property>
+    <Property name="Uid" type="App::PropertyUUID" status="16777217">
+      <Uuid value="1a6aba71-6612-468a-9795-80d1cd4ead4f"/>
+    </Property>
+    <Property name="UseHasher" type="App::PropertyBool" status="67108865">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+  <Objects Count="14" Dependencies="1">
+    <ObjectDeps Name="Body" Count="7">
+      <Dep Name="Sketch"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Sketch002"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Sketch003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="X_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="Y_Axis"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis" Count="0"/>
+    <ObjectDeps Name="Y_Axis" Count="0"/>
+    <ObjectDeps Name="Z_Axis" Count="0"/>
+    <ObjectDeps Name="XY_Plane" Count="0"/>
+    <ObjectDeps Name="XZ_Plane" Count="0"/>
+    <ObjectDeps Name="YZ_Plane" Count="0"/>
+    <ObjectDeps Name="Sketch" Count="1">
+      <Dep Name="YZ_Plane"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad" Count="2">
+      <Dep Name="Body"/>
+      <Dep Name="Sketch"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Sketch002" Count="1">
+      <Dep Name="Sketch"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Sketch002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Sketch003" Count="1">
+      <Dep Name="Pad001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad002" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Sketch003"/>
+    </ObjectDeps>
+    <Object type="PartDesign::Body" name="Body" id="3507" revision="69" file="Body.xml" />
+    <Object type="App::Origin" name="Origin" id="3508" revision="0" file="Origin.xml" />
+    <Object type="App::Line" name="X_Axis" id="3509" revision="1" file="X_Axis.xml" />
+    <Object type="App::Line" name="Y_Axis" id="3510" revision="2" file="Y_Axis.xml" />
+    <Object type="App::Line" name="Z_Axis" id="3511" revision="2" file="Z_Axis.xml" />
+    <Object type="App::Plane" name="XY_Plane" id="3512" revision="1" file="XY_Plane.xml" />
+    <Object type="App::Plane" name="XZ_Plane" id="3513" revision="2" file="XZ_Plane.xml" />
+    <Object type="App::Plane" name="YZ_Plane" id="3514" revision="2" file="YZ_Plane.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="3515" revision="201" file="Sketch.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="3516" revision="33" file="Pad.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch002" id="3520" revision="1514" file="Sketch002.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="3527" revision="25" file="Pad001.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch003" id="3531" revision="1624" file="Sketch003.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="3534" revision="21" file="Pad002.xml" />
+  </Objects>
+  <ObjectData Count="0">
+  </ObjectData>
+</Document>
