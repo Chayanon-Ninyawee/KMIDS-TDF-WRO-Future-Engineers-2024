@@ -306,7 +306,7 @@ Co
 +3 5 *
 Co
 
-0100000
+1100000
 +2 2 *
 
 +1 1 ]]>
@@ -346,7 +346,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#43;:X;:H14:3,F.0 0
+;#b3;:X;:H14:3,F.0 0
 
 Vertex
 
@@ -382,7 +382,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#43;:X;:H14:3,F.0 0
+;#b3;:X;:H14:3,F.0 0
 
 Vertex
 

@@ -21,11 +21,12 @@
     <Property name="FixShape" type="App::PropertyEnumeration">
       <Integer value="0"/>
     </Property>
-    <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097417">
-      <LinkList count="3">
+    <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097416">
+      <LinkList count="4">
         <Link value="Link"/>
         <Link value="Link001"/>
         <Link value="Link002"/>
+        <Link value="Link003"/>
       </LinkList>
     </Property>
     <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097408">
@@ -75,7 +76,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097418">
-      <BoolList value="111"/>
+      <BoolList value="1111"/>
     </Property>
     <Property name="_LinkOwner" type="App::PropertyInteger" status="201326592">
       <Integer value="0"/>

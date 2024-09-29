@@ -4,12 +4,12 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="Link" expanded="0" Extensions="True">
+<ViewProvider name="Constraint007" expanded="0" Extensions="True">
   <Extensions Count="1">
     <Extension type="Gui::ViewProviderLinkObserver" name="ViewProviderLinkObserver">
     </Extension>
   </Extensions>
-  <Properties Count="17" TransientCount="0">
+  <Properties Count="18" TransientCount="0">
     <Property name="ChildViewProvider" type="App::PropertyPersistentObject" status="9">
       <String value=""/>
       <PersistentObject>
@@ -28,7 +28,7 @@
       <MaterialList file=""/>
     </Property>
     <Property name="OnTopWhenSelected" type="App::PropertyEnumeration" status="1">
-      <Integer value="0"/>
+      <Integer value="2"/>
     </Property>
     <Property name="OverrideColorList" type="App::PropertyColorList" status="1">
       <ColorList file=""/>
@@ -41,6 +41,9 @@
     </Property>
     <Property name="PointSize" type="App::PropertyFloatConstraint" status="1">
       <Float value="2"/>
+    </Property>
+    <Property name="Proxy" type="App::PropertyPythonObject" status="1">
+      <Python  module="freecad.asm3.assembly" class="ViewProviderAsmConstraint" value="null"/>
     </Property>
     <Property name="ResetClipPlane" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -60,8 +63,8 @@
     <Property name="ShowInTree" type="App::PropertyBool" status="1">
       <Bool value="true"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="1">
-      <Bool value="true"/>
+    <Property name="Visibility" type="App::PropertyBool" status="9">
+      <Bool value="false"/>
     </Property>
   </Properties>
 </ViewProvider>

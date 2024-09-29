@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!-- FreeCAD DocumentObject -->
 <Document SchemaVersion="4" FileVersion="2">
-<Object name="Link002" Extensions="True">
+<Object name="Link003" Extensions="True">
   <Extensions Count="1">
     <Extension type="App::LinkExtension" name="LinkExtension">
     </Extension>
@@ -28,7 +28,7 @@
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
     <Property name="Label" type="App::PropertyString" status="134217728">
-      <String value="Link002(WheelAxleBody)"/>
+      <String value="Link003(WheelBody)"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
       <String value=""/>
@@ -52,13 +52,13 @@
       <String value=""/>
     </Property>
     <Property name="LinkPlacement" type="App::PropertyPlacement" status="264">
-      <PropertyPlacement Px="-4.746206479591154e-14" Py="-9.860761315262648e-30" Pz="3.499999999999943" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+      <PropertyPlacement Px="-2.259454845443543e-10" Py="-9.661895495833157e-11" Pz="3.500000000207746" Q0="-2.105690946539565e-12" Q1="-1.463627842267468e-16" Q2="-1" Q3="1.154576529297564e-12" A="3.141592653587484" Ox="-2.105690946539565e-12" Oy="-1.463627842267468e-16" Oz="-1"/>
     </Property>
     <Property name="LinkTransform" type="App::PropertyBool" status="256">
       <Bool value="false"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" status="256">
-      <XLink file="WheelAxle" stamp="2024-09-29T16:20:45Z" name="Body"/>
+      <XLink file="Wheel" stamp="2024-09-29T18:00:20Z" name="Body"/>
     </Property>
     <Property name="Matrix" type="App::PropertyMatrix" status="67109120">
       <PropertyMatrix a11="1" a12="0" a13="0" a14="0" a21="0" a22="1" a23="0" a24="0" a31="0" a32="0" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
@@ -67,7 +67,7 @@
       <MatrixList file=""/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="256">
-      <PropertyPlacement Px="-4.746206479591154e-14" Py="-9.860761315262648e-30" Pz="3.499999999999943" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+      <PropertyPlacement Px="-2.259454845443543e-10" Py="-9.661895495833157e-11" Pz="3.500000000207746" Q0="-2.105690946539565e-12" Q1="-1.463627842267468e-16" Q2="-1" Q3="1.154576529297564e-12" A="3.141592653587484" Ox="-2.105690946539565e-12" Oy="-1.463627842267468e-16" Oz="-1"/>
     </Property>
     <Property name="PlacementList" type="App::PropertyPlacementList" status="256">
       <PlacementList file=""/>
@@ -88,7 +88,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="15"/>
+      <Integer value="44"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="true"/>
