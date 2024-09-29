@@ -20,8 +20,24 @@
       <Float value="0.2"/>
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
-      <ColorList count="1" >
+      <ColorList count="17" >
 cccccc00
+cccccc00
+cccccc00
+ffd70000
+cccccc00
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
       </ColorList>
     </Property>
     <Property name="DisplayMode" type="App::PropertyEnumeration" status="1">

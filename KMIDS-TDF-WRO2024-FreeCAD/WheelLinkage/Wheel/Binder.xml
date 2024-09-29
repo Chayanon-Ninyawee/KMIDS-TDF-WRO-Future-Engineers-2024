@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Binder" Extensions="True">
+  <Extensions Count="1">
+    <Extension type="Part::AttachExtensionPython" name="AttachExtensionPython">
+    </Extension>
+  </Extensions>
+  <Properties Count="41" TransientCount="1">
+    <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
+    <Property name="AttacherType" type="App::PropertyString" status="8">
+      <String value="Attacher::AttachEngine3D"/>
+    </Property>
+    <Property name="AttachmentOffset" type="App::PropertyPlacement">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
+      <LinkSubList count="1">
+        <Link obj="YZ_Plane" sub=""/>
+      </LinkSubList>
+    </Property>
+    <Property name="BindCopyOnChange" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="BindMode" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="Cache_Sketch002" type="App::PropertyMatrix" group="Cache" attr="0" ro="0" hide="1" doc="" status="69206016">
+      <PropertyMatrix a11="1" a12="0" a13="0" a14="0" a21="0" a22="1" a23="-1.232595164407833e-32" a24="0" a31="0" a32="2.736911063134408e-47" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
+    </Property>
+    <Property name="ClaimChildren" type="App::PropertyBool" status="134217728">
+      <Bool value="false"/>
+    </Property>
+    <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="Context" type="App::PropertyXLink" status="67108864">
+      <XLink file="" stamp="" name="Body" sub="Binder."/>
+    </Property>
+    <Property name="EdgeTolerance" type="App::PropertyPrecision">
+      <Float value="1e-06"/>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="FaceMaker" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="FillStyle" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="FixShape" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="Fuse" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="Binder(HoleSketch)"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="MakeFace" type="App::PropertyBool">
+      <Bool value="true"/>
+    </Property>
+    <Property name="MapMode" type="App::PropertyEnumeration">
+      <Integer value="5"/>
+    </Property>
+    <Property name="MapPathParameter" type="App::PropertyFloat" status="8">
+      <Float value="0"/>
+    </Property>
+    <Property name="MapReversed" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="MergeEdges" type="App::PropertyBool">
+      <Bool value="true"/>
+    </Property>
+    <Property name="Offset" type="App::PropertyFloat">
+      <Float value="0"/>
+    </Property>
+    <Property name="OffsetFill" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="OffsetIntersection" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="OffsetJoinType" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="OffsetOpenResult" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Outline" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="PartialLoad" type="App::PropertyBool" status="1024">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388612">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0.4999999999999999" Q1="0.4999999999999999" Q2="0.4999999999999999" Q3="0.5000000000000003" A="2.094395102393195" Ox="0.5773502691896258" Oy="0.5773502691896258" Oz="0.5773502691896258"/>
+    </Property>
+    <Property name="Refine" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Relative" type="App::PropertyBool">
+      <Bool value="true"/>
+    </Property>
+    <Property name="Shape" type="Part::PropertyPartShape">
+      <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 11
+1
+2.22044604925031e-16 -3.33066907387547e-16               1               0 
+              1 3.33066907387547e-16 -2.22044604925031e-16               0 
+-3.33066907387547e-16               1 3.33066907387547e-16               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1 -2.73691106313441e-47               0 
+              0 2.73691106313441e-47               1               0 
+2  2 1 3 1 4 1 0
+1
+2.22044604925031e-16 -3.33066907387547e-16               1               0 
+              1 3.33066907387547e-16 -2.22044604925031e-16               0 
+-3.33066907387547e-16               1 3.33066907387547e-16               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+2  6 -1 7 -1 4 -1 3 -1 2 -1 0
+1
+              1               0               0              17 
+              0               1               0 -3.77475828372553e-15 
+              0               0               1 5.6621374255883e-15 
+2  9 -1 6 -1 7 -1 4 -1 3 -1 2 -1 0
+2  3 -1 2 -1 0
+Curve2ds 10
+1 0 0 1 0 
+1 0 -17 1 0 
+1 0 0 1 0 
+1 0 -17 1 0 
+1 0 0 1 0 
+1 0 -17 1 0 
+1 0 0 1 0 
+1 0 -17 1 0 
+1 0 0 1 0 
+1 0 -17 1 0 
+Curves 5
+2 -1.655242563550407e-31 2.459104385537007e-32 0 0 0 1 1 0 0 0 1 0 17.5
+2 -1.655242563550407e-31 2.459104385537007e-32 0 0 0 1 1 0 0 0 1 0 4.5499999999999998
+2 0 10 0 0 0 1 1 0 0 0 1 0 1.5
+2 8.6602540378443855 -4.9999999999999991 0 0 0 1 1 0 0 0 1 0 1.5
+2 -8.6602540378443855 -4.9999999999999991 0 0 0 1 1 0 0 0 1 0 1.5
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 6
+1 -4.3778685975838417e-16 9.2099940138108214e-16 2.9576780942247029e-62 0 0 1 1 0 -0 -0 1 0 
+2 -4.4944231034204258e-47 -1.655242563550407e-31 2.4591043855370124e-32 -1 2.2204460492503121e-16 -3.3306690738754701e-16 2.2204460492503131e-16 1 -3.3306690738754701e-16 -3.3306690738754691e-16 3.3306690738754706e-16 1 17.5
+2 -4.4944231034204258e-47 -1.655242563550407e-31 2.4591043855370124e-32 -1 2.2204460492503121e-16 -3.3306690738754701e-16 2.2204460492503131e-16 1 -3.3306690738754701e-16 -3.3306690738754691e-16 3.3306690738754706e-16 1 4.5499999999999998
+2 -3.3306690738754692e-15 3.3306690738754704e-15 10 -1 2.2204460492503121e-16 -3.3306690738754701e-16 2.2204460492503131e-16 1 -3.3306690738754701e-16 -3.3306690738754691e-16 3.3306690738754706e-16 1 1.5
+2 3.5882972233212977e-15 8.6602540378443837 -5.0000000000000018 -1 2.2204460492503121e-16 -3.3306690738754701e-16 2.2204460492503131e-16 1 -3.3306690738754701e-16 -3.3306690738754691e-16 3.3306690738754706e-16 1 1.5
+2 -2.576281494458295e-16 -8.6602540378443873 -4.9999999999999964 -1 2.2204460492503121e-16 -3.3306690738754701e-16 2.2204460492503131e-16 1 -3.3306690738754701e-16 -3.3306690738754691e-16 3.3306690738754706e-16 1 1.5
+Triangulations 0
+
+TShapes 16
+Ve
+1e-07
+17.5 2.45910438553701e-32 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  1 0 0 6.28318530717959
+2  1 2 8 0 6.28318530717959
+2  2 2 10 0 6.28318530717959
+0
+
+0101100
++16 11 -16 11 *
+Wi
+
+0101100
++15 5 *
+Ve
+1e-07
+4.55 2.45910438553701e-32 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  2 0 0 6.28318530717959
+2  3 3 8 0 6.28318530717959
+2  4 3 10 0 6.28318530717959
+0
+
+0101100
++13 11 -13 11 *
+Wi
+
+0101100
++12 5 *
+Ve
+1e-07
+1.5 10 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  3 0 0 6.28318530717959
+2  5 4 8 0 6.28318530717959
+2  6 4 10 0 6.28318530717959
+0
+
+0101100
++10 11 -10 11 *
+Wi
+
+0101100
++9 5 *
+Ve
+1e-07
+10.1602540378444 -5 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  4 0 0 6.28318530717959
+2  7 5 8 0 6.28318530717959
+2  8 5 10 0 6.28318530717959
+0
+
+0101100
++7 11 -7 11 *
+Wi
+
+0101100
++6 5 *
+Ve
+1e-07
+-7.16025403784439 -5 0
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  5 0 0 6.28318530717959
+2  9 6 8 0 6.28318530717959
+2  10 6 10 0 6.28318530717959
+0
+
+0101100
++4 11 -4 11 *
+Wi
+
+0101100
++3 5 *
+Fa
+0  1e-07 1 0
+
+0111000
++14 0 -11 0 -8 0 -5 0 -2 0 *
+
++1 1 ]]>
+      </Part>
+      <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
+      <ElementMap2 count="11">
+<![CDATA[
+7 PostfixCount 6
+Edge
+Face
+Vertex
+;FAC;:Hdc0:4,F
+;WIR;:Hdc0:4,V
+;WIR;:Hdc0:4,E
+
+MapCount 1
+
+ElementMap 1 7 3
+
+Edge
+
+ChildCount 0
+
+NameCount 6
+0
+$#4a.6 0
+$#52.6 0
+$#4c.6 0
+$#4e.6 0
+$#50.6 0
+
+Face
+
+ChildCount 0
+
+NameCount 2
+0
+$#123.4 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 6
+0
+$#48.5 0
+$#51.5 0
+$#4b.5 0
+$#4d.5 0
+$#4f.5 0
+
+EndMap
+]]>
+      </ElementMap2>
+    </Property>
+    <Property name="SplitEdges" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Support" type="App::PropertyXLinkSubList">
+      <XLinkSubList count="1">
+        <XLink file="" stamp="" name="Sketch002" sub=""/>
+      </XLinkSubList>
+    </Property>
+    <Property name="TightBound" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
+      <Integer value="21"/>
+    </Property>
+    <Property name="ValidateShape" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="false"/>
+    </Property>
+    <Property name="_Version" type="App::PropertyInteger" status="83886080">
+      <Integer value="8"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>
