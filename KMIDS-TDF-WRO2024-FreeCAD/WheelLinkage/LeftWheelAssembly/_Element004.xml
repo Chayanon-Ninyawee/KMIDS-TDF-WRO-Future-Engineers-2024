@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link" sub="Pad002.Face10" shadow="Pad002.;#185;:H12,F.Face10"/>
+      <XLink file="" stamp="" name="Link" sub="Pad002.Face10" shadow="Pad002.;#1f2;:H12,F.Face10"/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -50,20 +50,7 @@
 <![CDATA[
 
 CASCADE Topology V1, (c) Matra-Datavision
-Locations 16
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1               0 
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1               0 
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1               0 
-2  3 -1 0
+Locations 19
 1
               1               0               0               0 
               0               1               0               0 
@@ -84,42 +71,64 @@ Locations 16
               1               0               0               0 
               0               1               0               0 
               0               0               1               0 
-2  5 1 6 1 7 1 8 1 9 1 0
-2  9 -1 8 -1 7 -1 6 -1 5 -1 0
-2  3 -1 9 -1 8 -1 7 -1 6 -1 5 -1 0
+2  3 1 4 1 5 1 0
+2  5 -1 4 -1 3 -1 0
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+2  8 1 9 1 10 1 11 1 12 1 0
+2  12 -1 11 -1 10 -1 9 -1 8 -1 0
+2  5 -1 4 -1 3 -1 12 -1 11 -1 10 -1 9 -1 8 -1 0
 1
               1               0               0               0 
               0               1               0               0 
               0               0               1               2 
-2  5 1 6 1 7 1 8 1 9 1 13 1 0
-2  13 -1 9 -1 8 -1 7 -1 6 -1 5 -1 0
-2  3 -1 13 -1 9 -1 8 -1 7 -1 6 -1 5 -1 0
+2  8 1 9 1 10 1 11 1 12 1 16 1 0
+2  16 -1 12 -1 11 -1 10 -1 9 -1 8 -1 0
+2  5 -1 4 -1 3 -1 16 -1 12 -1 11 -1 10 -1 9 -1 8 -1 0
 Curve2ds 4
 1 0 0 0 -1 
-1 6.2831853071795898 0 0 -1 
+1 6.2831853071795862 0 0 -1 
 1 0 0 1 0 
 1 0 -2 1 0 
 Curves 3
-1 -3.5 1.18436967876107e-24 0 0 0 1 
-2 -5 1.1843696787610687e-24 0 0 0 1 1 0 -0 -0 1 0 1.5
-2 -5 1.1843696787610687e-24 0 0 0 1 1 0 -0 -0 1 0 1.5
+1 1.5 0 0 0 0 1 
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-2 -5 1.1843696787610687e-24 0 -0 -0 -1 1 0 0 0 1 0 1.5
+2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
 Triangulations 0
 
 TShapes 9
 Ve
 1e-07
--3.5 1.18436967876107e-24 0
+1.5 0 0
 0 0
 
 0101101
 *
 Ve
 1e-07
--3.5 1.18436967876107e-24 2
+1.5 0 2
 0 0
 
 0101101
@@ -131,27 +140,27 @@ Ed
 0
 
 0101000
-+9 4 -8 4 *
++9 7 -8 7 *
 Ed
  1e-07 1 1 0
 1  2 0 0 6.28318530717959
-2  3 1 11 0 6.28318530717959
+2  3 1 14 0 6.28318530717959
 0
 
 0101100
-+9 12 -9 12 *
++9 15 -9 15 *
 Ed
  1e-07 1 1 0
 1  3 0 0 6.28318530717959
-2  4 1 15 0 6.28318530717959
+2  4 1 18 0 6.28318530717959
 0
 
 0101100
-+8 16 -8 16 *
++8 19 -8 19 *
 Wi
 
 0101100
-+7 0 -7 0 -6 10 +5 14 *
++7 0 -7 0 -6 13 +5 17 *
 Fa
 0  1e-07 1 0
 
@@ -160,7 +169,7 @@ Fa
 Co
 
 0100000
-+3 3 *
++3 6 *
 Co
 
 0100000
@@ -186,9 +195,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#a0;:X;:H14:3,E.0 0
-;#a1;:X;:H14:3,E.0 0
-;#a2;:X;:H14:3,E.0 0
+;#3d;:X;:H14:3,E.0 0
+;#3e;:X;:H14:3,E.0 0
+;#3f;:X;:H14:3,E.0 0
 
 Face
 
@@ -196,7 +205,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#a4;:X;:H14:3,F.0 0
+;#40;:X;:H14:3,F.0 0
 
 Vertex
 
@@ -204,8 +213,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#9d;:X;:H14:3,V.0 0
-;#9e;:X;:H14:3,V.0 0
+;#3b;:X;:H14:3,V.0 0
+;#3c;:X;:H14:3,V.0 0
 
 EndMap
 ]]>
@@ -224,7 +233,7 @@ EndMap
       <Integer value="0"/>
     </Property>
     <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
-      <Integer value="0"/>
+      <Integer value="1"/>
     </Property>
     <Property name="_Parent" type="App::PropertyLinkHidden" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097162">
       <Link value="Elements"/>
