@@ -178,14 +178,14 @@ Curves 17
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 8
-2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
-2 -5 -15 0 -0 -0 -1 1 0 0 -0 1 -0 1
-2 5 -15 0 -0 -0 -1 1 0 0 -0 1 -0 1
-2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 3
-2 -5 -15 0 -0 -0 -1 1 0 0 -0 1 -0 2
-2 5 -15 0 -0 -0 -1 1 0 0 -0 1 -0 2
-2 0 -15 0 -0 -0 -1 1 0 0 -0 1 -0 1
-2 0 -6 0 -0 -0 -1 1 0 0 -0 1 -0 1
+2 0 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
+2 -5 -15 0 -0 -0 -1 1 0 0 0 1 0 1
+2 5 -15 0 -0 -0 -1 1 0 0 0 1 0 1
+2 0 0 0 -0 -0 -1 1 0 0 0 1 0 3
+2 -5 -15 0 -0 -0 -1 1 0 0 0 1 0 2
+2 5 -15 0 -0 -0 -1 1 0 0 0 1 0 2
+2 0 -15 0 -0 -0 -1 1 0 0 0 1 0 1
+2 0 -6 0 -0 -0 -1 1 0 0 0 1 0 1
 Triangulations 0
 
 TShapes 39
@@ -569,7 +569,7 @@ EndMap
     <Property name="SplitEdges" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="Support" type="App::PropertyXLinkSubList" status="1">
+    <Property name="Support" type="App::PropertyXLinkSubList">
       <XLinkSubList count="1">
         <XLink file="" stamp="" name="Link" sub=""/>
       </XLinkSubList>
@@ -578,7 +578,7 @@ EndMap
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="12"/>
+      <Integer value="13"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

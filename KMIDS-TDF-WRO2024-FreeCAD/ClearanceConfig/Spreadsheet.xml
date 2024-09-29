@@ -6,26 +6,30 @@
     <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
-    <Property name="Label" type="App::PropertyString" status="134217729">
+    <Property name="Label" type="App::PropertyString" status="134217728">
       <String value="ClearanceSpreadsheet"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
       <String value=""/>
     </Property>
-    <Property name="PythonMode" type="App::PropertyBool" status="1">
+    <Property name="PythonMode" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="ShowCells" type="App::PropertyEnumeration" status="1">
+    <Property name="ShowCells" type="App::PropertyEnumeration">
       <Integer value="0"/>
     </Property>
-    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
       <Integer value="1"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="649">
+    <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="true"/>
     </Property>
     <Property name="cells" type="Spreadsheet::PropertySheet" status="67108864">
-      <Cells Count="0">
+      <Cells Count="4">
+        <Cell address="A1" content="LinkageFace"/>
+        <Cell alias="LinkageFace" address="B1" content="0.05"/>
+        <Cell address="A2" content="LinkageHole"/>
+        <Cell alias="LinkageHole" address="B2" content="0.07"/>
       </Cells>
     </Property>
     <Property name="columnWidths" type="Spreadsheet::PropertyColumnWidths" status="218103808">

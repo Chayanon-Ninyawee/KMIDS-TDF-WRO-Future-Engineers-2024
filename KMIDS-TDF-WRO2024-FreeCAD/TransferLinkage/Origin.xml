@@ -30,10 +30,10 @@
         <Link value="YZ_Plane"/>
       </LinkList>
     </Property>
-    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="118"/>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="121"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="648">
+    <Property name="Visibility" type="App::PropertyBool" status="649">
       <Bool value="false"/>
     </Property>
     <Property name="_ExportChildren" type="App::PropertyLinkList" status="218104320">
