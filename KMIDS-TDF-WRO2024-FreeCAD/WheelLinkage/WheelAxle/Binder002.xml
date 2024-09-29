@@ -11,12 +11,11 @@
     <Property name="AttacherType" type="App::PropertyString" status="8">
       <String value="Attacher::AttachEngine3D"/>
     </Property>
-    <Property name="AttachmentOffset" type="App::PropertyPlacement">
+    <Property name="AttachmentOffset" type="App::PropertyPlacement" status="8">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
-      <LinkSubList count="1">
-        <Link obj="Pad001" sub="Face9" shadow=";#3b3;:H-4b2,F.Face9"/>
+      <LinkSubList count="0">
       </LinkSubList>
     </Property>
     <Property name="BindCopyOnChange" type="App::PropertyEnumeration">
@@ -26,7 +25,7 @@
       <Integer value="0"/>
     </Property>
     <Property name="Cache_Sketch" type="App::PropertyMatrix" group="Cache" attr="0" ro="0" hide="1" doc="" status="69206016">
-      <PropertyMatrix a11="1" a12="0" a13="0" a14="0" a21="0" a22="1" a23="0" a24="0" a31="0" a32="0" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
+      <PropertyMatrix a11="1" a12="-2.465190328815662e-32" a13="0" a14="0" a21="0" a22="1" a23="3.697785493223491e-32" a24="1.97215226305253e-31" a31="-3.697785493223493e-32" a32="-4.930380657631324e-32" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
     </Property>
     <Property name="ClaimChildren" type="App::PropertyBool" status="134217728">
       <Bool value="false"/>
@@ -36,7 +35,7 @@
       </LinkSub>
     </Property>
     <Property name="Context" type="App::PropertyXLink" status="67108864">
-      <XLink file="" stamp="" name="Body" sub="Binder002."/>
+      <XLink file="" stamp="" name="Body" sub="Pad002.Binder002."/>
     </Property>
     <Property name="EdgeTolerance" type="App::PropertyPrecision">
       <Float value="1e-06"/>
@@ -74,7 +73,7 @@
     <Property name="MapPathParameter" type="App::PropertyFloat" status="8">
       <Float value="0"/>
     </Property>
-    <Property name="MapReversed" type="App::PropertyBool">
+    <Property name="MapReversed" type="App::PropertyBool" status="8">
       <Bool value="false"/>
     </Property>
     <Property name="MergeEdges" type="App::PropertyBool">
@@ -101,8 +100,8 @@
     <Property name="PartialLoad" type="App::PropertyBool" status="1024">
       <Bool value="false"/>
     </Property>
-    <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-8" Py="1.77635683940025e-15" Pz="-1.776356839400251e-15" Q0="-0.4999999999999999" Q1="0.5" Q2="0.4999999999999999" Q3="-0.5000000000000002" A="4.188790204786391" Ox="-0.5773502691896257" Oy="0.5773502691896258" Oz="0.5773502691896257"/>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388608">
+      <PropertyPlacement Px="-8" Py="1.776356839400249e-15" Pz="-2.664535259100376e-15" Q0="-0.5" Q1="0.5" Q2="0.4999999999999999" Q3="-0.5000000000000002" A="4.188790204786391" Ox="-0.5773502691896258" Oy="0.5773502691896258" Oz="0.5773502691896257"/>
     </Property>
     <Property name="Refine" type="App::PropertyBool">
       <Bool value="false"/>
@@ -117,9 +116,9 @@
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 6
 1
--2.22044604925031e-16 -2.22044604925031e-16              -1              -8 
-             -1 4.93038065763131e-32 2.22044604925031e-16 1.77635683940025e-15 
-              0               1 -2.22044604925031e-16 -1.77635683940025e-15 
+2.22044604925031e-16 1.11022302462516e-16              -1              -8 
+             -1 3.33066907387547e-16 -2.22044604925031e-16 1.77635683940025e-15 
+3.33066907387547e-16               1 1.11022302462516e-16 -2.66453525910038e-15 
 1
               1               0               0               0 
               0               1               0               0 
@@ -129,24 +128,24 @@ Locations 6
               0               1               0               0 
               0               0               1               0 
 1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1               0 
+              1 1.34940133673351e-78 3.69778549322349e-32               0 
+-1.82314900718588e-63               1 4.93038065763132e-32 1.97215226305253e-31 
+-3.69778549322349e-32 -4.93038065763132e-32               1               0 
 2  2 1 3 1 4 1 0
 2  3 -1 2 -1 0
 Curve2ds 0
 Curves 1
-2 0 0 0 0 0 1 1 0 -0 -0 1 0 5
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 4.5250000000000004
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-1 -2.7348802650788469e-16 3.4286825315787712e-16 0 0 0 1 1 0 -0 -0 1 0 
+1 1.3598852146800889e-15 7.7046958903827625e-17 -5.9597793413844712e-47 0 0 1 1 0 -0 -0 1 0 
 Triangulations 0
 
 TShapes 4
 Ve
 1e-07
-5 0 0
+4.525 0 0
 0 0
 
 0101101

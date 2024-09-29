@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="a817b28e-5237-44fa-82ff-1a172c37c0e1" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="87eae754-593c-4fa6-9215-6bede9dbccdf" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="132">
+  <StringHasher2  count="245">
 <![CDATA[
 -1.0 0:Shape cache
 -1.0 0:;SKT;:H,E;:H9:5,E
@@ -138,6 +138,119 @@
 -1.2c.a.-1
 -1.0 0:;:G0;XTR;:Hf:8,F
 -1.2c.1.a7
+-1.0 0:;WIR;:H9:4,V;:H,V;:H13,V
+-1.2c.1.100
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;WIR;:H9:4,V;:H13,V
+-1.2c.1.d6
+-1.2c.0.3
+-2.0 0:;WIR;:H9:4,E;:H,E;:H13,E
+-1.2c.1.10d
+-1.2c.0.c
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;WIR;:H9:4,E;:H13,E
+-1.2c.1.df
+-1.2c.0.2
+-4.0 0:;:G;XTR;:H13:7,F
+-a.0 0:;:G;XTR;:H13:7,E
+-a.0 0:;:U;XTR;:H13:7,V
+-a.0 0:;:U;XTR;:H13:7,E
+-a.0 0:;:G0;XTR;:H13:8,F
+-2.0 0:;:H10,E
+-1.c.1.42 #68
+-2.c.0.1 #69
+-2.c.0.-103 #51
+-2.2c.0.b4
+-1.c.0.53 #6d
+-2.c.0.-f7 #56
+-2.2c.0.a7
+-1.c.0.4d #6a
+-2.c.0.-f8 #52
+-2.2c.0.ae
+-1.c.0.-ad #53
+-2.c.0.1 #54
+-2.c.0.1 #55
+-2.c.0.26 #58
+-1.0 0:(#15e;:H12,E)
+-1.c.1a.126 #59
+-2.8.-10a #f4 ;:M#c3;FUS;:H-12:a,E
+-2.c.10a.5b #6c
+-2.2c.0.-44
+-1.c.0.43 #6b
+-2.2c.0.-41
+-1.2c.0.1
+-3.2c.0.2
+-1.c.0.43 #6f
+-2.2c.0.-41
+-1.0 0:;:H-12,E
+-1.2c.1.72
+-1.0 0:;:H10,F
+-1.c.1.64 #5e
+-2.c.0.5 #63
+-2.c.0.-4 #5f
+-2.0 0:;:M;FUS;:H10:7,F
+-1.c.1.137 #5c
+-2.c.-7.d0 #62
+-2.c.0.-2 #60
+-2.c.0.1 #61
+-4.c.0.5 #65
+-2.0 0:;:M;FUS;:H-12:7,F
+-1.2c.1.92
+-1.0 0:;:H-12,F
+-1.2c.1.89
+-1.0 0:;:H10,V
+-1.c.1.187 #46
+-2.2c.0.d6
+-1.c.0.-d5 #47
+-2.2c.0.d7
+-1.c.0.-d3 #4b
+-2.2c.0.d5
+-1.c.0.-d8 #48
+-2.2c.0.da
+-1.c.0.-d9 #49
+-2.c.0.1 #4a
+-2.c.0.2d #4d
+-1.0 0:(#19c;:H12,V)
+-1.c.13.165 #4e
+-2.8.-150 #f5 ;:M#e6;FUS;:H-12:a,V
+-2.2c.150.bb
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:H-12,V
+-1.2c.1.a8
+-1.0 0:;WIR;:H13:4,E
+-1.2c.1.92
+-1.0 0:;WIR;:H13:4,V
+-1.2c.1.9f
+-1.0 0:;FAC;:H13:4,F
+-1.2c.1.4
+-1.2c.-90.0
+-1.2c.a.2
+-1.2c.65.-b2
+-1.2c.0.1
+-1.2c.0.4
+-1.2c.0.-3
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:M;FUS;:H10:7,V
+-1.2c.1.cc
+-1.0 0:;:M;FUS;:H10:7,E
+-1.2c.1.eb
+-1.0 0:;:M;FUS;:H-12:7,E
+-1.2c.1.c3
+-1.2c.-33.-1
+-1.2c.-57.b8
+-1.2c.a.-1
+-1.2c.a.-1
+-1.2c.36.-aa
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -169,7 +282,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-29T09:41:25Z"/>
+      <String value="2024-09-29T15:59:52Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -204,27 +317,29 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="a817b28e-5237-44fa-82ff-1a172c37c0e1"/>
+      <Uuid value="87eae754-593c-4fa6-9215-6bede9dbccdf"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="14" Dependencies="1">
-    <ObjectDeps Name="Body" Count="5">
+  <Objects Count="16" Dependencies="1">
+    <ObjectDeps Name="Body" Count="7">
+      <Dep Name="Pad002"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Binder"/>
       <Dep Name="Pad"/>
       <Dep Name="Binder001"/>
-      <Dep Name="Binder"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Origin"/>
+      <Dep Name="Binder002"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="XY_Plane"/>
-      <Dep Name="Z_Axis"/>
       <Dep Name="X_Axis"/>
-      <Dep Name="YZ_Plane"/>
       <Dep Name="Y_Axis"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="XY_Plane"/>
       <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -237,25 +352,35 @@
     </ObjectDeps>
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="XY_Plane"/>
       <Dep Name="Body"/>
+      <Dep Name="XY_Plane"/>
       <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Binder"/>
       <Dep Name="Body"/>
+      <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="XY_Plane"/>
       <Dep Name="Body"/>
+      <Dep Name="XY_Plane"/>
       <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Pad"/>
       <Dep Name="Binder001"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1" revision="39" file="Body.xml" />
+    <ObjectDeps Name="Binder002" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Sketch"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad002" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Binder002"/>
+    </ObjectDeps>
+    <Object type="PartDesign::Body" name="Body" id="1" revision="49" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="2" revision="2" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="3" revision="2" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="4" revision="3" file="Y_Axis.xml" />
@@ -265,10 +390,12 @@
     <Object type="App::Plane" name="YZ_Plane" id="8" revision="3" file="YZ_Plane.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch" id="9" revision="301" file="Sketch.xml" />
     <Object type="App::Link" name="Link" id="14" revision="6" file="Link.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder" id="15" revision="13" Touched="1" file="Binder.xml" />
-    <Object type="PartDesign::Pad" name="Pad" id="16" revision="14" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="17" revision="13" Touched="1" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="18" revision="18" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="15" revision="14" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="16" revision="17" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="17" revision="14" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="18" revision="26" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="19" revision="16" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="20" revision="19" file="Pad002.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>
