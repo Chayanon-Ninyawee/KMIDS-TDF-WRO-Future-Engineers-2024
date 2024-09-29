@@ -2,12 +2,11 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="1a6aba71-6612-468a-9795-80d1cd4ead4f" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="1a6aba71-6612-468a-9795-80d1cd4ead4f" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="148">
+  <StringHasher2  count="147">
 <![CDATA[
--1.0 0:Shape cache
--1.0 0:;SKT;:Hdbb,E
+-2.0 0:;SKT;:Hdbb,E
 -1.c.1 g1
 -1.0 0:;SKT;:Hdbb,V
 -1.c.1 g1v1
@@ -185,7 +184,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-29T16:35:19Z"/>
+      <String value="2024-09-29T17:35:07Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -193,11 +192,11 @@
     <Property name="LicenseURL" type="App::PropertyString" status="1">
       <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
     </Property>
-    <Property name="Material" type="App::PropertyMap">
+    <Property name="Material" type="App::PropertyMap" status="1">
       <Map count="0">
       </Map>
     </Property>
-    <Property name="Meta" type="App::PropertyMap">
+    <Property name="Meta" type="App::PropertyMap" status="1">
       <Map count="0">
       </Map>
     </Property>
@@ -229,20 +228,20 @@
   <Objects Count="14" Dependencies="1">
     <ObjectDeps Name="Body" Count="7">
       <Dep Name="Sketch"/>
+      <Dep Name="Sketch002"/>
+      <Dep Name="Sketch003"/>
+      <Dep Name="Pad"/>
       <Dep Name="Pad002"/>
       <Dep Name="Origin"/>
-      <Dep Name="Pad"/>
-      <Dep Name="Sketch002"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Sketch003"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="Z_Axis"/>
-      <Dep Name="X_Axis"/>
       <Dep Name="XY_Plane"/>
-      <Dep Name="XZ_Plane"/>
       <Dep Name="Y_Axis"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="X_Axis"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -254,24 +253,24 @@
       <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Body"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch002" Count="1">
       <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Sketch002"/>
       <Dep Name="Body"/>
       <Dep Name="Pad"/>
-      <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch003" Count="1">
       <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
+      <Dep Name="Sketch003"/>
       <Dep Name="Body"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Sketch003"/>
     </ObjectDeps>
     <Object type="PartDesign::Body" name="Body" id="3507" revision="69" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="3508" revision="0" file="Origin.xml" />
