@@ -1,0 +1,357 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Extrude">
+  <Properties Count="28" TransientCount="1">
+    <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
+    <Property name="AutoTaperInnerAngle" type="App::PropertyBool">
+      <Bool value="true"/>
+    </Property>
+    <Property name="Base" type="App::PropertyLink">
+      <Link value="Sketch011"/>
+    </Property>
+    <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="Dir" type="App::PropertyVector">
+      <PropertyVector valueX="0" valueY="-1" valueZ="2.220446049250313e-16"/>
+    </Property>
+    <Property name="DirLink" type="App::PropertyLinkSub">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="DirMode" type="App::PropertyEnumeration">
+      <Integer value="2"/>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="FaceMakerClass" type="App::PropertyString">
+      <String value="Part::FaceMakerBullseye"/>
+    </Property>
+    <Property name="FixShape" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="Extrude"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="LengthFwd" type="App::PropertyDistance">
+      <Float value="0.2"/>
+    </Property>
+    <Property name="LengthRev" type="App::PropertyDistance">
+      <Float value="0"/>
+    </Property>
+    <Property name="Linearize" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388608">
+      <PropertyPlacement Px="0" Py="-6" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="Reversed" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Shape" type="Part::PropertyPartShape">
+      <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 7
+1
+              1               0               0               0 
+              0               1               0              -6 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0               1               0            -0.2 
+              0               0               1 4.44089209850063e-17 
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+1
+              1               0               0               0 
+              0 2.22044604925031e-16              -1               0 
+              0               1 2.22044604925031e-16               0 
+2  3 1 4 1 0
+2  4 -1 3 -1 0
+2  3 1 4 1 2 1 0
+Curve2ds 4
+1 5.0000000000000018 -10 0 1 
+1 5.0000000000000018 10 -1 0 
+1 -4.9999999999999982 10 0 -1 
+1 -4.9999999999999982 -10 1 0 
+Curves 8
+1 -15.39138 -7.1320327421631169e-16 -3.211981999999999 0 -1 2.2204460492503131e-16 
+1 4.6086200000000002 -7.1320327421631169e-16 -3.211981999999999 0 -1 2.2204460492503131e-16 
+1 -15.39138 -3.211981999999999 0 1 0 0 
+1 4.6086200000000002 -2.9336493234666248e-15 -13.211981999999999 0 -1 2.2204460492503131e-16 
+1 4.6086200000000002 -3.211981999999999 0 0 -1 0 
+1 -15.39138 -2.9336493234666248e-15 -13.211981999999999 0 -1 2.2204460492503131e-16 
+1 4.6086200000000002 -13.211981999999999 0 -1 0 0 
+1 -15.39138 -13.211981999999999 0 0 1 0 
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 5
+1 -15.39138 -7.1320327421631169e-16 -3.211981999999999 -0 2.2204460492503131e-16 1 1 0 0 0 1 -2.2204460492503131e-16 
+1 -5.3913800000000007 -1.8234262988414686e-15 -8.2119820000000008 0 1 0 0 -0 1 1 0 -0 
+1 4.6086200000000002 -7.1320327421631169e-16 -3.211981999999999 1 0 0 0 -2.2204460492503131e-16 -1 0 1 -2.2204460492503131e-16 
+1 4.6086200000000002 -2.9336493234666248e-15 -13.211981999999999 -0 -2.2204460492503131e-16 -1 -1 0 0 0 1 -2.2204460492503131e-16 
+1 -15.39138 -2.9336493234666248e-15 -13.211981999999999 -1 0 0 0 2.2204460492503131e-16 1 0 1 -2.2204460492503131e-16 
+Triangulations 0
+
+TShapes 24
+Ve
+1e-07
+-15.39138 -7.13203274216312e-16 -3.211982
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  1 0 0 0.2
+0
+
+0101000
++24 0 -24 2 *
+Ve
+1e-07
+4.60862 -7.13203274216312e-16 -3.211982
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  2 0 0 0.2
+0
+
+0101000
++22 0 -22 2 *
+Ed
+ 1e-07 1 1 0
+1  3 0 0 20
+2  1 2 6 0 20
+0
+
+0101000
++24 6 -22 6 *
+Wi
+
+0101100
++23 0 -21 0 -20 5 +20 7 *
+Fa
+0  1e-07 1 0
+
+0111000
++19 0 *
+Ve
+1e-07
+4.60862 -2.93364932346662e-15 -13.211982
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  4 0 0 0.2
+0
+
+0101000
++17 0 -17 2 *
+Ed
+ 1e-07 1 1 0
+1  5 0 0 10
+2  2 2 6 0 10
+0
+
+0101000
++22 6 -17 6 *
+Wi
+
+0101100
++21 0 -16 0 -15 5 +15 7 *
+Fa
+0  1e-07 3 0
+
+0111000
++14 0 *
+Ve
+1e-07
+-15.39138 -2.93364932346662e-15 -13.211982
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  6 0 0 0.2
+0
+
+0101000
++12 0 -12 2 *
+Ed
+ 1e-07 1 1 0
+1  7 0 0 20
+2  3 2 6 0 20
+0
+
+0101000
++17 6 -12 6 *
+Wi
+
+0101100
++16 0 -11 0 -10 5 +10 7 *
+Fa
+0  1e-07 4 0
+
+0111000
++9 0 *
+Ed
+ 1e-07 1 1 0
+1  8 0 0 10
+2  4 2 6 0 10
+0
+
+0101000
++12 6 -24 6 *
+Wi
+
+0101100
++11 0 -23 0 -7 5 +7 7 *
+Fa
+0  1e-07 5 0
+
+0111000
++6 0 *
+Wi
+
+0101100
++20 0 +15 0 +10 0 +7 0 *
+Fa
+0  1e-07 2 0
+
+0111000
++4 5 *
+Sh
+
+0101100
++18 0 +13 0 +8 0 +5 0 +3 0 -3 2 *
+So
+
+1100000
++2 0 *
+
++1 1 ]]>
+      </Part>
+      <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
+      <ElementMap2 count="30">
+<![CDATA[
+43 PostfixCount 11
+Edge
+Face
+Vertex
+;:H379,V
+;:H379,E
+;:G;XTR;:H379:7,F
+;FAC;:H379:4,F
+;:G;XTR;:H379:7,E
+;:G0;XTR;:H379:8,F
+;:U;XTR;:H379:7,E
+;:U;XTR;:H379:7,V
+
+MapCount 1
+
+ElementMap 1 43 3
+
+Edge
+
+ChildCount 0
+
+NameCount 13
+0
+$#92f.8 0
+$#930.8 0
+$#928.5 0
+$#939.a 0
+$#931.8 0
+$#929.5 0
+$#93a.a 0
+$#932.8 0
+$#92a.5 0
+$#93b.a 0
+$#92b.5 0
+$#93c.a 0
+
+Face
+
+ChildCount 0
+
+NameCount 7
+0
+$#92d.6 0
+$#933.6 0
+$#934.6 0
+$#935.6 0
+$#92d.7 0
+$#937.9 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 9
+0
+$#920.4 $#921.4 0
+$#93e.b 0
+$#922.4 $#923.4 0
+$#93f.b 0
+$#924.4 $#925.4 0
+$#940.b 0
+$#926.4 $#927.4 0
+$#941.b 0
+
+EndMap
+]]>
+      </ElementMap2>
+    </Property>
+    <Property name="Solid" type="App::PropertyBool">
+      <Bool value="true"/>
+    </Property>
+    <Property name="Symmetric" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="TaperAngle" type="App::PropertyAngle" status="4">
+      <Float value="0"/>
+    </Property>
+    <Property name="TaperAngleRev" type="App::PropertyAngle" status="4">
+      <Float value="0"/>
+    </Property>
+    <Property name="TaperInnerAngle" type="App::PropertyAngle">
+      <Float value="-0"/>
+    </Property>
+    <Property name="TaperInnerAngleRev" type="App::PropertyAngle">
+      <Float value="-0"/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
+      <Integer value="0"/>
+    </Property>
+    <Property name="UsePipeForDraft" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="ValidateShape" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="false"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>
