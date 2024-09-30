@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="c5806d3e-8e2a-4301-b04d-68058805f168" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="355">
+<![CDATA[
+-1.0 0:Shape cache
+-1.0 0:;:H12,E;:H14,E;:X;:H1:a,E;:H59f:12,E;:H5a1:1d,E
+-1.c.1 #596
+-1.c.0 #597
+-1.c.0 #598
+-1.c.0 #599
+-1.c.0 #59a
+-1.c.0 #59b
+-1.c.0 #59c
+-1.c.0 #6e4
+-1.c.0 #59e
+-1.c.0 #59f
+-1.c.0 #5a0
+-1.c.0 #5a1
+-1.c.0 #5a2
+-1.c.0 #5a3
+-1.c.0 #5a4
+-1.c.0 #5a5
+-1.c.0 #5a6
+-1.c.0 #5a7
+-1.c.0 #5a8
+-1.c.0 #4c9
+-1.0 0:;:M;FUS;:H-14:7,E;:H14,E;:X;:H1:a,E;:H59f:12,E;:H5a1:1d,E
+-1.c.1 #1ec
+-1.c.-15 #5a9
+-1.c.0 #6e5
+-1.c.0 #5ab
+-1.c.0 #6e6
+-1.c.0 #5ad
+-1.c.0 #3f9
+-1.c.0 #3fa
+-1.c.15 #1f0
+-1.0 0:;:H-14,E;:H14,E;:X;:H1:a,E;:H59f:12,E;:H5a1:1d,E
+-1.c.1 #1f4
+-1.c.-1f #416
+-1.c.0 #1bb
+-1.c.0 #172
+-1.0 0:;:Hb,E;:He,E;:X;:H2:9,E;:H5a0:11,E;:H5a1:1c,E
+-1.c.1 #2a9
+-1.c.0 #2ab
+-1.c.0 #2ac
+-1.8 #271 ;:G#2c3;CUT;:H-e:b,E;:He,E;:X;:H2:9,E;:H5a0:11,E;:H5a1:1c,E
+-1.c.5 #255
+-1.c.0 #252
+-1.c.0 #254
+-1.c.0 #253
+-1.c.0 #273
+-1.c.0 #26c
+-1.c.0 #2ad
+-1.c.0 #256
+-1.c.0 #257
+-1.0 0:;:M;CUT;:H-e:7,E;:He,E;:X;:H2:9,E;:H5a0:11,E;:H5a1:1c,E
+-1.c.1 #279
+-1.c.0 #277
+-1.c.-e #259
+-1.c.0 #25e
+-1.c.0 #260
+-1.c.0 #258
+-1.c.0 #25a
+-1.c.0 #39e
+-1.c.0 #25f
+-1.c.0 #39f
+-1.c.0 #25c
+-1.c.0 #27a
+-1.c.0 #27b
+-1.c.0 #3a0
+-1.c.0 #275
+-1.c.0 #2ae
+-1.c.0 #261
+-1.c.0 #262
+-1.c.0 #263
+-1.c.0 #264
+-1.0 0:;:M;CHF;:H4c5:7,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #6c6
+-1.0 0:;:U2;CHF;:H4c5:8,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #6f9
+-1.0 0:;:H4c5,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #6b9
+-1.c.-4 #6c7
+-1.c.0 #6ca
+-1.0 0:;:U4;CHF;:H4c5:8,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #6fa
+-1.c.-4 #6c4
+-1.c.-4 #6d3
+-1.c.4 #6d0
+-1.0 0:;:U;CHF;:H4c5:7,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #6f9
+-1.c.-9 #6d1
+-1.c.0 #6c2
+-1.0 0:;:U3;CHF;:H4c5:8,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #6f9
+-1.c.-9 #6f9
+-1.c.-4 #6b7
+-1.c.0 #6b8
+-1.c.0 #6b1
+-1.c.0 #6c0
+-1.c.-4 #6ce
+-1.c.4 #6cd
+-1.c.9 #6fa
+-1.c.-9 #6cc
+-1.c.-4 #6c9
+-1.c.4 #6be
+-1.c.-2 #6fa
+-1.c.2 #6bd
+-1.c.d #6fa
+-1.c.-d #6c3
+-1.c.0 #6bc
+-1.c.0 #6ba
+-1.c.0 #6c5
+-1.c.0 #6cf
+-1.c.0 #6bf
+-1.c.0 #6b6
+-1.c.0 #6bb
+-1.c.0 #6c1
+-1.c.0 #6b0
+-1.c.0 #6b2
+-1.c.0 #6b3
+-1.c.0 #6b4
+-1.c.0 #6af
+-1.c.0 #6b5
+-1.c.0 #6d2
+-1.c.0 #6ae
+-1.c.0 #6e5
+-1.c.0 #6e7
+-1.c.0 #6ad
+-1.c.0 #68a
+-1.c.0 #692
+-1.c.0 #691
+-1.c.0 #68c
+-1.0 0:;:Hdd5,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
+-1.c.1 #220
+-1.c.0 #221
+-1.c.0 #222
+-1.c.0 #223
+-1.c.0 #224
+-1.c.0 #225
+-1.c.0 #226
+-1.c.0 #227
+-1.c.0 #228
+-1.c.0 #22b
+-1.c.0 #22a
+-1.c.0 #264
+-1.c.0 #229
+-1.c.0 #22e
+-1.c.0 #22d
+-1.0 0:;:M;FUS;:H-dd7:7,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
+-1.c.1 #208
+-1.c.-10 #22c
+-1.c.0 #231
+-1.c.0 #230
+-1.c.0 #256
+-1.c.0 #240
+-1.c.0 #22f
+-1.c.10 #210
+-1.0 0:;:H-dd7,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
+-1.c.1 #24b
+-1.c.-19 #242
+-1.c.19 #24c
+-1.c.-19 #29f
+-1.c.0 #2a0
+-1.c.0 #2a1
+-1.c.10 #211
+-1.8 #209 ;:M#252;FUS;:H-dd7:b,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
+-1.0 0:;:M;FUS;:Hdd5:7,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
+-1.c.1 #254
+-1.0 0:;:H12,F;:H14,F;:X;:H1:a,F;:H59f:12,F;:H5a1:1d,F
+-1.c.1 #5ae
+-1.c.0 #5af
+-1.c.0 #5b0
+-1.c.0 #5b1
+-1.0 0:;:M;FUS;:H12:7,F;:H14,F;:X;:H1:a,F;:H59f:12,F;:H5a1:1d,F
+-1.c.1 #5b7
+-1.c.-5 #5b2
+-1.c.0 #5b3
+-1.c.0 #5b4
+-1.c.0 #5b5
+-1.c.0 #5b6
+-1.c.0 #407
+-1.0 0:;:M;FUS;:H-14:7,F;:H14,F;:X;:H1:a,F;:H59f:12,F;:H5a1:1d,F
+-1.c.1 #1ef
+-1.c.-d #409
+-1.0 0:;:H-14,F;:H14,F;:X;:H1:a,F;:H59f:12,F;:H5a1:1d,F
+-1.c.1 #1f5
+-1.c.-10 #1bc
+-1.c.0 #18a
+-1.0 0:;:Hb,F;:He,F;:X;:H2:9,F;:H5a0:11,F;:H5a1:1c,F
+-1.c.1 #2b0
+-1.0 0:;:M;CUT;:Hb:7,F;:He,F;:X;:H2:9,F;:H5a0:11,F;:H5a1:1c,F
+-1.c.1 #2bb
+-1.c.-2 #26e
+-1.0 0:;:M;CUT;:H-e:7,F;:He,F;:X;:H2:9,F;:H5a0:11,F;:H5a1:1c,F
+-1.c.1 #271
+-1.c.-5 #269
+-1.c.0 #266
+-1.c.0 #268
+-1.c.0 #267
+-1.c.0 #27d
+-1.c.0 #27c
+-1.c.0 #2b1
+-1.c.0 #26a
+-1.c.0 #26b
+-1.c.2 #27e
+-1.0 0:;:M;CHF;:H4c5:7,F;:H4ce,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #6de
+-1.c.0 #6e3
+-1.0 0:;:G;CHF;:H4c5:7,F;:H4ce,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #6c8
+-1.0 0:;:H4c5,F;:H4ce,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #6d9
+-1.c.-5 #6e0
+-1.c.0 #6df
+-1.c.3 #6cb
+-1.c.2 #6dd
+-1.c.-5 #6e4
+-1.c.5 #6e1
+-1.c.0 #6dc
+-1.c.0 #6d7
+-1.c.0 #6db
+-1.c.0 #6da
+-1.c.0 #6e2
+-1.c.0 #6d8
+-1.c.0 #6d6
+-1.c.0 #6e8
+-1.c.0 #6e6
+-1.c.0 #686
+-1.c.0 #688
+-1.c.0 #6d4
+-1.0 0:;:Hdd5,F;:Hdd7,F;:X;:Hdb3:b,F;:H5ec:15,F;:H5a1:20,F
+-1.c.1 #233
+-1.c.0 #234
+-1.c.0 #235
+-1.c.0 #236
+-1.c.0 #237
+-1.c.0 #258
+-1.0 0:;:M;FUS;:Hdd5:7,F;:Hdd7,F;:X;:Hdb3:b,F;:H5ec:15,F;:H5a1:20,F
+-1.c.1 #259
+-1.c.-7 #23a
+-1.c.0 #239
+-1.c.0 #25c
+-1.c.0 #238
+-1.0 0:;:M;FUS;:H-dd7:7,F;:Hdd7,F;:X;:Hdb3:b,F;:H5ec:15,F;:H5a1:20,F
+-1.c.1 #20d
+-1.c.-d #245
+-1.0 0:;:H-dd7,F;:Hdd7,F;:X;:Hdb3:b,F;:H5ec:15,F;:H5a1:20,F
+-1.c.1 #24e
+-1.c.-10 #2a2
+-1.c.d #20e
+-1.c.-6 #25a
+-1.0 0:;:H12,V;:H14,V;:X;:H1:a,V;:H59f:12,V;:H5a1:1d,V
+-1.c.1 #586
+-1.c.0 #587
+-1.c.0 #588
+-1.c.0 #589
+-1.c.0 #58a
+-1.c.0 #58b
+-1.c.0 #6e1
+-1.c.0 #58d
+-1.c.0 #58e
+-1.c.0 #6e2
+-1.c.0 #6e3
+-1.c.0 #591
+-1.c.0 #592
+-1.c.0 #593
+-1.c.0 #594
+-1.c.0 #4b6
+-1.0 0:;:M;FUS;:H-14:7,V;:H14,V;:X;:H1:a,V;:H59f:12,V;:H5a1:1d,V
+-1.c.1 #1ed
+-1.c.-11 #595
+-1.c.0 #3db
+-1.0 0:;:H-14,V;:H14,V;:X;:H1:a,V;:H59f:12,V;:H5a1:1d,V
+-1.c.1 #1f3
+-1.c.-15 #414
+-1.c.0 #1a7
+-1.0 0:;:Hb,V;:He,V;:X;:H2:9,V;:H5a0:11,V;:H5a1:1c,V
+-1.c.1 #2a5
+-1.c.0 #2a7
+-1.8 #279 ;:G#2c4;CUT;:H-e:b,V;:He,V;:X;:H2:9,V;:H5a0:11,V;:H5a1:1c,V
+-1.c.4 #245
+-1.c.0 #248
+-1.c.0 #244
+-1.c.0 #39b
+-1.c.0 #39c
+-1.c.0 #281
+-1.c.0 #39d
+-1.c.0 #249
+-1.c.0 #24a
+-1.0 0:;:M;CUT;:H-e:7,V;:He,V;:X;:H2:9,V;:H5a0:11,V;:H5a1:1c,V
+-1.c.1 #284
+-1.c.-d #24c
+-1.c.0 #24f
+-1.c.0 #24b
+-1.c.0 #24e
+-1.c.0 #24d
+-1.c.0 #285
+-1.c.0 #282
+-1.c.0 #250
+-1.c.0 #251
+-1.0 0:;:U;CHF;:H4c5:7,V;:H4ce,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #6fc
+-1.0 0:;:H4c5,V;:H4ce,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #69c
+-1.c.-2 #6fd
+-1.c.2 #69d
+-1.c.-2 #6fe
+-1.c.2 #69f
+-1.0 0:;:U2;CHF;:H4c5:8,V;:H4ce,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #6ff
+-1.c.-6 #6a4
+-1.c.-2 #6ff
+-1.c.2 #6ab
+-1.c.0 #6a3
+-1.c.6 #700
+-1.c.-6 #699
+-1.c.0 #698
+-1.c.0 #6a1
+-1.c.-2 #700
+-1.c.2 #6aa
+-1.c.-2 #701
+-1.c.2 #6a0
+-1.c.0 #69e
+-1.c.0 #69a
+-1.c.0 #6a5
+-1.c.0 #697
+-1.c.0 #6a2
+-1.c.0 #69b
+-1.c.0 #696
+-1.c.0 #695
+-1.c.0 #6f7
+-1.c.0 #694
+-1.c.0 #68e
+-1.c.0 #68f
+-1.0 0:;:Hdd5,V;:Hdd7,V;:X;:Hdb3:b,V;:H5ec:15,V;:H5a1:20,V
+-1.c.1 #213
+-1.c.0 #214
+-1.c.0 #215
+-1.c.0 #216
+-1.c.0 #217
+-1.c.0 #218
+-1.c.0 #21b
+-1.c.0 #21a
+-1.c.0 #261
+-1.c.0 #219
+-1.c.0 #21e
+-1.c.0 #21d
+-1.0 0:;:M;FUS;:H-dd7:7,V;:Hdd7,V;:X;:Hdb3:b,V;:H5ec:15,V;:H5a1:20,V
+-1.c.1 #205
+-1.c.-d #21c
+-1.c.0 #23c
+-1.0 0:;:H-dd7,V;:Hdd7,V;:X;:Hdb3:b,V;:H5ec:15,V;:H5a1:20,V
+-1.c.1 #248
+-1.c.-11 #23e
+-1.c.11 #249
+-1.c.-11 #25f
+-1.c.0 #29e
+-1.8 #206 ;:M#263;FUS;:H-dd7:b,V;:Hdd7,V;:X;:Hdb3:b,V;:H5ec:15,V;:H5a1:20,V
+]]>
+  </StringHasher2>
+  <Properties Count="21" TransientCount="3">
+    <_Property name="FileName" type="App::PropertyString" status="50331649"/>
+    <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
+    <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
+    <Property name="Comment" type="App::PropertyString" status="1">
+      <String value=""/>
+    </Property>
+    <Property name="Company" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreatedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreationDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-30T12:01:48Z"/>
+    </Property>
+    <Property name="ForceXML" type="App::PropertyInteger" status="1">
+      <Integer value="3"/>
+    </Property>
+    <Property name="Id" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="1">
+      <String value="RightWheelAssembly"/>
+    </Property>
+    <Property name="LastModifiedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-30T12:06:55Z"/>
+    </Property>
+    <Property name="License" type="App::PropertyString" status="1">
+      <String value="All rights reserved"/>
+    </Property>
+    <Property name="LicenseURL" type="App::PropertyString" status="1">
+      <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+    </Property>
+    <Property name="Material" type="App::PropertyMap" status="1">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Meta" type="App::PropertyMap" status="1">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="PreferBinary" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ShowHidden" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SplitXML" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailFile" type="App::PropertyFile">
+      <String value=""/>
+    </Property>
+    <Property name="TipName" type="App::PropertyString" status="83886080">
+      <String value=""/>
+    </Property>
+    <Property name="Uid" type="App::PropertyUUID" status="16777217">
+      <Uuid value="c5806d3e-8e2a-4301-b04d-68058805f168"/>
+    </Property>
+    <Property name="UseHasher" type="App::PropertyBool" status="67108865">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+  <Objects Count="2" Dependencies="1">
+    <ObjectDeps Name="Link" Count="0"/>
+    <ObjectDeps Name="Part__Mirroring" Count="1">
+      <Dep Name="Link"/>
+    </ObjectDeps>
+    <Object type="App::Link" name="Link" id="910" revision="4" file="Link.xml" />
+    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="4" file="Part__Mirroring.xml" />
+  </Objects>
+  <ObjectData Count="0">
+  </ObjectData>
+</Document>
