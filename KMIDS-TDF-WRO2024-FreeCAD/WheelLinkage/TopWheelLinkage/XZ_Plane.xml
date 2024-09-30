@@ -20,7 +20,7 @@
       <String value="XZ_Plane"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="8"/>
+      <Integer value="9"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="true"/>

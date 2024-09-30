@@ -154,7 +154,7 @@ So
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="14">
 <![CDATA[
-6 PostfixCount 11
+7 PostfixCount 11
 Edge
 Face
 Vertex
@@ -169,7 +169,7 @@ Vertex
 
 MapCount 1
 
-ElementMap 1 6 3
+ElementMap 1 7 3
 
 Edge
 
@@ -451,7 +451,7 @@ So
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="14">
 <![CDATA[
-6 PostfixCount 11
+7 PostfixCount 11
 Edge
 Face
 Vertex
@@ -466,7 +466,7 @@ Vertex
 
 MapCount 1
 
-ElementMap 1 6 3
+ElementMap 1 7 3
 
 Edge
 
@@ -545,7 +545,7 @@ TShapes 0
       <Float value="0"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="15"/>
+      <Integer value="17"/>
     </Property>
     <Property name="Type" type="App::PropertyEnumeration">
       <Integer value="0"/>

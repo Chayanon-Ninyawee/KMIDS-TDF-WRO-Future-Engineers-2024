@@ -147,7 +147,7 @@ Curve2ds 4
 1 0 -0.5 1 0 
 Curves 11
 2 0 0 0 0 0 1 1 0 -0 -0 1 0 4
-1 2.9094646189298464e-15 4 0 -1 0 0 
+1 2.909464618929846e-15 4 0 -1 0 0 
 1 -8 4 0 0 -1 0 
 1 -8 -4 0 0.46724549673064075 -0.88412761849460231 0 
 2 -1.495353434437092 -9.8875638104700592 0 0 0 1 1 0 -0 -0 1 0 3
@@ -365,7 +365,7 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="31">
 <![CDATA[
-5 PostfixCount 8
+6 PostfixCount 8
 Edge
 Face
 Vertex
@@ -377,7 +377,7 @@ Vertex
 
 MapCount 1
 
-ElementMap 1 5 3
+ElementMap 1 6 3
 
 Edge
 
@@ -440,7 +440,7 @@ EndMap
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="14"/>
+      <Integer value="16"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

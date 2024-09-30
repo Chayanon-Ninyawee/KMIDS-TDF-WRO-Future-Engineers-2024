@@ -6,8 +6,7 @@
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="337">
 <![CDATA[
--1.0 0:Shape cache
--1.0 0:;SKT;:H,E;:H9:5,E
+-2.0 0:;SKT;:H,E;:H9:5,E
 -1.c.1 g6
 -1.0 0:;SKT;:H,V;:H9:5,V
 -1.c.1 g6v1
@@ -214,16 +213,7 @@
 -2.2c.0.2
 -3.2c.0.3
 -1.2c.0.1
--1.0 0:;WIR;:H9:4,V;:H,V;:Hf,V;D2409;:Hf:6,V
--1.2c.1.52c
--1.0 0:;WIR;:H9:4,V;:H,V;:Hf,V;D1fb4;:Hf:6,V
--1.2c.1.52f
--1.0 0:;WIR;:H9:4,V;:H,V;:Hf,V;D535;:Hf:5,V
--1.2c.1.36e
--7.2c.-25.36e
--1.2c.0.-2
--1.2c.0.-2
--1.2c.-45a.-10
+-10.2c.4f.a
 -1.2c.0.2
 -1.2c.0.1
 -1.2c.24.4
@@ -235,11 +225,8 @@
 -1.2c.0.-13
 -1.2c.0.1
 -1.2c.-24.-f
--1.2c.-4f.1c
--1.2c.4f.-1a
--1.2c.-4f.1b
--1.2c.0.1
--1.2c.4f.-19
+-2.2c.0.2
+-3.2c.0.3
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.4c.-8
@@ -249,12 +236,9 @@
 -1.2c.0.32
 -1.2c.0.-2d
 -1.2c.0.32
--1.2c.0.-c
--1.2c.0.8
+-2.2c.0.-4
 -1.2c.0.-31
--1.2c.0.2a
--1.2c.0.1
--1.2c.0.-27
+-3.2c.0.4
 -1.2c.0.30
 -1.2c.0.-2
 -1.2c.0.1
@@ -266,8 +250,7 @@
 -1.2c.0.-1c
 -1.2c.0.-26
 -1.2c.0.48
--1.2c.0.-5
--1.2c.0.-32
+-2.2c.0.-37
 -1.2c.0.26
 -1.2c.0.-25
 -1.2c.0.1
@@ -279,10 +262,8 @@
 -1.2c.0.-b
 -1.2c.0.-1
 -1.2c.0.11
--1.2c.0.-3
--1.2c.0.-23
--1.2c.0.22
--1.2c.0.-1e
+-2.2c.0.-26
+-2.2c.0.4
 -1.2c.2d.-f
 -1.2c.0.6
 -1.2c.0.-5
@@ -299,12 +280,9 @@
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
+-2.2c.0.2
 -1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
+-3.2c.0.3
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
@@ -316,6 +294,7 @@
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
+-2.2c.0.2
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
@@ -327,12 +306,8 @@
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
+-2.2c.0.2
+-2.2c.0.2
 -1.2c.1f.1
 -1.2c.0.1
 -1.2c.0.1
@@ -343,6 +318,31 @@
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.-5
+-1.0 0:Shape cache
+-1.0 0:;WIR;:H9:4,V;:H,V;:Hf,V;Dce3;:Hf:5,V
+-1.2c.1.5b4
+-1.0 0:;WIR;:H9:4,V;:H,V;:Hf,V;Dfb7;:Hf:5,V
+-1.2c.1.5b7
+-1.0 0:;WIR;:H9:4,V;:H,V;:Hf,V;D17e7;:Hf:6,V
+-1.2c.1.3f6
+-7.2c.-ad.3f6
+-1.2c.0.-2
+-1.2c.0.-2
+-1.2c.-4a9.b
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.124.-2
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.-45.1
+-1.2c.0.2
+-1.2c.0.-1
+-1.2c.27a.2
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.1d.1
+-1.2c.0.1
+-1.2c.0.1
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -374,7 +374,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T00:49:41Z"/>
+      <String value="2024-09-30T01:18:42Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -429,11 +429,11 @@
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
       <Dep Name="YZ_Plane"/>
-      <Dep Name="XZ_Plane"/>
+      <Dep Name="X_Axis"/>
+      <Dep Name="Z_Axis"/>
       <Dep Name="Y_Axis"/>
       <Dep Name="XY_Plane"/>
-      <Dep Name="Z_Axis"/>
-      <Dep Name="X_Axis"/>
+      <Dep Name="XZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -484,7 +484,7 @@
       <Dep Name="Pad"/>
       <Dep Name="Binder003"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1" revision="100" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1" revision="101" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="2" revision="2" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="3" revision="2" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="4" revision="3" file="Y_Axis.xml" />
@@ -492,16 +492,16 @@
     <Object type="App::Plane" name="XY_Plane" id="6" revision="2" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="7" revision="3" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="8" revision="3" file="YZ_Plane.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch" id="9" revision="623" file="Sketch.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="9" revision="627" file="Sketch.xml" />
     <Object type="App::Link" name="Link" id="14" revision="6" file="Link.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder" id="15" revision="41" file="Binder.xml" />
-    <Object type="PartDesign::Pad" name="Pad" id="16" revision="82" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="17" revision="113" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="18" revision="99" file="Pad001.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="19" revision="83" file="Binder002.xml" />
-    <Object type="PartDesign::Pad" name="Pad002" id="20" revision="111" file="Pad002.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder003" id="21" revision="69" file="Binder003.xml" />
-    <Object type="PartDesign::Pad" name="Pad003" id="22" revision="38" file="Pad003.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="15" revision="42" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="16" revision="85" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="17" revision="122" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="18" revision="102" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="19" revision="92" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="20" revision="114" file="Pad002.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder003" id="21" revision="78" file="Binder003.xml" />
+    <Object type="PartDesign::Pad" name="Pad003" id="22" revision="41" file="Pad003.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>
