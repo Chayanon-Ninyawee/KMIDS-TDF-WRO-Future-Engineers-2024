@@ -611,7 +611,7 @@ EndMap
     <Property name="SplitEdges" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="Support" type="App::PropertyXLinkSubList">
+    <Property name="Support" type="App::PropertyXLinkSubList" status="1">
       <XLinkSubList count="1">
         <XLink file="" stamp="" name="Link" sub=""/>
       </XLinkSubList>

@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="f77b6c8b-7921-4a9c-bf0f-25112ffc1bc7" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="7d8eb7ef-f41b-4c54-9154-144f21faf134" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0"></StringHasher>
   <Properties Count="21" TransientCount="3">
     <_Property name="FileName" type="App::PropertyString" status="50331649"/>
@@ -33,7 +33,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-29T08:14:04Z"/>
+      <String value="2024-09-30T08:27:52Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -53,7 +53,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
-      <Bool value="false"/>
+      <Bool value="true"/>
     </Property>
     <Property name="ShowHidden" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -68,7 +68,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="f77b6c8b-7921-4a9c-bf0f-25112ffc1bc7"/>
+      <Uuid value="7d8eb7ef-f41b-4c54-9154-144f21faf134"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -79,7 +79,7 @@
       <Dep Name="Spreadsheet"/>
     </ObjectDeps>
     <ObjectDeps Name="Spreadsheet" Count="0"/>
-    <Object type="Sketcher::SketchObject" name="Sketch001" id="4094" revision="1349" Touched="1" file="Sketch001.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch001" id="4094" revision="1351" file="Sketch001.xml" />
     <Object type="Spreadsheet::Sheet" name="Spreadsheet" id="4095" revision="0" file="Spreadsheet.xml" />
   </Objects>
   <ObjectData Count="0">

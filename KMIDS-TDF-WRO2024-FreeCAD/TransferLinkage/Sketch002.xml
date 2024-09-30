@@ -55,7 +55,7 @@
       <ExpressionEngine count="2" cdata="1" xlink="1">
         <XLinks count="1" docs="1">
           <DocMap name="SteeringAckermannModel" label="SteeringAckermannModel" index="0"/>
-          <XLink file="SteeringAckermannModel" stamp="2024-09-29T08:14:04Z" name="Spreadsheet"/>
+          <XLink file="SteeringAckermannModel" stamp="2024-09-30T08:27:52Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
 0:.Constraints.BottomHoleDiameter
@@ -119,7 +119,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="0" StartY="0" StartZ="0" EndX="4.05790345468528e-25" EndY="-30.6" EndZ="0"/>
+          <LineSegment StartX="0" StartY="0" StartZ="0" EndX="4.057903454685281e-25" EndY="-30.6" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="3" migrated="1">
@@ -235,19 +235,19 @@ Curve2ds 8
 1 0 0 1 0 
 1 0 -2 1 0 
 Curves 6
-2 0 0 0 0 0 1 1 0 0 0 1 0 1
-2 4.0579034546852793e-25 -30.600000000000001 0 0 0 1 1 0 0 0 1 0 1
-2 0 0 0 0 0 1 1 0 0 0 1 0 2
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 1
+2 4.0579034546852793e-25 -30.600000000000001 0 0 0 1 1 0 -0 -0 1 0 1
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 2
 1 -2 0 0 -5.2536043779647957e-15 -1 0 
-2 4.0579034546852793e-25 -30.600000000000001 0 0 0 1 1 0 0 0 1 0 2
+2 4.0579034546852793e-25 -30.600000000000001 0 0 0 1 1 0 -0 -0 1 0 2
 1 2 0 0 5.2536043779647957e-15 -1 0 
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 4
-2 0 0 0 -0 -0 -1 1 0 0 0 1 0 1
-2 4.0579034546852793e-25 -30.600000000000001 0 -0 -0 -1 1 0 0 0 1 0 1
-2 0 0 0 -0 -0 -1 1 0 0 0 1 0 2
-2 4.0579034546852793e-25 -30.600000000000001 0 -0 -0 -1 1 0 0 0 1 0 2
+2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 1
+2 4.0579034546852793e-25 -30.600000000000001 0 -0 -0 -1 1 0 0 -0 1 -0 1
+2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 2
+2 4.0579034546852793e-25 -30.600000000000001 0 -0 -0 -1 1 0 0 -0 1 -0 2
 Triangulations 0
 
 TShapes 16

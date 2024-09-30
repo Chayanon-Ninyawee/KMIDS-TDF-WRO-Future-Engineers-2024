@@ -152,7 +152,7 @@
     <Property name="FullyConstrained" type="App::PropertyBool" status="218103808">
       <Bool value="false"/>
     </Property>
-    <Property name="Geometry" type="Part::PropertyGeometryList" status="8193">
+    <Property name="Geometry" type="Part::PropertyGeometryList" status="8192">
       <GeometryList count="12">
         <Geometry type="Part::GeomLineSegment" id="2" migrated="1">
           <GeoExtensions count="1">

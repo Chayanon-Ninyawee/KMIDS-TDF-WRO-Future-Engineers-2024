@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="b44d69a4-ac03-4d62-a919-ddfad7fb8122" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="847aeb55-3b55-4c61-9eee-5c66bba227bf" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="281">
+  <StringHasher2  count="280">
 <![CDATA[
 -1.0 0:;SKT
 -1.c.1 g3v1
@@ -64,8 +64,7 @@
 -1.2c.0.2
 -3.0 0:;:G;XTR;:Ha:7,F
 -a.0 0:;:G;XTR;:Ha:7,E
--a.0 0:Shape cache
--1.c.43 g13v1
+-b.c.43 g13v1
 -1.c.0 g14v2
 -1.c.0 g13v2
 -1.c.0 g14v1
@@ -265,15 +264,15 @@
 -1.2c.1.fe
 -8.0 0:(#2bb;K-2;:Hb:4,F)
 -1.0 0:(#2bb;K-1;:Hb:4,F)
--2.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D2090;:Ha:6,V
--1.2c.1.2ab
--1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D398;:Ha:5,V
--1.2c.1.2af
--1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D458;:Ha:5,V
--1.2c.1.26d
--1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D951;:Ha:5,V
--1.2c.1.2a3
--9.2c.-1f1.2a1
+-22.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D245a;:Ha:6,V
+-1.2c.1.2cb
+-1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D1edc;:Ha:6,V
+-1.2c.1.2cf
+-1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;D26ca;:Ha:6,V
+-1.2c.1.28d
+-1.0 0:;WIR;:H1:4,V;:H,V;:Ha,V;Dc4c;:Ha:5,V
+-1.2c.1.2c3
+-9.2c.-211.2c1
 -1.2c.0.-2
 -1.2c.0.-2
 -1.2c.-3e.6
@@ -318,7 +317,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T01:19:09Z"/>
+      <String value="2024-09-30T08:29:24Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -338,7 +337,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
-      <Bool value="false"/>
+      <Bool value="true"/>
     </Property>
     <Property name="ShowHidden" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -353,7 +352,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="b44d69a4-ac03-4d62-a919-ddfad7fb8122"/>
+      <Uuid value="847aeb55-3b55-4c61-9eee-5c66bba227bf"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -362,18 +361,18 @@
   <Objects Count="15" Dependencies="1">
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Body" Count="6">
-      <Dep Name="Origin"/>
-      <Dep Name="Binder"/>
       <Dep Name="Pad"/>
       <Dep Name="Binder001"/>
-      <Dep Name="Pad001"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Origin"/>
       <Dep Name="Hole"/>
+      <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="XZ_Plane"/>
       <Dep Name="X_Axis"/>
       <Dep Name="XY_Plane"/>
       <Dep Name="Y_Axis"/>
+      <Dep Name="XZ_Plane"/>
       <Dep Name="Z_Axis"/>
       <Dep Name="YZ_Plane"/>
     </ObjectDeps>
@@ -404,13 +403,13 @@
     </ObjectDeps>
     <ObjectDeps Name="Hole" Count="4">
       <Dep Name="Body"/>
-      <Dep Name="Link"/>
       <Dep Name="Pad"/>
+      <Dep Name="Link"/>
       <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Link001" Count="0"/>
-    <Object type="App::Link" name="Link" id="1" revision="21" file="Link.xml" />
-    <Object type="PartDesign::Body" name="Body" id="2" revision="41" file="Body.xml" />
+    <Object type="App::Link" name="Link" id="1" revision="22" file="Link.xml" />
+    <Object type="PartDesign::Body" name="Body" id="2" revision="42" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="3" revision="2" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="4" revision="2" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="5" revision="3" file="Y_Axis.xml" />
@@ -418,12 +417,12 @@
     <Object type="App::Plane" name="XY_Plane" id="7" revision="2" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="8" revision="3" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="9" revision="3" file="YZ_Plane.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder" id="10" revision="62" file="Binder.xml" />
-    <Object type="PartDesign::Pad" name="Pad" id="11" revision="65" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="12" revision="110" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="13" revision="49" file="Pad001.xml" />
-    <Object type="PartDesign::Hole" name="Hole" id="14" revision="39" file="Hole.xml" />
-    <Object type="App::Link" name="Link001" id="18" revision="5" file="Link001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="10" revision="71" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="11" revision="68" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="12" revision="111" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="13" revision="52" file="Pad001.xml" />
+    <Object type="PartDesign::Hole" name="Hole" id="14" revision="42" file="Hole.xml" />
+    <Object type="App::Link" name="Link001" id="18" revision="5" Touched="1" file="Link001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

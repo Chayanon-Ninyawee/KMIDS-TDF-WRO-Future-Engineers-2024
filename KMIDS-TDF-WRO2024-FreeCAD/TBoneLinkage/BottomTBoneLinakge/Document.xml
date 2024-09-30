@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="01f59687-023d-4609-8dff-999412410807" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="01f59687-023d-4609-8dff-999412410807" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="561">
 <![CDATA[
@@ -598,7 +598,7 @@ c77.0 0:(#b66;:Hbbf,E)
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T01:20:44Z"/>
+      <String value="2024-09-30T08:28:13Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -618,7 +618,7 @@ c77.0 0:(#b66;:Hbbf,E)
       <Bool value="false"/>
     </Property>
     <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
-      <Bool value="false"/>
+      <Bool value="true"/>
     </Property>
     <Property name="ShowHidden" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -641,23 +641,23 @@ c77.0 0:(#b66;:Hbbf,E)
   </Properties>
   <Objects Count="19" Dependencies="1">
     <ObjectDeps Name="Body" Count="9">
-      <Dep Name="Origin"/>
-      <Dep Name="Binder002"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Binder"/>
-      <Dep Name="Pad002"/>
-      <Dep Name="Pad"/>
+      <Dep Name="Binder002"/>
       <Dep Name="Binder001"/>
-      <Dep Name="Binder003"/>
+      <Dep Name="Binder"/>
       <Dep Name="Pad003"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Binder003"/>
+      <Dep Name="Origin"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="YZ_Plane"/>
       <Dep Name="XZ_Plane"/>
       <Dep Name="Y_Axis"/>
-      <Dep Name="Z_Axis"/>
       <Dep Name="XY_Plane"/>
-      <Dep Name="YZ_Plane"/>
       <Dep Name="X_Axis"/>
+      <Dep Name="Z_Axis"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -670,44 +670,44 @@ c77.0 0:(#b66;:Hbbf,E)
     </ObjectDeps>
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="XY_Plane"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="3">
-      <Dep Name="Body"/>
-      <Dep Name="Binder"/>
       <Dep Name="Link001"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="Body"/>
-      <Dep Name="Sketch"/>
       <Dep Name="Pad003"/>
+      <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Binder001"/>
       <Dep Name="Pad003"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Pad001"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Body"/>
-      <Dep Name="Binder002"/>
       <Dep Name="Pad001"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Link001" Count="0"/>
     <ObjectDeps Name="Binder003" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Pad"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad003" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Pad"/>
+      <Dep Name="Body"/>
       <Dep Name="Binder003"/>
     </ObjectDeps>
     <Object type="PartDesign::Body" name="Body" id="2989" revision="125" file="Body.xml" />
@@ -719,14 +719,14 @@ c77.0 0:(#b66;:Hbbf,E)
     <Object type="App::Plane" name="XZ_Plane" id="2995" revision="2" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="2996" revision="2" file="YZ_Plane.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch" id="2998" revision="925" file="Sketch.xml" />
-    <Object type="App::Link" name="Link" id="2999" revision="7" file="Link.xml" />
+    <Object type="App::Link" name="Link" id="2999" revision="7" Touched="1" file="Link.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder" id="3002" revision="19" file="Binder.xml" />
     <Object type="PartDesign::Pad" name="Pad" id="3004" revision="91" file="Pad.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder001" id="3005" revision="102" file="Binder001.xml" />
     <Object type="PartDesign::Pad" name="Pad001" id="3007" revision="115" file="Pad001.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder002" id="3008" revision="34" file="Binder002.xml" />
     <Object type="PartDesign::Pad" name="Pad002" id="3009" revision="144" file="Pad002.xml" />
-    <Object type="App::Link" name="Link001" id="3011" revision="6" file="Link001.xml" />
+    <Object type="App::Link" name="Link001" id="3011" revision="6" Touched="1" file="Link001.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder003" id="3012" revision="39" file="Binder003.xml" />
     <Object type="PartDesign::Pad" name="Pad003" id="3017" revision="28" file="Pad003.xml" />
   </Objects>
