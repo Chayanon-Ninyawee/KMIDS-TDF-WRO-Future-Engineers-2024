@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="b4f42207-5d6a-469c-85b2-75571041e089" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="bfe1b31f-7764-433d-93ad-056606284065" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="672">
+  <StringHasher2  count="673">
 <![CDATA[
 -1.0 0:;SKT
 -1.c.1 g3v1
@@ -678,9 +678,10 @@
 -1.2c.0.9
 -1.2c.0.-5
 -1.2c.0.-5
+-17.0 0:Shape cache
 ]]>
   </StringHasher2>
-  <Properties Count="21" TransientCount="3">
+  <Properties Count="22" TransientCount="3">
     <_Property name="FileName" type="App::PropertyString" status="50331649"/>
     <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
     <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
@@ -709,7 +710,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T08:29:25Z"/>
+      <String value="2024-09-30T08:52:24Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -724,6 +725,10 @@
     <Property name="Meta" type="App::PropertyMap" status="1">
       <Map count="0">
       </Map>
+    </Property>
+    <Property name="OnTopObjects" type="App::PropertyStringList" group="Views" attr="0" ro="0" hide="0" doc="" status="2097153">
+      <StringList count="0" >
+      </StringList>
     </Property>
     <Property name="PreferBinary" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -744,7 +749,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="b4f42207-5d6a-469c-85b2-75571041e089"/>
+      <Uuid value="bfe1b31f-7764-433d-93ad-056606284065"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -752,29 +757,29 @@
   </Properties>
   <Objects Count="26" Dependencies="1">
     <ObjectDeps Name="Body" Count="15">
-      <Dep Name="Origin"/>
-      <Dep Name="Pad005"/>
-      <Dep Name="Binder"/>
-      <Dep Name="Binder004"/>
-      <Dep Name="Pad"/>
       <Dep Name="Binder001"/>
+      <Dep Name="Pad001"/>
       <Dep Name="Binder002"/>
       <Dep Name="Pad002"/>
-      <Dep Name="Chamfer"/>
-      <Dep Name="Pad001"/>
-      <Dep Name="Binder005"/>
-      <Dep Name="Pad004"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Pad"/>
       <Dep Name="Binder003"/>
-      <Dep Name="Chamfer001"/>
       <Dep Name="Pad003"/>
+      <Dep Name="Binder004"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Binder005"/>
+      <Dep Name="Pad005"/>
+      <Dep Name="Chamfer"/>
+      <Dep Name="Chamfer001"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
       <Dep Name="X_Axis"/>
       <Dep Name="Y_Axis"/>
-      <Dep Name="YZ_Plane"/>
+      <Dep Name="Z_Axis"/>
       <Dep Name="XY_Plane"/>
       <Dep Name="XZ_Plane"/>
-      <Dep Name="Z_Axis"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -786,42 +791,42 @@
     <ObjectDeps Name="Sketch" Count="0"/>
     <ObjectDeps Name="Sketch001" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="YZ_Plane"/>
       <Dep Name="Body"/>
+      <Dep Name="YZ_Plane"/>
       <Dep Name="Sketch001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Binder"/>
       <Dep Name="Body"/>
+      <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="YZ_Plane"/>
       <Dep Name="Body"/>
+      <Dep Name="YZ_Plane"/>
       <Dep Name="Sketch001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Binder001"/>
       <Dep Name="Body"/>
       <Dep Name="Pad"/>
-      <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="2">
       <Dep Name="Body"/>
       <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Body"/>
-      <Dep Name="Binder002"/>
       <Dep Name="Pad001"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch002" Count="0"/>
     <ObjectDeps Name="Binder003" Count="3">
-      <Dep Name="Sketch002"/>
-      <Dep Name="Body"/>
       <Dep Name="Pad002"/>
+      <Dep Name="Body"/>
+      <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad003" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Pad002"/>
+      <Dep Name="Body"/>
       <Dep Name="Binder003"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder004" Count="3">
@@ -831,28 +836,28 @@
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Binder004"/>
       <Dep Name="Pad003"/>
+      <Dep Name="Binder004"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder005" Count="3">
-      <Dep Name="Link"/>
       <Dep Name="Body"/>
+      <Dep Name="Link"/>
       <Dep Name="Pad004"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad005" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Binder005"/>
       <Dep Name="Pad004"/>
+      <Dep Name="Binder005"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer" Count="2">
-      <Dep Name="Pad005"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad005"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer001" Count="2">
       <Dep Name="Body"/>
       <Dep Name="Chamfer"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1166" revision="410" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1166" revision="412" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1167" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1168" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1169" revision="2" file="Y_Axis.xml" />
@@ -860,7 +865,7 @@
     <Object type="App::Plane" name="XY_Plane" id="1171" revision="1" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="1172" revision="2" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="1173" revision="2" file="YZ_Plane.xml" />
-    <Object type="App::Link" name="Link" id="1174" revision="57" file="Link.xml" />
+    <Object type="App::Link" name="Link" id="1174" revision="71" file="Link.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch" id="1176" revision="853" file="Sketch.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch001" id="1198" revision="1061" file="Sketch001.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder" id="1199" revision="68" file="Binder.xml" />
@@ -874,10 +879,10 @@
     <Object type="PartDesign::Pad" name="Pad003" id="1216" revision="67" file="Pad003.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder004" id="1217" revision="270" file="Binder004.xml" />
     <Object type="PartDesign::Pad" name="Pad004" id="1218" revision="85" file="Pad004.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder005" id="1219" revision="329" file="Binder005.xml" />
-    <Object type="PartDesign::Pad" name="Pad005" id="1220" revision="93" file="Pad005.xml" />
-    <Object type="PartDesign::Chamfer" name="Chamfer" id="1221" revision="73" file="Chamfer.xml" />
-    <Object type="PartDesign::Chamfer" name="Chamfer001" id="1230" revision="77" file="Chamfer001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder005" id="1219" revision="347" file="Binder005.xml" />
+    <Object type="PartDesign::Pad" name="Pad005" id="1220" revision="99" file="Pad005.xml" />
+    <Object type="PartDesign::Chamfer" name="Chamfer" id="1221" revision="77" file="Chamfer.xml" />
+    <Object type="PartDesign::Chamfer" name="Chamfer001" id="1230" revision="81" file="Chamfer001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

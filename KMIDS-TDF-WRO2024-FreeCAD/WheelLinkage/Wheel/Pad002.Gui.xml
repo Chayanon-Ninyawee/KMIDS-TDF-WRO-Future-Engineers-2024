@@ -26,14 +26,14 @@
 cccccc00
 cccccc00
 cccccc00
-ffd70000
+d2d8e100
 cccccc00
-ffd70000
-ffd70000
-ffd70000
-ffd70000
-ffd70000
-ffd70000
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
       </ColorList>
     </Property>
     <Property name="DisplayMode" type="App::PropertyEnumeration" status="1">

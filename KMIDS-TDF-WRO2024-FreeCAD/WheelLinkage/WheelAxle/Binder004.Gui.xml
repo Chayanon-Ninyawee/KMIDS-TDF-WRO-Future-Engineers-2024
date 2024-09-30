@@ -21,7 +21,7 @@
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
       <ColorList count="1" >
-ffd70099
+d2d8e199
       </ColorList>
     </Property>
     <Property name="DisplayMode" type="App::PropertyEnumeration" status="1">
@@ -98,7 +98,7 @@ ffd70099
       <PropertyColor value="4292280473"/>
     </Property>
     <Property name="ShapeMaterial" type="App::PropertyMaterial" status="33">
-      <PropertyMaterial ambientColor="858993408" diffuseColor="3435973632" specularColor="0" emissiveColor="0" shininess="0.2000000029802322" transparency="0.6000000238418579"/>
+      <PropertyMaterial ambientColor="858993408" diffuseColor="3537428889" specularColor="0" emissiveColor="0" shininess="0.2000000029802322" transparency="0.6000000238418579"/>
     </Property>
     <Property name="ShowInTree" type="App::PropertyBool" status="1">
       <Bool value="true"/>

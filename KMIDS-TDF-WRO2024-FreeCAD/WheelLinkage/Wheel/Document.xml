@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="8a6d72e6-d658-48e7-972e-8463478796a2" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="d6afc946-293a-4762-993f-2158c894b881" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="352">
 <![CDATA[
@@ -360,7 +360,7 @@
 -1.2c.6.-3
 ]]>
   </StringHasher2>
-  <Properties Count="21" TransientCount="3">
+  <Properties Count="22" TransientCount="3">
     <_Property name="FileName" type="App::PropertyString" status="50331649"/>
     <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
     <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
@@ -389,7 +389,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T08:22:25Z"/>
+      <String value="2024-09-30T08:47:50Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -404,6 +404,10 @@
     <Property name="Meta" type="App::PropertyMap" status="1">
       <Map count="0">
       </Map>
+    </Property>
+    <Property name="OnTopObjects" type="App::PropertyStringList" group="Views" attr="0" ro="0" hide="0" doc="" status="2097153">
+      <StringList count="0" >
+      </StringList>
     </Property>
     <Property name="PreferBinary" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -424,7 +428,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="8a6d72e6-d658-48e7-972e-8463478796a2"/>
+      <Uuid value="d6afc946-293a-4762-993f-2158c894b881"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -432,24 +436,24 @@
   </Properties>
   <Objects Count="20" Dependencies="1">
     <ObjectDeps Name="Body" Count="11">
-      <Dep Name="Pad003"/>
-      <Dep Name="Pad"/>
       <Dep Name="Origin"/>
+      <Dep Name="Sketch"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Pad001"/>
       <Dep Name="Binder001"/>
       <Dep Name="Pad002"/>
-      <Dep Name="Sketch"/>
-      <Dep Name="Pad001"/>
-      <Dep Name="Pad004"/>
       <Dep Name="Binder002"/>
+      <Dep Name="Pad003"/>
       <Dep Name="Binder003"/>
-      <Dep Name="Binder"/>
+      <Dep Name="Pad004"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="XY_Plane"/>
       <Dep Name="X_Axis"/>
-      <Dep Name="XZ_Plane"/>
       <Dep Name="Y_Axis"/>
       <Dep Name="Z_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="XZ_Plane"/>
       <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
@@ -473,8 +477,8 @@
       <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Pad"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad"/>
       <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
@@ -483,28 +487,28 @@
       <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Binder001"/>
       <Dep Name="Body"/>
       <Dep Name="Pad001"/>
+      <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="3">
-      <Dep Name="Pad002"/>
       <Dep Name="Body"/>
       <Dep Name="Sketch003"/>
+      <Dep Name="Pad002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad003" Count="3">
-      <Dep Name="Pad002"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad002"/>
       <Dep Name="Binder002"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder003" Count="3">
-      <Dep Name="Pad003"/>
       <Dep Name="Body"/>
       <Dep Name="Sketch003"/>
+      <Dep Name="Pad003"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="3">
-      <Dep Name="Pad003"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad003"/>
       <Dep Name="Binder003"/>
     </ObjectDeps>
     <Object type="PartDesign::Body" name="Body" id="3507" revision="138" file="Body.xml" />
