@@ -4,12 +4,14 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="_Element002" expanded="0" Extensions="True">
-  <Extensions Count="1">
+<ViewProvider name="Pad001" expanded="0" Extensions="True">
+  <Extensions Count="2">
     <Extension type="Gui::ViewProviderLinkObserver" name="ViewProviderLinkObserver">
     </Extension>
+    <Extension type="PartGui::ViewProviderAttachExtension" name="ViewProviderAttachExtension">
+    </Extension>
   </Extensions>
-  <Properties Count="33" TransientCount="0">
+  <Properties Count="32" TransientCount="0">
     <Property name="AngularDeflection" type="App::PropertyAngle" status="1">
       <Float value="28.65"/>
     </Property>
@@ -20,8 +22,11 @@
       <Float value="0.2"/>
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
-      <ColorList count="1" >
-3cffff80
+      <ColorList count="4" >
+ffd70000
+ffd70000
+ffd70000
+ffd70000
       </ColorList>
     </Property>
     <Property name="DisplayMode" type="App::PropertyEnumeration" status="1">
@@ -33,22 +38,25 @@
     <Property name="ForceMapColors" type="App::PropertyBool" status="1">
       <Bool value="false"/>
     </Property>
+    <Property name="IconColor" type="App::PropertyColor" status="1">
+      <PropertyColor value="0"/>
+    </Property>
     <Property name="Lighting" type="App::PropertyEnumeration" status="1">
       <Integer value="1"/>
     </Property>
     <Property name="LineColor" type="App::PropertyColor" status="1">
-      <PropertyColor value="1023409920"/>
+      <PropertyColor value="421075200"/>
     </Property>
     <Property name="LineColorArray" type="App::PropertyColorList" status="1">
       <ColorList count="1" >
-3cffff00
+19191900
       </ColorList>
     </Property>
     <Property name="LineMaterial" type="App::PropertyMaterial" status="33">
-      <PropertyMaterial ambientColor="858993408" diffuseColor="1023409920" specularColor="0" emissiveColor="0" shininess="1" transparency="0"/>
+      <PropertyMaterial ambientColor="858993408" diffuseColor="421075200" specularColor="0" emissiveColor="0" shininess="1" transparency="0"/>
     </Property>
     <Property name="LineWidth" type="App::PropertyFloatConstraint" status="1">
-      <Float value="4"/>
+      <Float value="2"/>
     </Property>
     <Property name="MapFaceColor" type="App::PropertyBool" status="1">
       <Bool value="true"/>
@@ -66,24 +74,21 @@
       <ColorList file=""/>
     </Property>
     <Property name="OnTopWhenSelected" type="App::PropertyEnumeration" status="1">
-      <Integer value="2"/>
+      <Integer value="0"/>
     </Property>
     <Property name="PointColor" type="App::PropertyColor" status="1">
-      <PropertyColor value="1023409920"/>
+      <PropertyColor value="421075200"/>
     </Property>
     <Property name="PointColorArray" type="App::PropertyColorList" status="1">
       <ColorList count="1" >
-3cffff00
+19191900
       </ColorList>
     </Property>
     <Property name="PointMaterial" type="App::PropertyMaterial" status="33">
-      <PropertyMaterial ambientColor="858993408" diffuseColor="1023409920" specularColor="0" emissiveColor="0" shininess="1" transparency="0"/>
+      <PropertyMaterial ambientColor="858993408" diffuseColor="421075200" specularColor="0" emissiveColor="0" shininess="1" transparency="0"/>
     </Property>
     <Property name="PointSize" type="App::PropertyFloatConstraint" status="1">
-      <Float value="4"/>
-    </Property>
-    <Property name="Proxy" type="App::PropertyPythonObject" status="1">
-      <Python  module="freecad.asm3.assembly" class="ViewProviderAsmElement" value="null"/>
+      <Float value="2"/>
     </Property>
     <Property name="ResetClipPlane" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -98,21 +103,18 @@
       <Integer value="0"/>
     </Property>
     <Property name="ShapeColor" type="App::PropertyColor" status="1">
-      <PropertyColor value="1023409920"/>
+      <PropertyColor value="3537428736"/>
     </Property>
     <Property name="ShapeMaterial" type="App::PropertyMaterial" status="33">
-      <PropertyMaterial ambientColor="858993408" diffuseColor="1023409920" specularColor="0" emissiveColor="0" shininess="0.2000000029802322" transparency="0.5"/>
-    </Property>
-    <Property name="ShowCS" type="App::PropertyBool" group="" attr="0" ro="0" hide="0" docID="207" status="2097152">
-      <Bool value="false"/>
+      <PropertyMaterial ambientColor="858993408" diffuseColor="3435973632" specularColor="0" emissiveColor="0" shininess="0.2000000029802322" transparency="0"/>
     </Property>
     <Property name="ShowInTree" type="App::PropertyBool" status="1">
       <Bool value="true"/>
     </Property>
     <Property name="Transparency" type="App::PropertyPercent" status="1">
-      <Integer value="50"/>
+      <Integer value="0"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="9">
+    <Property name="Visibility" type="App::PropertyBool" status="1">
       <Bool value="false"/>
     </Property>
   </Properties>

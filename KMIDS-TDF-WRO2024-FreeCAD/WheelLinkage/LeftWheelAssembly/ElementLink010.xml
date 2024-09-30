@@ -32,7 +32,7 @@
       <Python  module="freecad.asm3.assembly" class="AsmElementLink" value="null"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="38"/>
+      <Integer value="67"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
@@ -41,7 +41,7 @@
       <Integer value="0"/>
     </Property>
     <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
-      <Integer value="1"/>
+      <Integer value="0"/>
     </Property>
     <Property name="_Parent" type="App::PropertyLinkHidden" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097162">
       <Link value="Constraint005"/>

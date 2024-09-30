@@ -32,7 +32,7 @@
       <Python  module="freecad.asm3.assembly" class="AsmElementLink" value="null"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="51"/>
+      <Integer value="79"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
