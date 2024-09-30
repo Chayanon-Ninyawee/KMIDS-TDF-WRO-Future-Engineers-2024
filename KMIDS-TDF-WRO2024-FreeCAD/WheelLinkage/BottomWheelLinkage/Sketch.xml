@@ -32,7 +32,7 @@
         <Constrain Name="" Type="6" Value="5" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="-0.512416660785675" LabelPosition="-0.2005119323730469" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="1" FirstPos="1" Second="0" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="6" Value="10" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="9" Value="1.420698011123384" First="0" FirstPos="1" Second="1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="9" Value="1.264665575995091" First="0" FirstPos="1" Second="1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="2" FirstPos="3" Second="0" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="18" Value="3" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="3" FirstPos="3" Second="0" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
@@ -68,7 +68,7 @@
       <ExpressionEngine count="2" cdata="1" xlink="1">
         <XLinks count="1" docs="1">
           <DocMap name="SteeringAckermannModel" label="SteeringAckermannModel" index="0"/>
-          <XLink file="../SteeringAckermannModel" stamp="2024-09-30T08:27:52Z" name="Spreadsheet"/>
+          <XLink file="../SteeringAckermannModel" stamp="2024-09-30T13:25:31Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
 0:Constraints[4]
@@ -132,7 +132,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="0" StartY="0" StartZ="0" EndX="-1.495353434437092" EndY="-9.887563810470059" EndZ="0"/>
+          <LineSegment StartX="0" StartY="0" StartZ="0" EndX="-3.01371546206917" EndY="-9.535067860990042" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="3" migrated="1">
@@ -153,35 +153,35 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="5" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="-1.495353434437092" CenterY="-9.887563810470059" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="-3.01371546206917" CenterY="-9.535067860990042" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomArcOfCircle" id="6" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="6" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <ArcOfCircle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="4" StartAngle="0" EndAngle="1.570796326794896"/>
+          <ArcOfCircle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="4" StartAngle="3.216245299353273e-16" EndAngle="1.570796326794896"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomArcOfCircle" id="8" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="8" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <ArcOfCircle CenterX="-1.495353434437092" CenterY="-9.887563810470059" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="3" StartAngle="3.627765353335481" EndAngle="5.91392985321972"/>
+          <ArcOfCircle CenterX="-3.01371546206917" CenterY="-9.535067860990042" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="3" StartAngle="3.460421336919734" EndAngle="5.72291739774254"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="9" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="9" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="2.909464618929846e-15" StartY="4" StartZ="0" EndX="-8" EndY="4" EndZ="0"/>
+          <LineSegment StartX="1.77635683940025e-15" StartY="4" StartZ="0" EndX="-8" EndY="4" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="12" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="12" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-8" StartY="-4" StartZ="0" EndX="-4.147736289924877" EndY="-11.28930030065445" EndZ="0"/>
+          <LineSegment StartX="-8" StartY="-4" StartZ="0" EndX="-5.862525133730919" EndY="-10.47543133042432" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="7" migrated="1">
@@ -195,21 +195,21 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="13" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="4" StartY="0" StartZ="0" EndX="4" EndY="-4" EndZ="0"/>
+          <LineSegment StartX="4" StartY="1.286498119741309e-15" StartZ="0" EndX="4" EndY="-4" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="14" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="14" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="4" StartY="-4" StartZ="0" EndX="1.302435545068356" EndY="-10.9703273239659" EndZ="0"/>
+          <LineSegment StartX="4" StartY="-4" StartZ="0" EndX="-0.4723771496277651" EndY="-11.12930736047482" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="15" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="15" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="-1.495353434437092" CenterY="-9.887563810470059" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="2.5"/>
+          <Circle CenterX="-3.01371546206917" CenterY="-9.535067860990042" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="2.5"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -274,15 +274,15 @@ Curve2ds 0
 Curves 11
 2 0 0 0 0 0 1 1 0 0 0 1 0 1.5
 2 -5 0 0 0 0 1 1 0 0 0 1 0 1.5
-2 -1.495353434437092 -9.8875638104700592 0 0 0 1 1 0 0 0 1 0 1.5
+2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 0 0 1 0 1.5
 2 0 0 0 0 0 1 1 0 0 0 1 0 4
-1 2.909464618929846e-15 4 0 -1 0 0 
+1 1.7763568394002505e-15 4 0 -1 0 0 
 1 -8 4 0 0 -1 0 
-1 -8 -4 0 0.46724549673104848 -0.88412761849438681 0 
-2 -1.495353434437092 -9.8875638104700592 0 0 0 1 1 0 0 0 1 0 3
-1 4 -4 0 -0.36092117116528016 -0.93259632650181634 0 
-1 4 0 0 0 -1 0 
-2 -1.495353434437092 -9.8875638104700592 0 0 0 1 1 0 0 0 1 0 2.5
+1 -8 -4 0 0.31345448981142721 -0.9496032238872496 0 
+2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 0 0 1 0 3
+1 4 -4 0 -0.5314131664949262 -0.84711277081380143 0 
+1 4 1.2864981197413093e-15 0 0 -1 0 
+2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 0 0 1 0 2.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0
@@ -327,7 +327,7 @@ Wi
 +24 0 *
 Ve
 1e-07
-0.00464656556290799 -9.88756381047006 0
+-1.51371546206917 -9.53506786099004 0
 0 0
 
 0101101
@@ -345,21 +345,21 @@ Wi
 +21 0 *
 Ve
 1e-07
-4 0 0
+4 1.28649811974131e-15 0
 0 0
 
 0101101
 *
 Ve
-1e-07
-2.90946461892985e-15 4 0
+1.00000000122465e-07
+1.89882152465877e-15 4 0
 0 0
 
 0101101
 *
 Ed
  1e-07 1 1 0
-1  4 0 0 1.5707963267949
+1  4 0 3.21624529935327e-16 1.5707963267949
 0
 
 0101000
@@ -393,35 +393,35 @@ Ed
 0101000
 +16 0 -14 0 *
 Ve
-1.00000001776357e-07
--4.14773628992488 -11.2893003006545 0
+1.00000000993014e-07
+-5.86252513373092 -10.4754313304243 0
 0 0
 
 0101101
 *
 Ed
  1e-07 1 1 0
-1  7 0 0 8.24462458606108
+1  7 0 0 6.81909156112256
 0
 
 0101000
 +14 0 -12 0 *
 Ve
-1.00000000555112e-07
-1.30243554506836 -10.9703273239659 0
+1.00000000222045e-07
+-0.472377149627765 -11.1293073604748 0
 0 0
 
 0101101
 *
 Ed
  1e-07 1 1 0
-1  8 0 3.62776535333548 5.91392985321972
+1  8 0 3.46042133691973 5.72291739774254
 0
 
 0101000
 +12 0 -10 0 *
 Ve
-1e-07
+1.00000000222045e-07
 4 -4 0
 0 0
 
@@ -429,7 +429,7 @@ Ve
 *
 Ed
  1e-07 1 1 0
-1  9 0 0 7.4741097792136
+1  9 0 0 8.41600741495829
 0
 
 0101000
@@ -447,7 +447,7 @@ Wi
 +17 0 +15 0 +13 0 +11 0 +9 0 -7 0 -6 0 *
 Ve
 1e-07
-1.00464656556291 -9.88756381047006 0
+-0.51371546206917 -9.53506786099004 0
 0 0
 
 0101101

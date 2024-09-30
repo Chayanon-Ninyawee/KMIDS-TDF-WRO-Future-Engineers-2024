@@ -7,22 +7,22 @@
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
 <Expand />
-  <Camera extra="0" id="19" binding="0" view3d="1">
+  <Camera extra="0" id="5" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position -3.2792969 -89.556183 -8.7150726
-  orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance 131.2135
-  farDistance 131.4872
+  position 9.3002052 -11.056898 33.549896
+  orientation 0 0 1  0
+  nearDistance 33.502361
+  farDistance 33.582447
   aspectRatio 1
   focalDistance 100
-  height 271.83017
+  height 54.881615
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="19"><![CDATA[
+  <View3D id="5"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>

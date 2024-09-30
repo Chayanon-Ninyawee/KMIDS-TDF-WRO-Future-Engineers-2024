@@ -710,7 +710,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T09:15:30Z"/>
+      <String value="2024-09-30T13:31:29Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -757,29 +757,29 @@
   </Properties>
   <Objects Count="26" Dependencies="1">
     <ObjectDeps Name="Body" Count="15">
-      <Dep Name="Binder"/>
-      <Dep Name="Chamfer001"/>
-      <Dep Name="Binder003"/>
-      <Dep Name="Chamfer"/>
-      <Dep Name="Pad002"/>
-      <Dep Name="Pad001"/>
-      <Dep Name="Binder005"/>
-      <Dep Name="Pad004"/>
-      <Dep Name="Binder002"/>
-      <Dep Name="Pad003"/>
-      <Dep Name="Binder001"/>
-      <Dep Name="Binder004"/>
       <Dep Name="Pad"/>
+      <Dep Name="Binder004"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Binder003"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Chamfer"/>
+      <Dep Name="Binder005"/>
+      <Dep Name="Binder001"/>
       <Dep Name="Pad005"/>
+      <Dep Name="Chamfer001"/>
+      <Dep Name="Pad001"/>
       <Dep Name="Origin"/>
+      <Dep Name="Binder"/>
+      <Dep Name="Pad003"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="Y_Axis"/>
-      <Dep Name="Z_Axis"/>
-      <Dep Name="XZ_Plane"/>
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="X_Axis"/>
       <Dep Name="XY_Plane"/>
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="X_Axis"/>
+      <Dep Name="Y_Axis"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -791,73 +791,73 @@
     <ObjectDeps Name="Sketch" Count="0"/>
     <ObjectDeps Name="Sketch001" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="Sketch001"/>
       <Dep Name="Body"/>
+      <Dep Name="Sketch001"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Binder"/>
       <Dep Name="Body"/>
+      <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="Sketch001"/>
       <Dep Name="Body"/>
+      <Dep Name="Sketch001"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Pad"/>
       <Dep Name="Body"/>
       <Dep Name="Binder001"/>
-      <Dep Name="Pad"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="2">
       <Dep Name="Body"/>
       <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Pad001"/>
-      <Dep Name="Binder002"/>
       <Dep Name="Body"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch002" Count="0"/>
     <ObjectDeps Name="Binder003" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Pad002"/>
       <Dep Name="Sketch002"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad003" Count="3">
-      <Dep Name="Binder003"/>
-      <Dep Name="Pad002"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Binder003"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder004" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Pad003"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Pad003"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Pad003"/>
       <Dep Name="Binder004"/>
+      <Dep Name="Pad003"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder005" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Pad004"/>
       <Dep Name="Link"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad005" Count="3">
-      <Dep Name="Binder005"/>
-      <Dep Name="Pad004"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Binder005"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer" Count="2">
       <Dep Name="Body"/>
       <Dep Name="Pad005"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer001" Count="2">
-      <Dep Name="Chamfer"/>
       <Dep Name="Body"/>
+      <Dep Name="Chamfer"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1166" revision="419" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1166" revision="420" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1167" revision="6" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1168" revision="4" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1169" revision="5" file="Y_Axis.xml" />
@@ -865,7 +865,7 @@
     <Object type="App::Plane" name="XY_Plane" id="1171" revision="4" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="1172" revision="5" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="1173" revision="5" file="YZ_Plane.xml" />
-    <Object type="App::Link" name="Link" id="1174" revision="78" file="Link.xml" />
+    <Object type="App::Link" name="Link" id="1174" revision="84" file="Link.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch" id="1176" revision="865" file="Sketch.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch001" id="1198" revision="1073" file="Sketch001.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder" id="1199" revision="98" file="Binder.xml" />
@@ -879,10 +879,10 @@
     <Object type="PartDesign::Pad" name="Pad003" id="1216" revision="79" file="Pad003.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder004" id="1217" revision="300" file="Binder004.xml" />
     <Object type="PartDesign::Pad" name="Pad004" id="1218" revision="97" file="Pad004.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder005" id="1219" revision="386" file="Binder005.xml" />
-    <Object type="PartDesign::Pad" name="Pad005" id="1220" revision="114" file="Pad005.xml" />
-    <Object type="PartDesign::Chamfer" name="Chamfer" id="1221" revision="88" file="Chamfer.xml" />
-    <Object type="PartDesign::Chamfer" name="Chamfer001" id="1230" revision="92" file="Chamfer001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder005" id="1219" revision="395" file="Binder005.xml" />
+    <Object type="PartDesign::Pad" name="Pad005" id="1220" revision="117" file="Pad005.xml" />
+    <Object type="PartDesign::Chamfer" name="Chamfer" id="1221" revision="90" file="Chamfer.xml" />
+    <Object type="PartDesign::Chamfer" name="Chamfer001" id="1230" revision="94" file="Chamfer001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

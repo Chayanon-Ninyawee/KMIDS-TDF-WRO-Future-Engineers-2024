@@ -35,7 +35,7 @@
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
     </Property>
-    <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099082">
+    <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099083">
       <BoolList value="0"/>
     </Property>
     <Property name="_ConstraintType" type="App::PropertyInteger" group="Base" attr="0" ro="0" hide="1" doc="" status="69206016">

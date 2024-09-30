@@ -12,13 +12,13 @@
     </Property>
     <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097418">
       <LinkList count="7">
-        <Link value="_Element"/>
-        <Link value="_Element001"/>
+        <Link value="Element"/>
         <Link value="_Element002"/>
         <Link value="_Element003"/>
         <Link value="_Element004"/>
         <Link value="_Element005"/>
         <Link value="_Element006"/>
+        <Link value="Element"/>
       </LinkList>
     </Property>
     <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097434"></Property>
@@ -37,7 +37,7 @@
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
     </Property>
-    <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099082">
+    <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099083">
       <BoolList value="0000000"/>
     </Property>
     <Property name="_LinkOwner" type="App::PropertyInteger" status="201326592">
