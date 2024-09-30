@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="01f59687-023d-4609-8dff-999412410807" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="01f59687-023d-4609-8dff-999412410807" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="448">
+  <StringHasher2  count="562">
 <![CDATA[
 -77.0 0:;SKT
 -1.c.1 g4v1
@@ -69,27 +69,18 @@
 -1.2c.2.5
 -1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V
 -1.2c.1.27
--1.2c.0.5
--1.0 0:;WIR;:Hbb6:4,E;:H,E;:Hbba,E
+-2.0 0:;WIR;:Hbb6:4,E;:H,E;:Hbba,E
 -1.2c.1.23
--3.2c.0.1a
--3.2c.-3.-3
--1.2c.3.-14
+-7.2c.0.3
 -5.2c.0.4
 -5.2c.-3.-6
 -1.0 0:;WIR;:Hbb6:4,E;:Hbba,E
--1.2c.1.44
--7.2c.-16.12
--1.2c.3.11
--7.0 0:;WIR;:Hbb6:4,V;:Hbba,V
--1.2c.1.55
--1.2c.-23.21
+-8.2c.1e.39
+-a.2c.3.e
 -7.2c.-3.-1c
--1.2c.3.20
--8.2c.0.-5
+-9.2c.3.1b
 -d.2c.0.-3
--13.2c.0.b
--1.0 0:;WIR;:Hbba:4,E
+-14.0 0:;WIR;:Hbba:4,E
 -6.0 0:;WIR;:Hbba:4,V
 -a.0 0:;FAC;:Hbba:4,F
 -2.0 0:;:G;XTR;:Hbba:7,F
@@ -98,120 +89,33 @@
 -1.2c.1.78
 -5.0 0:;WIR;:Hbba:4,V;:H,V
 -1.2c.1.81
--1.2c.0.1
--1.2c.0.8
--3.2c.-22.b
+-5.2c.-22.14
 -1.2c.1c.-a
 -1.2c.0.5
--1.2c.0.48
--1.2c.0.-51
--1.2c.-22.10
--1.2c.10.65
+-4.2c.-12.6c
 -1.2c.2.0
 -1.2c.0.c
 -1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.6.-a
--1.2c.0.1
--1.2c.0.1
--3.2c.0.3
--2d.2c.-18.-68
--e.2c.6.-1
--2.2c.0.9
--2.2c.-6.9
--1.2c.0.15
--1.2c.0.-d
--1.2c.0.-10
--1.2c.10.9e
--1.2c.2.0
--1.2c.0.12
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.0 0:;:U;XTR;:Hbba:7,E
+-4.2c.6.-7
+-5.2c.0.5
+-3b.2c.-12.-69
+-e.0 0:;:U;XTR;:Hbba:7,E
 -1.2c.1.53
--1.2c.0.1
--2.2c.-71.43
--2.2c.0.2
--c.2c.-5b.-101
--10.2c.49.5a
--1.2c.-6.c5
--1.2c.12.11
--1.2c.77.-28
--1.2c.0.1
--1.2c.0.2
--1.2c.-71.24
--33.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbbd,V
--2.2c.2.165
--1.0 0:;WIR;:Hbb6:4,E;:H,E;:Hbbd,E
--4.2c.4.149
--f.2c.0.-1
--6.0 0:;WIR;:Hbbd:4,E
+-3.2c.-71.44
+-73.0 0:;WIR;:Hbbd:4,E
 -6.0 0:;WIR;:Hbbd:4,V
 -c.0 0:;FAC;:Hbbd:4,F
 -2.0 0:;:G;XTR;:Hbbd:7,F
 -7.0 0:;:G;XTR;:Hbbd:7,E
 -d.0 0:;WIR;:Hbb6:4,E;:Hbbd,E
--a.0 0:;WIR;:Hbbd:4,V;:H,V
--2.2c.2.4e
--2f.0 0:;:U;XTR;:Hbbd:7,E
--46.0 0:;WIR;:Hbba:4,V;:H,V;:H,V
--1.2c.1.201
--1.0 0:;:U;XTR;:Hbba:7,V;:H,V
--1.2c.1.170
--1.2c.-2.-8b
--1.2c.2.8c
--1.2c.-183.-81
--1.2c.183.84
--1.0 0:;:G;XTR;:Hbba:7,E;:H,E
--1.2c.1.188
--1.2c.0.1
--1.0 0:;WIR;:Hbba:4,E;:H,E;:H,E
--1.2c.1.203
--1.0 0:;:U;XTR;:Hbba:7,E;:H,E
--1.2c.1.181
--2.2c.-194.-78
--1.2c.194.7c
--1.0 0:;:G;XTR;:Hbba:7,F;:H,F
--1.2c.1.18d
--2.0 0:;:U;XTR;:Hbba:7,V
--1.2c.1.130
--1.0 0:;:U2;XTR;:Hbba:8,V
--1.2c.1.111
--1.2c.-2.1
--2.2c.-135.-4
--1.0 0:;:U;XTR;:Hbbd:7,V
+-3b.0 0:;:U;XTR;:Hbbd:7,E
+-5b.0 0:;:U;XTR;:Hbba:7,V
+-2.0 0:;:U2;XTR;:Hbba:8,V
+-5.0 0:;:U;XTR;:Hbbd:7,V
 -12.0 0:;:G0;XTR;:Hbbd:8,F
--2.c.28.a5 #136
--2.2c.3.-189
--1.2c.2.8a
--3.2c.-2.-7e
--1.c.0.143 #10c
--2.c.0.-f #bb
--2.2c.2.-b4
--1.2c.0.1
--1.2c.0.1
--1.2c.-12d.4f
--6.2c.0.-2
--4.2c.132.-63
--1.0 0:;FAC;:Hbba:4,F;:H,F
--1.2c.1.1d0
--1.0 0:;:G0;XTR;:Hbba:8,F;:H,F
--1.2c.1.1c1
--1.2c.-39.-4
--1.0 0:;:G0;XTR;:Hbba:8,F
--1.2c.1.175
--1.c.-4e.63 #b5
--2.2c.2.-ab
--2.2c.13.73
--5.0 0:;:U2;XTR;:Hbba:8,V;:H,V
--1.2c.1.179
--1.2c.-57.1
--1.2c.13.2
--3.2c.2.22
--1.0 0:;WIR;:Hbb6:4,V;:Hbbd,V
+-20.0 0:;:G0;XTR;:Hbba:8,F
+-e.2c.47.178
+-4.0 0:;WIR;:Hbb6:4,V;:Hbbd,V
 -1.2c.1.291
 -1.2c.-e1.1
 -1.2c.-28.291
@@ -226,19 +130,13 @@
 -1.2c.c.2
 -1.2c.2.0
 -1.2c.7.1
--2.2c.a0.-1e3
--1.2c.0.1
--1.2c.a.1de
+-4.2c.aa.-4
 -1.2c.-62.-1
 -1.2c.74.-1
 -1.2c.-12.9
 -1.2c.-62.-1
 -1.2c.74.-1
--1.0 0:(#2c6;:Hbbc,E)
--1.0 0:(#1b9;:Hbbc,E)
--1.0 0:(#2bc;:Hbbc,V)
--1.0 0:(#1b8;:Hbbc,V)
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V
+-5.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V
 -1.2c.1.2a8
 -1.2c.0.3
 -1.0 0:;WIR;:Hbb6:4,E;:H,E;:Hbc0,E
@@ -299,50 +197,24 @@
 -1.2c.14.b
 -1.2c.7.-2
 -10.0 0:;:Hbbc,V
--1.2c.1.124
--1.2c.0.2
--1.2c.0.1
--1.2c.0.1
--1.28.-c0.1.316.af ;:M#330;FUS;:H-bbf:b,V
--1.0 0:;:M;FUS;:Hbbc:7,V
--1.2c.1.124
--1.0 0:;:H-bbf,V
+-6.0 0:;:M;FUS;:Hbbc:7,V
+-2.0 0:;:H-bbf,V
 -1.2c.1.bb
 -1.0 0:;:Hbbc,E
--1.2c.1.126
--1.2c.0.1
--1.2c.0.2
-3e8.2c.3e4.2c4
--1.28.-cb.2.31e.bb ;:M#32e;FUS;:H-bbf:b,E
--1.0 0:;:M;FUS;:Hbbc:7,E
--1.2c.1.124
--1.0 0:;:M;FUS;:H-bbf:7,E
+3ea.0 0:;:M;FUS;:Hbbc:7,E
+-2.0 0:;:M;FUS;:H-bbf:7,E
 -1.2c.1.d0
 -1.0 0:;:H-bbf,E
 -1.2c.1.c6
 -1.0 0:;:Hbbc,F
--1.2c.1.128
--1.0 0:;:M;FUS;:H-bbf:7,F
--1.2c.1.d8
--1.2c.0.1
+-2.0 0:;:M;FUS;:H-bbf:7,F
+-2.2c.2.d8
 -1.0 0:;:H-bbf,F
 -1.2c.1.cc
--2.2c.-1b.-5c
--1.2c.0.-144
--1.28.-b9.2e.317.c9 ;:M#331;FUS;:H-bbf:b,V
--1.2c.b9.114
--1.2c.6.3
--1.2c.2.5c
--2.2c.2.-19d
--1.28.-c4.2b.258.d1 ;:M#32f;FUS;:H-bbf:b,E
--1.2c.c4.4
--1.2c.6.114
--1.2c.-6.-135
--1.2c.8.188
+-7.2c.-13.1
+-7.2c.a.-7
 -1.2c.2.8
--1.2c.2.-198
--1.2c.2.18e
--1.2c.0.1
+-3.2c.4.-9
 -1.2c.3.a
 -1.0 0:;:U;XTR;:Hbc0:7,V
 -1.2c.1.75
@@ -363,97 +235,339 @@
 -2.2c.0.-19
 -1.0 0:;:G0;XTR;:Hbc0:8,F
 -1.2c.1.8f
--1.c.-38.-c #2e6
--1.0 0:(#41e;:Hbbf,E)
--1.2c.3c.138
--1.2c.0.1
--3.2c.0.3
--1.c.0.51 #2ed
--1.0 0:(#425;:Hbbf,E)
--1.c.43.ee #2ef
--1.0 0:(#427;:Hbbf,E)
--1.2c.45.138
--1.2c.0.1
--1.2c.0.1
--1.2c.0.-164
--1.2c.0.165
--1.2c.0.-139
--2.c.0.18d #18c
--1.0 0:(#430;:Hbbf,E)
--1.c.4e.e5 #17a
--1.0 0:(#432;:Hbbf,E)
--3.2c.52.2a9
--1.2c.0.2f
--1.2c.0.13e
--4.2c.c.4
--1.0 0:;:M;FUS;:Hbbc:7,F
--1.2c.1.13e
--1.2c.0.2
--1.2c.-4d.-16d
--1.2c.0.16e
--1.2c.4d.-173
--1.2c.0.175
--1.2c.-4d.-172
--1.c.-16.1a1 #306
--1.0 0:(#445;:Hbbf,V)
--1.2c.6d.13f
--3.2c.0.2
--5.2c.0.6
--1.2c.0.1
--1.2c.0.1
+-20.0 0:;:M;FUS;:Hbbc:7,F
+-14.2c.77.13f
 -3.c.0.35 #188
--1.0 0:(#454;:Hbbf,V)
--1.2c.7c.141
--2a5.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D1c86;:Hbba:6,V
--1.2c.1.66e
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D239b;:Hbba:6,V
--1.2c.1.66b
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D19ef;:Hbba:6,V
--1.2c.1.66a
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D1d71;:Hbba:6,V
--1.2c.1.656
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D634;:Hbba:5,V
--1.2c.1.66b
--b.2c.-5ce.665
+-2e9.0 0:Shape cache
+-43.2c.6c9.6ee
+-5.2c.-3.12
+-3.2c.0.-3
+-3.2c.3.-1
+-9.2c.-3.-3
+80f.2c.ca.85
+-7.2c.6b.5e
+-2.2c.0.6b1
+-2.2c.0.-c
+-1.2c.0.-3
+-2.2c.-6.-5
+-1.2c.0.b
+-1.2c.0.-692
+-1.2c.0.-d
+-1.2c.0.-10
+-1.2c.-22.733
+-1.2c.12.e
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.6.-c
+-1.2c.71.-6d4
+-1.2c.0.1
+-1.2c.-71.6d7
+-1.2c.0.1
+-a.2c.-5b.-768
+-d.2c.43.784
+-1.2c.12.d
+-1.2c.77.-1e
+-a.2c.-cc.-775
+-d.2c.43.79f
+-1.2c.12.d
+-1.2c.77.-18
+-15.2c.135.-1c
+-1.2c.0.-6e1
+-1.2c.2.6e2
+-1.2c.0.1
+-1.2c.0.-694
+-1.2c.-2.695
+-1.2c.0.1
+-1.2c.2.19
+-1.2c.-2.19
+-1.2c.0.-712
+-1.2c.-135.6d6
+-2.2c.-71.-b
+-2.2c.71.c
+-1.2c.0.1
+-2.2c.0.2
+-1.2c.0.1
+-2.2c.0.36
+-1.c.16e.-545 #141
+-9.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D1209;:Hbc0:6,V
+-1.2c.1.7e7
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D7c9;:Hbc0:5,V
+-1.2c.1.7fc
+-8.2c.-514.7fa
+-1.2c.-2c.2
+-5.2c.86.-7a
+-1.2c.0.-3
+-1.0 0:;:M;FUS;:H-bbf:7,V
+-1.2c.1.58c
+-1.2c.0.7
+-7.2c.-4c1.4ff
+-1.2c.0.-6e4
+-1.2c.8.1dd
+-1.2c.0.7
+-b.c.-8.61 #829
+-2.c.0.1 #148
+-2.c.0.-4c #81d
+-2.2c.0.548
+-1.2c.0.-5d
+-2.2c.0.-6f1
+-2.c.0.212 #81e
+-2.c.0.35 #85d
+-2.c.0.2d #844
+-2.c.0.19 #822
+-2.2c.0.462
+-2.c.59.-494 #889
+-3.2c.-59.-24e
+-6.c.0.760 #82c
+-3.2c.0.-1b
+-1.c.0.1c #14d
+-3.2c.0.-16
+-3.2c.0.-29
+-1.c.0.-499 #19a
+-2.2c.0.4c0
+-2.c.c.-50d #823
+-6.c.0.11 #824
+-2.c.0.3 #85e
+-2.c.0.22 #845
+-2.c.0.19 #828
+-4.c.-16.-95 #816
+-2.2c.0.541
+-1.c.0.-540 #136
+-2.2c.0.541
+-1.c.0.1e #81a
+-4.c.0.2 #13b
+-4.2c.0.-1c
+-3.2c.0.-1
+-1.2c.0.5
+-1.2c.0.-1
+-13.c.16.-503 #141
+-2.c.-379 g32v1
+-1.c.0 g33v1
+-1.c.0 g32
+-1.c.0 g33
+-1.2c.b.4
+-1.2c.2.2
+-1.2c.-2.-1
+-1.2c.2.2
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;Dc62;:Hbba:5,V
+-1.2c.1.89f
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D1b3;:Hbba:5,V
+-1.2c.1.888
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D1bbe;:Hbba:6,V
+-1.2c.1.88d
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbba,V;D2d6;:Hbba:5,V
+-1.2c.1.893
+-9.2c.-7fa.891
 -1.2c.0.-2
--1.2c.-22.4
+-1.2c.0.-2
+-1.2c.-22.6
+-1.2c.12.9
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-10.2c.2b5.-1
+-1.2c.0.-2
+-3.c.a.-5b5 #93e
+-4.c.0.2a #940
+-3.c.-a.-72 #93a
+-2.c.0.67 #93c
+-94.0 0:;WIR;:Hbb6:4,V;:Hbc4,V
+-1.2c.1.cd
+-1.0 0:;WIR;:Hbb6:4,E;:Hbc4,E
+-1.2c.1.ce
+-1.0 0:;WIR;:Hbc4:4,E
+-1.2c.1.2
+-1.0 0:;WIR;:Hbc4:4,V
+-1.2c.1.6
+-1.0 0:;FAC;:Hbc4:4,F
+-1.2c.1.4
+-1.0 0:;:G;XTR;:Hbc4:7,F
+-1.2c.1.6
+-1.0 0:;:G;XTR;:Hbc4:7,E
+-1.2c.1.6
+-1.2c.-c.-d1
+-1.2c.2.1
+-1.2c.2.d8
+-1.2c.2.-1
+-1.2c.2.2
+-1.2c.2.0
+-1.2c.2.1
+-3a.0 0:;:U;XTR;:Hbc4:7,V
+-1.2c.1.42
+-1.0 0:;:U;XTR;:Hbc4:7,E
+-1.2c.1.46
+-1.0 0:;:G0;XTR;:Hbc4:8,F
+-1.2c.1.4a
+-1.2c.-4.b
+-1.2c.2.-1
+-1.2c.2.-1
+-1a.0 0:(#846;:Hbbc,E)
+-1.0 0:(#846;K2;:Hbbc:3,E)
+-1.0 0:(#82b;:Hbbc,E)
+-1.2c.684.1e9
+-1.2c.0.-5
 -1.2c.0.4
--1.2c.0.-2
--1.2c.1a3.-4
--1.2c.0.-2
--1.2c.8.13
+-1.2c.0.-3
+-1.0 0:;:M;FUS;:H-bc9:7,V
+-1.2c.1.71
+-1.2c.0.a
+-1.0 0:;:H-bc9,V
+-1.2c.1.27
+-1.2c.0.-5
+-1.2c.-681.-101
+-1.2c.0.-ba
+-1.2c.0.b8
+-1.2c.0.-113
+-1.0 0:;:M2;FUS;:H-bc9:8,E
+-1.2c.1.72
+-1.2c.-688.-17e
+-1.2c.0.-6ec
+-1.0 0:;:M3;FUS;:H-bc9:8,E
+-1.2c.1.81
+-1.0 0:;:M;FUS;:H-bc9:7,E
+-1.2c.1.83
+-1.2c.-68e.-1c9
+-1.28.617.19.255.1a ;:M3#a61;FUS;:H-bc9:c,E
+-1.28.0.0.0.1 ;:M#a62;FUS;:H-bc9:b,E
+-1.2c.-617.3a
+-1.28.60c.-55.93b.1b ;:M2#a63;FUS;:H-bc9:c,E
+-1.2c.82.1da
+-1.0 0:;:H-bc9,E
+-1.2c.1.3b
+-1.2c.-8.-48
+-1.2c.8.44
+-1.2c.-643.-21b
+-1.2c.0.-6e5
+-1.2c.0.6e4
+-1.2c.0.-6e3
 -1.2c.0.1
--1.2c.-199.1
+-1.2c.0.6e1
+-1.0 0:;:M;FUS;:H-bc9:7,F
+-1.2c.1.87
+-1.2c.0.-8
+-1.0 0:;:H-bc9,F
+-1.c.1.76e #a47
+-2.c.0.-7 #a44
+-99.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D11f;:Hbc0:5,V
+-1.2c.1.a7e
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D2371;:Hbc0:6,V
+-1.2c.1.a93
+-8.2c.-7ab.a91
+-1.2c.-2c.2
+-1.0 0:;:Hbc9,V
+-1.2c.1.1e7
+-1.2c.0.114
+-1.2c.0.-113
+-1.2c.0.114
+-1.2c.0.-1c1
+-1.2c.0.-1
+-1.2c.0.1c3
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-3.0 0:;:Hbc9,E
+-1.2c.1.d8
+-1.2c.0.2
+-1.2c.0.-1c1
+-1.2c.0.-1
+-1.2c.0.1c5
+-1.2c.0.4
+-1.2c.0.2
 -1.2c.0.1
 -1.2c.0.1
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D58c;:Hbc0:5,V
--1.2c.1.68e
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D367;:Hbc0:5,V
--1.2c.1.672
--1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D1090;:Hbc0:6,V
--1.2c.1.687
--7.2c.-39f.683
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.1
+-3.0 0:;:Hbc9,F
+-1.2c.1.d3
+-1.2c.0.1
+-1.2c.0.4
+-1.2c.0.1
+-1.0 0:;:M;FUS;:Hbc9:7,F
+-1.2c.1.d0.117
+-1.2c.0.2.-3
+-1.c.-18.-70f #8bc
+-2.c.0.1 #8be
+-2.c.0.-4c #8c0
+-2.2c.0.58c
+-1.2c.0.1
+-1.2c.0.1ac
+-1.2c.0.-1aa
+-1.2c.0.1ac
+-1.c.0.-72f #8c7
+-2.c.0.35 #8c9
+-2.c.0.2d #8cb
+-2.c.0.19 #8cd
+-2.2c.0.512
+-1.2c.0.1a5
+-1.c.13.-6e9 #8d1
+-3.2c.-13.549
+-3.2c.0.1a1
+-1.c.0.-6f1 #954
+-2.c.0.7b0 #8da
+-3.2c.0.-257
+-1.c.0.258 #8de
+-3.2c.0.-254
+-1.c.0.-533 #958
+-2.2c.0.536
+-1.c.0.-51e #8e5
+-2.2c.0.521
+-2.c.13.-56e #8e9
+-2.2c.0.70b
+-1.2c.0.1
+-1.c.0.-70c #91f
+-2.c.0.11 #8ef
+-2.c.0.3 #8f1
+-2.c.0.22 #8f3
+-2.c.0.19 #8f5
+-2.2c.0.6c1
+-1.2c.0.-1
+-1.c.-22.-755 #8f9
+-2.2c.0.5c8
+-1.c.0.-5c7 #8fc
+-2.2c.0.5ca
+-1.c.0.22c #8ff
+-2.c.0.-7ee #95b
+-2.c.0.7f0 #903
+-2.c.0.-789 #95d
+-2.c.0.19 #454
+-2.2c.0.54b
+-3.2c.0.3
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.-4bb
+c77.0 0:(#b66;:Hbbf,E)
+-1.0 0:(#b81;:Hbbf,E)
+-1.0 0:(#b8b;:Hbbf,E)
+-1.0 0:(#b88;:Hbbf,E)
+-1.0 0:(#b85;:Hbbf,E)
+-4.0 0:(#b9f;:Hbbf,V)
+-1.0 0:(#ba2;:Hbbf,V)
+-1.0 0:(#bad;:Hbbf,V)
+-1.0 0:(#bb0;:Hbbf,V)
+-1.0 0:(#bb3;:Hbbf,V)
+-1.0 0:(#bb2;:Hbbf,V)
+-1.0 0:(#bb1;:Hbbf,V)
+-31.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D2444;:Hbc0:6,V
+-1.2c.1.c29
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D117e;:Hbc0:6,V
+-1.2c.1.c0d
+-1.0 0:;WIR;:Hbb6:4,V;:H,V;:Hbc0,V;D8d1;:Hbc0:5,V
+-1.2c.1.c22
+-7.2c.-93a.c1e
 -1.2c.0.2
 -1.2c.-2c.2
--1.2c.86.-d
--1.2c.a.7
--1.2c.-7b.f
--1.c.7b.-3a8 #718
--1.0 0:(#72d;:Hbbf,E)
--1.2c.3c6.8
--1.c.7b.-3a3 #716
--1.0 0:(#730;:Hbbf,E)
--1.2c.3c9.a
--1.c.7b.0 #719
--1.0 0:(#733;:Hbbf,E)
--1.c.35b.402 #711
--1.0 0:(#735;:Hbbf,V)
--1.c.35d.3fb #714
--1.0 0:(#737;:Hbbf,V)
--1.c.35f.1d #715
--1.0 0:(#739;:Hbbf,V)
--1.c.361.1d #712
--1.0 0:(#73b;:Hbbf,V)
+-1.2c.15.7
+-1.2c.0.1
+-1.2c.0.1
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -485,7 +599,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-29T07:45:50Z"/>
+      <String value="2024-09-30T01:07:56Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -526,23 +640,25 @@
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="17" Dependencies="1">
-    <ObjectDeps Name="Body" Count="7">
-      <Dep Name="Pad"/>
-      <Dep Name="Pad001"/>
-      <Dep Name="Pad002"/>
+  <Objects Count="19" Dependencies="1">
+    <ObjectDeps Name="Body" Count="9">
+      <Dep Name="Pad003"/>
       <Dep Name="Binder"/>
-      <Dep Name="Origin"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Pad002"/>
       <Dep Name="Binder001"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Binder003"/>
       <Dep Name="Binder002"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="X_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="Y_Axis"/>
       <Dep Name="YZ_Plane"/>
       <Dep Name="Z_Axis"/>
-      <Dep Name="XZ_Plane"/>
       <Dep Name="XY_Plane"/>
-      <Dep Name="X_Axis"/>
-      <Dep Name="Y_Axis"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -555,37 +671,47 @@
     </ObjectDeps>
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="Sketch"/>
       <Dep Name="Body"/>
+      <Dep Name="Sketch"/>
       <Dep Name="XY_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="3">
-      <Dep Name="Link001"/>
       <Dep Name="Body"/>
       <Dep Name="Binder"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="Sketch"/>
+      <Dep Name="Pad003"/>
       <Dep Name="Body"/>
-      <Dep Name="XY_Plane"/>
+      <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Pad"/>
+      <Dep Name="Pad003"/>
       <Dep Name="Body"/>
       <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="3">
-      <Dep Name="Sketch"/>
       <Dep Name="Body"/>
-      <Dep Name="XY_Plane"/>
+      <Dep Name="Sketch"/>
+      <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Pad001"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
       <Dep Name="Binder002"/>
     </ObjectDeps>
     <ObjectDeps Name="Link001" Count="0"/>
-    <Object type="PartDesign::Body" name="Body" id="2989" revision="68" file="Body.xml" />
+    <ObjectDeps Name="Binder003" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Sketch"/>
+      <Dep Name="Pad"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad003" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder003"/>
+    </ObjectDeps>
+    <Object type="PartDesign::Body" name="Body" id="2989" revision="125" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="2990" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="2991" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="2992" revision="2" file="Y_Axis.xml" />
@@ -593,15 +719,17 @@
     <Object type="App::Plane" name="XY_Plane" id="2994" revision="1" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="2995" revision="2" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="2996" revision="2" file="YZ_Plane.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch" id="2998" revision="834" file="Sketch.xml" />
-    <Object type="App::Link" name="Link" id="2999" revision="5" file="Link.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder" id="3002" revision="17" file="Binder.xml" />
-    <Object type="PartDesign::Pad" name="Pad" id="3004" revision="60" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="3005" revision="17" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="3007" revision="50" file="Pad001.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="3008" revision="17" file="Binder002.xml" />
-    <Object type="PartDesign::Pad" name="Pad002" id="3009" revision="54" file="Pad002.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="2998" revision="925" file="Sketch.xml" />
+    <Object type="App::Link" name="Link" id="2999" revision="7" file="Link.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="3002" revision="19" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="3004" revision="91" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="3005" revision="102" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="3007" revision="115" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="3008" revision="34" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="3009" revision="144" file="Pad002.xml" />
     <Object type="App::Link" name="Link001" id="3011" revision="5" file="Link001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder003" id="3012" revision="39" file="Binder003.xml" />
+    <Object type="PartDesign::Pad" name="Pad003" id="3017" revision="28" file="Pad003.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

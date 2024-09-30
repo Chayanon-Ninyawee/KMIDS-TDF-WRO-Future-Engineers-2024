@@ -6,28 +6,23 @@
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
-<Expand  count="1">
-  <Expand name="Assembly" count="2">
-    <Expand name="Constraints"/>
-    <Expand name="Elements"/>
-  </Expand>
-</Expand>
-  <Camera extra="0" id="14" binding="0" view3d="1">
+<Expand />
+  <Camera extra="0" id="16" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position -87.209221 -34.289825 50.16201
-  orientation 0.56524408 -0.49232548 -0.66190249  1.5039487
-  nearDistance 92.812126
-  farDistance 112.83289
+  position 8.938777 -116.75249 34.308914
+  orientation 0.99713707 0.054933053 0.051959988  1.2624195
+  nearDistance 103.85888
+  farDistance 125.63979
   aspectRatio 1
   focalDistance 100
-  height 21.307312
+  height 17.444952
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="14"><![CDATA[
+  <View3D id="16"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>
