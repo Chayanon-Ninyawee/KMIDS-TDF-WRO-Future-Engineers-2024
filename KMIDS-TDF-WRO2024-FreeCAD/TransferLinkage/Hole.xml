@@ -16,31 +16,31 @@ Locations 2
               0               1               0               0 
               0               0               1               2 
 1
-              1               0               0               0 
-              0               1               0             -37 
+              1               0               0 4.05790345468528e-25 
+              0               1               0           -30.6 
               0               0               1               2 
 Curve2ds 9
 2 0 0 -1 0 0 1 1.0349999999999999
 1 0 0 1 0 
-1 0 83.252661445361809 1 0 
+1 0 70.470740170975134 1 0 
 1 0 0 1 0 
 1 6.2831853071795862 0 0 1 
 1 0 0 0 1 
-1 0 1.207465566117865 1 0 
+1 0 1.2074655661178659 1 0 
 1 6.2831853071795862 0 0 1 
 1 0 0 0 1 
 Curves 4
 2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.0349999999999999
-2 0 0 -83.252661445361809 0 0 1 1 0 -0 -0 1 0 1.0349999999999948
-1 1.0349999999999999 0 -0 -6.1343695500082349e-17 0 -1 
-1 1.0349999999999948 0 -83.252661445361809 -0.85716730070210922 -0 -0.51503807491005915 
+2 0 0 -70.470740170975134 0 0 1 1 0 -0 -0 1 0 1.0349999999999957
+1 1.0349999999999999 0 -0 -5.9866655059105179e-17 0 -1 
+1 1.0349999999999957 0 -70.470740170975134 -0.85716730070210934 -0 -0.51503807491005882 
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 3
 1 0 0 0 0 0 1 -1 -0 0 -0 1 0 
 2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.0349999999999999
-3 0 0 -83.252661445361809 -0 -0 -1 1 0 0 -0 1 -0 1.0349999999999948
--1.0297442586766488
+3 0 0 -70.470740170975134 -0 -0 -1 1 0 0 -0 1 -0 1.0349999999999957
+-1.029744258676649
 Triangulations 0
 
 TShapes 17
@@ -67,11 +67,11 @@ Wi
 Fa
 0  1e-07 1 0
 
-0111000
+0101000
 +15 0 *
 Ve
 1e-07
-1.03499999999999 0 -83.2526614453618
+1.035 0 -70.4707401709751
 0 0
 
 0101101
@@ -87,8 +87,8 @@ Ed
 +13 0 -13 0 *
 Ed
  1e-07 1 1 0
-1  3 0 0 83.2526614453618
-3  5 6CN 2 0 0 83.2526614453618
+1  3 0 0 70.4707401709751
+3  5 6CN 2 0 0 70.4707401709751
 0
 
 0101000
@@ -100,11 +100,11 @@ Wi
 Fa
 0  1e-07 2 0
 
-0111000
+0101000
 +10 0 *
 Ve
 1e-07
--0 -0 -83.8745521860553
+-0 -0 -71.0926309116687
 0 0
 
 0101101
@@ -131,7 +131,7 @@ Wi
 Fa
 0  1e-07 3 0
 
-0111000
+0101000
 +5 0 *
 Sh
 
@@ -274,7 +274,7 @@ EndMap
       <LinkSub value="" count="0">
       </LinkSub>
     </Property>
-    <Property name="CustomThreadClearance" type="App::PropertyLength">
+    <Property name="CustomThreadClearance" type="App::PropertyLength" status="4">
       <Float value="0"/>
     </Property>
     <Property name="Depth" type="App::PropertyLength" status="4">
@@ -286,24 +286,24 @@ EndMap
     <Property name="Diameter" type="App::PropertyLength">
       <Float value="2.07"/>
     </Property>
-    <Property name="DrillForDepth" type="App::PropertyBool" status="4">
+    <Property name="DrillForDepth" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
     <Property name="DrillPoint" type="App::PropertyEnumeration" status="4">
       <Integer value="1"/>
     </Property>
-    <Property name="DrillPointAngle" type="App::PropertyAngle" status="4">
+    <Property name="DrillPointAngle" type="App::PropertyAngle">
       <Float value="118"/>
     </Property>
     <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
       <ExpressionEngine count="1" cdata="1" xlink="1">
         <XLinks count="1" docs="1">
           <DocMap name="ClearanceConfig" label="ClearanceConfig" index="0"/>
-          <XLink file="ClearanceConfig" stamp="2024-09-29T07:45:16Z" name="Spreadsheet"/>
+          <XLink file="ClearanceConfig" stamp="2024-09-30T01:16:52Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
 0:Diameter
-0:<<TransferLinkageSketch>>.Constraints.TopHoleDiameter + <<Link001(ClearanceSpreadsheet)>>.LinkageHole
+0:<<TransferLinkageSketch>>.Constraints.TopHoleDiameter + <<Link001(ClearanceSpreadsheet)>>.LinkageFitHole
 0:
 
 ]]>
@@ -343,7 +343,7 @@ EndMap
     <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
       <Bool value="false"/>
     </Property>
-    <Property name="Label" type="App::PropertyString" status="134217729">
+    <Property name="Label" type="App::PropertyString" status="134217728">
       <String value="LinkageHoleClearance"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
@@ -355,7 +355,7 @@ EndMap
     <Property name="Midplane" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="ModelThread" type="App::PropertyBool">
+    <Property name="ModelThread" type="App::PropertyBool" status="4">
       <Bool value="false"/>
     </Property>
     <Property name="NewSolid" type="App::PropertyBool">
@@ -399,8 +399,8 @@ Locations 11
 2  2 -1 1 -1 0
 2  4 -1 2 -1 1 -1 0
 1
-              1               0               0               0 
-              0               1               0             -37 
+              1               0               0 4.05790345468528e-25 
+              0               1               0           -30.6 
               0               0               1               2 
 1
               1               0               0               0 
@@ -413,13 +413,13 @@ Curve2ds 16
 1 3.1415926535897931 0 0 -1 
 1 0 0 1 0 
 1 0 -2 1 0 
-1 6.2831853071795871 0 0 -1 
-1 3.1415926535897931 0 0 -1 
+1 6.2831853071795951 0 0 -1 
+1 3.1415926535897856 0 0 -1 
 1 0 0 1 0 
 1 0 -2 1 0 
-2 0 -18.5 1 0 0 -1 1.0349999999999999
+2 -8.5000973915243444e-17 -15.300000000000004 1 0 0 -1 1.0349999999999999
 1 6.2831853071795862 2 -1 0 
-2 0 18.5 1 0 0 -1 1.0349999999999999
+2 -8.5000974321033789e-17 15.299999999999997 1 0 0 -1 1.0349999999999999
 1 6.2831853071795862 2 -1 0 
 2 0 0 -1 0 0 1 1.0349999999999999
 1 0 0 1 0 
@@ -429,23 +429,23 @@ Curves 12
 1 2 0 0 0 0 1 
 1 -2 1.2246468525851679e-16 0 0 0 1 
 2 0 0 0 0 0 1 1 0 0 0 1 0 2
-1 2 -37 0 0 0 1 
-1 2 0 0 0 -1 0 
-1 -2 -37 0 0 0 1 
-1 -2 0 0 0 -1 0 
-2 0 -37 0 0 0 1 1 0 0 0 1 0 2
-2 0 -37 0 0 0 -1 1 0 0 0 -1 0 1.0349999999999999
+1 2.0000000000000804 -30.599999999999984 0 0 0 1 
+1 2 0 0 5.2536043779647957e-15 -1 0 
+1 -2.0000000000000804 -30.599999999999987 0 0 0 1 
+1 -2 0 0 -5.2536043779647957e-15 -1 0 
+2 4.0579034546852793e-25 -30.600000000000001 0 0 0 1 1 0 0 0 1 0 2
+2 4.0579034546852793e-25 -30.600000000000001 0 0 0 -1 1 0 0 0 -1 0 1.0349999999999999
 2 0 0 0 0 0 -1 1 0 0 0 -1 0 1.0349999999999999
 2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.0349999999999999
-1 1.0349999999999999 0 -0 -6.1343695500082349e-17 0 -1 
+1 1.0349999999999999 0 -0 -5.9866655059105179e-17 0 -1 
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 7
 2 0 0 0 -0 -0 -1 1 0 0 0 1 0 2
-1 2 0 0 1 0 -0 0 -1 0 0 -0 -1 
-1 -2 0 0 1 0 -0 0 -1 0 0 -0 -1 
-2 0 -37 0 -0 -0 -1 1 0 0 0 1 0 2
-1 0 -18.5 0 0 0 1 1 0 -0 -0 1 0 
+1 2 0 0 1 5.2536043779647957e-15 -0 5.2536043779647957e-15 -1 0 0 -0 -1 
+1 -2 0 0 1 -5.2536043779647957e-15 0 -5.2536043779647957e-15 -1 0 0 -0 -1 
+2 4.0579034546852793e-25 -30.600000000000001 0 -0 -0 -1 1 0 0 0 1 0 2
+1 8.5000974321033789e-17 -15.299999999999997 0 0 0 1 1 0 -0 -0 1 0 
 2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.0349999999999999
 1 0 0 0 0 0 1 -1 -0 0 -0 1 0 
 Triangulations 0
@@ -502,14 +502,14 @@ Fa
 0111000
 +39 0 *
 Ve
-1e-07
-2 -37 0
+1.00000080380147e-07
+2.00000000000008 -30.6 0
 0 0
 
 0101101
 *
 Ed
- 1e-07 1 1 0
+ 1.00000080380147e-07 1 1 0
 1  4 0 0 2
 2  5 4 0 0 2
 4 G1 4 0 2 0
@@ -519,7 +519,7 @@ Ed
 +37 3 -37 5 *
 Ed
  1e-07 1 1 0
-1  5 0 0 37
+1  5 0 0 30.6
 0
 
 0101000
@@ -534,14 +534,14 @@ Fa
 0111000
 +34 0 *
 Ve
-1e-07
--2 -37 0
+1.00000080399773e-07
+-2.00000000000008 -30.6 0
 0 0
 
 0101101
 *
 Ed
- 1e-07 1 1 0
+ 1.00000080399773e-07 1 1 0
 1  6 0 0 2
 2  6 4 0 0 2
 4 G1 3 0 4 0
@@ -551,7 +551,7 @@ Ed
 +32 3 -32 5 *
 Ed
  1e-07 1 1 0
-1  7 0 0 37
+1  7 0 0 30.6
 0
 
 0101000
@@ -567,9 +567,9 @@ Fa
 +29 0 *
 Ed
  1e-07 1 1 0
-1  8 0 3.14159265358979 6.28318530717959
-2  7 4 6 3.14159265358979 6.28318530717959
-2  8 4 7 3.14159265358979 6.28318530717959
+1  8 0 3.14159265358979 6.2831853071796
+2  7 4 6 3.14159265358979 6.2831853071796
+2  8 4 7 3.14159265358979 6.2831853071796
 0
 
 0101000
@@ -580,7 +580,7 @@ Wi
 +40 3 -35 3 +30 3 +27 3 *
 Ve
 1.00000000222045e-07
-1.035 -37 0
+1.035 -30.6 0
 0 0
 
 0101101
@@ -629,7 +629,7 @@ Wi
 +40 5 -35 5 +30 5 +27 5 *
 Ve
 1e-07
-1.035 -37 2
+1.035 -30.6 2
 0 0
 
 0101101
@@ -837,31 +837,31 @@ TShapes 0
     <Property name="Tapered" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="TaperedAngle" type="App::PropertyAngle">
+    <Property name="TaperedAngle" type="App::PropertyAngle" status="4">
       <Float value="90"/>
     </Property>
-    <Property name="ThreadClass" type="App::PropertyEnumeration">
+    <Property name="ThreadClass" type="App::PropertyEnumeration" status="4">
       <Integer value="0"/>
     </Property>
     <Property name="ThreadDepth" type="App::PropertyLength">
-      <Float value="83.25"/>
+      <Float value="83.25266144536181"/>
     </Property>
-    <Property name="ThreadDepthType" type="App::PropertyEnumeration">
+    <Property name="ThreadDepthType" type="App::PropertyEnumeration" status="4">
       <Integer value="0"/>
     </Property>
     <Property name="ThreadDirection" type="App::PropertyEnumeration" status="4">
       <Integer value="0"/>
     </Property>
-    <Property name="ThreadFit" type="App::PropertyEnumeration">
+    <Property name="ThreadFit" type="App::PropertyEnumeration" status="4">
       <Integer value="0"/>
     </Property>
-    <Property name="ThreadSize" type="App::PropertyEnumeration">
+    <Property name="ThreadSize" type="App::PropertyEnumeration" status="4">
       <Integer value="0"/>
     </Property>
     <Property name="ThreadType" type="App::PropertyEnumeration">
       <Integer value="0"/>
     </Property>
-    <Property name="Threaded" type="App::PropertyBool">
+    <Property name="Threaded" type="App::PropertyBool" status="4">
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
@@ -871,13 +871,13 @@ TShapes 0
       <LinkSub value="" count="0">
       </LinkSub>
     </Property>
-    <Property name="UseCustomThreadClearance" type="App::PropertyBool">
+    <Property name="UseCustomThreadClearance" type="App::PropertyBool" status="4">
       <Bool value="false"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="true"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="649">
+    <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="true"/>
     </Property>
     <Property name="_ProfileBasedVersion" type="App::PropertyInteger" status="67108864">
