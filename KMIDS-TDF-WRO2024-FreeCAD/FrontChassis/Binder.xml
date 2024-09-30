@@ -183,11 +183,11 @@ Curves 18
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 5
-2 -22 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
-2 -22 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
-2 -22 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
-2 22 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
-2 22 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
+2 -22 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
+2 -22 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
+2 -22 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
+2 22 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
+2 22 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
 Triangulations 0
 
 TShapes 38
@@ -585,8 +585,8 @@ EndMap
     <Property name="TightBound" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="19"/>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="20"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

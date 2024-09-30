@@ -4,7 +4,7 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="Pad001" expanded="1" Extensions="True">
+<ViewProvider name="Pad004" expanded="1" Extensions="True">
   <Extensions Count="2">
     <Extension type="Gui::ViewProviderLinkObserver" name="ViewProviderLinkObserver">
     </Extension>
@@ -22,7 +22,7 @@
       <Float value="0.02"/>
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
-      <ColorList count="36" >
+      <ColorList count="84" >
 d2d8e100
 d2d8e100
 d2d8e100
@@ -41,6 +41,54 @@ d2d8e100
 d2d8e100
 d2d8e100
 d2d8e100
+ffd70000
+d2d8e100
+ffd70000
+ffd70000
+d2d8e100
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+d2d8e100
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+d2d8e100
+ffd70000
+d2d8e100
+d2d8e100
+ffd70000
+ffd70000
+d2d8e100
+d2d8e100
+ffd70000
+ffd70000
+d2d8e100
+d2d8e100
+d2d8e100
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+d2d8e100
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
+ffd70000
 ffd70000
 ffd70000
 ffd70000
@@ -147,7 +195,7 @@ ffd70000
       <Integer value="0"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="1">
-      <Bool value="false"/>
+      <Bool value="true"/>
     </Property>
   </Properties>
 </ViewProvider>
