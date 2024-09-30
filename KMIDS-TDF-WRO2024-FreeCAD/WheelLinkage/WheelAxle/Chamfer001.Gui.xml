@@ -22,28 +22,7 @@
       <Float value="0.01"/>
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
-      <ColorList count="22" >
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-ffd70000
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-ffd70000
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
+      <ColorList count="1" >
 d2d8e100
       </ColorList>
     </Property>
@@ -77,7 +56,7 @@ d2d8e100
       <Float value="2"/>
     </Property>
     <Property name="MapFaceColor" type="App::PropertyBool" status="1">
-      <Bool value="true"/>
+      <Bool value="false"/>
     </Property>
     <Property name="MapLineColor" type="App::PropertyBool" status="1">
       <Bool value="false"/>
@@ -124,7 +103,7 @@ d2d8e100
       <PropertyColor value="3537428736"/>
     </Property>
     <Property name="ShapeMaterial" type="App::PropertyMaterial" status="33">
-      <PropertyMaterial ambientColor="858993408" diffuseColor="3435973632" specularColor="0" emissiveColor="0" shininess="0.2000000029802322" transparency="0"/>
+      <PropertyMaterial ambientColor="858993408" diffuseColor="3537428736" specularColor="0" emissiveColor="0" shininess="0.2000000029802322" transparency="0"/>
     </Property>
     <Property name="ShowInTree" type="App::PropertyBool" status="1">
       <Bool value="true"/>

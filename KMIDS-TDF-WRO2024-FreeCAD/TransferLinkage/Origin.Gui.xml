@@ -35,7 +35,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="Size" type="App::PropertyVector" status="5">
-      <PropertyVector valueX="2" valueY="32.59933853149414" valueZ="2"/>
+      <PropertyVector valueX="2.5" valueY="33.09999847412109" valueZ="2"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="1">
       <Bool value="false"/>
