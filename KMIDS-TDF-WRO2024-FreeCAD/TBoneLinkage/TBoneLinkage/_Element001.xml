@@ -56,9 +56,9 @@ Locations 8
               0               1               0               0 
               0               0               1               0 
 1
-              1               0               0 -3.80806497446429e-14 
-              0               1               0 -3.42369507684828e-14 
-              0               0               1 4.45000000000003 
+              1 -7.105427357601e-15 -1.24344978758018e-14 5.10702591327572e-15 
+7.105427357601e-15               1 -4.41762106923769e-29 1.55650361882405e-13 
+1.24344978758018e-14 -4.41762106923767e-29               1 4.44999999999985 
 1
               1               0               0               0 
               0               1               0               0 
@@ -166,9 +166,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#5c;:X;:H1c:3,E.0 0
-;#5d;:X;:H1c:3,E.0 0
-;#5e;:X;:H1c:3,E.0 0
+;#5f;:X;:H1c:3,E.0 0
+;#60;:X;:H1c:3,E.0 0
+;#61;:X;:H1c:3,E.0 0
 
 Face
 
@@ -176,7 +176,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#60;:X;:H1c:3,F.0 0
+;#63;:X;:H1c:3,F.0 0
 
 Vertex
 
@@ -184,15 +184,15 @@ ChildCount 0
 
 NameCount 3
 0
-;#59;:X;:H1c:3,V.0 0
-;#5a;:X;:H1c:3,V.0 0
+;#5c;:X;:H1c:3,V.0 0
+;#5d;:X;:H1c:3,V.0 0
 
 EndMap
 ]]>
       </ElementMap2>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="43"/>
+      <Integer value="18"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

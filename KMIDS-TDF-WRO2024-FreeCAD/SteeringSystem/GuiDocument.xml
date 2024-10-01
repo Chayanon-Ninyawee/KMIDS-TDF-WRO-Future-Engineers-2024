@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecad.org for more information...
+-->
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
+<Expand  count="1">
+  <Expand name="Assembly" count="2">
+    <Expand name="Constraints"/>
+    <Expand name="Parts" count="5">
+      <Expand name="Link001"/>
+      <Expand name="Link003" count="1">
+        <Expand name="Body001"/>
+      </Expand>
+      <Expand name="Link004" count="1">
+        <Expand name="Parts" count="2">
+          <Expand name="Link"/>
+          <Expand name="Link001"/>
+        </Expand>
+      </Expand>
+      <Expand name="Link005"/>
+      <Expand name="Link006"/>
+    </Expand>
+  </Expand>
+</Expand>
+  <Camera extra="0" id="6" binding="0" view3d="1">
+<![CDATA[
+OrthographicCamera {
+  viewportMapping ADJUST_CAMERA
+  position 40.981617 -6.5886345 54.349148
+  orientation 0.74290597 0.30772176 0.59447283  1.217116
+  nearDistance -35.13485
+  farDistance 108.41129
+  aspectRatio 1
+  focalDistance 64.889854
+  height 106.25559
+
+}
+## overrideMode: As Is]]>
+  </Camera>
+  <View3D id="6"><![CDATA[
+  <Properties Count="3" TransientCount="0">
+    <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
+      <Integer value="0"/>
+    </Property>
+    <Property name="ShowNaviCube" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailView" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+  </Properties>
+]]>
+  </View3D>
+</Document>

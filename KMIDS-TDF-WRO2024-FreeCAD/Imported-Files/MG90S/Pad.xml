@@ -3,7 +3,7 @@
 <Document SchemaVersion="4" FileVersion="2">
 <Object name="Pad">
   <Properties Count="47" TransientCount="2">
-    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658240"/>
+    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658241"/>
     <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
     <Property name="AddSubShape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -449,7 +449,7 @@ Wi
 Fa
 0  1e-07 1 0
 
-0111000
+0101000
 +19 0 *
 Ve
 1e-07
@@ -479,7 +479,7 @@ Wi
 Fa
 0  1e-07 2 0
 
-0111000
+0101000
 +14 0 *
 Ve
 1e-07
@@ -509,7 +509,7 @@ Wi
 Fa
 0  1e-07 3 0
 
-0111000
+0101000
 +9 0 *
 Ed
  1e-07 1 1 0
@@ -525,7 +525,7 @@ Wi
 Fa
 0  1e-07 4 0
 
-0111000
+0101000
 +6 0 *
 Wi
 
@@ -534,7 +534,7 @@ Wi
 Fa
 0  1e-07 5 0
 
-0111000
+0101000
 +4 9 *
 Sh
 
@@ -640,7 +640,7 @@ TShapes 0
       </Part>
       <ElementMap/>
     </Property>
-    <Property name="TaperAngle" type="App::PropertyAngle">
+    <Property name="TaperAngle" type="App::PropertyAngle" status="4">
       <Float value="0"/>
     </Property>
     <Property name="TaperAngle2" type="App::PropertyAngle" status="4">

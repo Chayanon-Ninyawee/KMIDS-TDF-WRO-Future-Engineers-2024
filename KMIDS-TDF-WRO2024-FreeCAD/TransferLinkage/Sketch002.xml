@@ -55,7 +55,7 @@
       <ExpressionEngine count="2" cdata="1" xlink="1">
         <XLinks count="1" docs="1">
           <DocMap name="SteeringAckermannModel" label="SteeringAckermannModel" index="0"/>
-          <XLink file="SteeringAckermannModel" stamp="2024-09-30T13:25:31Z" name="Spreadsheet"/>
+          <XLink file="SteeringAckermannModel" stamp="2024-10-01T01:03:51Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
 0:.Constraints.BottomHoleDiameter
@@ -119,7 +119,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-1.026776695251281e-22" StartY="0" StartZ="0" EndX="1.231753081892304e-23" EndY="-28.83" EndZ="0"/>
+          <LineSegment StartX="-1.026776695251281e-22" StartY="0" StartZ="0" EndX="1.231753081892305e-23" EndY="-28.83" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="3" migrated="1">
@@ -235,19 +235,19 @@ Curve2ds 8
 1 0 0 1 0 
 1 0 -2 1 0 
 Curves 6
-2 -1.0267766952512813e-22 0 0 0 0 1 1 0 0 0 1 0 1.5
-2 1.2317530818923036e-23 -28.829999999999998 0 0 0 1 1 0 0 0 1 0 1.5
-2 -1.0267766952512813e-22 0 0 0 0 1 1 0 0 0 1 0 2.5
+2 -1.0267766952512813e-22 0 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 1.2317530818923036e-23 -28.829999999999998 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 -1.0267766952512813e-22 0 0 0 0 1 1 0 -0 -0 1 0 2.5
 1 -2.5 0 0 -2.1938438270707025e-12 -1 0 
-2 1.2317530818923036e-23 -28.829999999999998 0 0 0 1 1 0 0 0 1 0 2.5
+2 1.2317530818923036e-23 -28.829999999999998 0 0 0 1 1 0 -0 -0 1 0 2.5
 1 2.5 0 0 2.1938438270707025e-12 -1 0 
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 4
-2 -1.0267766952512813e-22 0 0 -0 -0 -1 1 0 0 0 1 0 1.5
-2 1.2317530818923036e-23 -28.829999999999998 0 -0 -0 -1 1 0 0 0 1 0 1.5
-2 -1.0267766952512813e-22 0 0 -0 -0 -1 1 0 0 0 1 0 2.5
-2 1.2317530818923036e-23 -28.829999999999998 0 -0 -0 -1 1 0 0 0 1 0 2.5
+2 -1.0267766952512813e-22 0 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
+2 1.2317530818923036e-23 -28.829999999999998 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
+2 -1.0267766952512813e-22 0 0 -0 -0 -1 1 0 0 -0 1 -0 2.5
+2 1.2317530818923036e-23 -28.829999999999998 0 -0 -0 -1 1 0 0 -0 1 -0 2.5
 Triangulations 0
 
 TShapes 16

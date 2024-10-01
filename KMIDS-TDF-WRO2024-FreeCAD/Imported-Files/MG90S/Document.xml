@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="721126db-37ed-4634-bf07-650ec013b08e" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="721126db-37ed-4634-bf07-650ec013b08e" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="5016">
 <![CDATA[
@@ -5054,7 +5054,7 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-09-30T19:42:04Z"/>
+      <String value="2024-10-01T06:48:51Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -5085,8 +5085,8 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
     <Property name="ThumbnailFile" type="App::PropertyFile">
       <String value=""/>
     </Property>
-    <Property name="TipName" type="App::PropertyString" status="83886080">
-      <String value=""/>
+    <Property name="TipName" type="App::PropertyString" status="83886081">
+      <String value="Part"/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
       <Uuid value="721126db-37ed-4634-bf07-650ec013b08e"/>
@@ -5095,32 +5095,32 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="59" Dependencies="1">
+  <Objects Count="61" Dependencies="1">
     <ObjectDeps Name="Body" Count="16">
-      <Dep Name="Pad"/>
-      <Dep Name="Pocket"/>
-      <Dep Name="Pad001"/>
       <Dep Name="Pad003"/>
-      <Dep Name="Pocket003"/>
-      <Dep Name="Pad002"/>
-      <Dep Name="Sketch003"/>
-      <Dep Name="Pocket001"/>
-      <Dep Name="Sketch010"/>
-      <Dep Name="Sketch004"/>
-      <Dep Name="Sketch001"/>
       <Dep Name="Origin"/>
-      <Dep Name="Sketch005"/>
-      <Dep Name="Sketch"/>
-      <Dep Name="Mirrored"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Sketch004"/>
       <Dep Name="Sketch002"/>
+      <Dep Name="Sketch003"/>
+      <Dep Name="Sketch001"/>
+      <Dep Name="Pocket"/>
+      <Dep Name="Sketch"/>
+      <Dep Name="Sketch005"/>
+      <Dep Name="Sketch010"/>
+      <Dep Name="Pocket001"/>
+      <Dep Name="Mirrored"/>
+      <Dep Name="Pocket003"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="XZ_Plane"/>
       <Dep Name="X_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="Z_Axis"/>
       <Dep Name="Y_Axis"/>
       <Dep Name="XY_Plane"/>
-      <Dep Name="Z_Axis"/>
-      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -5140,8 +5140,8 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <Dep Name="XY_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Pad"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad"/>
       <Dep Name="Sketch001"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch002" Count="2">
@@ -5149,8 +5149,8 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <Dep Name="XY_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Pad001"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
       <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch003" Count="1">
@@ -5165,37 +5165,37 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <Dep Name="XY_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pocket" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Pad003"/>
+      <Dep Name="Body"/>
       <Dep Name="Sketch004"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch005" Count="1">
       <Dep Name="Pocket"/>
     </ObjectDeps>
     <ObjectDeps Name="Pocket001" Count="3">
-      <Dep Name="Pocket"/>
       <Dep Name="Body"/>
+      <Dep Name="Pocket"/>
       <Dep Name="Sketch005"/>
     </ObjectDeps>
     <ObjectDeps Name="Body001" Count="10">
-      <Dep Name="Pocket002"/>
-      <Dep Name="Sketch008"/>
-      <Dep Name="Sketch006"/>
-      <Dep Name="PolarPattern"/>
       <Dep Name="Pad004"/>
-      <Dep Name="Hole"/>
-      <Dep Name="Groove"/>
+      <Dep Name="Sketch006"/>
       <Dep Name="Sketch007"/>
+      <Dep Name="Sketch008"/>
       <Dep Name="Sketch009"/>
       <Dep Name="Origin001"/>
+      <Dep Name="Groove"/>
+      <Dep Name="Hole"/>
+      <Dep Name="Pocket002"/>
+      <Dep Name="PolarPattern"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin001" Count="6">
-      <Dep Name="Z_Axis001"/>
-      <Dep Name="X_Axis001"/>
-      <Dep Name="Y_Axis001"/>
+      <Dep Name="XY_Plane001"/>
       <Dep Name="XZ_Plane001"/>
       <Dep Name="YZ_Plane001"/>
-      <Dep Name="XY_Plane001"/>
+      <Dep Name="Y_Axis001"/>
+      <Dep Name="X_Axis001"/>
+      <Dep Name="Z_Axis001"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis001" Count="0"/>
     <ObjectDeps Name="Y_Axis001" Count="0"/>
@@ -5207,45 +5207,45 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <Dep Name="XY_Plane001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="2">
-      <Dep Name="Sketch006"/>
       <Dep Name="Body001"/>
+      <Dep Name="Sketch006"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch007" Count="1">
       <Dep Name="XZ_Plane001"/>
     </ObjectDeps>
     <ObjectDeps Name="Groove" Count="3">
       <Dep Name="Pad004"/>
-      <Dep Name="Sketch007"/>
       <Dep Name="Body001"/>
+      <Dep Name="Sketch007"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch008" Count="1">
       <Dep Name="Groove"/>
     </ObjectDeps>
     <ObjectDeps Name="Hole" Count="3">
+      <Dep Name="Body001"/>
       <Dep Name="Sketch008"/>
       <Dep Name="Groove"/>
-      <Dep Name="Body001"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch009" Count="1">
       <Dep Name="Hole"/>
     </ObjectDeps>
     <ObjectDeps Name="Pocket002" Count="3">
-      <Dep Name="Hole"/>
-      <Dep Name="Sketch009"/>
       <Dep Name="Body001"/>
+      <Dep Name="Sketch009"/>
+      <Dep Name="Hole"/>
     </ObjectDeps>
     <ObjectDeps Name="PolarPattern" Count="3">
-      <Dep Name="Pocket002"/>
-      <Dep Name="Z_Axis001"/>
       <Dep Name="Body001"/>
+      <Dep Name="Z_Axis001"/>
+      <Dep Name="Pocket002"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch010" Count="1">
       <Dep Name="Pocket001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pocket003" Count="3">
       <Dep Name="Body"/>
-      <Dep Name="Pocket001"/>
       <Dep Name="Sketch010"/>
+      <Dep Name="Pocket001"/>
     </ObjectDeps>
     <ObjectDeps Name="Mirrored" Count="3">
       <Dep Name="Body"/>
@@ -5274,27 +5274,34 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
       <Dep Name="Sketch012"/>
     </ObjectDeps>
     <ObjectDeps Name="Cut" Count="2">
-      <Dep Name="Extrude003"/>
       <Dep Name="Extrude"/>
+      <Dep Name="Extrude003"/>
     </ObjectDeps>
     <ObjectDeps Name="Compound" Count="2">
-      <Dep Name="Extrude002"/>
       <Dep Name="Extrude001"/>
+      <Dep Name="Extrude002"/>
     </ObjectDeps>
     <ObjectDeps Name="Cut001" Count="2">
-      <Dep Name="Compound"/>
       <Dep Name="Cut"/>
+      <Dep Name="Compound"/>
     </ObjectDeps>
     <ObjectDeps Name="Tube" Count="0"/>
     <ObjectDeps Name="Cylinder" Count="0"/>
     <ObjectDeps Name="Tube001" Count="0"/>
     <ObjectDeps Name="Tube002" Count="0"/>
     <ObjectDeps Name="Cut002" Count="2">
-      <Dep Name="Compound"/>
       <Dep Name="Cut"/>
+      <Dep Name="Compound"/>
     </ObjectDeps>
     <ObjectDeps Name="Cylinder001" Count="0"/>
     <ObjectDeps Name="Cylinder002" Count="0"/>
+    <ObjectDeps Name="Part" Count="4">
+      <Dep Name="Body002"/>
+      <Dep Name="Body"/>
+      <Dep Name="Body001"/>
+      <Dep Name="Origin002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin002" Count="0"/>
     <Object type="PartDesign::Body" name="Body" id="844" revision="4" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="845" revision="2" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="846" revision="1" file="X_Axis.xml" />
@@ -5305,15 +5312,15 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
     <Object type="App::Plane" name="YZ_Plane" id="851" revision="1" file="YZ_Plane.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch" id="852" revision="7" file="Sketch.xml" />
     <Object type="PartDesign::Pad" name="Pad" id="853" revision="8" file="Pad.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch001" id="854" revision="9" file="Sketch001.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch001" id="854" revision="10" file="Sketch001.xml" />
     <Object type="PartDesign::Pad" name="Pad001" id="855" revision="8" file="Pad001.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch002" id="856" revision="10" file="Sketch002.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch002" id="856" revision="11" file="Sketch002.xml" />
     <Object type="PartDesign::Pad" name="Pad002" id="857" revision="8" file="Pad002.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch003" id="858" revision="20" file="Sketch003.xml" />
     <Object type="PartDesign::Pad" name="Pad003" id="859" revision="8" file="Pad003.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch004" id="862" revision="15" file="Sketch004.xml" />
     <Object type="PartDesign::Pocket" name="Pocket" id="863" revision="8" file="Pocket.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch005" id="864" revision="27" file="Sketch005.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch005" id="864" revision="28" file="Sketch005.xml" />
     <Object type="PartDesign::Pocket" name="Pocket001" id="865" revision="8" file="Pocket001.xml" />
     <Object type="PartDesign::Body" name="Body001" id="866" revision="4" file="Body001.xml" />
     <Object type="App::Origin" name="Origin001" id="867" revision="2" file="Origin001.xml" />
@@ -5329,20 +5336,20 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
     <Object type="PartDesign::Groove" name="Groove" id="877" revision="11" file="Groove.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch008" id="878" revision="20" file="Sketch008.xml" />
     <Object type="PartDesign::Hole" name="Hole" id="879" revision="8" file="Hole.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch009" id="882" revision="26" file="Sketch009.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch009" id="882" revision="27" file="Sketch009.xml" />
     <Object type="PartDesign::Pocket" name="Pocket002" id="883" revision="8" file="Pocket002.xml" />
     <Object type="PartDesign::PolarPattern" name="PolarPattern" id="884" revision="7" file="PolarPattern.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch010" id="885" revision="27" file="Sketch010.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch010" id="885" revision="28" file="Sketch010.xml" />
     <Object type="PartDesign::Pocket" name="Pocket003" id="886" revision="8" file="Pocket003.xml" />
     <Object type="PartDesign::Mirrored" name="Mirrored" id="887" revision="7" file="Mirrored.xml" />
     <Object type="Part::Refine" name="Body002" id="888" revision="4" file="Body002.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch011" id="889" revision="7" file="Sketch011.xml" />
     <Object type="Part::Extrusion" name="Extrude" id="890" revision="4" file="Extrude.xml" />
-    <Object type="Part::Part2DObjectPython" name="Clone2D" id="892" revision="3" file="Clone2D.xml" />
-    <Object type="Part::Part2DObjectPython" name="Clone2D001" id="894" revision="3" file="Clone2D001.xml" />
+    <Object type="Part::Part2DObjectPython" name="Clone2D" id="892" revision="4" file="Clone2D.xml" />
+    <Object type="Part::Part2DObjectPython" name="Clone2D001" id="894" revision="4" file="Clone2D001.xml" />
     <Object type="Part::Extrusion" name="Extrude001" id="895" revision="4" file="Extrude001.xml" />
     <Object type="Part::Extrusion" name="Extrude002" id="896" revision="4" file="Extrude002.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch012" id="897" revision="9" file="Sketch012.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch012" id="897" revision="10" file="Sketch012.xml" />
     <Object type="Part::Extrusion" name="Extrude003" id="898" revision="4" file="Extrude003.xml" />
     <Object type="Part::Cut" name="Cut" id="899" revision="4" file="Cut.xml" />
     <Object type="Part::Compound" name="Compound" id="900" revision="4" file="Compound.xml" />
@@ -5354,6 +5361,8 @@ fa0.0 0:(#f9f;K-1;:H384:4,F)
     <Object type="Part::Cut" name="Cut002" id="924" revision="4" file="Cut002.xml" />
     <Object type="Part::Cylinder" name="Cylinder001" id="925" revision="4" file="Cylinder001.xml" />
     <Object type="Part::Cylinder" name="Cylinder002" id="926" revision="4" file="Cylinder002.xml" />
+    <Object type="App::Part" name="Part" id="927" revision="3" file="Part.xml" />
+    <Object type="App::Origin" name="Origin002" id="928" revision="0" file="Origin002.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

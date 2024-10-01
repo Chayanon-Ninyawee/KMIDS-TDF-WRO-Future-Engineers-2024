@@ -3,7 +3,7 @@
 <Document SchemaVersion="4" FileVersion="2">
 <Object name="Pad004">
   <Properties Count="47" TransientCount="2">
-    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658240"/>
+    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658241"/>
     <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
     <Property name="AddSubShape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -41,11 +41,11 @@ Curve2ds 4
 1 0 -14.199999999999999 1 0 
 Curves 2
 1 2.4500000000000002 0 0 0 0 1 
-2 0 0 0 0 0 1 1 0 0 0 1 0 2.4500000000000002
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 2.4500000000000002
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
-2 0 0 0 -0 -0 -1 1 0 0 0 1 0 2.4500000000000002
+2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 2.4500000000000002
 1 -1.3953470740198197e-16 1.7905659287359673e-16 0 0 0 1 1 0 -0 -0 1 0 
 Triangulations 0
 
@@ -287,11 +287,11 @@ Curve2ds 4
 1 0 -14.199999999999999 1 0 
 Curves 2
 1 2.4500000000000002 0 0 0 0 1 
-2 0 0 0 0 0 1 1 0 0 0 1 0 2.4500000000000002
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 2.4500000000000002
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
-2 0 0 0 -0 -0 -1 1 0 0 0 1 0 2.4500000000000002
+2 0 0 0 -0 -0 -1 1 0 0 -0 1 -0 2.4500000000000002
 1 -1.3953470740198197e-16 1.7905659287359673e-16 0 0 0 1 1 0 -0 -0 1 0 
 Triangulations 0
 
@@ -327,7 +327,7 @@ Wi
 Fa
 0  1e-07 1 0
 
-0111000
+0101000
 +6 0 *
 Wi
 
@@ -336,7 +336,7 @@ Wi
 Fa
 0  1e-07 2 0
 
-0111000
+0101000
 +4 11 *
 Sh
 
@@ -424,7 +424,7 @@ TShapes 0
       </Part>
       <ElementMap/>
     </Property>
-    <Property name="TaperAngle" type="App::PropertyAngle">
+    <Property name="TaperAngle" type="App::PropertyAngle" status="4">
       <Float value="0"/>
     </Property>
     <Property name="TaperAngle2" type="App::PropertyAngle" status="4">

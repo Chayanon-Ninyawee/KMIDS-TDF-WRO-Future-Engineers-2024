@@ -65,7 +65,7 @@ TShapes 0
       <ElementMap/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="22"/>
+      <Integer value="25"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

@@ -46,7 +46,7 @@
     <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
       <Bool value="false"/>
     </Property>
-    <Property name="Label" type="App::PropertyString" status="134217729">
+    <Property name="Label" type="App::PropertyString" status="134217728">
       <String value="FrontChassisAssembly"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
