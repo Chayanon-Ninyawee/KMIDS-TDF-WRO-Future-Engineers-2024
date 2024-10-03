@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Shell037">
+  <Properties Count="11" TransientCount="1">
+    <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
+    <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="FixShape" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="TC01.step[15]"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388608">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="Shape" type="Part::PropertyPartShape">
+      <Part ElementMap="0.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 1
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+Curve2ds 2
+7 0 0  1 2 2  -1.588229734120603e-09 0.4999999946720361  0.00012521072340210694 0.50000000532686495 
+ 1.3695684657391069e-12 2 1 2
+7 0 0  1 2 2  0.00012521072340210694 0.50000000532686495  -1.588229734120603e-09 0.4999999946720361 
+ 1.201962858422657e-12 2 1 2
+Curves 2
+7 0 0  3 4 2  2.1901851079779999 -8.9822106365490004 -1.1914798170050001  2.1904572747618101 -9.0239479137177891 -1.1914798188277098  2.1979597008262202 -9.0810496901673403 -1.19147982131879  2.2395758431389798 -9.0826384868789987 -1.191479821395 
+ 0 4 1 4
+7 0 0  3 4 2  2.2395758431389798 -9.0826384867919998 -1.1934798213950002  2.1979597008262202 -9.0810496900803415 -1.19347982131879  2.1904572747618198 -9.0239479136308507 -1.19347981882771  2.1901851079779999 -8.9822106364619998 -1.1934798170050001 
+ 0 4 1 4
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 1
+9 0 0 0 0 3 1 4 2 2 2 2.1901802089734601 -8.9814593656816584 -1.19147981697232  2.1901802089734601 -8.9814593655946595 -1.19347981699363  
+2.1904556420321901 -9.02369747650582 -1.19147981880972  2.1904556420321901 -9.0236974764188087 -1.1934798188310201  
+2.1982533877804498 -9.0811370225391403 -1.1914798213083901  2.1982533877804498 -9.0811370224521397 -1.19347982132969  
+2.2403245377615901 -9.0826663849737503 -1.19147982137491  2.2403245377615901 -9.0826663848867497 -1.1934798213962101  
+
+-7.5128696194547198e-07 4
+0.00012596578061975199 4
+
+0 2
+1 2
+
+Triangulations 0
+
+TShapes 7
+Ve
+0.0010476911449369
+2.190185107978 -8.9822106365055 -1.192479817005
+0 0
+
+0101101
+*
+Ve
+0.0010476911449369
+2.239575843139 -9.0826384868355 -1.192479821395
+0 0
+
+0101101
+*
+Ed
+ 0.0010476911449369 1 1 0
+1  1 0 1.36956846573911e-12 1
+2  1 1 0 1.36956846573911e-12 1
+0
+
+0101000
++7 0 -6 0 *
+Ed
+ 0.00104769114493162 1 1 0
+1  2 0 1.20196285842266e-12 1
+2  2 1 0 1.20196285842266e-12 1
+0
+
+0101000
++6 0 -7 0 *
+Wi
+
+0101100
++5 0 +4 0 *
+Fa
+0  1e-07 1 0
+
+0111000
++3 0 *
+Sh
+
+0101000
++2 0 *
+
++1 1 ]]>
+      </Part>
+      <ElementMap/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="159"/>
+    </Property>
+    <Property name="ValidateShape" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>
