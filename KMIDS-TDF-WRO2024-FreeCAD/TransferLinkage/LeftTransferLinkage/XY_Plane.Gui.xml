@@ -4,7 +4,7 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="XZ_Plane" expanded="0">
+<ViewProvider name="XY_Plane" expanded="0">
   <Properties Count="13" TransientCount="0">
     <Property name="BoundingBox" type="App::PropertyBool" status="9">
       <Bool value="false"/>
@@ -37,7 +37,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="Size" type="App::PropertyFloat" status="16777217">
-      <Float value="4.5"/>
+      <Float value="33.32860374450684"/>
     </Property>
     <Property name="Transparency" type="App::PropertyPercent" status="1">
       <Integer value="0"/>

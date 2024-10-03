@@ -92,7 +92,7 @@ Locations 15
 2  3 -1 12 -1 8 -1 7 -1 6 -1 5 -1 0
 Curve2ds 4
 1 0 0 0 -1 
-1 6.2831853071795862 0 0 -1 
+1 6.2831853071795898 0 0 -1 
 1 0 0 1 0 
 1 0 -2 1 0 
 Curves 3
@@ -182,9 +182,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#50;:X;:Hb:3,E.0 0
-;#51;:X;:Hb:3,E.0 0
-;#52;:X;:Hb:3,E.0 0
+;#4c;:X;:Hb:3,E.0 0
+;#4d;:X;:Hb:3,E.0 0
+;#4e;:X;:Hb:3,E.0 0
 
 Face
 
@@ -192,7 +192,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#54;:X;:Hb:3,F.0 0
+;#50;:X;:Hb:3,F.0 0
 
 Vertex
 
@@ -200,8 +200,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#4d;:X;:Hb:3,V.0 0
-;#4e;:X;:Hb:3,V.0 0
+;#49;:X;:Hb:3,V.0 0
+;#4a;:X;:Hb:3,V.0 0
 
 EndMap
 ]]>

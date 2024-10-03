@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="c5806d3e-8e2a-4301-b04d-68058805f168" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="c5806d3e-8e2a-4301-b04d-68058805f168" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="355">
+  <StringHasher2  count="358">
 <![CDATA[
 -2.0 0:;:H12,E;:H14,E;:X;:H1:a,E;:H59f:12,E;:H5a1:1d,E
 -1.c.1 #596
@@ -71,64 +71,7 @@
 -1.c.0 #262
 -1.c.0 #263
 -1.c.0 #264
--1.0 0:;:M;CHF;:H4c5:7,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #6c6
--1.0 0:;:U2;CHF;:H4c5:8,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #6f9
--1.0 0:;:H4c5,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #6b9
--1.c.-4 #6c7
--1.c.0 #6ca
--1.0 0:;:U4;CHF;:H4c5:8,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #6fa
--1.c.-4 #6c4
--1.c.-4 #6d3
--1.c.4 #6d0
--1.0 0:;:U;CHF;:H4c5:7,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #6f9
--1.c.-9 #6d1
--1.c.0 #6c2
--1.0 0:;:U3;CHF;:H4c5:8,E;:H4ce,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #6f9
--1.c.-9 #6f9
--1.c.-4 #6b7
--1.c.0 #6b8
--1.c.0 #6b1
--1.c.0 #6c0
--1.c.-4 #6ce
--1.c.4 #6cd
--1.c.9 #6fa
--1.c.-9 #6cc
--1.c.-4 #6c9
--1.c.4 #6be
--1.c.-2 #6fa
--1.c.2 #6bd
--1.c.d #6fa
--1.c.-d #6c3
--1.c.0 #6bc
--1.c.0 #6ba
--1.c.0 #6c5
--1.c.0 #6cf
--1.c.0 #6bf
--1.c.0 #6b6
--1.c.0 #6bb
--1.c.0 #6c1
--1.c.0 #6b0
--1.c.0 #6b2
--1.c.0 #6b3
--1.c.0 #6b4
--1.c.0 #6af
--1.c.0 #6b5
--1.c.0 #6d2
--1.c.0 #6ae
--1.c.0 #6e5
--1.c.0 #6e7
--1.c.0 #6ad
--1.c.0 #68a
--1.c.0 #692
--1.c.0 #691
--1.c.0 #68c
--1.0 0:;:Hdd5,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
+-3a.0 0:;:Hdd5,E;:Hdd7,E;:X;:Hdb3:b,E;:H5ec:15,E;:H5a1:20,E
 -1.c.1 #220
 -1.c.0 #221
 -1.c.0 #222
@@ -201,32 +144,7 @@
 -1.c.0 #26a
 -1.c.0 #26b
 -1.c.2 #27e
--1.0 0:;:M;CHF;:H4c5:7,F;:H4ce,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
--1.c.1 #6de
--1.c.0 #6e3
--1.0 0:;:G;CHF;:H4c5:7,F;:H4ce,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
--1.c.1 #6c8
--1.0 0:;:H4c5,F;:H4ce,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
--1.c.1 #6d9
--1.c.-5 #6e0
--1.c.0 #6df
--1.c.3 #6cb
--1.c.2 #6dd
--1.c.-5 #6e4
--1.c.5 #6e1
--1.c.0 #6dc
--1.c.0 #6d7
--1.c.0 #6db
--1.c.0 #6da
--1.c.0 #6e2
--1.c.0 #6d8
--1.c.0 #6d6
--1.c.0 #6e8
--1.c.0 #6e6
--1.c.0 #686
--1.c.0 #688
--1.c.0 #6d4
--1.0 0:;:Hdd5,F;:Hdd7,F;:X;:Hdb3:b,F;:H5ec:15,F;:H5a1:20,F
+-1a.0 0:;:Hdd5,F;:Hdd7,F;:X;:Hdb3:b,F;:H5ec:15,F;:H5a1:20,F
 -1.c.1 #233
 -1.c.0 #234
 -1.c.0 #235
@@ -290,41 +208,7 @@
 -1.c.0 #282
 -1.c.0 #250
 -1.c.0 #251
--1.0 0:;:U;CHF;:H4c5:7,V;:H4ce,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
--1.c.1 #6fc
--1.0 0:;:H4c5,V;:H4ce,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
--1.c.1 #69c
--1.c.-2 #6fd
--1.c.2 #69d
--1.c.-2 #6fe
--1.c.2 #69f
--1.0 0:;:U2;CHF;:H4c5:8,V;:H4ce,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
--1.c.1 #6ff
--1.c.-6 #6a4
--1.c.-2 #6ff
--1.c.2 #6ab
--1.c.0 #6a3
--1.c.6 #700
--1.c.-6 #699
--1.c.0 #698
--1.c.0 #6a1
--1.c.-2 #700
--1.c.2 #6aa
--1.c.-2 #701
--1.c.2 #6a0
--1.c.0 #69e
--1.c.0 #69a
--1.c.0 #6a5
--1.c.0 #697
--1.c.0 #6a2
--1.c.0 #69b
--1.c.0 #696
--1.c.0 #695
--1.c.0 #6f7
--1.c.0 #694
--1.c.0 #68e
--1.c.0 #68f
--1.0 0:;:Hdd5,V;:Hdd7,V;:X;:Hdb3:b,V;:H5ec:15,V;:H5a1:20,V
+-23.0 0:;:Hdd5,V;:Hdd7,V;:X;:Hdb3:b,V;:H5ec:15,V;:H5a1:20,V
 -1.c.1 #213
 -1.c.0 #214
 -1.c.0 #215
@@ -351,16 +235,135 @@
 -1.c.162 #702
 -1.c.0 #703
 -1.c.0 #704
--1.c.24 #3bd
--1.c.0 #3be
--1.c.0 #3bf
--1.c.d3 #6ff
+-4.c.f7 #6ff
 -1.c.0 #700
 -1.c.0 #701
--1.c.19 #3ba
--1.c.0 #3bb
--1.c.0 #3bc
--1.0 0:Shape cache
+-76.c.-d3 #3dc
+-1.c.0 #3dd
+-1.c.0 #3de
+-3.c.ec #3d9
+-1.c.0 #3da
+-1.c.0 #3db
+-5.0 0:;:M;CHF;:H4d0:7,E;:H4d1,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #808
+-1.0 0:;:U;CHF;:H4d0:7,E;:H4d1,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #812
+-1.0 0:;:H4d0,E;:H4d1,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #7e3
+-1.c.-4 #809
+-1.c.4 #7da
+-1.c.0 #7ed
+-1.c.0 #7db
+-1.c.-4 #80a
+-1.c.2 #813
+-1.c.2 #7e6
+-1.c.0 #7e0
+-1.c.0 #7de
+-1.c.0 #7f0
+-1.c.0 #7ef
+-1.0 0:;:U3;CHF;:H4d0:8,E;:H4d1,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #815
+-1.0 0:;:U4;CHF;:H4d0:8,E;:H4d1,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #815
+-1.c.-f #7df
+-1.c.0 #7e2
+-1.c.0 #7d7
+-1.c.0 #7d3
+-1.c.0 #7dd
+-1.c.0 #7e4
+-1.c.0 #7ec
+-1.c.-4 #80b
+-1.c.4 #7f2
+-1.c.0 #7e8
+-1.c.0 #7f3
+-1.c.0 #7ea
+-1.c.0 #7dc
+-1.c.0 #7d0
+-1.c.0 #7d2
+-1.c.0 #7eb
+-1.c.0 #7d9
+-1.c.0 #7d8
+-1.c.0 #7e9
+-1.c.0 #7ee
+-1.c.0 #7e7
+-1.c.0 #7d4
+-1.c.0 #7d5
+-1.c.0 #7f1
+-1.c.0 #7ce
+-1.c.0 #7cd
+-1.c.0 #7f4
+-1.c.0 #7cf
+-1.c.0 #7d1
+-1.c.0 #7cc
+-1.c.0 #7cb
+-1.c.0 #7ca
+-1.c.0 #7c9
+-1.c.0 #7c6
+-1.c.0 #7c4
+-1.c.0 #7c5
+-1.c.0 #7c7
+-1.c.0 #7c8
+-1.0 0:;:M;CHF;:H4d0:7,F;:H4d1,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #80c
+-1.c.0 #80d
+-1.0 0:;:G;CHF;:H4d0:7,F;:H4d1,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #80e
+-1.0 0:;:H4d0,F;:H4d1,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #802
+-1.c.-5 #80f
+-1.c.5 #801
+-1.c.0 #805
+-1.c.-5 #810
+-1.c.5 #804
+-1.c.0 #806
+-1.c.0 #7ff
+-1.c.0 #7fd
+-1.c.0 #807
+-1.c.0 #7fc
+-1.c.0 #800
+-1.c.0 #7fb
+-1.c.0 #7fa
+-1.c.0 #7f8
+-1.c.0 #7f6
+-1.c.0 #7f7
+-1.c.0 #7f9
+-1.0 0:;:U;CHF;:H4d0:7,V;:H4d1,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #817
+-1.0 0:;:H4d0,V;:H4d1,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #7b5
+-1.c.-2 #818
+-1.c.2 #7b2
+-1.c.0 #7bf
+-1.c.0 #7b3
+-1.c.0 #7b4
+-1.c.-2 #819
+-1.c.2 #7ba
+-1.c.0 #7b8
+-1.c.0 #7b7
+-1.c.0 #7b6
+-1.c.0 #7c1
+-1.c.-2 #81a
+-1.c.2 #7b1
+-1.c.0 #7ab
+-1.c.0 #7aa
+-1.c.0 #7b9
+-1.c.0 #7be
+-1.c.0 #7bb
+-1.c.0 #7c2
+-1.c.0 #7bc
+-1.c.0 #7bd
+-1.c.0 #7ad
+-1.c.0 #7ae
+-1.c.0 #7ac
+-1.c.0 #7b0
+-1.c.0 #7c0
+-1.c.0 #7af
+-1.c.0 #7a9
+-1.c.0 #7a8
+-1.c.0 #7a7
+-1.c.0 #7a5
+-1.c.0 #7a4
+-1.c.0 #7a6
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -392,7 +395,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-01T07:14:49Z"/>
+      <String value="2024-10-03T13:12:43Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -438,8 +441,8 @@
     <ObjectDeps Name="Part__Mirroring" Count="1">
       <Dep Name="Link"/>
     </ObjectDeps>
-    <Object type="App::Link" name="Link" id="910" revision="9" file="Link.xml" />
-    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="7" file="Part__Mirroring.xml" />
+    <Object type="App::Link" name="Link" id="910" revision="32" file="Link.xml" />
+    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="16" file="Part__Mirroring.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

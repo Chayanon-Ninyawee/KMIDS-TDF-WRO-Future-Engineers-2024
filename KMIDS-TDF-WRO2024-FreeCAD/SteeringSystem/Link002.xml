@@ -52,13 +52,13 @@
       <String value=""/>
     </Property>
     <Property name="LinkPlacement" type="App::PropertyPlacement" status="264">
-      <PropertyPlacement Px="34" Py="9.977628809170928e-18" Pz="25.00000000001817" Q0="2.371278036862156e-18" Q1="3.070337736358866e-18" Q2="-0.005154816680551295" Q3="0.999986713844234" A="0.01030967901981015" Ox="4.600120981621924e-16" Oy="5.956250098946542e-16" Oz="-0.9999999999998789"/>
+      <PropertyPlacement Px="34" Py="1.445730364257503e-17" Pz="25.00000000007525" Q0="9.277087211255856e-18" Q1="1.035938327573533e-18" Q2="0.005436317599945313" Q3="0.9999852231162981" A="0.01087268875476247" Ox="1.70650206516904e-15" Oy="1.905588311433671e-16" Oz="0.9999999999962939"/>
     </Property>
     <Property name="LinkTransform" type="App::PropertyBool" status="256">
       <Bool value="false"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" status="256">
-      <XLink file="WheelLinkage/RightWheelAssembly" stamp="2024-10-01T07:14:49Z" name="Part__Mirroring"/>
+      <XLink file="WheelLinkage/RightWheelAssembly" stamp="2024-10-03T13:12:43Z" name="Part__Mirroring"/>
     </Property>
     <Property name="Matrix" type="App::PropertyMatrix" status="67109120">
       <PropertyMatrix a11="1" a12="0" a13="0" a14="0" a21="0" a22="1" a23="0" a24="0" a31="0" a32="0" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
@@ -67,7 +67,7 @@
       <MatrixList file=""/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="256">
-      <PropertyPlacement Px="34" Py="9.977628809170928e-18" Pz="25.00000000001817" Q0="2.371278036862156e-18" Q1="3.070337736358866e-18" Q2="-0.005154816680551295" Q3="0.999986713844234" A="0.01030967901981015" Ox="4.600120981621924e-16" Oy="5.956250098946542e-16" Oz="-0.9999999999998789"/>
+      <PropertyPlacement Px="34" Py="1.445730364257503e-17" Pz="25.00000000007525" Q0="9.277087211255856e-18" Q1="1.035938327573533e-18" Q2="0.005436317599945313" Q3="0.9999852231162981" A="0.01087268875476247" Ox="1.70650206516904e-15" Oy="1.905588311433671e-16" Oz="0.9999999999962939"/>
     </Property>
     <Property name="PlacementList" type="App::PropertyPlacementList" status="256">
       <PlacementList file=""/>

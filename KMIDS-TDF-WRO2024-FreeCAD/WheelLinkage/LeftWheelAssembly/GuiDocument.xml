@@ -15,18 +15,16 @@
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 51.054451 -54.35244 48.376602
-  orientation 0.74290603 0.30772179 0.59447289  1.217116
-  nearDistance 52.656322
-  farDistance 133.08072
+  position 75.702515 -54.429028 71.905792
+  orientation 0.74290597 0.30772176 0.59447283  1.217116
+  nearDistance 80.482613
+  farDistance 160.97308
   aspectRatio 1
   focalDistance 100
   height 80.612572
 
 }
 
-  
-  
   ]]>
   </Camera>
 </Document>
