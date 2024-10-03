@@ -155,15 +155,15 @@ Curves 18
 1 -14 -42 0 0 1 0 
 1 -14 -42 0 1 0 0 
 1 14 -42 0 0 1 0 
-1 26 -4 0 -0.83205029433784361 -0.55470019622522915 0 
+1 26 -4 0 -0.83205029433784372 -0.55470019622522926 0 
 1 26 -4 0 -1 0 0 
 1 7.4999999999999991 -4 0 0 1 0 
 1 12.499999999999998 12 0 -1 0 0 
 1 26 4 0 -0.86029153363417432 0.50980239030173291 0 
 1 26 4 0 0 -1 0 
 1 -7.5000000000000018 12 0 1 0 0 
-2 -22 0 0 0 0 1 1 0 0 0 1 0 1.5
-2 22 0 0 0 0 1 1 0 0 0 1 0 1.5
+2 -22 0 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 22 0 0 0 0 1 1 0 -0 -0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
@@ -437,7 +437,7 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="34">
 <![CDATA[
-12 PostfixCount 4
+13 PostfixCount 4
 Edge
 Vertex
 ;WIR;:H12fc:4,V
@@ -445,7 +445,7 @@ Vertex
 
 MapCount 2
 
-ElementMap 1 13 2
+ElementMap 1 14 2
 
 Edge
 
@@ -493,7 +493,7 @@ $#560.3 $#b7e.3 0
 
 EndMap
 
-ElementMap 2 12 2
+ElementMap 2 13 2
 
 Edge
 

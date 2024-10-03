@@ -4,7 +4,7 @@
 -->
 <Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="24cfb364-e523-446e-8747-d24162c2e7d0" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="4">
+  <StringHasher2  count="5">
 <![CDATA[
 -15.0 1:Enforce an angle offset defined as yaw-pitch-roll angle of the
 second plane performed in the order of x-y-z
@@ -14,6 +14,7 @@ You need to enable LockAngle for this to take effect.
 You need to enable LockAngle for this to take effect.
 -1.0 1:Rotation angle of the second plane about its x-axis
 You need to enable LockAngle for this to take effect.
+-3.0 0:Shape cache
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -45,7 +46,7 @@ You need to enable LockAngle for this to take effect.
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-03T16:38:45Z"/>
+      <String value="2024-10-03T16:52:05Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -86,35 +87,42 @@ You need to enable LockAngle for this to take effect.
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="33" Dependencies="1">
+  <Objects Count="40" Dependencies="1">
     <ObjectDeps Name="Assembly" Count="3">
       <Dep Name="Elements"/>
-      <Dep Name="Parts"/>
       <Dep Name="Constraints"/>
+      <Dep Name="Parts"/>
     </ObjectDeps>
     <ObjectDeps Name="Constraints" Count="4">
       <Dep Name="Constraint"/>
-      <Dep Name="Constraint001"/>
-      <Dep Name="Constraint002"/>
       <Dep Name="Constraint003"/>
+      <Dep Name="Constraint002"/>
+      <Dep Name="Constraint001"/>
     </ObjectDeps>
-    <ObjectDeps Name="Elements" Count="16">
-      <Dep Name="Element"/>
-      <Dep Name="_Element001"/>
-      <Dep Name="_Element006"/>
-      <Dep Name="_Element007"/>
-      <Dep Name="_Element005"/>
-      <Dep Name="_Element003"/>
-      <Dep Name="Element001"/>
-      <Dep Name="Element002"/>
-      <Dep Name="Element005"/>
-      <Dep Name="_Element004"/>
+    <ObjectDeps Name="Elements" Count="23">
       <Dep Name="_Element"/>
+      <Dep Name="_Element007"/>
       <Dep Name="Element004"/>
+      <Dep Name="Element"/>
+      <Dep Name="_Element003"/>
+      <Dep Name="_Element005"/>
+      <Dep Name="_Element001"/>
       <Dep Name="_Element002"/>
-      <Dep Name="Element003"/>
+      <Dep Name="Element013"/>
+      <Dep Name="Element011"/>
+      <Dep Name="Element010"/>
       <Dep Name="_Element008"/>
+      <Dep Name="_Element006"/>
+      <Dep Name="Element005"/>
+      <Dep Name="Element008"/>
+      <Dep Name="Element001"/>
+      <Dep Name="Element009"/>
+      <Dep Name="Element012"/>
+      <Dep Name="Element002"/>
       <Dep Name="Element006"/>
+      <Dep Name="Element007"/>
+      <Dep Name="_Element004"/>
+      <Dep Name="Element003"/>
     </ObjectDeps>
     <ObjectDeps Name="Parts" Count="2">
       <Dep Name="Link"/>
@@ -124,20 +132,20 @@ You need to enable LockAngle for this to take effect.
     <ObjectDeps Name="Link001" Count="0"/>
     <ObjectDeps Name="Constraint" Count="3">
       <Dep Name="ElementLink001"/>
-      <Dep Name="ElementLink"/>
       <Dep Name="Constraints"/>
+      <Dep Name="ElementLink"/>
     </ObjectDeps>
     <ObjectDeps Name="ElementLink" Count="2">
-      <Dep Name="Constraint"/>
       <Dep Name="_Element"/>
+      <Dep Name="Constraint"/>
     </ObjectDeps>
     <ObjectDeps Name="_Element" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="ElementLink001" Count="2">
-      <Dep Name="_Element006"/>
       <Dep Name="Constraint"/>
+      <Dep Name="_Element006"/>
     </ObjectDeps>
     <ObjectDeps Name="_Element001" Count="2">
       <Dep Name="Link"/>
@@ -145,16 +153,16 @@ You need to enable LockAngle for this to take effect.
     </ObjectDeps>
     <ObjectDeps Name="Constraint001" Count="3">
       <Dep Name="ElementLink002"/>
-      <Dep Name="ElementLink003"/>
       <Dep Name="Constraints"/>
+      <Dep Name="ElementLink003"/>
     </ObjectDeps>
     <ObjectDeps Name="ElementLink002" Count="2">
-      <Dep Name="Constraint001"/>
       <Dep Name="_Element002"/>
+      <Dep Name="Constraint001"/>
     </ObjectDeps>
     <ObjectDeps Name="_Element002" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="ElementLink003" Count="2">
       <Dep Name="_Element007"/>
@@ -165,21 +173,21 @@ You need to enable LockAngle for this to take effect.
       <Dep Name="Elements"/>
     </ObjectDeps>
     <ObjectDeps Name="Constraint002" Count="3">
-      <Dep Name="ElementLink005"/>
-      <Dep Name="ElementLink004"/>
       <Dep Name="Constraints"/>
+      <Dep Name="ElementLink004"/>
+      <Dep Name="ElementLink005"/>
     </ObjectDeps>
     <ObjectDeps Name="ElementLink004" Count="2">
       <Dep Name="Constraint002"/>
       <Dep Name="_Element004"/>
     </ObjectDeps>
     <ObjectDeps Name="_Element004" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="ElementLink005" Count="2">
-      <Dep Name="Constraint002"/>
       <Dep Name="_Element008"/>
+      <Dep Name="Constraint002"/>
     </ObjectDeps>
     <ObjectDeps Name="_Element005" Count="2">
       <Dep Name="Link"/>
@@ -190,28 +198,28 @@ You need to enable LockAngle for this to take effect.
       <Dep Name="Elements"/>
     </ObjectDeps>
     <ObjectDeps Name="Element001" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Element002" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Element003" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Element004" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Element005" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Element006" Count="2">
-      <Dep Name="Link001"/>
       <Dep Name="Elements"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Constraint003" Count="2">
       <Dep Name="ElementLink006"/>
@@ -233,39 +241,74 @@ You need to enable LockAngle for this to take effect.
       <Dep Name="Link"/>
       <Dep Name="Elements"/>
     </ObjectDeps>
-    <Object type="Part::FeaturePython" name="Assembly" id="3673" revision="108" ViewType="Gui::ViewProviderLinkPython" file="Assembly.xml" />
-    <Object type="App::FeaturePython" name="Constraints" id="3674" revision="39" ViewType="Gui::ViewProviderLinkPython" file="Constraints.xml" />
-    <Object type="App::FeaturePython" name="Elements" id="3675" revision="42" ViewType="Gui::ViewProviderLinkPython" file="Elements.xml" />
-    <Object type="Part::FeaturePython" name="Parts" id="3676" revision="29" ViewType="Gui::ViewProviderLinkPython" file="Parts.xml" />
-    <Object type="App::Link" name="Link" id="3678" revision="20" file="Link.xml" />
-    <Object type="App::Link" name="Link001" id="3679" revision="58" file="Link001.xml" />
-    <Object type="App::FeaturePython" name="Constraint" id="3680" revision="25" ViewType="Gui::ViewProviderLinkPython" file="Constraint.xml" />
-    <Object type="App::FeaturePython" name="ElementLink" id="3681" revision="30" ViewType="Gui::ViewProviderLinkPython" file="ElementLink.xml" />
-    <Object type="Part::FeaturePython" name="_Element" id="3682" revision="23" file="_Element.xml" />
-    <Object type="App::FeaturePython" name="ElementLink001" id="3683" revision="31" ViewType="Gui::ViewProviderLinkPython" file="ElementLink001.xml" />
-    <Object type="Part::FeaturePython" name="_Element001" id="3684" revision="21" file="_Element001.xml" />
-    <Object type="App::FeaturePython" name="Constraint001" id="3685" revision="25" ViewType="Gui::ViewProviderLinkPython" file="Constraint001.xml" />
-    <Object type="App::FeaturePython" name="ElementLink002" id="3686" revision="30" ViewType="Gui::ViewProviderLinkPython" file="ElementLink002.xml" />
-    <Object type="Part::FeaturePython" name="_Element002" id="3687" revision="23" file="_Element002.xml" />
-    <Object type="App::FeaturePython" name="ElementLink003" id="3688" revision="31" ViewType="Gui::ViewProviderLinkPython" file="ElementLink003.xml" />
-    <Object type="Part::FeaturePython" name="_Element003" id="3689" revision="21" file="_Element003.xml" />
-    <Object type="App::FeaturePython" name="Constraint002" id="3690" revision="24" ViewType="Gui::ViewProviderLinkPython" file="Constraint002.xml" />
-    <Object type="App::FeaturePython" name="ElementLink004" id="3691" revision="30" ViewType="Gui::ViewProviderLinkPython" file="ElementLink004.xml" />
-    <Object type="Part::FeaturePython" name="_Element004" id="3692" revision="23" file="_Element004.xml" />
-    <Object type="App::FeaturePython" name="ElementLink005" id="3693" revision="28" ViewType="Gui::ViewProviderLinkPython" file="ElementLink005.xml" />
-    <Object type="Part::FeaturePython" name="_Element005" id="3694" revision="19" file="_Element005.xml" />
-    <Object type="Part::FeaturePython" name="Element" id="3695" revision="17" file="Element.xml" />
-    <Object type="Part::FeaturePython" name="Element001" id="3696" revision="23" file="Element001.xml" />
-    <Object type="Part::FeaturePython" name="Element002" id="3697" revision="23" file="Element002.xml" />
-    <Object type="Part::FeaturePython" name="Element003" id="3698" revision="23" file="Element003.xml" />
-    <Object type="Part::FeaturePython" name="Element004" id="3699" revision="23" file="Element004.xml" />
-    <Object type="Part::FeaturePython" name="Element005" id="3700" revision="23" file="Element005.xml" />
-    <Object type="Part::FeaturePython" name="Element006" id="3701" revision="23" file="Element006.xml" />
-    <Object type="App::FeaturePython" name="Constraint003" id="3702" revision="9" ViewType="Gui::ViewProviderLinkPython" file="Constraint003.xml" />
-    <Object type="App::FeaturePython" name="ElementLink006" id="3703" revision="13" ViewType="Gui::ViewProviderLinkPython" file="ElementLink006.xml" />
-    <Object type="Part::FeaturePython" name="_Element006" id="3704" revision="11" file="_Element006.xml" />
-    <Object type="Part::FeaturePython" name="_Element007" id="3705" revision="11" file="_Element007.xml" />
-    <Object type="Part::FeaturePython" name="_Element008" id="3706" revision="11" file="_Element008.xml" />
+    <ObjectDeps Name="Element007" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element008" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element009" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element010" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element011" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element012" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element013" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <Object type="Part::FeaturePython" name="Assembly" id="3673" revision="124" ViewType="Gui::ViewProviderLinkPython" file="Assembly.xml" />
+    <Object type="App::FeaturePython" name="Constraints" id="3674" revision="40" ViewType="Gui::ViewProviderLinkPython" file="Constraints.xml" />
+    <Object type="App::FeaturePython" name="Elements" id="3675" revision="57" ViewType="Gui::ViewProviderLinkPython" file="Elements.xml" />
+    <Object type="Part::FeaturePython" name="Parts" id="3676" revision="30" ViewType="Gui::ViewProviderLinkPython" file="Parts.xml" />
+    <Object type="App::Link" name="Link" id="3678" revision="21" file="Link.xml" />
+    <Object type="App::Link" name="Link001" id="3679" revision="60" file="Link001.xml" />
+    <Object type="App::FeaturePython" name="Constraint" id="3680" revision="26" ViewType="Gui::ViewProviderLinkPython" file="Constraint.xml" />
+    <Object type="App::FeaturePython" name="ElementLink" id="3681" revision="33" ViewType="Gui::ViewProviderLinkPython" file="ElementLink.xml" />
+    <Object type="Part::FeaturePython" name="_Element" id="3682" revision="25" file="_Element.xml" />
+    <Object type="App::FeaturePython" name="ElementLink001" id="3683" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink001.xml" />
+    <Object type="Part::FeaturePython" name="_Element001" id="3684" revision="23" file="_Element001.xml" />
+    <Object type="App::FeaturePython" name="Constraint001" id="3685" revision="26" ViewType="Gui::ViewProviderLinkPython" file="Constraint001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink002" id="3686" revision="33" ViewType="Gui::ViewProviderLinkPython" file="ElementLink002.xml" />
+    <Object type="Part::FeaturePython" name="_Element002" id="3687" revision="25" file="_Element002.xml" />
+    <Object type="App::FeaturePython" name="ElementLink003" id="3688" revision="34" ViewType="Gui::ViewProviderLinkPython" file="ElementLink003.xml" />
+    <Object type="Part::FeaturePython" name="_Element003" id="3689" revision="23" file="_Element003.xml" />
+    <Object type="App::FeaturePython" name="Constraint002" id="3690" revision="25" ViewType="Gui::ViewProviderLinkPython" file="Constraint002.xml" />
+    <Object type="App::FeaturePython" name="ElementLink004" id="3691" revision="33" ViewType="Gui::ViewProviderLinkPython" file="ElementLink004.xml" />
+    <Object type="Part::FeaturePython" name="_Element004" id="3692" revision="25" file="_Element004.xml" />
+    <Object type="App::FeaturePython" name="ElementLink005" id="3693" revision="31" ViewType="Gui::ViewProviderLinkPython" file="ElementLink005.xml" />
+    <Object type="Part::FeaturePython" name="_Element005" id="3694" revision="21" file="_Element005.xml" />
+    <Object type="Part::FeaturePython" name="Element" id="3695" revision="19" file="Element.xml" />
+    <Object type="Part::FeaturePython" name="Element001" id="3696" revision="25" file="Element001.xml" />
+    <Object type="Part::FeaturePython" name="Element002" id="3697" revision="25" file="Element002.xml" />
+    <Object type="Part::FeaturePython" name="Element003" id="3698" revision="25" file="Element003.xml" />
+    <Object type="Part::FeaturePython" name="Element004" id="3699" revision="25" file="Element004.xml" />
+    <Object type="Part::FeaturePython" name="Element005" id="3700" revision="25" file="Element005.xml" />
+    <Object type="Part::FeaturePython" name="Element006" id="3701" revision="25" file="Element006.xml" />
+    <Object type="App::FeaturePython" name="Constraint003" id="3702" revision="10" ViewType="Gui::ViewProviderLinkPython" file="Constraint003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink006" id="3703" revision="16" ViewType="Gui::ViewProviderLinkPython" file="ElementLink006.xml" />
+    <Object type="Part::FeaturePython" name="_Element006" id="3704" revision="13" file="_Element006.xml" />
+    <Object type="Part::FeaturePython" name="_Element007" id="3705" revision="13" file="_Element007.xml" />
+    <Object type="Part::FeaturePython" name="_Element008" id="3706" revision="13" file="_Element008.xml" />
+    <Object type="Part::FeaturePython" name="Element007" id="3707" revision="7" file="Element007.xml" />
+    <Object type="Part::FeaturePython" name="Element008" id="3708" revision="7" file="Element008.xml" />
+    <Object type="Part::FeaturePython" name="Element009" id="3709" revision="7" file="Element009.xml" />
+    <Object type="Part::FeaturePython" name="Element010" id="3710" revision="7" file="Element010.xml" />
+    <Object type="Part::FeaturePython" name="Element011" id="3711" revision="7" file="Element011.xml" />
+    <Object type="Part::FeaturePython" name="Element012" id="3712" revision="7" file="Element012.xml" />
+    <Object type="Part::FeaturePython" name="Element013" id="3713" revision="7" file="Element013.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>
