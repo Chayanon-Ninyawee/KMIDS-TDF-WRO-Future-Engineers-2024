@@ -52,7 +52,7 @@
       <String value=""/>
     </Property>
     <Property name="LinkPlacement" type="App::PropertyPlacement" status="264">
-      <PropertyPlacement Px="-8.819358196711555" Py="-16.40393548943762" Pz="27.48999999995913" Q0="-1.21152181850136e-18" Q1="-1.603602307670938e-17" Q2="-0.7862360930466412" Q3="0.6179262140342917" A="1.809387956944146" Ox="-1.540913510860013e-18" Oy="-2.039593859723518e-17" Oz="-1"/>
+      <PropertyPlacement Px="-8.81935819681183" Py="-16.40393548963946" Pz="33.48999999998952" Q0="-7.137726610976249e-13" Q1="-1.030567804098744e-12" Q2="-0.7862360930733412" Q3="0.6179262140003192" A="1.809387957030564" Ox="-9.078350223118582e-13" Oy="-1.310761249932355e-12" Oz="-1"/>
     </Property>
     <Property name="LinkTransform" type="App::PropertyBool" status="256">
       <Bool value="false"/>
@@ -67,7 +67,7 @@
       <MatrixList file=""/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="256">
-      <PropertyPlacement Px="-8.819358196711555" Py="-16.40393548943762" Pz="27.48999999995913" Q0="-1.21152181850136e-18" Q1="-1.603602307670938e-17" Q2="-0.7862360930466412" Q3="0.6179262140342917" A="1.809387956944146" Ox="-1.540913510860013e-18" Oy="-2.039593859723518e-17" Oz="-1"/>
+      <PropertyPlacement Px="-8.81935819681183" Py="-16.40393548963946" Pz="33.48999999998952" Q0="-7.137726610976249e-13" Q1="-1.030567804098744e-12" Q2="-0.7862360930733412" Q3="0.6179262140003192" A="1.809387957030564" Ox="-9.078350223118582e-13" Oy="-1.310761249932355e-12" Oz="-1"/>
     </Property>
     <Property name="PlacementList" type="App::PropertyPlacementList" status="256">
       <PlacementList file=""/>

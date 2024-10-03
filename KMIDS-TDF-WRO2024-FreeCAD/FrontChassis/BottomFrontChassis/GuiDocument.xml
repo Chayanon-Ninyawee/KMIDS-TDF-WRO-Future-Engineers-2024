@@ -9,22 +9,22 @@
 <Expand  count="1">
   <Expand name="Body"/>
 </Expand>
-  <Camera extra="0" id="29" binding="0" view3d="1">
+  <Camera extra="0" id="55" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 52.415714 -41.410393 44.888855
-  orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance 25.213608
-  farDistance 109.0636
+  position 46.688473 -39.907452 52.11911
+  orientation 0.74290603 0.30772179 0.59447289  1.217116
+  nearDistance 21.75301
+  farDistance 109.06367
   aspectRatio 1
   focalDistance 100
-  height 81.873192
+  height 81.873207
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="29"><![CDATA[
+  <View3D id="55"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>
