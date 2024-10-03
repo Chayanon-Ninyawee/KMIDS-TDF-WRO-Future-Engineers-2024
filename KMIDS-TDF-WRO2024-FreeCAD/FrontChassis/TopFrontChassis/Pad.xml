@@ -2043,8 +2043,8 @@ TShapes 0
     <Property name="TaperInnerAngleRev" type="App::PropertyAngle">
       <Float value="0"/>
     </Property>
-    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="19"/>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="21"/>
     </Property>
     <Property name="Type" type="App::PropertyEnumeration">
       <Integer value="0"/>
@@ -2062,7 +2062,7 @@ TShapes 0
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="true"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="649">
+    <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
     </Property>
     <Property name="_ProfileBasedVersion" type="App::PropertyInteger" status="67108864">

@@ -632,8 +632,8 @@ EndMap
     <Property name="TightBound" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="18"/>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="20"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.408R14555 (Git shallow)" FileVersion="2" Uid="ad64ab42-3ece-4498-8fd7-007648bbe1b2" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="ad64ab42-3ece-4498-8fd7-007648bbe1b2" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="897">
 <![CDATA[
@@ -807,25 +807,43 @@
 -13.2c.18.-528
 -1c.2c.-4b.53f
 -1.2c.26.1c
--2.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D106e;:H523:6,V
--1.2c.1.56c
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D1ee8;:H523:6,V
--1.2c.1.591
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D16;:H523:4,V
--1.2c.1.574
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D25fb;:H523:6,V
--1.2c.1.579
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;De92;:H523:5,V
--1.2c.1.594
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D2012;:H523:6,V
--1.2c.1.591
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D191b;:H523:6,V
--1.2c.1.590
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;Df7b;:H523:5,V
--1.2c.1.58f
--1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D4f1;:H523:5,V
--1.2c.1.58d
--13.2c.-4b1.585
+-2f.2c.89.1
+-1.2c.f6.-30
+-1.2c.0.5f
+-6.2c.-f6.-60
+-2.0 0:(#2f8;:H522,E)
+-4.0 0:(#300;:H522,E)
+-1.0 0:(#310;:H522,V)
+-1.0 0:(#316;:H522,V)
+-20.28.93.36b.5f5.21 ;:M#65a;FUS;:H-525:b,V
+-7.2c.-17d.33c
+-1.2c.0.1
+-3.28.17f.-355.611.31 ;:M#655;FUS;:H-525:b,E
+-2.2c.-149.2f4
+-1.2c.11.67
+-1.2c.0.-8
+-3.28.169.-34b.610.34 ;:M#659;FUS;:H-525:b,E
+-1.2c.-129.2eb
+-1.2c.0.31
+7e4.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D317;:H523:5,V
+-1.2c.1.732
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D1173;:H523:6,V
+-1.2c.1.757
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D241;:H523:5,V
+-1.2c.1.73a
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D230c;:H523:6,V
+-1.2c.1.73f
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D1616;:H523:6,V
+-1.2c.1.75a
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D429;:H523:5,V
+-1.2c.1.757
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;Dad8;:H523:5,V
+-1.2c.1.756
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;Dc11;:H523:5,V
+-1.2c.1.755
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H523,V;D1cbc;:H523:6,V
+-1.2c.1.753
+-13.2c.-677.74b
 -1.2c.0.-2
 -1.2c.0.-2
 -1.2c.0.-2
@@ -834,70 +852,52 @@
 -1.2c.0.2
 -1.2c.0.2
 -1.2c.0.-6
--1.2c.a3.-d
--1.2c.f6.-30
--1.2c.0.5f
--1.2c.-172.-8
+-1.2c.27.1a
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.2
 -1.2c.0.1
--1.2c.7c.-5d
--1.2c.-7c.5f
--1.0 0:(#2f8;:H522,E)
--1.2c.4ff.14
+-1.2c.0.2
+-1.2c.0.-8
 -1.2c.0.4
 -1.2c.0.3
--1.0 0:(#300;:H522,E)
--1.0 0:(#310;:H522,V)
--1.0 0:(#316;:H522,V)
--1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;De4d;:H526:5,V
--1.2c.1.5aa
--1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D303;:H526:5,V
--1.2c.1.5cf
--1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D2223;:H526:6,V
--1.2c.1.5ce
--1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;Dd77;:H526:5,V
--1.2c.1.5cb
--1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D1892;:H526:6,V
--1.2c.1.5ca
--1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D155a;:H526:6,V
--1.2c.1.5c9
--d.2c.-2e7.5c3
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;Dff3;:H526:5,V
+-1.2c.1.768
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D1511;:H526:6,V
+-1.2c.1.78d
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D17d3;:H526:6,V
+-1.2c.1.78c
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D1ea3;:H526:6,V
+-1.2c.1.789
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;Dd9e;:H526:5,V
+-1.2c.1.788
+-1.0 0:;WIR;:H51f:4,V;:H,V;:H526,V;D1001;:H526:6,V
+-1.2c.1.787
+-d.2c.-4a5.781
 -1.2c.0.-2
 -1.2c.0.-2
 -1.2c.-35.8
 -1.2c.0.2
 -1.2c.0.-4
--1.28.2f8.-358.36e.5fa ;:M#30c;FUS;:H-525:b,V
--1.28.-5a.5.-286.5da ;:M#65a;FUS;:H-525:b,V
--1.2c.-17d.335
+-1.28.4be.-516.52c.7b8 ;:M#30c;FUS;:H-525:b,V
+-1.2c.-39d.500
 -1.2c.0.-1
 -1.2c.0.-1
 -1.2c.0.7
 -1.2c.0.-3
 -1.2c.0.1
--1.2c.0.4
+-1.28.3a1.-4fa.52a.7b5 ;:M#315;FUS;:H-525:b,V
+-1.28.3.2.346.4 ;:M#65b;FUS;:H-525:b,V
+-1.2c.-36e.501
 -1.2c.0.1
--1.28.1db.-339.36f.5fa ;:M#315;FUS;:H-525:b,V
--1.28.3.2.-287.5d1 ;:M#65b;FUS;:H-525:b,V
--1.28.-5f.-1e.-19.-6 ;:M#655;FUS;:H-525:b,E
--1.2c.-149.35e
--1.2c.0.-6a
--1.2c.11.67
--1.2c.0.-8
--1.2c.-11.c
 -1.2c.0.1
--1.28.17a.-358.610.34 ;:M#659;FUS;:H-525:b,E
--1.2c.-129.2eb
--1.2c.0.31
--1.2c.-40.32
+-1.2c.11.-8
 -1.2c.0.2
 -1.2c.0.-1
--1.2c.0.5
--1.2c.0.-3
+-1.2c.0.4
+-1.2c.0.-2
 -1.2c.0.1
--1.2c.-14d.22
+-1.2c.-14d.1d
 -1.2c.0.2
 -1.2c.0.-1
 -1.2c.0.4
@@ -934,7 +934,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-01T01:18:35Z"/>
+      <String value="2024-10-03T13:22:58Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -975,23 +975,23 @@
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="16" Dependencies="1">
+  <Objects Count="17" Dependencies="1">
     <ObjectDeps Name="Body" Count="7">
-      <Dep Name="Binder001"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Binder"/>
-      <Dep Name="Pad002"/>
       <Dep Name="Origin"/>
+      <Dep Name="Pad002"/>
       <Dep Name="Pad"/>
+      <Dep Name="Binder001"/>
       <Dep Name="Binder002"/>
+      <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="XY_Plane"/>
-      <Dep Name="XZ_Plane"/>
-      <Dep Name="Y_Axis"/>
       <Dep Name="Z_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Y_Axis"/>
+      <Dep Name="YZ_Plane"/>
       <Dep Name="X_Axis"/>
+      <Dep Name="XZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -999,26 +999,28 @@
     <ObjectDeps Name="XY_Plane" Count="0"/>
     <ObjectDeps Name="XZ_Plane" Count="0"/>
     <ObjectDeps Name="YZ_Plane" Count="0"/>
-    <ObjectDeps Name="Sketch002" Count="0"/>
+    <ObjectDeps Name="Sketch002" Count="1">
+      <Dep Name="Link001"/>
+    </ObjectDeps>
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="Link"/>
       <Dep Name="Body"/>
       <Dep Name="XY_Plane"/>
+      <Dep Name="Link"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Binder"/>
       <Dep Name="Body"/>
+      <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
       <Dep Name="Sketch002"/>
-      <Dep Name="Body"/>
       <Dep Name="Pad"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Binder001"/>
-      <Dep Name="Body"/>
       <Dep Name="Pad"/>
+      <Dep Name="Body"/>
+      <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="3">
       <Dep Name="Pad001"/>
@@ -1030,7 +1032,8 @@
       <Dep Name="Body"/>
       <Dep Name="Binder002"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1303" revision="27" file="Body.xml" />
+    <ObjectDeps Name="Link001" Count="0"/>
+    <Object type="PartDesign::Body" name="Body" id="1303" revision="31" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1304" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1305" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1306" revision="2" file="Y_Axis.xml" />
@@ -1038,14 +1041,15 @@
     <Object type="App::Plane" name="XY_Plane" id="1308" revision="1" file="XY_Plane.xml" />
     <Object type="App::Plane" name="XZ_Plane" id="1309" revision="2" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="1310" revision="2" file="YZ_Plane.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch002" id="1311" revision="2943" file="Sketch002.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch002" id="1311" revision="2966" file="Sketch002.xml" />
     <Object type="App::Link" name="Link" id="1312" revision="4" file="Link.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder" id="1313" revision="13" file="Binder.xml" />
     <Object type="PartDesign::Pad" name="Pad" id="1314" revision="14" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="1315" revision="23" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="1317" revision="45" file="Pad001.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="1318" revision="32" file="Binder002.xml" />
-    <Object type="PartDesign::Pad" name="Pad002" id="1319" revision="42" file="Pad002.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="1315" revision="59" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="1317" revision="55" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="1318" revision="68" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="1319" revision="52" file="Pad002.xml" />
+    <Object type="App::Link" name="Link001" id="1320" revision="4" file="Link001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>
