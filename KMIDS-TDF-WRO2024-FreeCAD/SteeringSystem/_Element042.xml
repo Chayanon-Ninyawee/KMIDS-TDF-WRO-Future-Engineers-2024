@@ -56,8 +56,8 @@ Locations 6
               0               1               0               0 
               0               0               1               0 
 1
--0.85491187067791 -0.518773258152343 -9.59300933855658e-15 -10.2942226286534 
--0.518773258152343 0.854911870677909 -2.28660344837999e-14 -2.16596998918957 
+-0.85491187067791 -0.518773258152343 -9.59300933855662e-15 -10.2942226286534 
+-0.518773258152343 0.85491187067791 -2.28660344837999e-14 -2.16596998918957 
 2.00634647692408e-14 -1.45718476054821e-14              -1 17.7885199999984 
 1
               1               0               0               0 
@@ -169,14 +169,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="9">
 <![CDATA[
-53 PostfixCount 3
+52 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 53 3
+ElementMap 1 52 3
 
 Edge
 
@@ -225,7 +225,7 @@ EndMap
       <Integer value="0"/>
     </Property>
     <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
-      <Integer value="0"/>
+      <Integer value="1"/>
     </Property>
     <Property name="_Parent" type="App::PropertyLinkHidden" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097162">
       <Link value="Elements"/>

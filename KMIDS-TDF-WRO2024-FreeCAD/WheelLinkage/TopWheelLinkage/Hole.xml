@@ -3,7 +3,7 @@
 <Document SchemaVersion="4" FileVersion="2">
 <Object name="Hole">
   <Properties Count="55" TransientCount="2">
-    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658241"/>
+    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658240"/>
     <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
     <Property name="AddSubShape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -276,7 +276,7 @@ EndMap
         <XLinks count="2" docs="2">
           <DocMap name="BottomWheelLinkage" label="BottomWheelLinkage" index="0"/>
           <DocMap name="ClearanceConfig" label="ClearanceConfig" index="1"/>
-          <XLink file="BottomWheelLinkage" stamp="2024-10-01T06:49:52Z" name="Sketch"/>
+          <XLink file="BottomWheelLinkage" stamp="2024-10-05T07:00:45Z" name="Sketch"/>
           <XLink file="../ClearanceConfig" stamp="2024-09-30T08:26:55Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
@@ -1121,7 +1121,7 @@ TShapes 0
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="true"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="649">
+    <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="true"/>
     </Property>
     <Property name="_ProfileBasedVersion" type="App::PropertyInteger" status="67108864">

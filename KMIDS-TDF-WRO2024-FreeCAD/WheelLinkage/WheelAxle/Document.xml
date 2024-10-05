@@ -4,7 +4,7 @@
 -->
 <Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="bfe1b31f-7764-433d-93ad-056606284065" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="829">
+  <StringHasher2  count="828">
 <![CDATA[
 -1.0 0:;SKT
 -1.c.1 g3v1
@@ -654,8 +654,7 @@
 -1.2c.-29.-15
 -1.2c.29.14
 -f.2c.-42.-43
--21.0 0:Shape cache
--1b.0 0:;SKT;:H4cf,E
+-3c.0 0:;SKT;:H4cf,E
 -1.c.1 g2
 -1.c.0 g6
 -1.0 0:;SKT;:H4cf,V
@@ -866,7 +865,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-03T12:57:44Z"/>
+      <String value="2024-10-05T07:00:45Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -913,31 +912,31 @@
   </Properties>
   <Objects Count="28" Dependencies="1">
     <ObjectDeps Name="Body" Count="17">
-      <Dep Name="Pad003"/>
-      <Dep Name="Sketch003"/>
-      <Dep Name="Binder002"/>
-      <Dep Name="Chamfer001"/>
-      <Dep Name="Pad005"/>
-      <Dep Name="Pad006"/>
-      <Dep Name="Pad004"/>
-      <Dep Name="Binder004"/>
-      <Dep Name="Pad001"/>
-      <Dep Name="Origin"/>
-      <Dep Name="Pad002"/>
-      <Dep Name="Binder005"/>
-      <Dep Name="Pad"/>
-      <Dep Name="Chamfer"/>
       <Dep Name="Binder"/>
-      <Dep Name="Binder001"/>
+      <Dep Name="Binder004"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Pad002"/>
       <Dep Name="Binder003"/>
+      <Dep Name="Pad003"/>
+      <Dep Name="Pad006"/>
+      <Dep Name="Chamfer"/>
+      <Dep Name="Sketch003"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Binder005"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder001"/>
+      <Dep Name="Pad005"/>
+      <Dep Name="Chamfer001"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="Z_Axis"/>
-      <Dep Name="XZ_Plane"/>
-      <Dep Name="Y_Axis"/>
-      <Dep Name="YZ_Plane"/>
       <Dep Name="X_Axis"/>
+      <Dep Name="Y_Axis"/>
+      <Dep Name="Z_Axis"/>
       <Dep Name="XY_Plane"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -949,17 +948,17 @@
     <ObjectDeps Name="Sketch" Count="0"/>
     <ObjectDeps Name="Sketch001" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Sketch001"/>
+      <Dep Name="Body"/>
       <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Body"/>
       <Dep Name="Binder"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Sketch001"/>
+      <Dep Name="Body"/>
       <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
@@ -968,8 +967,8 @@
       <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="2">
-      <Dep Name="Body"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
       <Dep Name="Binder002"/>
@@ -978,29 +977,29 @@
     </ObjectDeps>
     <ObjectDeps Name="Sketch002" Count="0"/>
     <ObjectDeps Name="Binder003" Count="3">
-      <Dep Name="Sketch002"/>
-      <Dep Name="Body"/>
       <Dep Name="Pad002"/>
+      <Dep Name="Body"/>
+      <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad003" Count="3">
-      <Dep Name="Body"/>
       <Dep Name="Pad002"/>
       <Dep Name="Binder003"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder004" Count="3">
       <Dep Name="Pad003"/>
-      <Dep Name="Body"/>
       <Dep Name="Sketch"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="3">
+      <Dep Name="Binder004"/>
       <Dep Name="Pad003"/>
       <Dep Name="Body"/>
-      <Dep Name="Binder004"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder005" Count="3">
-      <Dep Name="Link"/>
       <Dep Name="Body"/>
       <Dep Name="Pad004"/>
+      <Dep Name="Link"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad005" Count="3">
       <Dep Name="Body"/>
@@ -1008,20 +1007,20 @@
       <Dep Name="Binder005"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer" Count="2">
-      <Dep Name="Pad005"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad005"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch003" Count="1">
       <Dep Name="Chamfer"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad006" Count="3">
+      <Dep Name="Chamfer"/>
       <Dep Name="Sketch003"/>
       <Dep Name="Body"/>
-      <Dep Name="Chamfer"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer001" Count="2">
-      <Dep Name="Body"/>
       <Dep Name="Pad006"/>
+      <Dep Name="Body"/>
     </ObjectDeps>
     <Object type="PartDesign::Body" name="Body" id="1166" revision="514" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1167" revision="6" file="Origin.xml" />

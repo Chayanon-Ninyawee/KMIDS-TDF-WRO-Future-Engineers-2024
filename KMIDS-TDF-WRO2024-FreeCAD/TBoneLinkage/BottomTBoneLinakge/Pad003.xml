@@ -3,7 +3,7 @@
 <Document SchemaVersion="4" FileVersion="2">
 <Object name="Pad003">
   <Properties Count="47" TransientCount="2">
-    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658241"/>
+    <_Property name="_Body" type="App::PropertyLinkHidden" status="251658240"/>
     <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
     <Property name="AddSubShape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">

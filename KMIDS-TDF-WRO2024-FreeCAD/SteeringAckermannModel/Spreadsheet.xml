@@ -39,7 +39,7 @@
         <Cell address="C3" content="LinkageLength"/>
         <Cell alias="servolinkagelength" address="D3" content="12.31"/>
         <Cell address="A4" content="WheelDiameter"/>
-        <Cell address="B4" content="56"/>
+        <Cell alias="wheeldia" address="B4" content="56"/>
         <Cell address="C4" content="LinkageTwoHoleSeperation"/>
         <Cell alias="servolinkagesep" address="D4" content="17.9"/>
         <Cell address="A5" content="WheelDepth"/>

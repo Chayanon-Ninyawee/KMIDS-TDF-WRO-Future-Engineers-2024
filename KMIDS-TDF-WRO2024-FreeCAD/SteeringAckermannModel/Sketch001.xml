@@ -65,7 +65,7 @@
       <LinkList count="0">
       </LinkList>
     </Property>
-    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108865">
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
       <ExpressionEngine count="11" cdata="1">
         <Expressions><![CDATA[
 0:.Constraints.ServoPositionOffset
