@@ -32,21 +32,19 @@ vehicle capable of performing complex tasks autonomously.
     
 ### 2.Wheels_and_Motor  
   - Wheels: four high traction rubber wheels
-  - Motor: a single TT motor
-  - Description: We use a single DC motor to power the two back wheels due to its high-power output.
-    It is connected to a differential to help distribute power to the back wheels as needed, ensuring
-    smooth and efficient power distribution. The rubber wheels provide a grip on surfaces, preventing
-    slippage and improving overall performance. The use of high-traction rubber ensures that the vehicle
-    can maneuver effectively on various surfaces encountered during the competition. The differential
-    mechanism is crucial for maintaining balance and stability, especially when the vehicle makes sharp turns.
+  - Motor: 6V 440RPM DC Micro Metal Gearmotor
+      - This motor offer a powerful rotaion in a small sizes that we see as beneficial in our robot
+        as it need to meet certain condition in this compettion. The high power that this motor offer
+        us will help the robot navigate the obstacle course in break-neck speed which is good as we
+        want it to excel in all aspect of the compettition and if the deciding factor came down to time
+        then we will at least be able to trust the robot to perform at it's peak.
 
 ### 3.Steering_Mechanism  
-   - Servo motor: The servo motor in the front bridge of our vehicle allows for sharp cornering and
-     precise steering control. This mechanism is critical for navigating tight spaces and obstacles
-     efficiently. The servo motor's ability to provide fine control over the steering angle enhances
-     the vehicle's agility, making it great at avoiding obstacles and navigating through challenging
-     courses. The integration of the servo motor into the front bridge design also ensures that the
-     steering system is responsive, capable of handling sudden changes in direction without compromising stability.
+   - MG90S Metal Gear Micro Servo
+       - We decide to use this servo because it posses a lot of gear which helps in refining our control
+         and the precision of the robot which is crutial when making turn at an extreme angle to avoid
+         obstacles in quick succession. We especcially selected this servo in place of a normal servo
+         because of it's precision when compare to common servo that are seen commonly.
 
 ## 4.3D_Model
 The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-CAD.git 
@@ -75,12 +73,13 @@ The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Fu
     the Pi also simplifies the hardware setup, enhancing system reliability.
     
 ### Distance Sensing  
-- **gy-530vl53l0x**
-  - **Placement:** front, back, left and right sides
-  - **Reason:** We use four gy-530vl53l0x sensor to detect the distance of the vehicle from
-    the wall so that the vehicle can stay within an ideal distance from the wall and
-    avoid colliding with objects that is placed on the field in certain round of
-    the competition.
+- **RPLIDAR C1**
+  - We selected teh RPLIDAR C1 as our vision system because if it's ability to detect object
+    in a 360 degree and take up to 5,000 samples per seconds, combine with it's range of 12
+    meter this sensor will help us improve the navigational abilities of our autonomous vehicle.
+    We see the need to use this sensor from our previous test that a normal infared sensors can
+    malfunction when placed in environments that have high amount of infared lights (outdoor,
+    old lightbulb).
 
 ### Power Supply
 - **lithium ion batteries**
