@@ -31,7 +31,11 @@ vehicle capable of performing complex tasks autonomously.
     the design based on testing and performance feedback.
     
 ### 2.Wheels_and_Motor  
-  - Wheels: four high traction rubber wheels
+  - Wheels: 69916 TAMIYA Robot Sports Tire
+      - 69916 TAMIYA Robot Sports Tire is a small rubber tire that is made to be in a miniature robot.
+        The size of the wheels provide our vehicle with a more compact design which helps in parking
+        the robot in the obstacle challenge round, in which we have to park the vehicle in a certain
+        spot that is quite limited.
   - Motor: 6V 440RPM DC Micro Metal Gearmotor
       - This motor offer a powerful rotaion in a small sizes that we see as beneficial in our robot
         as it need to meet certain condition in this compettion. The high power that this motor offer
@@ -80,6 +84,14 @@ The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Fu
     We see the need to use this sensor from our previous test that a normal infared sensors can
     malfunction when placed in environments that have high amount of infared lights (outdoor,
     old lightbulb).
+
+### Color sensing
+- **Light Sensor TC01**
+    - We implement these light sensors to have a better tracking of the obstacle cource and
+      the direction that the vehicle is moving in. The main purpose of the light sensors is
+      to detected the orange and blue line that indicate the direction of turning. We decide
+      to use two of these sensors obecause it give us better tracking of which color line come
+      first.
 
 ### Power Supply
 - **lithium ion batteries**
