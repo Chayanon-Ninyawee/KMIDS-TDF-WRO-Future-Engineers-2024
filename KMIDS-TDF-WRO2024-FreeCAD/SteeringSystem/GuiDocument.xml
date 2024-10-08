@@ -7,9 +7,8 @@
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
 <Expand  count="1">
-  <Expand name="Assembly" count="3">
+  <Expand name="Assembly" count="2">
     <Expand name="Constraints"/>
-    <Expand name="Elements"/>
     <Expand name="Parts" count="1">
       <Expand name="Link" count="1">
         <Expand name="Parts" count="2">
@@ -20,22 +19,22 @@
     </Expand>
   </Expand>
 </Expand>
-  <Camera extra="0" id="6" binding="0" view3d="1">
+  <Camera extra="0" id="21" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 74.068184 -99.752319 85.452515
-  orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance -17.023174
-  farDistance 196.23906
+  position -77.829399 -174.99113 125.88574
+  orientation 0.74290597 -0.30772176 -0.59447283  1.217116
+  nearDistance 49.402287
+  farDistance 265.13651
   aspectRatio 1
   focalDistance 64.889854
-  height 193.61327
+  height 158.51733
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="6"><![CDATA[
+  <View3D id="21"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>
