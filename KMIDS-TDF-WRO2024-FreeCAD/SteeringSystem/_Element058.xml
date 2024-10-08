@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link" sub="1.$Element022."/>
+      <XLink file="" stamp="" name="Link" sub="1.$Element010."/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -196,14 +196,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="6">
 <![CDATA[
-72 PostfixCount 3
+60 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 72 3
+ElementMap 1 60 3
 
 Edge
 
@@ -211,9 +211,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#27a;:X;:He8e:3,E.0 0
-;#27b;:X;:He8e:3,E.0 0
-;#27c;:X;:He8e:3,E.0 0
+;#221;:X;:Hea3:3,E.0 0
+;#222;:X;:Hea3:3,E.0 0
+;#223;:X;:Hea3:3,E.0 0
 
 Face
 
@@ -221,7 +221,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#27d;:X;:He8e:3,F.0 0
+;#224;:X;:Hea3:3,F.0 0
 
 Vertex
 
@@ -229,8 +229,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#278;:X;:He8e:3,V.0 0
-;#279;:X;:He8e:3,V.0 0
+;#21f;:X;:Hea3:3,V.0 0
+;#220;:X;:Hea3:3,V.0 0
 
 EndMap
 ]]>
@@ -249,7 +249,7 @@ EndMap
       <Integer value="0"/>
     </Property>
     <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
-      <Integer value="0"/>
+      <Integer value="1"/>
     </Property>
     <Property name="_Parent" type="App::PropertyLinkHidden" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097162">
       <Link value="Elements"/>

@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad006" sub="Face51" shadow=";#2f32;:M;FUS;:H-132d:7,F.Face51"/>
-        <Link obj="Pad006" sub="Vertex59" shadow=";#3a0d;:M;FUS;:H-132d:7,V.Vertex59"/>
+        <Link obj="Pad008" sub="Face46" shadow=";#3fd8;:H1332,F.Face46"/>
+        <Link obj="Pad008" sub="Vertex56" shadow=";#3e50;:H1332,V.Vertex56"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -30,7 +30,7 @@
     <Property name="Constraints" type="Sketcher::PropertyConstraintList">
       <ConstraintList count="3">
         <Constrain Name="" Type="18" Value="4" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.8139731287956238" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="7" Value="5" First="-1" FirstPos="1" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.8139731287956238" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="7" Value="12" First="-1" FirstPos="1" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.8139731287956238" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="8" Value="12.5" First="-1" FirstPos="1" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.8139735460281372" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
@@ -83,7 +83,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="5" CenterY="12.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="2"/>
+          <Circle CenterX="12" CenterY="12.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="2"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -132,7 +132,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-18.7" Py="-129" Pz="5" Q0="0.5" Q1="-0.5" Q2="-0.5" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
+      <PropertyPlacement Px="-23" Py="-122" Pz="5" Q0="0.5" Q1="-0.5" Q2="-0.5" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -141,12 +141,12 @@ TShapes 0
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 1
 1
-              0               0              -1           -18.7 
-             -1               0               0            -129 
+              0               0              -1             -23 
+             -1               0               0            -122 
               0               1               0               5 
 Curve2ds 0
 Curves 1
-2 5 12.5 0 0 0 1 1 0 0 0 1 0 2
+2 12 12.5 0 0 0 1 1 0 0 0 1 0 2
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0
@@ -155,7 +155,7 @@ Triangulations 0
 TShapes 3
 Ve
 1e-07
-7 12.5 0
+14 12.5 0
 0 0
 
 0101101
@@ -208,17 +208,17 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad006" sub="Face51" shadow=";#2f32;:M;FUS;:H-132d:7,F.Face51"/>
-        <Link obj="Pad006" sub="Vertex59" shadow=";#3a0d;:M;FUS;:H-132d:7,V.Vertex59"/>
+        <Link obj="Pad008" sub="Face46" shadow=";#3fd8;:H1332,F.Face46"/>
+        <Link obj="Pad008" sub="Vertex56" shadow=";#3e50;:H1332,V.Vertex56"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="35"/>
+      <Integer value="38"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="648">
+    <Property name="Visibility" type="App::PropertyBool" status="649">
       <Bool value="false"/>
     </Property>
   </Properties>

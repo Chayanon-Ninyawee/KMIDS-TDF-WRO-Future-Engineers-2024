@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link" sub="1.$Element017."/>
+      <XLink file="" stamp="" name="Link" sub="1.$Element006."/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -50,7 +50,11 @@
 <![CDATA[
 
 CASCADE Topology V1, (c) Matra-Datavision
-Locations 18
+Locations 19
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
 1
               1               0               0               0 
               0               1               0               0 
@@ -79,8 +83,8 @@ Locations 18
               1               0               0               0 
               0               1               0               0 
               0               0               1               0 
-2  3 1 4 1 5 1 6 1 7 1 0
-2  7 -1 6 -1 5 -1 4 -1 3 -1 0
+2  3 1 4 1 5 1 6 1 7 1 8 1 0
+2  8 -1 7 -1 6 -1 5 -1 4 -1 3 -1 0
 1
               1               0               0               0 
               0               1               0               0 
@@ -89,16 +93,16 @@ Locations 18
               1               0               0               0 
               0              -1               0               0 
               0               0              -1               0 
-2  10 1 11 1 0
-2  11 -1 10 -1 0
-2  7 -1 6 -1 5 -1 4 -1 3 -1 11 -1 10 -1 0
+2  11 1 12 1 0
+2  12 -1 11 -1 0
+2  8 -1 7 -1 6 -1 5 -1 4 -1 3 -1 12 -1 11 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
               0               0               1             1.2 
-2  10 1 11 1 15 1 0
-2  15 -1 11 -1 10 -1 0
-2  7 -1 6 -1 5 -1 4 -1 3 -1 15 -1 11 -1 10 -1 0
+2  11 1 12 1 16 1 0
+2  16 -1 12 -1 11 -1 0
+2  8 -1 7 -1 6 -1 5 -1 4 -1 3 -1 16 -1 12 -1 11 -1 0
 Curve2ds 4
 1 0 0 0 -1 
 1 9.0000000003506813 0 0 -1 
@@ -137,7 +141,7 @@ Ed
 0
 
 0101000
-+12 9 -11 9 *
++12 10 -11 10 *
 Ve
 1e-07
 -12.4130116793651 9.99999618530271 16.9999999999984
@@ -159,27 +163,27 @@ Ed
 0
 
 0101000
-+9 9 -8 9 *
++9 10 -8 10 *
 Ed
  1e-07 1 1 0
 1  3 0 0 9.00000000035068
-2  3 1 13 0 9.00000000035068
+2  3 1 14 0 9.00000000035068
 0
 
 0101000
-+12 14 -9 14 *
++12 15 -9 15 *
 Ed
  1e-07 1 1 0
 1  4 0 0 9.00000000035068
-2  4 1 17 0 9.00000000035068
+2  4 1 18 0 9.00000000035068
 0
 
 0101000
-+11 18 -8 18 *
++11 19 -8 19 *
 Wi
 
 0101100
-+10 0 -7 0 -6 12 +5 16 *
++10 0 -7 0 -6 13 +5 17 *
 Fa
 0  1e-07 1 0
 
@@ -188,7 +192,7 @@ Fa
 Co
 
 0100000
--3 8 *
+-3 9 *
 Co
 
 1100000
@@ -199,14 +203,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="9">
 <![CDATA[
-65 PostfixCount 3
+62 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 65 3
+ElementMap 1 62 3
 
 Edge
 
@@ -214,10 +218,10 @@ ChildCount 0
 
 NameCount 5
 0
-;#71;:X;:He85:3,E.0 0
-;#72;:X;:He85:3,E.0 0
-;#73;:X;:He85:3,E.0 0
-;#74;:X;:He85:3,E.0 0
+;#212;:X;:He9f:3,E.0 0
+;#213;:X;:He9f:3,E.0 0
+;#214;:X;:He9f:3,E.0 0
+;#215;:X;:He9f:3,E.0 0
 
 Face
 
@@ -225,7 +229,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#75;:X;:He85:3,F.0 0
+;#216;:X;:He9f:3,F.0 0
 
 Vertex
 
@@ -233,17 +237,17 @@ ChildCount 0
 
 NameCount 5
 0
-;#6d;:X;:He85:3,V.0 0
-;#6e;:X;:He85:3,V.0 0
-;#6f;:X;:He85:3,V.0 0
-;#70;:X;:He85:3,V.0 0
+;#20e;:X;:He9f:3,V.0 0
+;#20f;:X;:He9f:3,V.0 0
+;#210;:X;:He9f:3,V.0 0
+;#211;:X;:He9f:3,V.0 0
 
 EndMap
 ]]>
       </ElementMap2>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="142"/>
+      <Integer value="149"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

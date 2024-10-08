@@ -116,8 +116,8 @@ Locations 21
 2  3 -1 18 -1 17 -1 16 -1 15 -1 14 -1 0
 Curve2ds 4
 1 0 0 0 -1 
-1 6.2831853071795862 0 0 -1 
-8 0 6.2831853071795862
+1 6.2831853071795898 0 0 -1 
+8 0 6.2831853071795898
 1 0 0 1 0 
 1 0 -3 1 0 
 Curves 3
@@ -184,7 +184,7 @@ Co
 +3 3 *
 Co
 
-0100000
+1100000
 +2 2 *
 
 +1 1 ]]>
@@ -233,7 +233,7 @@ EndMap
       </ElementMap2>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="5"/>
+      <Integer value="27"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>
