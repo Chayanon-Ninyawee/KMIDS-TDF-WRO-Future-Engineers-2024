@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad009" sub="Face71" shadow=";#41b2;:H1334,F.Face71"/>
-        <Link obj="Pad009" sub="Vertex86" shadow=";#4059;:H1334,V.Vertex86"/>
+        <Link obj="Pad009" sub="Face75" shadow=";#41b2;:H1334,F.Face75"/>
+        <Link obj="Pad009" sub="Vertex94" shadow=";#4059;:H1334,V.Vertex94"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -132,7 +132,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-23" Py="-122" Pz="29.5" Q0="0.5000000000000001" Q1="-0.5000000000000001" Q2="-0.5000000000000001" Q3="0.4999999999999997" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
+      <PropertyPlacement Px="-23" Py="-132" Pz="29.5" Q0="0.5000000000000001" Q1="-0.5000000000000001" Q2="-0.5000000000000001" Q3="0.4999999999999997" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -142,7 +142,7 @@ CASCADE Topology V1, (c) Matra-Datavision
 Locations 1
 1
               0               0              -1             -23 
-             -1               0               0            -122 
+             -1               0               0            -132 
               0               1               0            29.5 
 Curve2ds 0
 Curves 1
@@ -208,8 +208,8 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad009" sub="Face71" shadow=";#41b2;:H1334,F.Face71"/>
-        <Link obj="Pad009" sub="Vertex86" shadow=";#4059;:H1334,V.Vertex86"/>
+        <Link obj="Pad009" sub="Face75" shadow=";#41b2;:H1334,F.Face75"/>
+        <Link obj="Pad009" sub="Vertex94" shadow=";#4059;:H1334,V.Vertex94"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

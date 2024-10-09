@@ -3,7 +3,12 @@
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
 <Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="d9d84182-59f3-43d9-8f57-d6be847ba241" StringHasher="1">
-  <StringHasher saveall="0" threshold="0" count="0"></StringHasher>
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="1">
+<![CDATA[
+-1.0 0:Shape cache
+]]>
+  </StringHasher2>
   <Properties Count="21" TransientCount="3">
     <_Property name="FileName" type="App::PropertyString" status="50331649"/>
     <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
@@ -33,7 +38,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-09T11:01:21Z"/>
+      <String value="2024-10-09T13:39:02Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -41,11 +46,11 @@
     <Property name="LicenseURL" type="App::PropertyString" status="1">
       <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
     </Property>
-    <Property name="Material" type="App::PropertyMap">
+    <Property name="Material" type="App::PropertyMap" status="1">
       <Map count="0">
       </Map>
     </Property>
-    <Property name="Meta" type="App::PropertyMap">
+    <Property name="Meta" type="App::PropertyMap" status="1">
       <Map count="0">
       </Map>
     </Property>
@@ -193,56 +198,56 @@
     </ObjectDeps>
     <ObjectDeps Name="Compound002" Count="0"/>
     <ObjectDeps Name="Part" Count="42">
-      <Dep Name="Link018"/>
-      <Dep Name="Link"/>
-      <Dep Name="Link027"/>
-      <Dep Name="Link035"/>
-      <Dep Name="Link029"/>
-      <Dep Name="Link009"/>
-      <Dep Name="Compound"/>
-      <Dep Name="Link002"/>
-      <Dep Name="Link032"/>
-      <Dep Name="Link021"/>
-      <Dep Name="Link014"/>
-      <Dep Name="Link034"/>
-      <Dep Name="Link005"/>
-      <Dep Name="Link036"/>
-      <Dep Name="Link003"/>
-      <Dep Name="Link031"/>
-      <Dep Name="Link016"/>
-      <Dep Name="Link037"/>
-      <Dep Name="Link024"/>
-      <Dep Name="Link013"/>
-      <Dep Name="Link006"/>
-      <Dep Name="Link020"/>
-      <Dep Name="Link017"/>
-      <Dep Name="Link008"/>
-      <Dep Name="Link011"/>
-      <Dep Name="Link015"/>
       <Dep Name="Link025"/>
-      <Dep Name="Link030"/>
-      <Dep Name="Link007"/>
-      <Dep Name="Link010"/>
+      <Dep Name="Link027"/>
       <Dep Name="Link022"/>
-      <Dep Name="Link023"/>
-      <Dep Name="Link033"/>
-      <Dep Name="Link001"/>
-      <Dep Name="Link004"/>
-      <Dep Name="Compound001"/>
-      <Dep Name="Link012"/>
-      <Dep Name="Link028"/>
-      <Dep Name="Compound002"/>
-      <Dep Name="Link026"/>
+      <Dep Name="Link014"/>
       <Dep Name="Link019"/>
+      <Dep Name="Link"/>
+      <Dep Name="Link031"/>
+      <Dep Name="Link017"/>
+      <Dep Name="Link004"/>
+      <Dep Name="Link005"/>
+      <Dep Name="Link008"/>
+      <Dep Name="Link013"/>
+      <Dep Name="Link010"/>
+      <Dep Name="Link026"/>
+      <Dep Name="Link015"/>
+      <Dep Name="Link024"/>
+      <Dep Name="Link018"/>
+      <Dep Name="Compound"/>
+      <Dep Name="Link023"/>
+      <Dep Name="Link003"/>
+      <Dep Name="Link016"/>
+      <Dep Name="Link029"/>
       <Dep Name="Origin"/>
+      <Dep Name="Link020"/>
+      <Dep Name="Link009"/>
+      <Dep Name="Link021"/>
+      <Dep Name="Link032"/>
+      <Dep Name="Compound002"/>
+      <Dep Name="Link012"/>
+      <Dep Name="Link001"/>
+      <Dep Name="Link002"/>
+      <Dep Name="Link011"/>
+      <Dep Name="Link036"/>
+      <Dep Name="Link037"/>
+      <Dep Name="Link006"/>
+      <Dep Name="Link007"/>
+      <Dep Name="Link028"/>
+      <Dep Name="Link033"/>
+      <Dep Name="Link034"/>
+      <Dep Name="Link035"/>
+      <Dep Name="Compound001"/>
+      <Dep Name="Link030"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
       <Dep Name="X_Axis"/>
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="XY_Plane"/>
-      <Dep Name="Z_Axis"/>
       <Dep Name="Y_Axis"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="XY_Plane"/>
       <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>

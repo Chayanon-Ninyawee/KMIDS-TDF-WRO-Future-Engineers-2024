@@ -52,7 +52,7 @@
       <String value=""/>
     </Property>
     <Property name="LinkPlacement" type="App::PropertyPlacement" status="264">
-      <PropertyPlacement Px="-8.890000000000001" Py="-3.81" Pz="-0.500000000000001" Q0="0" Q1="0" Q2="1" Q3="0" A="3.141592653589793" Ox="0" Oy="0" Oz="1"/>
+      <PropertyPlacement Px="-8.890000000000001" Py="-3.81" Pz="-0.500000000000001" Q0="0" Q1="0" Q2="1" Q3="6.123233995736766e-17" A="3.141592653589793" Ox="0" Oy="0" Oz="1"/>
     </Property>
     <Property name="LinkTransform" type="App::PropertyBool" status="256">
       <Bool value="false"/>
@@ -67,7 +67,7 @@
       <MatrixList file=""/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="256">
-      <PropertyPlacement Px="-8.890000000000001" Py="-3.81" Pz="-0.500000000000001" Q0="0" Q1="0" Q2="1" Q3="0" A="3.141592653589793" Ox="0" Oy="0" Oz="1"/>
+      <PropertyPlacement Px="-8.890000000000001" Py="-3.81" Pz="-0.500000000000001" Q0="0" Q1="0" Q2="1" Q3="6.123233995736766e-17" A="3.141592653589793" Ox="0" Oy="0" Oz="1"/>
     </Property>
     <Property name="PlacementList" type="App::PropertyPlacementList" status="256">
       <PlacementList file=""/>
@@ -87,7 +87,7 @@
     <Property name="SyncGroupVisibility" type="App::PropertyBool" status="256">
       <Bool value="false"/>
     </Property>
-    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
       <Integer value="81"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
