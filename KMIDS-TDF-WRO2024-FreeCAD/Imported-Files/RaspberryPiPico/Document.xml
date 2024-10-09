@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="d9d84182-59f3-43d9-8f57-d6be847ba241" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0"></StringHasher>
+  <Properties Count="21" TransientCount="3">
+    <_Property name="FileName" type="App::PropertyString" status="50331649"/>
+    <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
+    <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
+    <Property name="Comment" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Company" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreatedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreationDate" type="App::PropertyString" status="16777217">
+      <String value="2024-10-09T11:00:38Z"/>
+    </Property>
+    <Property name="ForceXML" type="App::PropertyInteger" status="1">
+      <Integer value="3"/>
+    </Property>
+    <Property name="Id" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="1">
+      <String value="RaspberryPiPico"/>
+    </Property>
+    <Property name="LastModifiedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
+      <String value="2024-10-09T11:01:21Z"/>
+    </Property>
+    <Property name="License" type="App::PropertyString" status="1">
+      <String value="All rights reserved"/>
+    </Property>
+    <Property name="LicenseURL" type="App::PropertyString" status="1">
+      <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+    </Property>
+    <Property name="Material" type="App::PropertyMap">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Meta" type="App::PropertyMap">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="PreferBinary" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ShowHidden" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SplitXML" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailFile" type="App::PropertyFile">
+      <String value=""/>
+    </Property>
+    <Property name="TipName" type="App::PropertyString" status="83886080">
+      <String value=""/>
+    </Property>
+    <Property name="Uid" type="App::PropertyUUID" status="16777217">
+      <Uuid value="d9d84182-59f3-43d9-8f57-d6be847ba241"/>
+    </Property>
+    <Property name="UseHasher" type="App::PropertyBool" status="67108865">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+  <Objects Count="49" Dependencies="1">
+    <ObjectDeps Name="Compound" Count="0"/>
+    <ObjectDeps Name="Link" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link001" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link002" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link003" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link004" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link005" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link006" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link007" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link008" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link009" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link010" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link011" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link012" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link013" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link014" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link015" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link016" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link017" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link018" Count="1">
+      <Dep Name="Compound"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Compound001" Count="0"/>
+    <ObjectDeps Name="Link019" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link020" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link021" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link022" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link023" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link024" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link025" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link026" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link027" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link028" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link029" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link030" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link031" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link032" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link033" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link034" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link035" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link036" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link037" Count="1">
+      <Dep Name="Compound001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Compound002" Count="0"/>
+    <ObjectDeps Name="Part" Count="42">
+      <Dep Name="Link018"/>
+      <Dep Name="Link"/>
+      <Dep Name="Link027"/>
+      <Dep Name="Link035"/>
+      <Dep Name="Link029"/>
+      <Dep Name="Link009"/>
+      <Dep Name="Compound"/>
+      <Dep Name="Link002"/>
+      <Dep Name="Link032"/>
+      <Dep Name="Link021"/>
+      <Dep Name="Link014"/>
+      <Dep Name="Link034"/>
+      <Dep Name="Link005"/>
+      <Dep Name="Link036"/>
+      <Dep Name="Link003"/>
+      <Dep Name="Link031"/>
+      <Dep Name="Link016"/>
+      <Dep Name="Link037"/>
+      <Dep Name="Link024"/>
+      <Dep Name="Link013"/>
+      <Dep Name="Link006"/>
+      <Dep Name="Link020"/>
+      <Dep Name="Link017"/>
+      <Dep Name="Link008"/>
+      <Dep Name="Link011"/>
+      <Dep Name="Link015"/>
+      <Dep Name="Link025"/>
+      <Dep Name="Link030"/>
+      <Dep Name="Link007"/>
+      <Dep Name="Link010"/>
+      <Dep Name="Link022"/>
+      <Dep Name="Link023"/>
+      <Dep Name="Link033"/>
+      <Dep Name="Link001"/>
+      <Dep Name="Link004"/>
+      <Dep Name="Compound001"/>
+      <Dep Name="Link012"/>
+      <Dep Name="Link028"/>
+      <Dep Name="Compound002"/>
+      <Dep Name="Link026"/>
+      <Dep Name="Link019"/>
+      <Dep Name="Origin"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="X_Axis"/>
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="Y_Axis"/>
+      <Dep Name="XZ_Plane"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis" Count="0"/>
+    <ObjectDeps Name="Y_Axis" Count="0"/>
+    <ObjectDeps Name="Z_Axis" Count="0"/>
+    <ObjectDeps Name="XY_Plane" Count="0"/>
+    <ObjectDeps Name="XZ_Plane" Count="0"/>
+    <ObjectDeps Name="YZ_Plane" Count="0"/>
+    <Object type="Part::Feature" name="Compound" id="4235" revision="0" file="Compound.xml" />
+    <Object type="App::Link" name="Link" id="4236" revision="0" file="Link.xml" />
+    <Object type="App::Link" name="Link001" id="4237" revision="0" file="Link001.xml" />
+    <Object type="App::Link" name="Link002" id="4238" revision="0" file="Link002.xml" />
+    <Object type="App::Link" name="Link003" id="4239" revision="0" file="Link003.xml" />
+    <Object type="App::Link" name="Link004" id="4240" revision="0" file="Link004.xml" />
+    <Object type="App::Link" name="Link005" id="4241" revision="0" file="Link005.xml" />
+    <Object type="App::Link" name="Link006" id="4242" revision="0" file="Link006.xml" />
+    <Object type="App::Link" name="Link007" id="4243" revision="0" file="Link007.xml" />
+    <Object type="App::Link" name="Link008" id="4244" revision="0" file="Link008.xml" />
+    <Object type="App::Link" name="Link009" id="4245" revision="0" file="Link009.xml" />
+    <Object type="App::Link" name="Link010" id="4246" revision="0" file="Link010.xml" />
+    <Object type="App::Link" name="Link011" id="4247" revision="0" file="Link011.xml" />
+    <Object type="App::Link" name="Link012" id="4248" revision="0" file="Link012.xml" />
+    <Object type="App::Link" name="Link013" id="4249" revision="0" file="Link013.xml" />
+    <Object type="App::Link" name="Link014" id="4250" revision="0" file="Link014.xml" />
+    <Object type="App::Link" name="Link015" id="4251" revision="0" file="Link015.xml" />
+    <Object type="App::Link" name="Link016" id="4252" revision="0" file="Link016.xml" />
+    <Object type="App::Link" name="Link017" id="4253" revision="0" file="Link017.xml" />
+    <Object type="App::Link" name="Link018" id="4254" revision="0" file="Link018.xml" />
+    <Object type="Part::Feature" name="Compound001" id="4255" revision="0" file="Compound001.xml" />
+    <Object type="App::Link" name="Link019" id="4256" revision="0" file="Link019.xml" />
+    <Object type="App::Link" name="Link020" id="4257" revision="0" file="Link020.xml" />
+    <Object type="App::Link" name="Link021" id="4258" revision="0" file="Link021.xml" />
+    <Object type="App::Link" name="Link022" id="4259" revision="0" file="Link022.xml" />
+    <Object type="App::Link" name="Link023" id="4260" revision="0" file="Link023.xml" />
+    <Object type="App::Link" name="Link024" id="4261" revision="0" file="Link024.xml" />
+    <Object type="App::Link" name="Link025" id="4262" revision="0" file="Link025.xml" />
+    <Object type="App::Link" name="Link026" id="4263" revision="0" file="Link026.xml" />
+    <Object type="App::Link" name="Link027" id="4264" revision="0" file="Link027.xml" />
+    <Object type="App::Link" name="Link028" id="4265" revision="0" file="Link028.xml" />
+    <Object type="App::Link" name="Link029" id="4266" revision="0" file="Link029.xml" />
+    <Object type="App::Link" name="Link030" id="4267" revision="0" file="Link030.xml" />
+    <Object type="App::Link" name="Link031" id="4268" revision="0" file="Link031.xml" />
+    <Object type="App::Link" name="Link032" id="4269" revision="0" file="Link032.xml" />
+    <Object type="App::Link" name="Link033" id="4270" revision="0" file="Link033.xml" />
+    <Object type="App::Link" name="Link034" id="4271" revision="0" file="Link034.xml" />
+    <Object type="App::Link" name="Link035" id="4272" revision="0" file="Link035.xml" />
+    <Object type="App::Link" name="Link036" id="4273" revision="0" file="Link036.xml" />
+    <Object type="App::Link" name="Link037" id="4274" revision="0" file="Link037.xml" />
+    <Object type="Part::Feature" name="Compound002" id="4275" revision="0" file="Compound002.xml" />
+    <Object type="App::Part" name="Part" id="4276" revision="0" file="Part.xml" />
+    <Object type="App::Origin" name="Origin" id="4277" revision="0" file="Origin.xml" />
+    <Object type="App::Line" name="X_Axis" id="4278" revision="1" file="X_Axis.xml" />
+    <Object type="App::Line" name="Y_Axis" id="4279" revision="2" file="Y_Axis.xml" />
+    <Object type="App::Line" name="Z_Axis" id="4280" revision="2" file="Z_Axis.xml" />
+    <Object type="App::Plane" name="XY_Plane" id="4281" revision="1" file="XY_Plane.xml" />
+    <Object type="App::Plane" name="XZ_Plane" id="4282" revision="2" file="XZ_Plane.xml" />
+    <Object type="App::Plane" name="YZ_Plane" id="4283" revision="2" file="YZ_Plane.xml" />
+  </Objects>
+  <ObjectData Count="0">
+  </ObjectData>
+</Document>
