@@ -33,13 +33,13 @@
         <Link value="Link007"/>
         <Link value="Link008"/>
         <Link value="Link009"/>
-        <Link value="Link010"/>
         <Link value="Link011"/>
         <Link value="Link012"/>
         <Link value="Link013"/>
         <Link value="Link014"/>
         <Link value="Link015"/>
         <Link value="Link016"/>
+        <Link value="Link017"/>
       </LinkList>
     </Property>
     <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097408">
@@ -60,7 +60,7 @@
     <Property name="Proxy" type="App::PropertyPythonObject">
       <Python  module="freecad.asm3.assembly" class="AsmPartGroup" value="null"/>
     </Property>
-    <Property name="Shape" type="Part::PropertyPartShape">
+    <Property name="Shape" type="Part::PropertyPartShape" status="1">
       <Part ElementMap="0.15.70200.4" brep="1">
 <![CDATA[
 

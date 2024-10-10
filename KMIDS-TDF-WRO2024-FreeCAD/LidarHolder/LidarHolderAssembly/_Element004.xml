@@ -83,11 +83,11 @@ Curve2ds 4
 Curves 3
 1 12.25 -21.5 3 -0 -0 -1 
 2 11 -21.5 0 0 0 1 1 0 -0 -0 1 0 1.25
-2 11 -21.5 0 0 0 1 1 0 0 0 1 0 1.25
+2 11 -21.5 0 0 0 1 1 0 -0 -0 1 0 1.25
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-2 11 -21.5 3 0 0 1 1 0 0 0 1 0 1.25
+2 11 -21.5 3 0 0 1 1 0 -0 -0 1 0 1.25
 Triangulations 0
 
 TShapes 9

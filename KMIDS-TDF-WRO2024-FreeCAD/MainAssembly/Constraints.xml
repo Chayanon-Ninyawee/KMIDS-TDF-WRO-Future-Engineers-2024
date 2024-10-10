@@ -36,8 +36,6 @@
         <Link value="Constraint022"/>
         <Link value="Constraint023"/>
         <Link value="Constraint024"/>
-        <Link value="Constraint025"/>
-        <Link value="Constraint026"/>
         <Link value="Constraint027"/>
         <Link value="Constraint028"/>
         <Link value="Constraint029"/>
@@ -53,6 +51,8 @@
         <Link value="Constraint039"/>
         <Link value="Constraint040"/>
         <Link value="Constraint041"/>
+        <Link value="Constraint042"/>
+        <Link value="Constraint043"/>
       </LinkList>
     </Property>
     <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097434"></Property>
