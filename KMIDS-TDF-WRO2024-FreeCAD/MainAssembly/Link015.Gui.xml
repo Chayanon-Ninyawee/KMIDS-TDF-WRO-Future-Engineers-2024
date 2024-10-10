@@ -4,7 +4,7 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="Link015" expanded="1" Extensions="True">
+<ViewProvider name="Link015" expanded="0" Extensions="True">
   <Extensions Count="1">
     <Extension type="Gui::ViewProviderLinkObserver" name="ViewProviderLinkObserver">
     </Extension>

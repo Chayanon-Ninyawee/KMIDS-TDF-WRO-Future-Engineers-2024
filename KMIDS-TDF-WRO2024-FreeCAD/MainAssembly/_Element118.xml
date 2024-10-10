@@ -113,13 +113,13 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="3">
 <![CDATA[
-137 PostfixCount 2
+136 PostfixCount 2
 Edge
 Vertex
 
 MapCount 1
 
-ElementMap 1 137 2
+ElementMap 1 136 2
 
 Edge
 

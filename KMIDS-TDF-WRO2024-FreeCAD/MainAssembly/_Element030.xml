@@ -168,7 +168,7 @@ Co
 +3 6 *
 Co
 
-1100000
+0100000
 +2 2 *
 
 +1 1 ]]>
@@ -176,14 +176,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="6">
 <![CDATA[
-39 PostfixCount 3
+38 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 39 3
+ElementMap 1 38 3
 
 Edge
 

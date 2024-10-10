@@ -193,14 +193,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="9">
 <![CDATA[
-72 PostfixCount 3
+71 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 72 3
+ElementMap 1 71 3
 
 Edge
 
@@ -208,10 +208,10 @@ ChildCount 0
 
 NameCount 5
 0
-;#104;:X;:Head:3,E.0 0
-;#105;:X;:Head:3,E.0 0
-;#106;:X;:Head:3,E.0 0
-;#107;:X;:Head:3,E.0 0
+;#122;:X;:Head:3,E.0 0
+;#123;:X;:Head:3,E.0 0
+;#124;:X;:Head:3,E.0 0
+;#125;:X;:Head:3,E.0 0
 
 Face
 
@@ -219,7 +219,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#108;:X;:Head:3,F.0 0
+;#126;:X;:Head:3,F.0 0
 
 Vertex
 
@@ -227,10 +227,10 @@ ChildCount 0
 
 NameCount 5
 0
-;#100;:X;:Head:3,V.0 0
-;#101;:X;:Head:3,V.0 0
-;#102;:X;:Head:3,V.0 0
-;#103;:X;:Head:3,V.0 0
+;#11e;:X;:Head:3,V.0 0
+;#11f;:X;:Head:3,V.0 0
+;#120;:X;:Head:3,V.0 0
+;#121;:X;:Head:3,V.0 0
 
 EndMap
 ]]>

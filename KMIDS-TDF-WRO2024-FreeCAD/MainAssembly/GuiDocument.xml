@@ -9,37 +9,33 @@
 <Expand  count="1">
   <Expand name="Assembly" count="2">
     <Expand name="Constraints"/>
-    <Expand name="Parts" count="3">
+    <Expand name="Parts" count="2">
       <Expand name="Link" count="1">
-        <Expand name="Parts" count="1">
+        <Expand name="Parts" count="2">
           <Expand name="Link"/>
+          <Expand name="Link001"/>
         </Expand>
       </Expand>
-      <Expand name="Link011"/>
-      <Expand name="Link015" count="1">
-        <Expand name="Parts" count="1">
-          <Expand name="Link"/>
-        </Expand>
-      </Expand>
+      <Expand name="Link016"/>
     </Expand>
   </Expand>
 </Expand>
-  <Camera extra="0" id="65" binding="0" view3d="1">
+  <Camera extra="0" id="89" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 107.41973 -153.55754 131.6114
+  position 49.98613 -107.47445 87.062126
   orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance 4.1433592
-  farDistance 274.58218
+  nearDistance -81.257042
+  farDistance 189.01086
   aspectRatio 1
   focalDistance 64.889854
-  height 189.52368
+  height 231.48532
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="65"><![CDATA[
+  <View3D id="89"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>
