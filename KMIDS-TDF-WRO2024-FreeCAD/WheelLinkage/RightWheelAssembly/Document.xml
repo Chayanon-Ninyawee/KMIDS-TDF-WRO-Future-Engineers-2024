@@ -4,7 +4,7 @@
 -->
 <Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="c5806d3e-8e2a-4301-b04d-68058805f168" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="359">
+  <StringHasher2  count="472">
 <![CDATA[
 -2.0 0:;:H12,E;:H14,E;:X;:H1:a,E;:H59f:12,E;:H5a1:1d,E
 -1.c.1 #596
@@ -365,6 +365,119 @@
 -1.c.0 #7a4
 -1.c.0 #7a6
 -1.0 0:Shape cache
+-1.0 0:;:M;FLT;:H3c0:7,E;:H3c1,E;:X;:H3a0:b,E;:H625:15,E;:H5a1:20,E
+-1.c.1 #2d1
+-1.0 0:;:U;FLT;:H3c0:7,E;:H3c1,E;:X;:H3a0:b,E;:H625:15,E;:H5a1:20,E
+-1.c.1 #5d9
+-1.0 0:;:U2;FLT;:H3c0:8,E;:H3c1,E;:X;:H3a0:b,E;:H625:15,E;:H5a1:20,E
+-1.c.1 #5fb
+-1.c.-4 #2d2
+-1.c.2 #5dc
+-1.c.0 #5fb
+-1.c.-2 #2d3
+-1.c.0 #268
+-1.c.2 #5ee
+-1.0 0:;:H3c0,E;:H3c1,E;:X;:H3a0:b,E;:H625:15,E;:H5a1:20,E
+-1.c.1 #5b2
+-1.c.0 #26d
+-1.c.0 #5b1
+-1.c.0 #5b3
+-1.0 0:;:U3;FLT;:H3c0:8,E;:H3c1,E;:X;:H3a0:b,E;:H625:15,E;:H5a1:20,E
+-1.c.1 #5dc
+-1.0 0:;:U4;FLT;:H3c0:8,E;:H3c1,E;:X;:H3a0:b,E;:H625:15,E;:H5a1:20,E
+-1.c.1 #5dc
+-1.c.-2 #5fb
+-1.c.2 #5fb
+-1.c.-13 #2d4
+-1.c.0 #269
+-1.c.13 #5ee
+-1.c.-7 #538
+-1.c.0 #552
+-1.c.0 #556
+-1.c.0 #55a
+-1.c.-8 #5ee
+-1.c.d #5ee
+-1.c.-5 #5be
+-1.c.0 #5bf
+-1.c.0 #539
+-1.c.0 #5bb
+-1.c.0 #5bd
+-1.c.0 #5c0
+-1.c.0 #5c1
+-1.c.0 #611
+-1.c.0 #612
+-1.c.0 #5b5
+-1.c.0 #613
+-1.c.0 #614
+-1.c.0 #5b7
+-1.c.0 #615
+-1.c.0 #616
+-1.c.0 #5b9
+-1.c.0 #5c7
+-1.c.0 #5c5
+-1.c.0 #5c3
+-1.c.0 #5c2
+-1.c.0 #5c6
+-1.c.0 #5c4
+-1.0 0:;:M;FLT;:H3c0:7,F;:H3c1,F;:X;:H3a0:b,F;:H625:15,F;:H5a1:20,F
+-1.c.1 #2d5
+-1.c.0 #617
+-1.0 0:;:G;FLT;:H3c0:7,F;:H3c1,F;:X;:H3a0:b,F;:H625:15,F;:H5a1:20,F
+-1.c.1 #2d7
+-1.c.0 #266
+-1.c.-3 #618
+-1.c.0 #2d9
+-1.c.0 #2b3
+-1.c.3 #267
+-1.0 0:;:H3c0,F;:H3c1,F;:X;:H3a0:b,F;:H625:15,F;:H5a1:20,F
+-1.c.1 #5ce
+-1.c.0 #53a
+-1.c.0 #5cd
+-1.c.0 #5cf
+-1.c.0 #5c9
+-1.c.0 #5ca
+-1.c.0 #5cb
+-1.c.0 #5d5
+-1.c.0 #5d4
+-1.c.0 #5d6
+-1.c.0 #5d0
+-1.c.0 #5d2
+-1.c.0 #5d1
+-1.0 0:;:U;FLT;:H3c0:7,V;:H3c1,V;:X;:H3a0:b,V;:H625:15,V;:H5a1:20,V
+-1.c.1 #5de
+-1.0 0:;:U2;FLT;:H3c0:8,V;:H3c1,V;:X;:H3a0:b,V;:H625:15,V;:H5a1:20,V
+-1.c.1 #5de
+-1.c.-2 #5df
+-1.c.2 #5df
+-1.c.0 #5e0
+-1.c.0 #5ef
+-1.c.-2 #5e0
+-1.c.0 #5ef
+-1.0 0:;:H3c0,V;:H3c1,V;:X;:H3a0:b,V;:H625:15,V;:H5a1:20,V
+-1.c.1 #5a4
+-1.c.0 #238
+-1.c.0 #5a3
+-1.c.0 #5a5
+-1.c.-8 #5e1
+-1.c.0 #5f0
+-1.c.-2 #5e1
+-1.c.0 #5f0
+-1.c.a #537
+-1.c.0 #564
+-1.c.0 #567
+-1.c.0 #56a
+-1.c.0 #5ab
+-1.c.0 #5aa
+-1.c.0 #5ac
+-1.c.0 #60b
+-1.c.0 #60c
+-1.c.0 #60d
+-1.c.0 #60e
+-1.c.0 #60f
+-1.c.0 #610
+-1.c.0 #5af
+-1.c.0 #5ae
+-1.c.0 #5ad
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -396,7 +509,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-09T13:03:46Z"/>
+      <String value="2024-10-10T13:08:49Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -442,8 +555,8 @@
     <ObjectDeps Name="Part__Mirroring" Count="1">
       <Dep Name="Link"/>
     </ObjectDeps>
-    <Object type="App::Link" name="Link" id="910" revision="35" file="Link.xml" />
-    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="17" file="Part__Mirroring.xml" />
+    <Object type="App::Link" name="Link" id="910" revision="36" file="Link.xml" />
+    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="18" file="Part__Mirroring.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

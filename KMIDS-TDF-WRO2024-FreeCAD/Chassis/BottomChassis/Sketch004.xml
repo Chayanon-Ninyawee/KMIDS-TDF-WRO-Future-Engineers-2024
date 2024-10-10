@@ -34,8 +34,8 @@
         <Constrain Name="" Type="8" Value="12.5" First="-1" FirstPos="1" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.8139735460281372" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="7" Value="12" First="-1" FirstPos="1" Second="2" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.9941921234130859" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="7" Value="12" First="-1" FirstPos="1" Second="1" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.9941921234130859" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="8" Value="8" First="0" FirstPos="3" Second="1" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309096336365" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="8" Value="8" First="2" FirstPos="3" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309096336365" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="8" Value="10" First="0" FirstPos="3" Second="1" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309096336365" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="8" Value="10" First="2" FirstPos="3" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309096336365" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="18" Value="3" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.8139758110046387" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="12" Value="0" First="1" FirstPos="0" Second="2" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
@@ -96,14 +96,14 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="12" CenterY="20.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="12" CenterY="22.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="3" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="12" CenterY="4.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="12" CenterY="2.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -197,14 +197,14 @@ Curve2ds 6
 1 0 -18628.307619531435 1 0 
 Curves 3
 2 12 12.5 0 0 0 1 1 0 0 0 1 0 2.3999999999999999
-2 12 20.5 0 0 0 1 1 0 -0 -0 1 0 1.5
-2 12 4.5 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 12 22.5 0 0 0 1 1 0 0 0 1 0 1.5
+2 12 2.5 0 0 0 1 1 0 0 0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 3
 2 -23 -144 17.5 -1 0 0 0 -1 0 0 0 1 2.3999999999999999
-2 -23 -144 25.5 -1 0 0 0 -1 0 0 0 1 1.5
-2 -23 -144 9.5 -1 0 0 0 -1 0 0 0 1 1.5
+2 -23 -144 27.5 -1 0 0 0 -1 0 0 0 1 1.5
+2 -23 -144 7.5 -1 0 0 0 -1 0 0 0 1 1.5
 Triangulations 0
 
 TShapes 10
@@ -230,7 +230,7 @@ Wi
 +9 0 *
 Ve
 1e-07
-13.5 20.5 0
+13.5 22.5 0
 0 0
 
 0101101
@@ -250,7 +250,7 @@ Wi
 +6 0 *
 Ve
 1e-07
-13.5 4.5 0
+13.5 2.5 0
 0 0
 
 0101101

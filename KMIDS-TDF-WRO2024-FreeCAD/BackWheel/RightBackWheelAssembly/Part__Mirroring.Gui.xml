@@ -20,7 +20,7 @@
       <Float value="0.02"/>
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
-      <ColorList count="92" >
+      <ColorList count="110" >
 d2d8e100
 d2d8e100
 d2d8e100
@@ -101,6 +101,24 @@ cccccc00
 cccccc00
 d2d8e100
 cccccc00
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
 d2d8e100
 d2d8e100
 d2d8e100
