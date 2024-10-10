@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad013" sub="Face86" shadow=";#4f29;:H-133e,F.Face86"/>
-        <Link obj="Pad013" sub="Vertex106" shadow=";#4f22;:H-133e,V.Vertex106"/>
+        <Link obj="Pad013" sub="Face90" shadow=";#4f29;:H-133e,F.Face90"/>
+        <Link obj="Pad013" sub="Vertex110" shadow=";#4f22;:H-133e,V.Vertex110"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -161,7 +161,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-25.5" Py="-124" Pz="27" Q0="0" Q1="0" Q2="1" Q3="6.123233995736766e-17" A="3.141592653589793" Ox="0" Oy="0" Oz="1"/>
+      <PropertyPlacement Px="-25.5" Py="-124" Pz="27" Q0="0" Q1="0" Q2="1" Q3="-0" A="3.141592653589793" Ox="0" Oy="0" Oz="1"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -288,8 +288,8 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad013" sub="Face86" shadow=";#4f29;:H-133e,F.Face86"/>
-        <Link obj="Pad013" sub="Vertex106" shadow=";#4f22;:H-133e,V.Vertex106"/>
+        <Link obj="Pad013" sub="Face90" shadow=";#4f29;:H-133e,F.Face90"/>
+        <Link obj="Pad013" sub="Vertex110" shadow=";#4f22;:H-133e,V.Vertex110"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

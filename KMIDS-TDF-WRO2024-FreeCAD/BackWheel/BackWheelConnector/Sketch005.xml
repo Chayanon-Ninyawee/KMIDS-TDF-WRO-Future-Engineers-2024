@@ -130,7 +130,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-35" Py="2.191863504325811e-14" Pz="-1.170853805852719e-14" Q0="-0.5" Q1="0.5000000000000002" Q2="0.5000000000000001" Q3="-0.4999999999999998" A="4.188790204786391" Ox="-0.5773502691896257" Oy="0.577350269189626" Oz="0.5773502691896258"/>
+      <PropertyPlacement Px="-22" Py="0" Pz="0" Q0="0.5" Q1="-0.5" Q2="-0.5" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -139,12 +139,12 @@ TShapes 0
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 1
 1
--6.66133814775094e-16 -3.33066907387547e-16              -1             -35 
-             -1 -1.11022302462515e-16 6.66133814775094e-16 2.19186350432581e-14 
--1.11022302462516e-16               1 -3.33066907387547e-16 -1.17085380585272e-14 
+              0               0              -1             -22 
+             -1               0               0               0 
+              0               1               0               0 
 Curve2ds 0
 Curves 1
-2 0 0 0 0 0 1 1 0 -0 -0 1 0 4.5499999999999998
+2 0 0 0 0 0 1 1 0 0 0 1 0 4.5499999999999998
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0
@@ -215,7 +215,7 @@ EndMap
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="649">
+    <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
     </Property>
   </Properties>

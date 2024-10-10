@@ -161,7 +161,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-23" Py="0" Pz="0" Q0="0.5" Q1="-0.5" Q2="-0.5" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
+      <PropertyPlacement Px="-28" Py="0" Pz="0" Q0="0.5" Q1="-0.5" Q2="-0.5" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -170,11 +170,11 @@ TShapes 0
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 6
 1
-              0               0              -1             -23 
+              0               0              -1             -28 
              -1               0               0               0 
               0               1               0               0 
 1
-              0               0              -1             -23 
+              0               0              -1             -28 
              -1               0               0               0 
               0               1               0               0 
 1
@@ -201,9 +201,9 @@ Curves 4
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 3
-2 -23 3.2094610136336979e-32 -7.3945423625609919e-32 1 -0 -0 0 -1 0 0 0 1 4
-1 -23 3.708099243547831 -1.5 0 0 1 0 -1 0 1 0 -0 
-2 -23 3.2094610136336979e-32 -7.3945423625609919e-32 1 -0 -0 0 -1 0 0 0 1 4
+2 -28 3.2094610136336979e-32 -7.3945423625609919e-32 1 -0 -0 0 -1 0 0 0 1 4
+1 -28 3.708099243547831 -1.5 0 0 1 0 -1 0 1 0 -0 
+2 -28 3.2094610136336979e-32 -7.3945423625609919e-32 1 -0 -0 0 -1 0 0 0 1 4
 Triangulations 0
 
 TShapes 9
