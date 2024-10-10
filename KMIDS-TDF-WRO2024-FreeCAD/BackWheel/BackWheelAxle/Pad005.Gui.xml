@@ -4,7 +4,7 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="Pad004" expanded="0" Extensions="True">
+<ViewProvider name="Pad005" expanded="1" Extensions="True">
   <Extensions Count="2">
     <Extension type="Gui::ViewProviderLinkObserver" name="ViewProviderLinkObserver">
     </Extension>
@@ -19,7 +19,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="Deviation" type="App::PropertyFloatConstraint" status="1">
-      <Float value="0.02"/>
+      <Float value="0.2"/>
     </Property>
     <Property name="DiffuseColor" type="App::PropertyColorList" status="1">
       <ColorList count="1" >
@@ -112,7 +112,7 @@ d2d8e100
       <Integer value="0"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="1">
-      <Bool value="false"/>
+      <Bool value="true"/>
     </Property>
   </Properties>
 </ViewProvider>
