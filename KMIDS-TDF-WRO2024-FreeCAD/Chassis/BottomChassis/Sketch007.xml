@@ -38,7 +38,7 @@
         <Constrain Name="" Type="3" Value="0" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="3" Value="0" First="3" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="0" FirstPos="1" Second="-1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="6" Value="24" First="3" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="2.212612867355347" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="28" First="3" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="2.212612867355347" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="6" Value="22" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="2.212612867355347" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
@@ -98,21 +98,21 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-22" StartY="0" StartZ="0" EndX="-22" EndY="-24" EndZ="0"/>
+          <LineSegment StartX="-22" StartY="0" StartZ="0" EndX="-22" EndY="-28" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="3" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-22" StartY="-24" StartZ="0" EndX="0" EndY="-24" EndZ="0"/>
+          <LineSegment StartX="-22" StartY="-28" StartZ="0" EndX="0" EndY="-28" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="4" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="4" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="0" StartY="-24" StartZ="0" EndX="0" EndY="0" EndZ="0"/>
+          <LineSegment StartX="0" StartY="-28" StartZ="0" EndX="0" EndY="0" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -161,7 +161,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="16" Py="-156" Pz="55.5" Q0="1" Q1="0" Q2="0" Q3="0" A="3.141592653589793" Ox="1" Oy="0" Oz="0"/>
+      <PropertyPlacement Px="16" Py="-158" Pz="55.5" Q0="1" Q1="0" Q2="0" Q3="0" A="3.141592653589793" Ox="1" Oy="0" Oz="0"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -171,14 +171,14 @@ CASCADE Topology V1, (c) Matra-Datavision
 Locations 1
 1
               1               0               0              16 
-              0              -1               0            -156 
+              0              -1               0            -158 
               0               0              -1            55.5 
 Curve2ds 0
 Curves 4
 1 0 0 0 -1 0 0 
 1 -22 0 0 0 -1 0 
-1 -22 -24 0 1 0 0 
-1 0 -24 0 0 1 0 
+1 -22 -28 0 1 0 0 
+1 0 -28 0 0 1 0 
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0
@@ -208,21 +208,21 @@ Ed
 +9 0 -8 0 *
 Ve
 1e-07
--22 -24 0
+-22 -28 0
 0 0
 
 0101101
 *
 Ed
  1e-07 1 1 0
-1  2 0 0 24
+1  2 0 0 28
 0
 
 0101000
 +8 0 -6 0 *
 Ve
 1e-07
-0 -24 0
+0 -28 0
 0 0
 
 0101101
@@ -236,7 +236,7 @@ Ed
 +6 0 -4 0 *
 Ed
  1e-07 1 1 0
-1  4 0 0 24
+1  4 0 0 28
 0
 
 0101000

@@ -87,7 +87,7 @@ Locations 14
               0               0               1               0 
 1
               0               0              -1             -23 
-             -1               0               0            -132 
+             -1               0               0            -130 
               0               1               0               5 
 2  10 1 11 1 0
 2  11 -1 10 -1 0
@@ -100,7 +100,7 @@ Curve2ds 4
 Curves 3
 1 -23 -145.5 27.5 1 -0 -0 
 2 -16 -144 27.5 -1 0 0 0 -1 0 0 0 1 1.5
-2 12 22.5 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 14 22.5 0 0 0 1 1 0 -0 -0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
@@ -184,9 +184,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#130;:X;:Heb1:3,E.0 0
-;#131;:X;:Heb1:3,E.0 0
-;#132;:X;:Heb1:3,E.0 0
+;#12a;:X;:Heb1:3,E.0 0
+;#12b;:X;:Heb1:3,E.0 0
+;#12c;:X;:Heb1:3,E.0 0
 
 Face
 
@@ -194,7 +194,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#133;:X;:Heb1:3,F.0 0
+;#12d;:X;:Heb1:3,F.0 0
 
 Vertex
 
@@ -202,8 +202,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#12e;:X;:Heb1:3,V.0 0
-;#12f;:X;:Heb1:3,V.0 0
+;#128;:X;:Heb1:3,V.0 0
+;#129;:X;:Heb1:3,V.0 0
 
 EndMap
 ]]>

@@ -11,11 +11,14 @@
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
     <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097418">
-      <LinkList count="4">
+      <LinkList count="7">
         <Link value="Constraint003"/>
         <Link value="Constraint"/>
         <Link value="Constraint001"/>
         <Link value="Constraint002"/>
+        <Link value="Constraint004"/>
+        <Link value="Constraint005"/>
+        <Link value="Constraint006"/>
       </LinkList>
     </Property>
     <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097434"></Property>
@@ -35,7 +38,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099082">
-      <BoolList value="1111"/>
+      <BoolList value="1111111"/>
     </Property>
     <Property name="_LinkOwner" type="App::PropertyInteger" status="201326592">
       <Integer value="0"/>
