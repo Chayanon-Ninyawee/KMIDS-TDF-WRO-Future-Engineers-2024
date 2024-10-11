@@ -34,7 +34,7 @@
         <Constrain Name="" Type="6" Value="10" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="9" Value="1.264665575995091" First="0" FirstPos="1" Second="1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="2" FirstPos="3" Second="0" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="18" Value="3" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="3.12" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="3" FirstPos="3" Second="0" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="18" Value="3" First="3" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="4" FirstPos="3" Second="1" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
@@ -65,9 +65,11 @@
       </LinkList>
     </Property>
     <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
-      <ExpressionEngine count="2" cdata="1" xlink="1">
-        <XLinks count="1" docs="1">
-          <DocMap name="SteeringAckermannModel" label="SteeringAckermannModel" index="0"/>
+      <ExpressionEngine count="3" cdata="1" xlink="1">
+        <XLinks count="2" docs="2">
+          <DocMap name="ClearanceConfig" label="ClearanceConfig" index="0"/>
+          <DocMap name="SteeringAckermannModel" label="SteeringAckermannModel" index="1"/>
+          <XLink file="../ClearanceConfig" stamp="2024-10-11T04:28:22Z" name="Spreadsheet"/>
           <XLink file="../SteeringAckermannModel" stamp="2024-10-09T13:01:52Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
@@ -77,6 +79,10 @@
 
 0:Constraints[5]
 0:<<Link(SteeringAckermannSpreadsheet)>>.wheellinkageangle
+0:
+
+0:Constraints[7]
+0:3 + <<ClearanceSpreadsheet>>.ScrewHole
 0:
 
 ]]>
@@ -139,7 +145,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.56"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="4" migrated="1">
@@ -174,7 +180,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="9" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="1.77635683940025e-15" StartY="4" StartZ="0" EndX="-8" EndY="4" EndZ="0"/>
+          <LineSegment StartX="2.909464618929846e-15" StartY="4" StartZ="0" EndX="-8" EndY="4" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="12" migrated="1">
@@ -272,16 +278,16 @@ Locations 1
               0               0               1               0 
 Curve2ds 0
 Curves 11
-2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.5600000000000001
 2 -5 0 0 0 0 1 1 0 -0 -0 1 0 1.5
 2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 -0 -0 1 0 1.5
 2 0 0 0 0 0 1 1 0 -0 -0 1 0 4
-1 1.7763568394002505e-15 4 0 -1 0 0 
+1 2.9094646189298464e-15 4 0 -1 0 0 
 1 -8 4 0 0 -1 0 
-1 -8 -4 0 0.31345448981142721 -0.9496032238872496 0 
+1 -8 -4 0 0.31345448981142726 -0.9496032238872496 0 
 2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 -0 -0 1 0 3
-1 4 -4 0 -0.5314131664949262 -0.84711277081380143 0 
-1 4 1.2864981197413093e-15 0 0 -1 0 
+1 4 -4 0 -0.53141316649492609 -0.84711277081380143 0 
+1 4 1.2864981197413091e-15 0 0 -1 0 
 2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 -0 -0 1 0 2.5
 Polygon3D 0
 PolygonOnTriangulations 0
@@ -291,7 +297,7 @@ Triangulations 0
 TShapes 28
 Ve
 1e-07
-1.5 0 0
+1.56 0 0
 0 0
 
 0101101
@@ -351,8 +357,8 @@ Ve
 0101101
 *
 Ve
-1.00000000122465e-07
-1.89882152465877e-15 4 0
+1e-07
+2.90946461892985e-15 4 0
 0 0
 
 0101101
@@ -393,7 +399,7 @@ Ed
 0101000
 +16 0 -14 0 *
 Ve
-1.00000000993014e-07
+1.00000000888178e-07
 -5.86252513373092 -10.4754313304243 0
 0 0
 
@@ -407,7 +413,7 @@ Ed
 0101000
 +14 0 -12 0 *
 Ve
-1.00000000222045e-07
+1.00000000915513e-07
 -0.472377149627765 -11.1293073604748 0
 0 0
 
@@ -429,7 +435,7 @@ Ve
 *
 Ed
  1e-07 1 1 0
-1  9 0 0 8.41600741495829
+1  9 0 0 8.4160074149583
 0
 
 0101000
@@ -561,7 +567,7 @@ EndMap
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="12"/>
+      <Integer value="14"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

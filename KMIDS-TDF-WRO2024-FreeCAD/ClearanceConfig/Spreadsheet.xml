@@ -25,12 +25,19 @@
       <Bool value="true"/>
     </Property>
     <Property name="cells" type="Spreadsheet::PropertySheet" status="67108864">
-      <Cells Count="5">
+      <Cells Count="12">
         <Cell address="A1" content="LinkageFace"/>
         <Cell alias="LinkageFace" address="B1" content="0.05"/>
         <Cell address="A2" content="LinkageFitHole"/>
         <Cell alias="LinkageFitHole" address="B2" content="0.07"/>
         <Cell address="A3" content="LinkageHole"/>
+        <Cell alias="LinkageHole" address="B3" content="0.12"/>
+        <Cell address="A4" content="ServoHole"/>
+        <Cell alias="ServoFitHole" address="B4" content="0.07"/>
+        <Cell address="A5" content="ScrewHole"/>
+        <Cell alias="ScrewHole" address="B5" content="0.12"/>
+        <Cell address="A6" content="WheelAxleHole"/>
+        <Cell alias="WheelAxleHole" address="B6" content="0.12"/>
       </Cells>
     </Property>
     <Property name="columnWidths" type="Spreadsheet::PropertyColumnWidths" status="218103808">

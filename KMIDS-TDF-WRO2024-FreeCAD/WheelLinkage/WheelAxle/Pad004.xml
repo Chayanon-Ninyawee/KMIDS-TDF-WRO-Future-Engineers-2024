@@ -1272,7 +1272,7 @@ TShapes 0
       <Float value="0"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="27"/>
+      <Integer value="28"/>
     </Property>
     <Property name="Type" type="App::PropertyEnumeration">
       <Integer value="0"/>
