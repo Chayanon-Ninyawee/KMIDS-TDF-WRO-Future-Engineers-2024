@@ -4,7 +4,7 @@
 -->
 <Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="1ee3fba9-2e42-4986-b22b-b112b7e53597" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="38832">
+  <StringHasher2  count="38831">
 <![CDATA[
 -2.0 0:;:H6c9,V
 -1.c.1 Vertex322
@@ -32432,23 +32432,7 @@ fa0.c.4 Edge1368
 -1f.0 0:;:M;FUS;:H6e2:7,F
 -1.2c.1.320b
 -1.2c.-1eb5.9
--1.0 0:(#5092;:G;PSM;:H6e3:7,V)
--1.0 0:(#5091;:G;PSM;:H6e3:7,V)
--1.0 0:(#508f;:G;PSM;:H6e3:7,E|#5091;:L#9b80;PSM;:H6e3:c,E|#5092;:L#9b7f;PSM;:H6e3:c,E)
--1.0 0:(#5091;:L#9b80;PSM;:H6e3:c,E|#5092;:L#9b7f;PSM;:H6e3:c,E|#5093;:G;PSM;:H6e3:7,E)
--1.0 0:(#5093;:G;PSM;:H6e3:7,E)
--1.0 0:;:G;PSM;:H6e3:7,E
--1.2c.1.4af6.4af2.2
--1.0 0:;:G;PSM;:H6e3:7,V
--1.2c.1.4af5
--1.2c.0.-1
--1.2c.-2.2
--1.28.1 ;:L#9b83;PSM;:H6e3:c,F
--1.28.-4af3.c ;:L#9b7f;PSM;:H6e3:c,E
--1.28.-1.1 ;:L#9b80;PSM;:H6e3:c,E
--1.28.-2.-4aef.4afb.e.d.c ;:L#9b81;PSM;:H6e3:c,F
--1.28.4.1.-1.0.0.1 ;:L#9b82;PSM;:H6e3:c,F
--1.0 0:Shape cache
+-11.0 0:Shape cache
 -7.0 0:;:H6e7,V
 -1.2c.1.3201
 -1.2c.0.1
@@ -32741,9 +32725,7 @@ fa0.c.4 Edge1368
 -1.2c.0.1
 -1.2c.0.1
 -1.0 0:;:H-6e9,V
--1.2c.1.133
--1.2c.0.1
--1.2c.-123.-30cd
+-3.2c.126.3201
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
@@ -34480,9 +34462,7 @@ a32a.2c.a260.712a
 -1.2c.0.1
 -1.2c.0.1
 -1.0 0:;:H-6e9,E
--1.2c.1.800
--1.2c.0.4
--1.2c.-124.-2a05
+-3.2c.127.3203
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
@@ -37660,8 +37640,7 @@ aee2.2c.aecd.7cde
 -1.2c.0.1
 -1.2c.0.1
 -1.0 0:;:H-6e9,F
--1.2c.1.1467
--1.2c.-123.-1d9e
+-2.2c.125.3206
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
@@ -38819,25 +38798,45 @@ b2ca.2c.aecd.80c6
 -1.2c.0.-22
 -1.2c.0.2
 -1.0 0:;:M;CUT;:H-6e9:7,E
--1.2c.1.18ed
--1.2c.0.1
--1.0 0:;:M;CUT;:H6e7:7,F
+-3.0 0:;:M;CUT;:H6e7:7,F
 -1.2c.1.18fd
 -1.2c.-3.-4aef
 -1.2c.0.4
 -1.0 0:;:M;CUT;:H-6e9:7,F
--1.2c.1.18f2
--1.2c.0.1
--1.0 0:;:M;CHF;:H6e9:7,F
+-3.0 0:;:M;CHF;:H6e9:7,F
 -1.2c.1.7
 -1.0 0:;:G;CHF;:H6e9:7,F
 -1.2c.1.8
 -1.2c.0.1
 -1.0 0:;:U2;CHF;:H6e9:8,E
 -1.2c.1.5
--1.0 0:;:M;CHF;:H6e9:7,E
--1.2c.1.10
--1.2c.0.-1
+-d.0 0:;:U3;CHF;:H6e9:8,E
+-1.2c.1.11
+-4.0 0:;FAC;:H6e3:4,F
+-1.2c.1.640b
+-1.0 0:;:G;XTR;:H6e3:7,F
+-1.2c.1.640d
+-1.2c.0.4
+-1.0 0:;:G;XTR;:H6e3:7,E
+-1.2c.1.640e
+-1.2c.0.1
+-1.0 0:;:U;XTR;:H6e3:7,V
+-1.2c.1.3
+-1.2c.0.1
+-1.0 0:;:U;XTR;:H6e3:7,E
+-1.2c.1.9
+-1.2c.0.1
+-1.0 0:;:G0;XTR;:H6e3:8,F
+-1.2c.1.e
+-1.2c.-17ee.8
+-1.2c.0.1
+-1.2c.6cb.2
+-1.2c.0.1
+-1.2c.c6c.2
+-1.2c.487.-9
+-1.2c.0.1
+-1.2c.7.-4
+-1.2c.0.1
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -38869,7 +38868,7 @@ b2ca.2c.aecd.80c6
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-14T04:37:11Z"/>
+      <String value="2024-10-14T07:26:31Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -38913,25 +38912,25 @@ b2ca.2c.aecd.80c6
   <Objects Count="19" Dependencies="1">
     <ObjectDeps Name="Solid" Count="0"/>
     <ObjectDeps Name="Body" Count="12">
-      <Dep Name="Pad004"/>
-      <Dep Name="Pad005"/>
-      <Dep Name="Sketch"/>
-      <Dep Name="Pad002"/>
-      <Dep Name="BaseFeature"/>
-      <Dep Name="Pad"/>
-      <Dep Name="Sketch002"/>
-      <Dep Name="Solid"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Sketch001"/>
-      <Dep Name="Chamfer"/>
+      <Dep Name="Pad002"/>
       <Dep Name="Origin"/>
+      <Dep Name="Pad005"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Sketch001"/>
+      <Dep Name="Solid"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Sketch002"/>
+      <Dep Name="BaseFeature"/>
+      <Dep Name="Chamfer"/>
+      <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="X_Axis"/>
+      <Dep Name="YZ_Plane"/>
       <Dep Name="XY_Plane"/>
       <Dep Name="Z_Axis"/>
       <Dep Name="XZ_Plane"/>
-      <Dep Name="X_Axis"/>
-      <Dep Name="YZ_Plane"/>
       <Dep Name="Y_Axis"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
@@ -38956,9 +38955,9 @@ b2ca.2c.aecd.80c6
       <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Sketch"/>
-      <Dep Name="Body"/>
       <Dep Name="Pad001"/>
+      <Dep Name="Body"/>
+      <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch001" Count="1">
       <Dep Name="Pad004"/>
@@ -38970,16 +38969,16 @@ b2ca.2c.aecd.80c6
       <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad005" Count="3">
-      <Dep Name="Pad004"/>
       <Dep Name="Body"/>
       <Dep Name="Sketch001"/>
+      <Dep Name="Pad004"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer" Count="2">
-      <Dep Name="Pad005"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad005"/>
     </ObjectDeps>
     <Object type="Part::Feature" name="Solid" id="1737" revision="1" file="Solid.xml" />
-    <Object type="PartDesign::Body" name="Body" id="1749" revision="127" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1749" revision="130" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1750" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1751" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1752" revision="2" file="Y_Axis.xml" />
@@ -38990,13 +38989,13 @@ b2ca.2c.aecd.80c6
     <Object type="PartDesign::FeatureBase" name="BaseFeature" id="1757" revision="4" file="BaseFeature.xml" />
     <Object type="PartDesign::Pad" name="Pad" id="1758" revision="23" file="Pad.xml" />
     <Object type="PartDesign::Pad" name="Pad001" id="1760" revision="27" file="Pad001.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch" id="1761" revision="76" file="Sketch.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="1761" revision="77" file="Sketch.xml" />
     <Object type="PartDesign::Pad" name="Pad002" id="1762" revision="30" file="Pad002.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch001" id="1763" revision="342" file="Sketch001.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch001" id="1763" revision="359" file="Sketch001.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch002" id="1766" revision="97" file="Sketch002.xml" />
     <Object type="PartDesign::Pad" name="Pad004" id="1767" revision="39" file="Pad004.xml" />
-    <Object type="PartDesign::Pad" name="Pad005" id="1769" revision="77" file="Pad005.xml" />
-    <Object type="PartDesign::Chamfer" name="Chamfer" id="1771" revision="28" file="Chamfer.xml" />
+    <Object type="PartDesign::Pad" name="Pad005" id="1769" revision="92" file="Pad005.xml" />
+    <Object type="PartDesign::Chamfer" name="Chamfer" id="1771" revision="32" file="Chamfer.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>
