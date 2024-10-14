@@ -130,7 +130,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-18" Py="7.993605777301129e-15" Pz="-5.99520433297585e-15" Q0="-0.4999999999999999" Q1="0.5000000000000001" Q2="0.4999999999999999" Q3="-0.5000000000000002" A="4.188790204786391" Ox="-0.5773502691896257" Oy="0.577350269189626" Oz="0.5773502691896257"/>
+      <PropertyPlacement Px="-18" Py="0" Pz="-5.995204332975843e-15" Q0="0.5000000000000001" Q1="-0.5000000000000001" Q2="-0.5000000000000001" Q3="0.4999999999999997" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896258" Oz="-0.5773502691896257"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -139,9 +139,9 @@ TShapes 0
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 1
 1
--4.44089209850063e-16 -4.44089209850063e-16              -1             -18 
-             -1 1.97215226305253e-31 4.44089209850063e-16 7.99360577730113e-15 
-              0               1 -4.44089209850063e-16 -5.99520433297585e-15 
+-2.22044604925031e-16 -1.11022302462516e-16              -1             -18 
+             -1 1.11022302462516e-16 2.22044604925031e-16               0 
+1.11022302462516e-16               1 -1.11022302462516e-16 -5.99520433297584e-15 
 Curve2ds 0
 Curves 1
 2 0 0 0 0 0 1 1 0 -0 -0 1 0 6
@@ -210,7 +210,7 @@ EndMap
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="17"/>
+      <Integer value="18"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

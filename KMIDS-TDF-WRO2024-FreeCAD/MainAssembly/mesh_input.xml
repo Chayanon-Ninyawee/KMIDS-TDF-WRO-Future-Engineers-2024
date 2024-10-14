@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="mesh_input" Extensions="True">
+  <Extensions Count="1">
+    <Extension type="App::GroupExtension" name="GroupExtension">
+    </Extension>
+  </Extensions>
+  <Properties Count="14" TransientCount="1">
+    <_Property name="_GroupTouched" type="App::PropertyBool" status="100663296"/>
+    <Property name="ClaimAllChildren" type="App::PropertyBool" status="8">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ExportMode" type="App::PropertyEnumeration">
+      <Integer value="1"/>
+    </Property>
+    <Property name="ExportSTL" type="App::PropertyBool" group="Mesh Export" attr="0" ro="0" hide="0" docID="53" status="2097152">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="Group" type="App::PropertyLinkList">
+      <LinkList count="16">
+        <Link value="BottomChassisBody_export"/>
+        <Link value="TopChassisBody_export"/>
+        <Link value="MotorHolder_export"/>
+        <Link value="AxleHolderBody_export"/>
+        <Link value="Link_BottomWheelLinkageBody__export"/>
+        <Link value="Link001_TopWheelLinkageBody__export"/>
+        <Link value="Link002_WheelAxleBody__export"/>
+        <Link value="WheelStopperBody_export"/>
+        <Link value="Link_BottomTBoneLinkageBody__export"/>
+        <Link value="Link001_TopTBoneLinkageBodyBody__export"/>
+        <Link value="LeftTransferLinkageBody_export"/>
+        <Link value="BackWheelAxle_export"/>
+        <Link value="BackWheelConnector_export"/>
+        <Link value="BackWheelStopper_export"/>
+        <Link value="LidarHolder_export"/>
+        <Link value="MotorGearBody_export"/>
+      </LinkList>
+    </Property>
+    <Property name="HiddenChildren" type="App::PropertyMap" group="Group" attr="8" ro="1" hide="1" doc="" status="220200960">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="mesh_input"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="MeshAngularDeflection" type="App::PropertyFloat" group="Mesh Export" attr="0" ro="0" hide="0" docID="52" status="2097152">
+      <Float value="0.05"/>
+    </Property>
+    <Property name="MeshLinearDeflection" type="App::PropertyFloat" group="Mesh Export" attr="0" ro="0" hide="0" docID="51" status="2097152">
+      <Float value="0.01"/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
+      <Integer value="343"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="false"/>
+    </Property>
+    <Property name="_ExportChildren" type="App::PropertyLinkList" status="218104320">
+      <LinkList count="0">
+      </LinkList>
+    </Property>
+    <Property name="_GroupVersion" type="App::PropertyInteger" status="218103808">
+      <Integer value="1"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>

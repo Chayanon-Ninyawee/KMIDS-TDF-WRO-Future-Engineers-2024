@@ -52,13 +52,13 @@
       <String value=""/>
     </Property>
     <Property name="LinkPlacement" type="App::PropertyPlacement" status="264">
-      <PropertyPlacement Px="-22.99999999999979" Py="-144.0000038146973" Pz="34.49999999999837" Q0="5.467417481501857e-15" Q1="-1.110282317618938e-16" Q2="-1" Q3="6.123233995736766e-17" A="3.141592653589793" Ox="5.467417481501857e-15" Oy="-1.110282317618938e-16" Oz="-1"/>
+      <PropertyPlacement Px="-22.94666538433505" Py="-144.2000038146973" Pz="34.68166335740183" Q0="-0.01835292524813443" Q1="-2.351987384122074e-17" Q2="-0.9998315708832346" Q3="-4.259594832523324e-17" A="3.141592653589793" Ox="-0.01835292524813443" Oy="-2.351987384122074e-17" Oz="-0.9998315708832346"/>
     </Property>
     <Property name="LinkTransform" type="App::PropertyBool" status="256">
       <Bool value="false"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" status="256">
-      <XLink file="AxleHolder" stamp="2024-10-14T13:10:23Z" name="Body"/>
+      <XLink file="AxleHolder" stamp="2024-10-14T14:47:06Z" name="Body"/>
     </Property>
     <Property name="Matrix" type="App::PropertyMatrix" status="67109120">
       <PropertyMatrix a11="1" a12="0" a13="0" a14="0" a21="0" a22="1" a23="0" a24="0" a31="0" a32="0" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
@@ -67,7 +67,7 @@
       <MatrixList file=""/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="256">
-      <PropertyPlacement Px="-22.99999999999979" Py="-144.0000038146973" Pz="34.49999999999837" Q0="5.467417481501857e-15" Q1="-1.110282317618938e-16" Q2="-1" Q3="6.123233995736766e-17" A="3.141592653589793" Ox="5.467417481501857e-15" Oy="-1.110282317618938e-16" Oz="-1"/>
+      <PropertyPlacement Px="-22.94666538433505" Py="-144.2000038146973" Pz="34.68166335740183" Q0="-0.01835292524813443" Q1="-2.351987384122074e-17" Q2="-0.9998315708832346" Q3="-4.259594832523324e-17" A="3.141592653589793" Ox="-0.01835292524813443" Oy="-2.351987384122074e-17" Oz="-0.9998315708832346"/>
     </Property>
     <Property name="PlacementList" type="App::PropertyPlacementList" status="256">
       <PlacementList file=""/>

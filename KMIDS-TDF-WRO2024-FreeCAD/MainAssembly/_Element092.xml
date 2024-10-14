@@ -234,10 +234,10 @@ ChildCount 0
 
 NameCount 5
 0
+;#85;:X;:Hec3:3,E.0 0
 ;#86;:X;:Hec3:3,E.0 0
 ;#87;:X;:Hec3:3,E.0 0
 ;#88;:X;:Hec3:3,E.0 0
-;#89;:X;:Hec3:3,E.0 0
 
 Face
 
@@ -245,7 +245,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#8a;:X;:Hec3:3,F.0 0
+;#89;:X;:Hec3:3,F.0 0
 
 Vertex
 
@@ -253,10 +253,10 @@ ChildCount 0
 
 NameCount 5
 0
+;#81;:X;:Hec3:3,V.0 0
 ;#82;:X;:Hec3:3,V.0 0
 ;#83;:X;:Hec3:3,V.0 0
 ;#84;:X;:Hec3:3,V.0 0
-;#85;:X;:Hec3:3,V.0 0
 
 EndMap
 ]]>

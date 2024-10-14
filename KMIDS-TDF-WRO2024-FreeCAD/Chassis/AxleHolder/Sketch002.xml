@@ -29,7 +29,7 @@
     <Property name="Constraints" type="Sketcher::PropertyConstraintList">
       <ConstraintList count="2">
         <Constrain Name="" Type="1" Value="0" First="0" FirstPos="3" Second="-1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="18" Value="6" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="2.195246696472168" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="6.2" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="2.195246696472168" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
     <Property name="Exports" type="App::PropertyLinkListHidden" status="67108864">
@@ -37,7 +37,19 @@
       </LinkList>
     </Property>
     <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
-      <ExpressionEngine count="0"></ExpressionEngine>
+      <ExpressionEngine count="1" cdata="1" xlink="1">
+        <XLinks count="1" docs="1">
+          <DocMap name="ClearanceConfig" label="ClearanceConfig" index="0"/>
+          <XLink file="../ClearanceConfig" stamp="2024-10-14T14:46:19Z" name="Spreadsheet"/>
+        </XLinks>
+        <Expressions><![CDATA[
+0:Constraints[1]
+0:6 + <<ClearanceSpreadsheet>>.BackWheelAxleHole
+0:
+
+]]>
+        </Expressions>
+      </ExpressionEngine>
     </Property>
     <Property name="ExternalBSplineMaxDegree" type="App::PropertyInteger">
       <Integer value="5"/>
@@ -81,7 +93,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="3"/>
+          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="3.1"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -130,7 +142,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="6.573840876841766e-32" Py="0" Pz="1.459685900338352e-47" Q0="0.5" Q1="0.5" Q2="0.5000000000000001" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="0.5773502691896257" Oz="0.5773502691896258"/>
+      <PropertyPlacement Px="-2.550196891878272e-32" Py="0" Pz="-8.493861920072304e-48" Q0="0.4999999999999999" Q1="0.4999999999999999" Q2="0.5000000000000001" Q3="0.5000000000000001" A="2.094395102393195" Ox="0.5773502691896256" Oy="0.5773502691896256" Oz="0.5773502691896258"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -139,12 +151,12 @@ TShapes 0
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 1
 1
--2.22044604925031e-16 -1.11022302462516e-16               1 6.57384087684177e-32 
-              1 -1.11022302462516e-16 2.22044604925031e-16               0 
-1.11022302462516e-16               1 1.11022302462516e-16 1.45968590033835e-47 
+              0 -4.44089209850063e-16               1 -2.55019689187827e-32 
+              1               0               0               0 
+              0               1 4.44089209850063e-16 -8.4938619200723e-48 
 Curve2ds 0
 Curves 1
-2 0 0 0 0 0 1 1 0 0 0 1 0 3
+2 0 0 0 0 0 1 1 0 0 0 1 0 3.1000000000000001
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0
@@ -153,7 +165,7 @@ Triangulations 0
 TShapes 3
 Ve
 1e-07
-3 0 0
+3.1 0 0
 0 0
 
 0101101
@@ -210,7 +222,7 @@ EndMap
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="15"/>
+      <Integer value="16"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

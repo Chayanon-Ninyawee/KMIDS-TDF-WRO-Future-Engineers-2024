@@ -29,7 +29,7 @@
     <Property name="Constraints" type="Sketcher::PropertyConstraintList">
       <ConstraintList count="2">
         <Constrain Name="" Type="1" Value="0" First="0" FirstPos="3" Second="-1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="18" Value="9.1" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.807586669921875" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="9.050000000000001" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.807586669921875" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
     <Property name="Exports" type="App::PropertyLinkListHidden" status="67108864">
@@ -81,7 +81,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="4.55"/>
+          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="4.525"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -144,7 +144,7 @@ Locations 1
               0               1               0               0 
 Curve2ds 0
 Curves 1
-2 0 0 0 0 0 1 1 0 -0 -0 1 0 4.5499999999999998
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 4.5250000000000004
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0
@@ -153,7 +153,7 @@ Triangulations 0
 TShapes 3
 Ve
 1e-07
-4.55 0 0
+4.525 0 0
 0 0
 
 0101101
@@ -210,7 +210,7 @@ EndMap
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="23"/>
+      <Integer value="24"/>
     </Property>
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="false"/>

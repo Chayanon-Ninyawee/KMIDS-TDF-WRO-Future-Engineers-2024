@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.1006R14555 (Git shallow)" FileVersion="2" Uid="9d26f911-c0e7-46b5-914f-ac0a413191ae" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="3ca091d2-ffae-4f20-95b8-b6306e300f5c" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0"></StringHasher>
   <Properties Count="21" TransientCount="3">
     <_Property name="FileName" type="App::PropertyString" status="50331649"/>
@@ -33,7 +33,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-11T04:28:22Z"/>
+      <String value="2024-10-14T14:46:19Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -68,7 +68,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="9d26f911-c0e7-46b5-914f-ac0a413191ae"/>
+      <Uuid value="3ca091d2-ffae-4f20-95b8-b6306e300f5c"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
