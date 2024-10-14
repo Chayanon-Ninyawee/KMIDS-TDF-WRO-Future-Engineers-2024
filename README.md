@@ -31,31 +31,28 @@ vehicle capable of performing complex tasks autonomously.
     the design based on testing and performance feedback.
     
 ### 2.Wheels_and_Motor  
-  - Wheels: four high traction rubber wheels
-  - Motor: a single TT motor
-  - Description: We use a single DC motor to power the two back wheels due to its high-power output.
-    It is connected to a differential to help distribute power to the back wheels as needed, ensuring
-    smooth and efficient power distribution. The rubber wheels provide a grip on surfaces, preventing
-    slippage and improving overall performance. The use of high-traction rubber ensures that the vehicle
-    can maneuver effectively on various surfaces encountered during the competition. The differential
-    mechanism is crucial for maintaining balance and stability, especially when the vehicle makes sharp turns.
+  - Wheels: 69916 TAMIYA Robot Sports Tire
+      - 69916 TAMIYA Robot Sports Tire is a small rubber tire that is made to be in a miniature robot.
+        The size of the wheels provide our vehicle with a more compact design which helps in parking
+        the robot in the obstacle challenge round, in which we have to park the vehicle in a certain
+        spot that is quite limited.
+  - Motor: 6V 440RPM DC Micro Metal Gearmotor
+      - This motor offer a powerful rotaion in a small sizes that we see as beneficial in our robot
+        as it need to meet certain condition in this compettion. The high power that this motor offer
+        us will help the robot navigate the obstacle course in break-neck speed which is good as we
+        want it to excel in all aspect of the compettition and if the deciding factor came down to time
+        then we will at least be able to trust the robot to perform at it's peak.
 
 ### 3.Steering_Mechanism  
-   - Servo motor: The servo motor in the front bridge of our vehicle allows for sharp cornering and
-     precise steering control. This mechanism is critical for navigating tight spaces and obstacles
-     efficiently. The servo motor's ability to provide fine control over the steering angle enhances
-     the vehicle's agility, making it great at avoiding obstacles and navigating through challenging
-     courses. The integration of the servo motor into the front bridge design also ensures that the
-     steering system is responsive, capable of handling sudden changes in direction without compromising stability.
+   - MG90S Metal Gear Micro Servo
+       - We decide to use this servo because it posses a lot of gear which helps in refining our control
+         and the precision of the robot which is crutial when making turn at an extreme angle to avoid
+         obstacles in quick succession. We especcially selected this servo in place of a normal servo
+         because of it's precision when compare to common servo that are seen commonly.
 
 ## 4.3D_Model
-The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-CAD.git 
+tba
 
-**Preview**
-![model1](https://github.com/user-attachments/assets/f41a2135-810c-4ccf-9b6c-103ac6d18c37)
-![model2](https://github.com/user-attachments/assets/d45dcc8f-3008-4ca5-84d4-a537edc13299)
-![model3](https://github.com/user-attachments/assets/24de6c65-e1ef-495b-adf7-759964857b95)
-![model4](https://github.com/user-attachments/assets/885f3590-4642-4a53-9ade-b99cad2d2453)
 
      
 ## Power_and_Sensor_Management  
@@ -75,12 +72,21 @@ The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Fu
     the Pi also simplifies the hardware setup, enhancing system reliability.
     
 ### Distance Sensing  
-- **gy-530vl53l0x**
-  - **Placement:** front, back, left and right sides
-  - **Reason:** We use four gy-530vl53l0x sensor to detect the distance of the vehicle from
-    the wall so that the vehicle can stay within an ideal distance from the wall and
-    avoid colliding with objects that is placed on the field in certain round of
-    the competition.
+- **RPLIDAR C1**
+  - We selected teh RPLIDAR C1 as our vision system because if it's ability to detect object
+    in a 360 degree and take up to 5,000 samples per seconds, combine with it's range of 12
+    meter this sensor will help us improve the navigational abilities of our autonomous vehicle.
+    We see the need to use this sensor from our previous test that a normal infared sensors can
+    malfunction when placed in environments that have high amount of infared lights (outdoor,
+    old lightbulb).
+
+### Color sensing
+- **Light Sensor TC01**
+    - We implement these light sensors to have a better tracking of the obstacle cource and
+      the direction that the vehicle is moving in. The main purpose of the light sensors is
+      to detected the orange and blue line that indicate the direction of turning. We decide
+      to use two of these sensors obecause it give us better tracking of which color line come
+      first.
 
 ### Power Supply
 - **lithium ion batteries**
@@ -116,8 +122,8 @@ The model can be found at: https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Fu
 
 ### Wiring Diagram
 
+tba
 
-![circuit (2)](https://github.com/user-attachments/assets/f2e377d0-6cdc-46d0-8369-a7eadb77a23c)
 
 
 ## Obstacle_Management  
@@ -144,7 +150,7 @@ area for parking the vehicle.
 ## Pictures
 **Vehicle Picture**  
 
-![IMG_20240728_220240_HDR (1)](https://github.com/user-attachments/assets/bea13e5b-34d0-43cb-bb45-c0cf6dfb639b)
+tba
 
 ## Simulator
 Before we implement the vehicle’s code into the actual robot, we need to test if the code can work first.
