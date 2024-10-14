@@ -11,13 +11,13 @@
     <Expand name="Pad"/>
   </Expand>
 </Expand>
-  <Camera extra="0" id="101" binding="0" view3d="1">
+  <Camera extra="0" id="9" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
   position 61.633999 -55.924438 65.80751
   orientation 0.74290603 0.30772179 0.59447289  1.217116
-  nearDistance 85.573486
+  nearDistance 84.996696
   farDistance 114.06326
   aspectRatio 1
   focalDistance 100
@@ -26,7 +26,7 @@ OrthographicCamera {
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="101"><![CDATA[
+  <View3D id="9"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>

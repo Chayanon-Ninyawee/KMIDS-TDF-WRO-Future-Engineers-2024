@@ -19,7 +19,7 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="1">
-        <Link obj="Pad014" sub="Face9" shadow=";#5113;:H133e,F.Face9"/>
+        <Link obj="Pad014" sub="Face9" shadow=";#ac82;:H133e,F.Face9"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -242,45 +242,45 @@ Locations 14
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 -18730.8920573824 
+              0               0               1 -18730.7914190099 
 2  5 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 -18730.8920573824 
+              0               0               1 -18730.7914190099 
 2  7 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 -18730.8920573824 
+              0               0               1 -18730.7914190099 
 2  9 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 -18730.8920573824 
+              0               0               1 -18730.7914190099 
 2  11 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 -18730.8920573824 
+              0               0               1 -18730.7914190099 
 2  13 -1 2 -1 3 -1 0
 Curve2ds 16
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 Curves 8
 1 -40 -54 0 1 0 0 
 1 40 -54 0 0 -1 0 
@@ -462,14 +462,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="16">
 <![CDATA[
-54 PostfixCount 3
+51 PostfixCount 3
 Edge
 Vertex
 ;SKT
 
 MapCount 1
 
-ElementMap 1 54 2
+ElementMap 1 51 2
 
 Edge
 
@@ -507,7 +507,7 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="1">
-        <Link obj="Pad014" sub="Face9" shadow=";#5113;:H133e,F.Face9"/>
+        <Link obj="Pad014" sub="Face9" shadow=";#ac82;:H133e,F.Face9"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

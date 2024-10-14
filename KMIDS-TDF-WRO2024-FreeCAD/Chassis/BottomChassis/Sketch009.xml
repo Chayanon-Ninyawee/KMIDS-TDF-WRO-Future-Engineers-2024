@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad013" sub="Face90" shadow=";#4f29;:H-133e,F.Face90"/>
-        <Link obj="Pad013" sub="Vertex110" shadow=";#4f22;:H-133e,V.Vertex110"/>
+        <Link obj="Pad013" sub="Face96" shadow=";#4f29;:H-133e,F.Face96"/>
+        <Link obj="Pad013" sub="Vertex116" shadow=";#4f22;:H-133e,V.Vertex116"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -251,14 +251,14 @@ Wi
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="8">
 <![CDATA[
-51 PostfixCount 3
+48 PostfixCount 3
 Edge
 Vertex
 ;SKT
 
 MapCount 1
 
-ElementMap 1 51 2
+ElementMap 1 48 2
 
 Edge
 
@@ -288,8 +288,8 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad013" sub="Face90" shadow=";#4f29;:H-133e,F.Face90"/>
-        <Link obj="Pad013" sub="Vertex110" shadow=";#4f22;:H-133e,V.Vertex110"/>
+        <Link obj="Pad013" sub="Face96" shadow=";#4f29;:H-133e,F.Face96"/>
+        <Link obj="Pad013" sub="Vertex116" shadow=";#4f22;:H-133e,V.Vertex116"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

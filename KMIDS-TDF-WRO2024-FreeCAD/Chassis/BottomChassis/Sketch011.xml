@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad015" sub="Face134" shadow=";#5653;:H1341,F.Face134"/>
-        <Link obj="Pad015" sub="Vertex162" shadow=";#546f;:H1341,V.Vertex162"/>
+        <Link obj="Pad015" sub="Face159" shadow=";#b366;:H1341,F.Face159"/>
+        <Link obj="Pad015" sub="Vertex174" shadow=";#ada9;:H1341,V.Vertex174"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -70,28 +70,28 @@
           <LineSegment StartX="0" StartY="0" StartZ="0" EndX="0" EndY="1" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
-        <Geometry type="Part::GeomPoint" id="1" ref="Pad015.;#5475;:H1341,V" migrated="1">
+        <Geometry type="Part::GeomPoint" id="1" ref="Pad015.;#adc2;:H1341,V" migrated="1">
           <GeoExtensions count="2">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
-            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad015.;#5475;:H1341,V" Flags="0"/>
+            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad015.;#adc2;:H1341,V" Flags="0"/>
           </GeoExtensions>
           <GeomPoint X="0" Y="-28" Z="0"/>
           <Construction value="1"/>
         </Geometry>
-        <Geometry type="Part::GeomLineSegment" id="2" ref="Pad015.;#55d1;:H1341,E" migrated="1">
+        <Geometry type="Part::GeomLineSegment" id="2" ref="Pad015.;#af54;:H1341,E" migrated="1">
           <GeoExtensions count="2">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
-            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad015.;#55d1;:H1341,E" Flags="0"/>
+            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad015.;#af54;:H1341,E" Flags="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-22" StartY="0" StartZ="0" EndX="-22" EndY="-28" EndZ="0"/>
+          <LineSegment StartX="-15" StartY="0" StartZ="0" EndX="-15" EndY="-28" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
       </GeometryList>
     </Property>
     <Property name="ExternalGeometry" type="App::PropertyLinkSubList" status="16777216">
       <LinkSubList count="2">
-        <Link obj="Pad015" sub="Vertex168" shadow=";#5475;:H1341,V.Vertex168"/>
-        <Link obj="Pad015" sub="Edge336" shadow=";#55d1;:H1341,E.Edge336"/>
+        <Link obj="Pad015" sub="Vertex203" shadow=";#adc2;:H1341,V.Vertex203"/>
+        <Link obj="Pad015" sub="Edge412" shadow=";#af54;:H1341,E.Edge412"/>
       </LinkSubList>
     </Property>
     <Property name="FixShape" type="App::PropertyEnumeration">
@@ -106,7 +106,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="0" StartY="-14" StartZ="0" EndX="-22" EndY="-14" EndZ="0"/>
+          <LineSegment StartX="0" StartY="-14" StartZ="0" EndX="-15" EndY="-14" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="4" migrated="1">
@@ -193,21 +193,21 @@ Locations 8
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 18730.8920573824 
+              0               0               1 18730.7914190099 
 2  5 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 18730.8920573824 
+              0               0               1 18730.7914190099 
 2  7 -1 2 -1 3 -1 0
 Curve2ds 4
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 1 0 0 1 0 
-1 0 -18730.8920573824 1 0 
+1 0 -18730.791419009925 1 0 
 Curves 2
-2 -10 -3 0 0 0 1 1 0 -0 -0 1 0 1.5
-2 -10 -25 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 -10 -3 0 0 0 1 1 0 0 0 1 0 1.5
+2 -10 -25 0 0 0 1 1 0 0 0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
@@ -266,14 +266,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="4">
 <![CDATA[
-58 PostfixCount 3
+55 PostfixCount 3
 Edge
 Vertex
 ;SKT
 
 MapCount 1
 
-ElementMap 1 58 2
+ElementMap 1 55 2
 
 Edge
 
@@ -299,8 +299,8 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad015" sub="Face134" shadow=";#5653;:H1341,F.Face134"/>
-        <Link obj="Pad015" sub="Vertex162" shadow=";#546f;:H1341,V.Vertex162"/>
+        <Link obj="Pad015" sub="Face159" shadow=";#b366;:H1341,F.Face159"/>
+        <Link obj="Pad015" sub="Vertex174" shadow=";#ada9;:H1341,V.Vertex174"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

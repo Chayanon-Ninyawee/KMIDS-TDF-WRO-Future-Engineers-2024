@@ -19,7 +19,7 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="1">
-        <Link obj="Pad012" sub="Face9" shadow=";#4c4e;:H1339,F.Face9"/>
+        <Link obj="Pad012" sub="Face9" shadow=";#9e92;:H1339,F.Face9"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -355,14 +355,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="16">
 <![CDATA[
-48 PostfixCount 3
+45 PostfixCount 3
 Edge
 Vertex
 ;SKT
 
 MapCount 1
 
-ElementMap 1 48 2
+ElementMap 1 45 2
 
 Edge
 
@@ -400,7 +400,7 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="1">
-        <Link obj="Pad012" sub="Face9" shadow=";#4c4e;:H1339,F.Face9"/>
+        <Link obj="Pad012" sub="Face9" shadow=";#9e92;:H1339,F.Face9"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
