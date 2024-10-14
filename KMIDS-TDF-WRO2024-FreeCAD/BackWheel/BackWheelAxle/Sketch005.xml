@@ -19,7 +19,7 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="1">
-        <Link obj="Pad004" sub="Face32" shadow=";#1f1;:M;FUS;:H-953:7,F.Face32"/>
+        <Link obj="Pad004" sub="Face29" shadow=";#1f1;:M;FUS;:H-953:7,F.Face29"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -79,7 +79,7 @@
     </Property>
     <Property name="ExternalGeometry" type="App::PropertyLinkSubList" status="16777216">
       <LinkSubList count="1">
-        <Link obj="Pad004" sub="Edge64" shadow=";#294;:M2;FUS;:H951:8,E.Edge64"/>
+        <Link obj="Pad004" sub="Edge60" shadow=";#294;:M2;FUS;:H951:8,E.Edge60"/>
       </LinkSubList>
     </Property>
     <Property name="FixShape" type="App::PropertyEnumeration">
@@ -188,12 +188,12 @@ Curve2ds 4
 1 0 -3773.4795777697523 1 0 
 Curves 2
 2 -28.000000000000011 0 0 0 0 1 1 0 0 0 1 0 1.5
-2 -38.000000000000014 0 0 0 0 1 1 0 0 0 1 0 1.5
+2 -38.000000000000007 0 0 0 0 1 1 0 0 0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
 2 -28.000000000000011 5.9164567891575334e-31 1.499999999999986 -4.4408920985006262e-16 3.944304526105059e-31 1 1 1.7516230804060213e-46 4.4408920985006262e-16 0 1 -3.944304526105059e-31 1.5
-2 -38.000000000000014 5.9164567891575158e-31 1.4999999999999816 -4.4408920985006262e-16 3.944304526105059e-31 1 1 1.7516230804060213e-46 4.4408920985006262e-16 0 1 -3.944304526105059e-31 1.5
+2 -38.000000000000007 5.9164567891575158e-31 1.4999999999999816 -4.4408920985006262e-16 3.944304526105059e-31 1 1 1.7516230804060213e-46 4.4408920985006262e-16 0 1 -3.944304526105059e-31 1.5
 Triangulations 0
 
 TShapes 7
@@ -280,7 +280,7 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="1">
-        <Link obj="Pad004" sub="Face32" shadow=";#1f1;:M;FUS;:H-953:7,F.Face32"/>
+        <Link obj="Pad004" sub="Face29" shadow=";#1f1;:M;FUS;:H-953:7,F.Face29"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

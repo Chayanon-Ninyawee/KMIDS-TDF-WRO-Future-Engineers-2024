@@ -7,34 +7,26 @@
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
 <Expand  count="1">
-  <Expand name="Assembly" count="2">
-    <Expand name="Constraints"/>
-    <Expand name="Parts" count="2">
-      <Expand name="Link" count="1">
-        <Expand name="Parts" count="1">
-          <Expand name="Link"/>
-        </Expand>
-      </Expand>
-      <Expand name="Link017"/>
-    </Expand>
+  <Expand name="Assembly" count="1">
+    <Expand name="Parts"/>
   </Expand>
 </Expand>
-  <Camera extra="0" id="32" binding="0" view3d="1">
+  <Camera extra="0" id="13" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 97.152664 -130.84145 111.70345
-  orientation 0.74290603 0.30772179 0.59447289  1.217116
-  nearDistance -25.209248
-  farDistance 244.01279
+  position 92.92746 -133.33838 120.40959
+  orientation 0.74290597 0.30772176 0.59447283  1.217116
+  nearDistance -21.184612
+  farDistance 248.04716
   aspectRatio 1
   focalDistance 64.889854
-  height 189.52434
+  height 231.48608
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="32"><![CDATA[
+  <View3D id="13"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>

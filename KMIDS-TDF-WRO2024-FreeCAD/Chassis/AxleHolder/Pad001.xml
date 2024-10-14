@@ -513,7 +513,7 @@ Wi
 Fa
 0  1e-07 1 0
 
-0101000
+0111000
 +52 0 *
 Ve
 1e-07
@@ -543,7 +543,7 @@ Wi
 Fa
 0  1e-07 2 0
 
-0101000
+0111000
 +47 0 *
 Ve
 1e-07
@@ -573,7 +573,7 @@ Wi
 Fa
 0  1e-07 3 0
 
-0101000
+0111000
 +42 0 *
 Ed
  1e-07 1 1 0
@@ -619,7 +619,7 @@ Wi
 Fa
 0  1e-07 4 5
 
-0101000
+0111000
 +34 0 *
 Ve
 1e-07
@@ -664,7 +664,7 @@ Wi
 Fa
 0  1e-07 5 0
 
-0101000
+0111000
 +27 0 *
 Ve
 1.00000001332268e-07
@@ -694,7 +694,7 @@ Wi
 Fa
 0  1e-07 4 5
 
-0101000
+0111000
 +22 0 *
 Ed
  1.00000000993014e-07 1 1 0
@@ -710,7 +710,7 @@ Wi
 Fa
 0  1e-07 7 0
 
-0101000
+0111000
 +19 0 *
 Ve
 1e-07
@@ -741,7 +741,7 @@ Wi
 Fa
 0  1e-07 8 0
 
-0101000
+0111000
 +14 0 *
 Ve
 1e-07
@@ -772,7 +772,7 @@ Wi
 Fa
 0  1e-07 9 0
 
-0101000
+0111000
 +9 0 *
 Ed
  1e-07 1 1 0
@@ -798,7 +798,7 @@ Wi
 Fa
 0  1e-07 10 0
 
-0101000
+0111000
 +4 0 *
 Sh
 
@@ -974,7 +974,7 @@ TShapes 0
     <Property name="ValidateShape" type="App::PropertyBool">
       <Bool value="true"/>
     </Property>
-    <Property name="Visibility" type="App::PropertyBool" status="648">
+    <Property name="Visibility" type="App::PropertyBool" status="649">
       <Bool value="false"/>
     </Property>
     <Property name="_ProfileBasedVersion" type="App::PropertyInteger" status="67108864">

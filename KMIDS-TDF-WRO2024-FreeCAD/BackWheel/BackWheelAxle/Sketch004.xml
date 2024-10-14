@@ -19,7 +19,7 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="1">
-        <Link obj="Pad003" sub="Face27" shadow=";#1df;:H-951,F.Face27"/>
+        <Link obj="Pad003" sub="Face24" shadow=";#1df;:H-951,F.Face24"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -315,7 +315,7 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="1">
-        <Link obj="Pad003" sub="Face27" shadow=";#1df;:H-951,F.Face27"/>
+        <Link obj="Pad003" sub="Face24" shadow=";#1df;:H-951,F.Face24"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
