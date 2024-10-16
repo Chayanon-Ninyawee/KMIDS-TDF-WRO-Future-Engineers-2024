@@ -1,22 +1,9 @@
 # WRO-2024-Future_Engineer
 Team: KMIDS Thermodynamically Favorable (KMIDS TDF)
-## Table of contents
 
-1. [Introduction](#Introduction)
-2. [Mobility Management](#Mobility_Management)
-3. [Power and Sensor Management](#Power_and_Sensor_Management)
-4. [Obstacle Management](#Obstacle_Management)
-5. [Picture(s)](#Pictures)
-6. [Simulator](#Simulator)
-7. [Codes](#Code's_Repository)  
-
-## Introduction
-
-Welcome to our repository for our project submission to the World Robotic Olympiad (WRO) 
-in the category of future-engineering competition. In this project we aim to design an 
-autonomous vehicle that can navigate around a field with various rules and restrictions 
-depending on the rounds. Our goal is to create a highly efficient, dependable, and versatile 
-vehicle capable of performing complex tasks autonomously.
+In this project we aim to design an autonomous vehicle that can navigate around a field with 
+various rules and restrictions depending on the rounds. Our goal is to create a highly efficient, 
+dependable, and versatile vehicle capable of performing complex tasks autonomously.
 
 ## Mobility Management
 
@@ -31,12 +18,13 @@ vehicle capable of performing complex tasks autonomously.
     the design based on testing and performance feedback.
     
 ### 2.Wheels_and_Motor  
-  - Wheels: 69916 TAMIYA Robot Sports Tire
+  - Wheels: [69916 TAMIYA Robot Sports Tire](https://shopee.co.th/69916-TAMIYA-Robot-Sports-Tire-Set-(56mm-Dia.-Clear-Wheels)-i.17469725.6833009480)
       - 69916 TAMIYA Robot Sports Tire is a small rubber tire that is made to be in a miniature robot.
         The size of the wheels provide our vehicle with a more compact design which helps in parking
         the robot in the obstacle challenge round, in which we have to park the vehicle in a certain
         spot that is quite limited.
-  - Motor: 6V 440RPM DC Micro Metal Gearmotor
+        
+  - Motor: [6V 440RPM DC Micro Metal Gearmotor](https://th.cytron.io/p-6v-440rpm-dc-micro-metal-gearmotor?srsltid=AfmBOooc6VFJJZNSbLRc4bHKPMXPgumGJDo1YQ_qqBssI0HRBYQ6wNjJ)
       - This motor offer a powerful rotaion in a small sizes that we see as beneficial in our robot
         as it need to meet certain condition in this compettion. The high power that this motor offer
         us will help the robot navigate the obstacle course in break-neck speed which is good as we
@@ -44,7 +32,7 @@ vehicle capable of performing complex tasks autonomously.
         then we will at least be able to trust the robot to perform at it's peak.
 
 ### 3.Steering_Mechanism  
-   - MG90S Metal Gear Micro Servo
+   - [MG90S Metal Gear Micro Servo](https://th.cytron.io/c-dc-motor/p-mg90s-metal-gear-micro-servo?gclid=Cj0KCQjwyL24BhCtARIsALo0fSAMEsRi6i9XiLhB3JzwqaTsE8m8xMBNWKnkg4yPYmgYKS4qhMOHMRgaAjZUEALw_wcB)
        - We decide to use this servo because it posses a lot of gear which helps in refining our control
          and the precision of the robot which is crutial when making turn at an extreme angle to avoid
          obstacles in quick succession. We especcially selected this servo in place of a normal servo
@@ -57,14 +45,14 @@ tba
      
 ## Power_and_Sensor_Management  
 ### Processing Unit  
-- **Raspberry pi**
+- **[Raspberry pi V5](https://th.cytron.io/c-carrier-board-for-rpi-cm/p-raspberry-pi-5?gclid=Cj0KCQjwyL24BhCtARIsALo0fSCA1cSwSxPTeWjvmnfoP2jWKKkocSS7wGCum3iJqgFwGyWFi0PRdwQaAibgEALw_wcB)**
   - **Reason:** A raspberry pi is used to process the video from the camera which calculate
     where and in what direction the vehicle should headed. The Raspberry Pi also connected
     to the Arduino nano and issue commands to it to lessen the load on the Raspberry Pi itself
     as it's already processing the algorithms for driving and the images from the Pi camera.
 
 ### Vision System
-- **Raspberry pi camera**
+- **[Raspberry pi fisheye len camera](https://th.cytron.io/p-fish-eye-lense-raspberry-pi-5mp-ir-camera?r=1&language=en-gb&gad_source=1&gclid=Cj0KCQjwyL24BhCtARIsALo0fSAs3XDrwvudJq3gCRJTOBm2JJ4lhCwdpE56E3P_x5ZEH4nZM4p4sKkaArvVEALw_wcB)**
   - **Reason:**  The Raspberry Pi camera integrates easily with the Raspberry Pi and provides
     clear, detailed images, making it a good choice for our vehicle. The camera's high resolution
     and fast frame rate ensure that the Raspberry Pi receives timely and accurate visual data,
@@ -72,7 +60,7 @@ tba
     the Pi also simplifies the hardware setup, enhancing system reliability.
     
 ### Distance Sensing  
-- **RPLIDAR C1**
+- **[RPLIDAR C1]([https://shopee.co.th/Kiki-RPLIDAR-C1-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B5%E0%B8%A2%E0%B8%B9%E0%B8%A7%E0%B8%B5-2D-%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%94%E0%B9%89-360-%E0%B8%AD%E0%B8%87%E0%B8%A8%E0%B8%B2-%E0%B8%AA%E0%B9%8D%E0%B8%B2%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-i.409507050.25664846291](https://shopee.co.th/Kiki-RPLIDAR-C1-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B5%E0%B8%A2%E0%B8%B9%E0%B8%A7%E0%B8%B5-2D-%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%94%E0%B9%89-360-%E0%B8%AD%E0%B8%87%E0%B8%A8%E0%B8%B2-%E0%B8%AA%E0%B9%8D%E0%B8%B2%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-i.409507050.25664846291))**
   - We selected teh RPLIDAR C1 as our vision system because if it's ability to detect object
     in a 360 degree and take up to 5,000 samples per seconds, combine with it's range of 12
     meter this sensor will help us improve the navigational abilities of our autonomous vehicle.
@@ -81,7 +69,7 @@ tba
     old lightbulb).
 
 ### Color sensing
-- **Light Sensor TC01**
+- **[Light Sensor TC01](https://shopee.co.th/%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-Light-Sensor-TC01-(%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99)-JST2.0-%E0%B8%9E%E0%B8%A3%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%AA%E0%B8%B2%E0%B8%A2-JST-3-pin-Phototransistor-%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99-i.72015392.16106103845)**
     - We implement these light sensors to have a better tracking of the obstacle cource and
       the direction that the vehicle is moving in. The main purpose of the light sensors is
       to detected the orange and blue line that indicate the direction of turning. We decide
@@ -96,7 +84,7 @@ tba
     power consumption that come with the various electronics.
 
 ### Orientation and Motion Sensing
-- **BNO055**
+- **[BNO055](https://shopee.co.th/BNO055-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C-9-DOF-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Halley-V1-%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%A1%E0%B8%B8%E0%B8%A1-IMU-MPU-Angle-Massmore-Product-i.5641091.24661859112)**
   - **Reason:** The BNO055 sensor measures acceleration and orientation, improving
     the vehicle's navigational ability and reducing the load on the host processor.
     It combines accelerometer, gyroscope, and magnetometer data for accurate orientation
@@ -106,18 +94,11 @@ tba
     the vehicle needs to make quick adjustments to avoid obstacles and stay on course.
 
 ### Motor Control
-- **Maker Drive**
+- **[L9110S H-bridge Stepper Motor Dual DC Driver Controller Board](https://shopee.co.th/product/5401692/1540697025?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVjhKejlrTjhjZ0djRXFyYU5xR2swSUVHNmtGUDVTWDdxSzRyUWVFZGYwUDdxVmIrRUxDN09xZ05ETXdTQlpXNEd1UkszZ3BHN3lEbWpsMDJmSFRyMEJ6ZkcyZldkVmY0NXR0NTloMUEvTkM&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfBuI_zh93yA1Pe3dZ3mnCmLtWkGAH8RJ_enMkRA6Dci5gDbjywpG8IaAu1tEALw_wcB)**
   - **Reason:** To control the motor, we implement a Maker Drive to regulate the power
     and direction of the motor. This motor driver provides efficient and reliable
     control over the motor's speed and direction, essential for smooth and precise
     vehicle movement.
-
-### Microprocessor
-- **Arduino nano**
-  - **Reason:** The Arduino nano are connected to various electronics(Maker Drive, Raspberry pi,
-    BNO055) and help control all of it for the raspberry pi. The Nano serves as an intermediary,
-    handling lower-level tasks and offloading some processing from the Raspberry Pi.
-
 
 
 ### Wiring Diagram
@@ -152,9 +133,6 @@ area for parking the vehicle.
 
 tba
 
-## Simulator
-Before we implement the vehicle’s code into the actual robot, we need to test if the code can work first.
-Our solution to this is to create a simulator to test the code in Godot.
 
 **Code's_Repository**  
 The repository for our vehicle's code can be found at:
