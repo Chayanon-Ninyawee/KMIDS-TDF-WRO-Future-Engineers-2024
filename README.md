@@ -2,20 +2,17 @@
 Team: KMIDS Thermodynamically Favorable (KMIDS TDF)
 
 In this project we aim to design an autonomous vehicle that can navigate around a field with 
-various rules and restrictions depending on the rounds. Our goal is to create a highly efficient, 
-dependable, and versatile vehicle capable of performing complex tasks autonomously.
+various rules and restrictions depending on the rounds. Our goal is to create a robot that can
+achieve the objective sets by the compettition.
 
 ## Mobility Management
 
 ### 1.Chassis
   - Material: Plastic (pla+ from esun)
-  - Description: The chassis for our vehicle is designed with plastic to ease the design and
-    prototyping process. The use of 3D printing with plastic helps us keep the chassis lightweight.
-    It also includes mounting points for the various parts of the vehicle, reducing the need for a
-    separate mounting plate. Plastic offers a balance of strength, flexibility, and lightness, crucial
-    for efficient vehicle movement and stability. Additionally, the choice of plastic allows for easy
-    modifications and quick iterations during the development phase, which is essential for refining
-    the design based on testing and performance feedback.
+  - Description: The chassis for our vehicle is made with 3D printer to facilitate a chasis that
+    is durable and flexible to endure the stress that is put on it in the compettition. The 3D
+    printer also allowed us to prototype various parts in quick succession, creating an effective
+    workflow.
     
 ### 2.Wheels_and_Motor  
   - Wheels: [69916 TAMIYA Robot Sports Tire](https://shopee.co.th/69916-TAMIYA-Robot-Sports-Tire-Set-(56mm-Dia.-Clear-Wheels)-i.17469725.6833009480)
@@ -26,10 +23,9 @@ dependable, and versatile vehicle capable of performing complex tasks autonomous
         
   - Motor: [6V 440RPM DC Micro Metal Gearmotor](https://th.cytron.io/p-6v-440rpm-dc-micro-metal-gearmotor?srsltid=AfmBOooc6VFJJZNSbLRc4bHKPMXPgumGJDo1YQ_qqBssI0HRBYQ6wNjJ)
       - This motor offer a powerful rotaion in a small sizes that we see as beneficial in our robot
-        as it need to meet certain condition in this compettion. The high power that this motor offer
-        us will help the robot navigate the obstacle course in break-neck speed which is good as we
-        want it to excel in all aspect of the compettition and if the deciding factor came down to time
-        then we will at least be able to trust the robot to perform at it's peak.
+        as it allow us to make a more compact design for the robot which make for narrower turns.
+        The speed advantages that the motor provide us will also be good for us when being taken
+        into consideration for score.
 
 ### 3.Steering_Mechanism  
    - [MG90S Metal Gear Micro Servo](https://th.cytron.io/c-dc-motor/p-mg90s-metal-gear-micro-servo?gclid=Cj0KCQjwyL24BhCtARIsALo0fSAMEsRi6i9XiLhB3JzwqaTsE8m8xMBNWKnkg4yPYmgYKS4qhMOHMRgaAjZUEALw_wcB)
@@ -39,10 +35,15 @@ dependable, and versatile vehicle capable of performing complex tasks autonomous
          because of it's precision when compare to common servo that are seen commonly.
 
 ## 4.3D_Model
-tba
+
+Our 3D model are made and design in FreeCAD specificly the [realthunder](https://github.com/realthunder/FreeCAD/releases)
+version which is a free open source CAD software that allow a wide range of developer to access the field 
+of 3D modeling. FreeCAD also provide a more noticable look into Github changes as it's file are vieable 
+without downloading.
+
+### Picture
 
 
-     
 ## Power_and_Sensor_Management  
 ### Processing Unit  
 - **[Raspberry pi V5](https://th.cytron.io/c-carrier-board-for-rpi-cm/p-raspberry-pi-5?gclid=Cj0KCQjwyL24BhCtARIsALo0fSCA1cSwSxPTeWjvmnfoP2jWKKkocSS7wGCum3iJqgFwGyWFi0PRdwQaAibgEALw_wcB)**
@@ -54,10 +55,8 @@ tba
 ### Vision System
 - **[Raspberry pi fisheye len camera](https://th.cytron.io/p-fish-eye-lense-raspberry-pi-5mp-ir-camera?r=1&language=en-gb&gad_source=1&gclid=Cj0KCQjwyL24BhCtARIsALo0fSAs3XDrwvudJq3gCRJTOBm2JJ4lhCwdpE56E3P_x5ZEH4nZM4p4sKkaArvVEALw_wcB)**
   - **Reason:**  The Raspberry Pi camera integrates easily with the Raspberry Pi and provides
-    clear, detailed images, making it a good choice for our vehicle. The camera's high resolution
-    and fast frame rate ensure that the Raspberry Pi receives timely and accurate visual data,
-    which is crucial for making real-time navigation decisions. The camera's compatibility with
-    the Pi also simplifies the hardware setup, enhancing system reliability.
+    clear image in a wide area. Making the algorithm more effective as it's able to recieve
+    a wider view of the field.
     
 ### Distance Sensing  
 - **[RPLIDAR C1]([https://shopee.co.th/Kiki-RPLIDAR-C1-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B5%E0%B8%A2%E0%B8%B9%E0%B8%A7%E0%B8%B5-2D-%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%94%E0%B9%89-360-%E0%B8%AD%E0%B8%87%E0%B8%A8%E0%B8%B2-%E0%B8%AA%E0%B9%8D%E0%B8%B2%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-i.409507050.25664846291](https://shopee.co.th/Kiki-RPLIDAR-C1-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%A3%E0%B8%A7%E0%B8%88%E0%B8%88%E0%B8%B1%E0%B8%9A%E0%B8%A3%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B5%E0%B8%A2%E0%B8%B9%E0%B8%A7%E0%B8%B5-2D-%E0%B8%AB%E0%B8%A1%E0%B8%B8%E0%B8%99%E0%B9%84%E0%B8%94%E0%B9%89-360-%E0%B8%AD%E0%B8%87%E0%B8%A8%E0%B8%B2-%E0%B8%AA%E0%B9%8D%E0%B8%B2%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C-i.409507050.25664846291))**
@@ -95,10 +94,8 @@ tba
 
 ### Motor Control
 - **[L9110S H-bridge Stepper Motor Dual DC Driver Controller Board](https://shopee.co.th/product/5401692/1540697025?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVjhKejlrTjhjZ0djRXFyYU5xR2swSUVHNmtGUDVTWDdxSzRyUWVFZGYwUDdxVmIrRUxDN09xZ05ETXdTQlpXNEd1UkszZ3BHN3lEbWpsMDJmSFRyMEJ6ZkcyZldkVmY0NXR0NTloMUEvTkM&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfBuI_zh93yA1Pe3dZ3mnCmLtWkGAH8RJ_enMkRA6Dci5gDbjywpG8IaAu1tEALw_wcB)**
-  - **Reason:** To control the motor, we implement a Maker Drive to regulate the power
-    and direction of the motor. This motor driver provides efficient and reliable
-    control over the motor's speed and direction, essential for smooth and precise
-    vehicle movement.
+  - **Reason:** To control regulate the motor, we implement a L9110S H-bridge Stepper
+    Motor to control the 6V 440RPM DC Micro Metal Gearmotor's power.
 
 
 ### Wiring Diagram
@@ -122,7 +119,7 @@ inner or outer walls.
 In the obstacle challenge, our vehicle will also needed to complete the requirement as said above,
 but the vehicle will also need to avoid additional pillars of green and red that is scatter around
 the field. The pillars also have it's individual rules that the vehicle must obey plus a now designated
-area for parking the vehicle.  
+area for parking the vehicle.
 
 
 ![ObstacleChallenge2(dark) drawio](https://github.com/user-attachments/assets/2b8b057d-6421-4a8c-8a0d-3db446a31536)
@@ -132,10 +129,4 @@ area for parking the vehicle.
 **Vehicle Picture**  
 
 tba
-
-
-**Code's_Repository**  
-The repository for our vehicle's code can be found at:
-[https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-Simulator.git](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024-Simulator/tree/main/PythonScripts) 
-The repository contains the actual code for the vehicle that's going to be used in the coming competition.
 
