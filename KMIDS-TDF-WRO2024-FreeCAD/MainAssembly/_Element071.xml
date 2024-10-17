@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link" sub="1.$Element020."/>
+      <XLink file="" stamp="" name="Link" sub="1.$Element078."/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -50,7 +50,7 @@
 <![CDATA[
 
 CASCADE Topology V1, (c) Matra-Datavision
-Locations 14
+Locations 18
 1
               1               0               0               0 
               0               1               0               0 
@@ -92,64 +92,94 @@ Locations 14
 2  10 1 11 1 0
 2  11 -1 10 -1 0
 2  7 -1 6 -1 5 -1 4 -1 3 -1 11 -1 10 -1 0
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1              22 
+2  10 1 11 1 15 1 0
+2  15 -1 11 -1 10 -1 0
+2  7 -1 6 -1 5 -1 4 -1 3 -1 15 -1 11 -1 10 -1 0
 Curve2ds 4
 1 0 0 0 -1 
-1 6.2831853071795862 0 0 -1 
-1 0 -5 1 0 
+1 5 0 0 -1 
 1 0 0 1 0 
-Curves 3
-1 41.25 -50 5 -0 -0 -1 
-2 40 -50 0 0 0 1 1 0 -0 -0 1 0 1.25
-2 40 -50 0 0 0 1 1 0 -0 -0 1 0 1.25
+1 0 -22 1 0 
+Curves 4
+1 20.5 -118 5 0 0 1 
+1 25.5 -118 5 0 0 1 
+1 20.5 -118 0 1 0 0 
+1 20.5 -118 0 1 0 0 
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-2 40 -50 5 0 0 1 1 0 -0 -0 1 0 1.25
+1 20.5 -118 5 0 1 0 1 0 0 0 0 -1 
 Triangulations 0
 
-TShapes 9
+TShapes 12
 Ve
 1e-07
-41.2500000000003 -50.0000038146973 21.9999999999984
+20.5000000000003 -118.000003814697 21.9999999999984
 0 0
 
 0101101
 *
 Ve
-1e-07
-41.2500000000003 -50.0000038146973 16.9999999999984
+1.00000003552714e-07
+20.5000000000003 -118.000003814697 43.9999999999984
 0 0
 
 0101101
 *
 Ed
  1e-07 1 1 0
-1  1 0 0 5
-3  1 2CN 1 0 0 5
+1  1 0 0 22
+2  1 1 0 0 22
+0
+
+0101000
++12 9 -11 9 *
+Ve
+1e-07
+25.5000000000003 -118.000003814697 21.9999999999984
+0 0
+
+0101101
+*
+Ve
+1.00000003552714e-07
+25.5000000000003 -118.000003814697 43.9999999999984
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  2 0 0 22
+2  2 1 0 0 22
 0
 
 0101000
 +9 9 -8 9 *
 Ed
  1e-07 1 1 0
-1  2 0 0 6.28318530717959
-2  3 1 0 0 6.28318530717959
+1  3 0 0 5
+2  3 1 13 0 5
 0
 
 0101000
-+8 9 -8 9 *
++12 14 -9 14 *
 Ed
- 1e-07 1 1 0
-1  3 0 0 6.28318530717959
-2  4 1 13 0 6.28318530717959
+ 1.00000003552714e-07 1 1 0
+1  4 0 0 5
+2  4 1 17 0 5
 0
 
 0101000
-+9 14 -9 14 *
++11 18 -8 18 *
 Wi
 
 0101100
--7 0 +6 0 +7 0 -5 12 *
++10 0 -7 0 -6 12 +5 16 *
 Fa
 0  1e-07 1 0
 
@@ -167,26 +197,27 @@ Co
 +1 1 ]]>
       </Part>
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
-      <ElementMap2 count="6">
+      <ElementMap2 count="9">
 <![CDATA[
-75 PostfixCount 3
+73 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 75 3
+ElementMap 1 73 3
 
 Edge
 
 ChildCount 0
 
-NameCount 4
+NameCount 5
 0
-;#7c;:X;:Heb0:3,E.0 0
-;#7d;:X;:Heb0:3,E.0 0
-;#7e;:X;:Heb0:3,E.0 0
+;#146;:X;:Hf53:3,E.0 0
+;#147;:X;:Hf53:3,E.0 0
+;#148;:X;:Hf53:3,E.0 0
+;#149;:X;:Hf53:3,E.0 0
 
 Face
 
@@ -194,16 +225,18 @@ ChildCount 0
 
 NameCount 2
 0
-;#7f;:X;:Heb0:3,F.0 0
+;#14a;:X;:Hf53:3,F.0 0
 
 Vertex
 
 ChildCount 0
 
-NameCount 3
+NameCount 5
 0
-;#7a;:X;:Heb0:3,V.0 0
-;#7b;:X;:Heb0:3,V.0 0
+;#142;:X;:Hf53:3,V.0 0
+;#143;:X;:Hf53:3,V.0 0
+;#144;:X;:Hf53:3,V.0 0
+;#145;:X;:Hf53:3,V.0 0
 
 EndMap
 ]]>

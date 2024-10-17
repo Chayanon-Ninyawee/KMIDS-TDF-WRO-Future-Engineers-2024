@@ -16,7 +16,7 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="1">
-        <Link obj="Pad003" sub="Face28" shadow=";#230a;:H-1327,F.Face28"/>
+        <Link obj="Pad003" sub="Face37" shadow=";#230a;:H-1327,F.Face37"/>
       </LinkSubList>
     </Property>
     <Property name="BindCopyOnChange" type="App::PropertyEnumeration">

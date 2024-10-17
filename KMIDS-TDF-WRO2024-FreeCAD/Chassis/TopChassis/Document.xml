@@ -2,9 +2,9 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="ad64ab42-3ece-4498-8fd7-007648bbe1b2" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="b06ab7c7-2918-4eab-976b-6fa117c4bf38" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="3129">
+  <StringHasher2  count="3226">
 <![CDATA[
 -7.0 0:;SKT
 -5.c.5 g2v1
@@ -2592,15 +2592,11 @@ f2d.2c.f29.f1e
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.-5
--1.2c.89.-119
--1.2c.-89.11f
--1.2c.0.1
--1.2c.0.1
+-2.2c.0.6
+-2.2c.0.2
 -1.2c.0.-7
--1.2c.89.-119
--1.2c.-89.121
--1.2c.0.1
--1.2c.0.1
+-2.2c.0.8
+-2.2c.0.2
 -1.2c.89.-115
 -1.2c.0.16c
 -1.2c.0.-16e
@@ -2992,16 +2988,8 @@ f2d.2c.f29.f1e
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
--1.2c.0.7
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
--1.2c.0.1
+-5.2c.0.b
+-5.2c.0.5
 -1.2c.0.1
 -1.0 0:;:M;CUT;:H-531:7,E
 -1.2c.1.2d9
@@ -3088,9 +3076,7 @@ f2d.2c.f29.f1e
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
--1.2c.0.4
--1.2c.0.1
--1.2c.0.5
+-3.2c.0.a
 -1.2c.0.1
 -1.0 0:;:M;CUT;:H-531:7,F
 -1.2c.1.183
@@ -3135,6 +3121,117 @@ f2d.2c.f29.f1e
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
+-15.c.-357 g7
+-1.c.0 g8
+-1.c.0 g9
+-1.c.0 g10
+-1.c.5 g7v2
+-1.c.0 g7v1
+-1.c.0 g8v2
+-1.c.0 g9v2
+-1.0 0:(#16ed;:G;PSM;:H530:7,V)
+-1.0 0:(#16ee;:G;PSM;:H530:7,V)
+-1.0 0:(#16ef;:G;PSM;:H530:7,V)
+-1.0 0:(#16f0;:G;PSM;:H530:7,V)
+-1.0 0:(#16e9;:G;PSM;:H530:7,E|#16ed;:L#16f1;PSM;:H530:c,E|#16ee;:L#16f2;PSM;:H530:c,E)
+-1.0 0:(#16ea;:G;PSM;:H530:7,E|#16ed;:L#16f1;PSM;:H530:c,E|#16ef;:L#16f3;PSM;:H530:c,E)
+-1.0 0:(#16ea;:G;PSM;:H530:7,E|#16eb;:G;PSM;:H530:7,E|#16ec;:G;PSM;:H530:7,E)
+-1.2c.1d5.f.d.c.e.1
+-1.0 0:(#16ec;:G;PSM;:H530:7,E|#16ee;:L#16f2;PSM;:H530:c,E|#16f0;:L#16f4;PSM;:H530:c,E)
+-1.0 0:(#16eb;:G;PSM;:H530:7,E|#16ef;:L#16f3;PSM;:H530:c,E|#16f0;:L#16f4;PSM;:H530:c,E)
+-1.0 0:;:G;PSM;:H530:7,E;:H,E
+-1.2c.1.13
+16fd.2c.16fb.16ec
+-1.2c.0.-1
+-1.2c.0.-1
+-1.0 0:;SKT;:H530,E;:H,E
+-1.c.1 g10
+-1.c.0 g9
+-1.c.0 g8
+-1.c.0 g7
+-1.28.-13.14 ;:L#16f1;PSM;:H530:c,E;:H,E
+-1.28.1.1 ;:L#16f2;PSM;:H530:c,E;:H,E
+-1.28.2.2 ;:L#16f4;PSM;:H530:c,E;:H,E
+-1.28.-1.-1 ;:L#16f3;PSM;:H530:c,E;:H,E
+-1.28.-6.-6.1b.18.17.14 ;:L#16f5;PSM;:H530:c,F;:H,F
+-1.28.3.1.2.1.2.4 ;:L#16f9;PSM;:H530:c,F;:H,F
+-1.28.-1.1.0.1.0.1 ;:L#16fa;PSM;:H530:c,F;:H,F
+-1.28.-1.-2.-1.-2.-1.-4 ;:L#16f6;PSM;:H530:c,F;:H,F
+-1.0 0:;:G;PSM;:H530:7,V;:H,V
+-1.2c.1.21
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.-1
+-1.0 0:;SKT;:H530,V;:H,V
+-1.c.1 g9v2
+-1.c.0 g7v1
+-1.c.0 g8v2
+-1.c.0 g7v2
+-1.2c.-172.9
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.b1.-1a
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.68.-208
+-1.2c.0.1
+-1.2c.-f.208
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-15.0 0:(#14a8;K-1;:H52f:4,E)
+-1.0 0:(#14a6;K-1;:H52f:4,E)
+-1.0 0:(#14ad;K-1;:H52f:4,E)
+-1.0 0:(#14ab;K-1;:H52f:4,E)
+-1.0 0:(#14ab;K-2;:H52f:4,E)
+-1.0 0:(#14a6;K-2;:H52f:4,E)
+-1.0 0:(#14ad;K-2;:H52f:4,E)
+-1.0 0:(#14a8;K-2;:H52f:4,E)
+-1.28.51.2a5.439.8 ;:G2#1745;CUT;:H-531:d,V
+-1.28.0.-2.-6.1 ;:G#1746;CUT;:H-531:c,V
+-1.28.8.7.9.1 ;:G2#1747;CUT;:H-531:d,V
+-1.28.0.-2.-8.1 ;:G#1748;CUT;:H-531:c,V
+-1.28.-2.0.0.1 ;:G#1749;CUT;:H-531:c,V
+-1.28.-4.-5.-1.1 ;:G#174a;CUT;:H-531:c,V
+-1.28.4.7.9.1 ;:G2#174b;CUT;:H-531:d,V
+-1.28.-4.-5.-3.1 ;:G2#174c;CUT;:H-531:d,V
+-1.0 0:;:M;CUT;:H52f:7,E
+-1.2c.1.2ae
+-1.0 0:;:M2;CUT;:H-531:8,E
+-1.2c.1.5c
+-1.2c.-2.-256
+-1.2c.0.7
+-1.2c.2.257
+-1.2c.-2.-259
+-1.0 0:;:M3;CUT;:H-531:8,E
+-1.2c.1.5a
+-1.0 0:;:M2;CUT;:H52f:8,E
+-1.2c.1.2b5
+-1.2c.-2.253
+-1.2c.2.-258
+-1.2c.-2.25c
+-1.2c.2.-255
+-1.2c.-2.24f
+-1.2c.2.-254
+-1.2c.-8.25a
+-1.2c.0.-4
+-1.0 0:;:M2;CUT;:H52f:8,F
+-1.2c.1.269
+-1.2c.0.-1
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -3166,7 +3263,7 @@ f2d.2c.f29.f1e
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-14T18:08:33Z"/>
+      <String value="2024-10-17T09:25:39Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -3201,7 +3298,7 @@ f2d.2c.f29.f1e
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="ad64ab42-3ece-4498-8fd7-007648bbe1b2"/>
+      <Uuid value="b06ab7c7-2918-4eab-976b-6fa117c4bf38"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -3209,29 +3306,29 @@ f2d.2c.f29.f1e
   </Properties>
   <Objects Count="26" Dependencies="1">
     <ObjectDeps Name="Body" Count="15">
-      <Dep Name="Binder002"/>
-      <Dep Name="Pad007"/>
-      <Dep Name="Pad005"/>
-      <Dep Name="Binder001"/>
-      <Dep Name="Pad003"/>
-      <Dep Name="Origin"/>
-      <Dep Name="Pad001"/>
-      <Dep Name="Pad006"/>
-      <Dep Name="Sketch003"/>
-      <Dep Name="Pad004"/>
-      <Dep Name="Chamfer"/>
-      <Dep Name="Pad"/>
-      <Dep Name="Sketch"/>
       <Dep Name="Binder"/>
+      <Dep Name="Pad007"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Pad006"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder001"/>
+      <Dep Name="Binder002"/>
+      <Dep Name="Pad005"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Pad003"/>
+      <Dep Name="Chamfer"/>
+      <Dep Name="Sketch003"/>
+      <Dep Name="Sketch"/>
       <Dep Name="Pad002"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
       <Dep Name="X_Axis"/>
+      <Dep Name="YZ_Plane"/>
       <Dep Name="Y_Axis"/>
-      <Dep Name="Z_Axis"/>
       <Dep Name="XY_Plane"/>
       <Dep Name="XZ_Plane"/>
-      <Dep Name="YZ_Plane"/>
+      <Dep Name="Z_Axis"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -3245,69 +3342,69 @@ f2d.2c.f29.f1e
     </ObjectDeps>
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="XY_Plane"/>
       <Dep Name="Link"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
       <Dep Name="Binder"/>
       <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="Sketch002"/>
-      <Dep Name="Pad"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Binder001"/>
-      <Dep Name="Pad"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Pad001"/>
       <Dep Name="Sketch002"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
-      <Dep Name="Binder002"/>
-      <Dep Name="Pad001"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Binder002"/>
     </ObjectDeps>
     <ObjectDeps Name="Link001" Count="0"/>
     <ObjectDeps Name="Link002" Count="0"/>
     <ObjectDeps Name="Pad003" Count="2">
-      <Dep Name="Pad002"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad002"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch" Count="1">
       <Dep Name="Pad003"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Pad003"/>
       <Dep Name="Sketch"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad005" Count="2">
       <Dep Name="Pad004"/>
       <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad006" Count="2">
-      <Dep Name="Pad005"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad005"/>
     </ObjectDeps>
     <ObjectDeps Name="Sketch003" Count="1">
       <Dep Name="Pad006"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad007" Count="3">
       <Dep Name="Pad006"/>
-      <Dep Name="Sketch003"/>
       <Dep Name="Body"/>
+      <Dep Name="Sketch003"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer" Count="2">
       <Dep Name="Pad007"/>
       <Dep Name="Body"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1303" revision="129" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1303" revision="153" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1304" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1305" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1306" revision="2" file="Y_Axis.xml" />
@@ -3316,23 +3413,23 @@ f2d.2c.f29.f1e
     <Object type="App::Plane" name="XZ_Plane" id="1309" revision="2" file="XZ_Plane.xml" />
     <Object type="App::Plane" name="YZ_Plane" id="1310" revision="2" file="YZ_Plane.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch002" id="1311" revision="3055" file="Sketch002.xml" />
-    <Object type="App::Link" name="Link" id="1312" revision="35" file="Link.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder" id="1313" revision="38" file="Binder.xml" />
-    <Object type="PartDesign::Pad" name="Pad" id="1314" revision="88" file="Pad.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="1315" revision="412" file="Binder001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="1317" revision="175" file="Pad001.xml" />
-    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="1318" revision="351" file="Binder002.xml" />
-    <Object type="PartDesign::Pad" name="Pad002" id="1319" revision="160" file="Pad002.xml" />
-    <Object type="App::Link" name="Link001" id="1320" revision="34" file="Link001.xml" />
-    <Object type="App::Link" name="Link002" id="1321" revision="7" file="Link002.xml" />
-    <Object type="PartDesign::Pad" name="Pad003" id="1322" revision="25" file="Pad003.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch" id="1323" revision="172" file="Sketch.xml" />
-    <Object type="PartDesign::Pad" name="Pad004" id="1324" revision="44" file="Pad004.xml" />
-    <Object type="PartDesign::Pad" name="Pad005" id="1326" revision="35" file="Pad005.xml" />
-    <Object type="PartDesign::Pad" name="Pad006" id="1327" revision="37" file="Pad006.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch003" id="1328" revision="311" file="Sketch003.xml" />
-    <Object type="PartDesign::Pad" name="Pad007" id="1329" revision="37" file="Pad007.xml" />
-    <Object type="PartDesign::Chamfer" name="Chamfer" id="1330" revision="23" file="Chamfer.xml" />
+    <Object type="App::Link" name="Link" id="1312" revision="53" file="Link.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder" id="1313" revision="52" file="Binder.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="1314" revision="130" file="Pad.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder001" id="1315" revision="538" file="Binder001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="1317" revision="217" file="Pad001.xml" />
+    <Object type="PartDesign::SubShapeBinder" name="Binder002" id="1318" revision="477" file="Binder002.xml" />
+    <Object type="PartDesign::Pad" name="Pad002" id="1319" revision="202" file="Pad002.xml" />
+    <Object type="App::Link" name="Link001" id="1320" revision="52" file="Link001.xml" />
+    <Object type="App::Link" name="Link002" id="1321" revision="11" file="Link002.xml" />
+    <Object type="PartDesign::Pad" name="Pad003" id="1322" revision="67" file="Pad003.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch" id="1323" revision="314" file="Sketch.xml" />
+    <Object type="PartDesign::Pad" name="Pad004" id="1324" revision="97" file="Pad004.xml" />
+    <Object type="PartDesign::Pad" name="Pad005" id="1326" revision="82" file="Pad005.xml" />
+    <Object type="PartDesign::Pad" name="Pad006" id="1327" revision="84" file="Pad006.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch003" id="1328" revision="565" file="Sketch003.xml" />
+    <Object type="PartDesign::Pad" name="Pad007" id="1329" revision="101" file="Pad007.xml" />
+    <Object type="PartDesign::Chamfer" name="Chamfer" id="1330" revision="63" file="Chamfer.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

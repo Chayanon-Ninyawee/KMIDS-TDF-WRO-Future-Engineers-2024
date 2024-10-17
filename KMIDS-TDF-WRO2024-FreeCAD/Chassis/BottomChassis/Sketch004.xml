@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad008" sub="Face50" shadow=";#3fd8;:H1332,F.Face50"/>
-        <Link obj="Pad008" sub="Vertex64" shadow=";#3e50;:H1332,V.Vertex64"/>
+        <Link obj="Pad008" sub="Face46" shadow=";#1b71e;:H1332,F.Face46"/>
+        <Link obj="Pad008" sub="Vertex23" shadow=";#1b6df;:H1332,V.Vertex23"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -33,8 +33,8 @@
         <Constrain Name="" Type="7" Value="14" First="-1" FirstPos="1" Second="0" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="0.9941921234130859" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="18" Value="3" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.8139758110046387" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="12" Value="0" First="0" FirstPos="0" Second="1" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="6" Value="20" First="0" FirstPos="3" Second="1" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309453964233" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="6" Value="2.5" First="1" FirstPos="3" Second="-1" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="1.214309453964233" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="22" First="0" FirstPos="3" Second="1" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309453964233" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="1.5" First="1" FirstPos="3" Second="-1" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="1.214309453964233" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
     <Property name="Exports" type="App::PropertyLinkListHidden" status="67108864">
@@ -86,14 +86,14 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="14" CenterY="22.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="14" CenterY="23.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="3" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="14" CenterY="2.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="14" CenterY="1.5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -142,21 +142,21 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-23" Py="-130" Pz="5" Q0="0.5000000000000001" Q1="-0.5000000000000001" Q2="-0.5000000000000001" Q3="0.4999999999999997" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
+      <PropertyPlacement Px="-32" Py="-125" Pz="5" Q0="0.5" Q1="-0.5" Q2="-0.5" Q3="0.5" A="2.094395102393196" Ox="0.5773502691896257" Oy="-0.5773502691896257" Oz="-0.5773502691896257"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
 <![CDATA[
 
 CASCADE Topology V1, (c) Matra-Datavision
-Locations 8
+Locations 14
 1
-              0               0              -1             -23 
-             -1               0               0            -130 
+              0               0              -1             -32 
+             -1               0               0            -125 
               0               1               0               5 
 1
-              0               0              -1             -23 
-             -1               0               0            -130 
+              0               0              -1             -32 
+             -1               0               0            -125 
               0               1               0               5 
 1
               1               0               0               0 
@@ -164,34 +164,55 @@ Locations 8
               0               0               1               0 
 2  2 -1 3 -1 0
 1
-              1               0               0 18628.3076195314 
+              1               0               0 17859.7067139113 
               0               1               0              -0 
               0               0               1              -0 
 2  5 -1 2 -1 3 -1 0
 1
-              1               0               0 18628.3076195314 
+              0               0              -1             -32 
+             -1               0               0            -125 
+              0               1               0               5 
+2  7 -1 3 -1 0
+1
+              1               0               0 17859.7067139113 
               0               1               0              -0 
               0               0               1              -0 
-2  7 -1 2 -1 3 -1 0
-Curve2ds 4
+2  9 -1 7 -1 3 -1 0
+1
+              1               0               0 17859.7067139113 
+              0               1               0              -0 
+              0               0               1              -0 
+2  11 -1 2 -1 3 -1 0
+1
+              1               0               0 17859.7067139113 
+              0               1               0              -0 
+              0               0               1              -0 
+2  13 -1 7 -1 3 -1 0
+Curve2ds 8
 1 0 0 1 0 
-1 0 -18628.307619531435 1 0 
+1 0 -17859.706713911313 1 0 
 1 0 0 1 0 
-1 0 -18628.307619531435 1 0 
+1 0 -17859.706713911313 1 0 
+1 0 0 1 0 
+1 0 -17859.706713911313 1 0 
+1 0 0 1 0 
+1 0 -17859.706713911313 1 0 
 Curves 2
-2 14 22.5 0 0 0 1 1 0 -0 -0 1 0 1.5
-2 14 2.5 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 14 23.5 0 0 0 1 1 0 0 0 1 0 1.5
+2 14 1.5 0 0 0 1 1 0 0 0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
-Surfaces 2
-2 -23 -144 27.5 -1 0 0 0 -1 0 0 0 1 1.5
-2 -23 -144 7.5 -1 0 0 0 -1 0 0 0 1 1.5
+Surfaces 4
+2 -32 -139 28.5 -1 0 0 0 -1 0 0 0 1 1.5
+2 -32 -139 28.5 -1 0 0 0 -1 0 0 0 1 1.5
+2 -32 -139 6.5 -1 0 0 0 -1 0 0 0 1 1.5
+2 -32 -139 6.5 -1 0 0 0 -1 0 0 0 1 1.5
 Triangulations 0
 
 TShapes 7
 Ve
 1e-07
-15.5 22.5 0
+15.5 23.5 0
 0 0
 
 0101101
@@ -201,6 +222,8 @@ Ed
 1  1 0 0 6.28318530717959
 2  1 1 4 0 6.28318530717959
 2  2 1 6 0 6.28318530717959
+2  3 2 8 0 6.28318530717959
+2  4 2 10 0 6.28318530717959
 0
 
 0101100
@@ -211,7 +234,7 @@ Wi
 +6 0 *
 Ve
 1e-07
-15.5 2.5 0
+15.5 1.5 0
 0 0
 
 0101101
@@ -219,8 +242,10 @@ Ve
 Ed
  1e-07 1 1 0
 1  2 0 0 6.28318530717959
-2  3 2 4 0 6.28318530717959
-2  4 2 8 0 6.28318530717959
+2  5 3 4 0 6.28318530717959
+2  6 3 12 0 6.28318530717959
+2  7 4 8 0 6.28318530717959
+2  8 4 14 0 6.28318530717959
 0
 
 0101100
@@ -272,8 +297,8 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad008" sub="Face50" shadow=";#3fd8;:H1332,F.Face50"/>
-        <Link obj="Pad008" sub="Vertex64" shadow=";#3e50;:H1332,V.Vertex64"/>
+        <Link obj="Pad008" sub="Face46" shadow=";#1b71e;:H1332,F.Face46"/>
+        <Link obj="Pad008" sub="Vertex23" shadow=";#1b6df;:H1332,V.Vertex23"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

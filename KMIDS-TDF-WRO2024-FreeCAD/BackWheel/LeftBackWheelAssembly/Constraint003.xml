@@ -14,7 +14,7 @@
     <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
-    <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097418">
+    <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097419">
       <LinkList count="2">
         <Link value="ElementLink005"/>
         <Link value="ElementLink006"/>
@@ -31,7 +31,7 @@
       <Python  module="freecad.asm3.assembly" class="AsmConstraint" value="null"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="15"/>
+      <Integer value="62"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>

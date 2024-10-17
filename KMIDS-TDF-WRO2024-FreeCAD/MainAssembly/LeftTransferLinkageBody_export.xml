@@ -28,7 +28,7 @@
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
     <Property name="Label" type="App::PropertyString" status="134217728">
-      <String value="LeftTransferLinkageBody_export(LeftTransferLinkageBody)"/>
+      <String value="LeftTransferLinkageBody_Export"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
       <String value=""/>
@@ -88,7 +88,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="354"/>
+      <Integer value="424"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>

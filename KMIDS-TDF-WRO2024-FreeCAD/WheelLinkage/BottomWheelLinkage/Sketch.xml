@@ -34,7 +34,7 @@
         <Constrain Name="" Type="6" Value="10" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="9" Value="1.264665575995091" First="0" FirstPos="1" Second="1" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="2" FirstPos="3" Second="0" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="18" Value="3.12" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="18" Value="3.24" First="2" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="3" FirstPos="3" Second="0" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="18" Value="3" First="3" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.4432127475738525" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="4" FirstPos="3" Second="1" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
@@ -69,8 +69,8 @@
         <XLinks count="2" docs="2">
           <DocMap name="SteeringAckermannModel" label="SteeringAckermannModel" index="1"/>
           <DocMap name="ClearanceConfig" label="ClearanceConfig" index="0"/>
-          <XLink file="../ClearanceConfig" stamp="2024-10-14T14:46:19Z" name="Spreadsheet"/>
-          <XLink file="../SteeringAckermannModel" stamp="2024-10-09T13:01:52Z" name="Spreadsheet"/>
+          <XLink file="../ClearanceConfig" stamp="2024-10-15T16:57:35Z" name="Spreadsheet"/>
+          <XLink file="../SteeringAckermannModel" stamp="2024-10-17T09:10:40Z" name="Spreadsheet"/>
         </XLinks>
         <Expressions><![CDATA[
 0:Constraints[4]
@@ -145,7 +145,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.56"/>
+          <Circle CenterX="0" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.62"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="4" migrated="1">
@@ -278,16 +278,16 @@ Locations 1
               0               0               1               0 
 Curve2ds 0
 Curves 11
-2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.5600000000000001
+2 0 0 0 0 0 1 1 0 -0 -0 1 0 1.6200000000000001
 2 -5 0 0 0 0 1 1 0 -0 -0 1 0 1.5
 2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 -0 -0 1 0 1.5
 2 0 0 0 0 0 1 1 0 -0 -0 1 0 4
 1 2.9094646189298464e-15 4 0 -1 0 0 
 1 -8 4 0 0 -1 0 
-1 -8 -4 0 0.31345448981142726 -0.9496032238872496 0 
+1 -8 -4 0 0.31345448981142715 -0.9496032238872496 0 
 2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 -0 -0 1 0 3
 1 4 -4 0 -0.53141316649492609 -0.84711277081380143 0 
-1 4 1.2864981197413091e-15 0 0 -1 0 
+1 4 1.2864981197413093e-15 0 0 -1 0 
 2 -3.01371546206917 -9.5350678609900417 0 0 0 1 1 0 -0 -0 1 0 2.5
 Polygon3D 0
 PolygonOnTriangulations 0
@@ -297,7 +297,7 @@ Triangulations 0
 TShapes 28
 Ve
 1e-07
-1.56 0 0
+1.62 0 0
 0 0
 
 0101101
@@ -399,7 +399,7 @@ Ed
 0101000
 +16 0 -14 0 *
 Ve
-1.00000000888178e-07
+1e-07
 -5.86252513373092 -10.4754313304243 0
 0 0
 

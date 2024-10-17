@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="c5806d3e-8e2a-4301-b04d-68058805f168" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="e749e3f0-ed99-4e46-b59c-632394b148a9" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="468">
 <![CDATA[
@@ -304,63 +304,7 @@
 -1.c.e #470
 -1.c.0 #471
 -1.c.-e #453
--1.0 0:;:H4d1,E;:H4d3,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #817
--1.c.0 #822
--1.c.0 #859
--1.c.0 #818
--1.c.0 #85a
--1.c.0 #85b
--1.c.0 #85c
--1.c.0 #819
--1.c.0 #821
--1.c.0 #85d
--1.c.0 #85e
--1.c.0 #85f
--1.c.0 #860
--1.c.0 #861
--1.c.0 #824
--1.c.0 #826
--1.c.0 #862
--1.c.0 #866
--1.c.0 #865
--1.c.0 #863
--1.c.0 #864
--1.0 0:;:M;CUT;:H-4d3:7,E;:H4d3,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.1 #8aa
--1.c.-16 #867
--1.c.0 #81a
--1.c.0 #868
--1.c.0 #869
--1.c.0 #86a
--1.c.0 #86b
--1.c.0 #86c
--1.c.0 #86d
--1.c.0 #86e
--1.c.0 #872
--1.c.0 #86f
--1.c.0 #871
--1.c.0 #870
--1.8 #8ad ;:G#8ab;CUT;:H-4d3:b,E;:H4d3,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
--1.c.26 #873
--1.c.0 #874
--1.c.0 #875
--1.c.0 #876
--1.c.0 #878
--1.c.0 #877
--1.c.16 #8b0
--1.c.-16 #879
--1.c.0 #87a
--1.c.0 #87b
--1.c.0 #87c
--1.c.0 #87d
--1.c.0 #87e
--1.c.0 #87f
--1.c.0 #880
--1.c.0 #881
--1.c.0 #882
--1.c.0 #883
--1.c.-262 #79e
+-39.c.80 #79e
 -1.c.0 #79f
 -1.c.0 #7a0
 -1.c.0 #7a1
@@ -379,31 +323,7 @@
 -1.c.0 #45b
 -1.c.5 #46f
 -1.c.-3 #45c
--1.0 0:;:H4d1,F;:H4d3,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
--1.c.1 #812
--1.c.0 #813
--1.c.0 #815
--1.0 0:;:M;CUT;:H4d1:7,F;:H4d3,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
--1.c.1 #899
--1.c.-4 #884
--1.c.0 #886
--1.c.4 #89a
--1.c.-4 #887
--1.c.0 #888
--1.c.0 #889
--1.c.0 #88b
--1.c.0 #88a
--1.0 0:;:M;CUT;:H-4d3:7,F;:H4d3,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
--1.c.1 #8ad
--1.c.-e #88c
--1.c.0 #88d
--1.c.0 #88e
--1.c.0 #88f
--1.c.0 #890
--1.c.0 #891
--1.c.0 #892
--1.c.0 #893
--1.c.-25a #778
+-19.c.3d #778
 -1.c.0 #779
 -1.c.0 #77a
 -1.c.0 #77b
@@ -437,43 +357,123 @@
 -1.c.0 #43a
 -1.c.d #473
 -1.c.-d #43c
--1.0 0:;:H4d1,V;:H4d3,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
--1.c.1 #81c
--1.c.0 #83b
--1.c.0 #81e
--1.c.0 #83c
--1.c.0 #83d
--1.c.0 #83e
--1.c.0 #83f
--1.c.0 #81d
--1.c.0 #840
--1.c.0 #841
--1.c.0 #842
--1.c.0 #843
--1.c.0 #844
--1.c.0 #81f
--1.c.0 #847
--1.c.0 #846
--1.c.0 #845
--1.0 0:;:M;CUT;:H-4d3:7,V;:H4d3,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
--1.c.1 #8b4
--1.c.-12 #848
--1.c.0 #849
--1.c.0 #84a
--1.c.0 #84b
--1.c.0 #84c
--1.c.0 #84d
--1.c.0 #84e
--1.c.0 #850
--1.c.0 #84f
--1.8 #8b0 ;:G#8b6;CUT;:H-4d3:b,V;:H4d3,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
--1.c.1e #851
--1.c.0 #852
--1.c.0 #853
--1.c.0 #854
--1.c.0 #855
--1.c.0 #856
--1.c.0 #857
+-27.0 0:;:H4d3,E;:H4d6,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #924
+-1.c.0 #925
+-1.c.0 #926
+-1.c.0 #927
+-1.c.0 #928
+-1.c.0 #929
+-1.c.0 #92a
+-1.c.0 #92b
+-1.c.0 #92d
+-1.c.0 #92e
+-1.c.0 #92f
+-1.c.0 #930
+-1.c.0 #931
+-1.c.0 #932
+-1.c.0 #933
+-1.c.0 #934
+-1.c.0 #935
+-1.c.0 #938
+-1.c.0 #966
+-1.c.0 #936
+-1.c.0 #937
+-1.0 0:;:M;CUT;:H-4d6:7,E;:H4d6,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.1 #97e
+-1.c.-16 #939
+-1.c.0 #93a
+-1.c.0 #93b
+-1.c.0 #93c
+-1.c.0 #93d
+-1.c.0 #93e
+-1.c.0 #93f
+-1.c.0 #940
+-1.c.0 #941
+-1.c.0 #944
+-1.c.0 #942
+-1.c.0 #943
+-1.c.0 #969
+-1.8 #980 ;:G#96b;CUT;:H-4d6:b,E;:H4d6,E;:X;:H48e:b,E;:H5ad:15,E;:H5a1:20,E
+-1.c.26 #945
+-1.c.0 #946
+-1.c.0 #947
+-1.c.0 #948
+-1.c.0 #94a
+-1.c.0 #949
+-1.c.16 #982
+-1.c.-16 #971
+-1.c.0 #94b
+-1.c.0 #94c
+-1.c.0 #94d
+-1.c.0 #94e
+-1.c.0 #94f
+-1.c.0 #950
+-1.c.0 #951
+3e8.c.3b3 #952
+-1.c.0 #953
+-1.c.0 #954
+-1.0 0:;:H4d3,F;:H4d6,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #956
+-1.c.0 #958
+-1.c.0 #959
+-1.0 0:;:M;CUT;:H4d3:7,F;:H4d6,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #974
+-1.c.-4 #95a
+-1.c.0 #95b
+-1.c.4 #96a
+-1.c.-4 #95c
+-1.c.0 #95d
+-1.c.0 #95e
+-1.c.0 #975
+-1.c.0 #95f
+-1.0 0:;:M;CUT;:H-4d6:7,F;:H4d6,F;:X;:H48e:b,F;:H5ad:15,F;:H5a1:20,F
+-1.c.1 #980
+-1.c.-e #976
+-1.c.0 #972
+-1.c.0 #960
+-1.c.0 #961
+-1.c.0 #962
+-1.c.0 #963
+-1.c.0 #964
+-1.c.0 #965
+-1.0 0:;:H4d3,V;:H4d6,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #902
+-1.c.0 #903
+-1.c.0 #904
+-1.c.0 #905
+-1.c.0 #906
+-1.c.0 #907
+-1.c.0 #908
+-1.c.0 #909
+-1.c.0 #90a
+-1.c.0 #90b
+-1.c.0 #90c
+-1.c.0 #90d
+-1.c.0 #90e
+-1.c.0 #90f
+-1.c.0 #912
+-1.c.0 #911
+-1.c.0 #910
+-1.0 0:;:M;CUT;:H-4d6:7,V;:H4d6,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1 #984
+-1.c.-12 #913
+-1.c.0 #914
+-1.c.0 #915
+-1.c.0 #916
+-1.c.0 #917
+-1.c.0 #918
+-1.c.0 #919
+-1.c.0 #91b
+-1.c.0 #91a
+-1.8 #982 ;:G#97b;CUT;:H-4d6:b,V;:H4d6,V;:X;:H48e:b,V;:H5ad:15,V;:H5a1:20,V
+-1.c.1e #91c
+-1.c.0 #91d
+-1.c.0 #91e
+-1.c.0 #91f
+-1.c.0 #920
+-1.c.0 #921
+-1.c.0 #922
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -505,7 +505,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-14T14:47:34Z"/>
+      <String value="2024-10-17T09:30:48Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -540,7 +540,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="c5806d3e-8e2a-4301-b04d-68058805f168"/>
+      <Uuid value="e749e3f0-ed99-4e46-b59c-632394b148a9"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -551,8 +551,8 @@
     <ObjectDeps Name="Part__Mirroring" Count="1">
       <Dep Name="Link"/>
     </ObjectDeps>
-    <Object type="App::Link" name="Link" id="910" revision="43" file="Link.xml" />
-    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="21" file="Part__Mirroring.xml" />
+    <Object type="App::Link" name="Link" id="910" revision="85" file="Link.xml" />
+    <Object type="Part::Mirroring" name="Part__Mirroring" id="921" revision="35" file="Part__Mirroring.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

@@ -66,7 +66,7 @@ Locations 8
 1
               1               0               0               0 
               0              -1               0               0 
-              0               0              -1             -20 
+              0               0              -1             -16 
 1
               1               0               0               0 
               0               1               0               0 
@@ -88,7 +88,7 @@ Triangulations 0
 TShapes 4
 Ve
 1e-07
-30.75 -24.5 -22
+30.75 -24.5 -18
 0 0
 
 0101101
@@ -128,7 +128,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#37;:X;:H11b:3,E.0 0
+;#3a;:X;:H11b:3,E.0 0
 
 Vertex
 
@@ -136,7 +136,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#34;:X;:H11b:3,V.0 0
+;#37;:X;:H11b:3,V.0 0
 
 EndMap
 ]]>

@@ -25,10 +25,10 @@
       <LinkList count="6">
         <Link value="Link"/>
         <Link value="Link001"/>
-        <Link value="Link002"/>
         <Link value="Link003"/>
         <Link value="Link004"/>
         <Link value="Link005"/>
+        <Link value="Link006"/>
       </LinkList>
     </Property>
     <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097408">

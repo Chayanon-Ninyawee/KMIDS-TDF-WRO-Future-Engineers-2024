@@ -132,7 +132,7 @@ Curves 3
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-2 0 15.449999999999999 5.9999999999999982 -0 -0 -1 1 0 0 0 1 0 1
+2 0 15.449999999999999 5.9999999999999982 -0 -0 -1 1 0 0 -0 1 -0 1
 Triangulations 0
 
 TShapes 9
@@ -197,14 +197,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="6">
 <![CDATA[
-18 PostfixCount 3
+17 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 18 3
+ElementMap 1 17 3
 
 Edge
 
@@ -212,9 +212,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#b9;:X;:He9d:3,E.0 0
-;#ba;:X;:He9d:3,E.0 0
-;#bb;:X;:He9d:3,E.0 0
+;#e6;:X;:He9d:3,E.0 0
+;#e7;:X;:He9d:3,E.0 0
+;#e8;:X;:He9d:3,E.0 0
 
 Face
 
@@ -222,7 +222,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#bc;:X;:He9d:3,F.0 0
+;#e9;:X;:He9d:3,F.0 0
 
 Vertex
 
@@ -230,8 +230,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#b7;:X;:He9d:3,V.0 0
-;#b8;:X;:He9d:3,V.0 0
+;#e4;:X;:He9d:3,V.0 0
+;#e5;:X;:He9d:3,V.0 0
 
 EndMap
 ]]>

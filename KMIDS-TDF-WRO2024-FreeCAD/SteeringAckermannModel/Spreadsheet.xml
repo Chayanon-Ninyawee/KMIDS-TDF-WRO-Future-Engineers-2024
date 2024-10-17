@@ -31,7 +31,7 @@
         <Cell address="C1" content="ServoConfig"/>
         <Cell address="D1" content="Value"/>
         <Cell address="A2" content="BodyLength"/>
-        <Cell address="B2" content="200"/>
+        <Cell address="B2" content="195"/>
         <Cell address="C2" content="PositionOffset"/>
         <Cell alias="servoposoffset" address="D2" content="-4"/>
         <Cell address="A3" content="BodyWidth"/>

@@ -2,550 +2,18 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="c4256aaf-d80d-4033-9a63-89a8ffd1f6eb" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="0b4f0a1a-753a-4aff-9fc0-deaeaf9cfd9b" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="540">
+  <StringHasher2  count="4">
 <![CDATA[
--2.0 0:;:H953,E;:H956,E;:X;:H940:b,E;:Hf19:15,E;:Hf15:20,E
--1.c.1 #2f0
--1.c.0 #2f1
--1.c.0 #2f2
--1.c.0 #2f3
--1.c.0 #2f4
--1.c.0 #2f5
--1.c.0 #2f6
--1.c.0 #2f7
--1.c.0 #2f8
--2.c.0 #2fa
--1.c.0 #2fb
--1.c.0 #2fc
--1.c.0 #2fd
--1.c.0 #2fe
--1.c.0 #2ff
--1.c.0 #300
--1.c.0 #301
--1.c.0 #302
--1.c.0 #303
--1.c.0 #304
--1.c.0 #305
--1.c.0 #306
--1.c.0 #307
--2.c.0 #309
--1.c.0 #30a
--1.c.0 #30b
--8.c.0 #313
--2.c.0 #315
--1.c.0 #316
--1.c.0 #317
--1.c.0 #318
--1.c.0 #319
--1.c.0 #31a
--1.c.0 #31b
--1.c.0 #31c
--1.c.0 #31d
--1.c.0 #31e
--1.c.0 #31f
--1.c.0 #320
--1.c.0 #321
--1.c.0 #322
--1.c.0 #323
--1.c.0 #324
--1.c.0 #325
--1.c.0 #326
--1.c.0 #327
--1.c.0 #328
--1.c.0 #329
--1.c.0 #32a
--1.c.0 #32c
--1.c.0 #32d
--1.c.0 #32f
--1.c.0 #330
--1.c.0 #332
--1.c.0 #333
--1.c.0 #335
--1.c.0 #336
--1.c.0 #338
--1.c.0 #339
--1.c.0 #33a
--1.c.0 #33b
--1.c.0 #33c
--1.c.0 #33d
--1.c.0 #33e
--1.0 0:;:M;CUT;:H-956:7,E;:H956,E;:X;:H940:b,E;:Hf19:15,E;:Hf15:20,E
--1.c.1 #373
--1.c.0 #371
--1.c.-4b #33f
--1.c.4b #2a0
--1.c.0 #29f
--1.c.0 #375
--1.c.0 #376
--1.0 0:;:M;CHF;:H11e8:7,E;:H11e9,E;:X;:H11d3:c,E;:Hf1a:17,E;:Hf15:22,E
--1.c.1 #4b6
--1.0 0:;:U;CHF;:H11e8:7,E;:H11e9,E;:X;:H11d3:c,E;:Hf1a:17,E;:Hf15:22,E
--1.c.1 #4be
--1.0 0:;:H11e8,E;:H11e9,E;:X;:H11d3:c,E;:Hf1a:17,E;:Hf15:22,E
--1.c.1 #484
--1.c.-2 #4c0
--1.0 0:;:U3;CHF;:H11e8:8,E;:H11e9,E;:X;:H11d3:c,E;:Hf1a:17,E;:Hf15:22,E
--1.c.1 #4c0
--1.c.-3 #47c
--1.c.0 #470
--1.c.0 #46e
--1.c.0 #47f
--1.c.0 #480
--1.c.0 #481
--1.c.0 #482
--1.c.0 #475
--1.c.0 #46c
--1.c.0 #46b
--1.c.0 #47d
--1.c.0 #47e
--1.c.0 #46f
--1.c.0 #46a
--1.c.0 #462
--1.c.0 #469
--1.c.0 #46d
--1.c.0 #461
--1.c.0 #474
--1.c.0 #487
--1.c.0 #488
--1.c.0 #472
--1.c.0 #485
--1.c.0 #486
--1.c.0 #471
--1.c.0 #473
--1.c.0 #465
--1.c.0 #460
--1.c.0 #48a
--1.c.0 #464
--1.c.0 #463
--1.c.0 #466
--1.c.0 #44e
--1.c.0 #467
--1.c.0 #468
--1.c.0 #48e
--1.c.0 #48c
--1.c.0 #489
--1.c.0 #477
--1.c.0 #476
--1.c.0 #44a
--1.c.0 #43a
--1.c.0 #44b
--1.c.0 #44c
--1.c.0 #44d
--1.c.0 #44f
--1.c.0 #478
--1.c.0 #479
--1.c.0 #47a
--1.c.0 #47b
--1.c.0 #48d
--1.c.0 #48b
--1.c.0 #441
--1.c.0 #437
--1.c.0 #438
--1.c.0 #439
--1.c.0 #43c
--1.c.0 #442
--1.c.0 #43d
--1.c.0 #445
--1.c.0 #440
--1.c.0 #443
--1.c.0 #444
--1.c.0 #43b
--1.c.0 #43e
--1.c.0 #43f
--1.c.0 #446
--1.c.0 #447
--1.c.0 #448
--1.c.0 #449
--1.c.0 #454
--1.c.0 #455
--1.c.0 #456
--1.c.0 #457
--1.c.0 #450
--1.c.0 #451
--1.c.0 #452
--1.c.0 #453
--1.c.0 #458
--1.c.0 #459
--1.c.0 #45a
--1.c.0 #45b
--1.c.0 #45c
--1.c.0 #45d
--1.c.0 #45e
--1.c.0 #45f
--1.0 0:;:Hdd5,E;:Hdd7,E;:X;:Hdb3:b,E;:Hf3b:15,E;:Hf15:20,E
--1.c.1 #220
--1.c.0 #221
--1.c.0 #222
--1.c.0 #223
--1.c.0 #224
--1.c.0 #225
--1.c.0 #226
--1.c.0 #227
--1.c.0 #228
--1.c.0 #22b
--1.c.0 #22a
--1.c.0 #264
--1.c.0 #229
--1.c.0 #22e
--1.c.0 #22d
--1.0 0:;:M;FUS;:H-dd7:7,E;:Hdd7,E;:X;:Hdb3:b,E;:Hf3b:15,E;:Hf15:20,E
--1.c.1 #208
--1.c.-10 #22c
--1.c.0 #231
--1.c.0 #230
--1.c.0 #256
--1.c.0 #240
--1.c.0 #22f
--1.c.10 #210
--1.0 0:;:H-dd7,E;:Hdd7,E;:X;:Hdb3:b,E;:Hf3b:15,E;:Hf15:20,E
--1.c.1 #24b
--1.c.-19 #242
--1.c.19 #24c
--1.c.-19 #29f
--1.c.0 #2a0
--1.c.0 #2a1
--1.c.10 #211
--1.8 #209 ;:M#252;FUS;:H-dd7:b,E;:Hdd7,E;:X;:Hdb3:b,E;:Hf3b:15,E;:Hf15:20,E
--1.0 0:;:M;FUS;:Hdd5:7,E;:Hdd7,E;:X;:Hdb3:b,E;:Hf3b:15,E;:Hf15:20,E
--1.c.1 #254
--1.0 0:;:H953,F;:H956,F;:X;:H940:b,F;:Hf19:15,F;:Hf15:20,F
--1.c.1 #341
--1.c.0 #342
--1.c.0 #343
--1.c.0 #344
--2.c.0 #346
--1.c.0 #347
--2.c.0 #349
--1.c.0 #34a
--1.c.0 #34b
--1.c.0 #34c
--1.c.0 #34d
--1.c.0 #34e
--1.c.0 #34f
--1.c.0 #350
--1.c.0 #351
--1.c.0 #352
--1.c.0 #353
--2.c.0 #355
--2.c.0 #357
--1.c.0 #358
--1.c.0 #359
--1.c.0 #35b
--1.c.0 #35d
--1.c.0 #35f
--1.c.0 #360
--1.c.0 #361
--1.0 0:;:M;CUT;:H953:7,F;:H956,F;:X;:H940:b,F;:Hf19:15,F;:Hf15:20,F
--1.c.1 #362
--1.c.0 #36e
--1.c.-1f #364
--1.0 0:;:M;CUT;:H-956:7,F;:H956,F;:X;:H940:b,F;:Hf19:15,F;:Hf15:20,F
--1.c.1 #377
--1.c.0 #378
--1.0 0:;:M;CHF;:H11e8:7,F;:H11e9,F;:X;:H11d3:c,F;:Hf1a:17,F;:Hf15:22,F
--1.c.1 #4b8
--1.0 0:;:G;CHF;:H11e8:7,F;:H11e9,F;:X;:H11d3:c,F;:Hf1a:17,F;:Hf15:22,F
--1.c.1 #4ba
--1.0 0:;:H11e8,F;:H11e9,F;:X;:H11d3:c,F;:Hf1a:17,F;:Hf15:22,F
--1.c.1 #4ad
--1.c.-4 #4bc
--1.c.4 #4ab
--1.c.0 #4a4
--1.c.0 #4a3
--1.c.0 #4af
--1.c.0 #4ae
--1.c.0 #4a7
--1.c.0 #4a2
--1.c.0 #4b3
--1.c.0 #4a6
--1.c.0 #4a0
--1.c.0 #4a5
--1.c.0 #4b5
--1.c.0 #4b4
--1.c.0 #4b0
--1.c.0 #4a8
--1.c.0 #494
--1.c.0 #4a9
--1.c.0 #4aa
--1.c.0 #4b2
--1.c.0 #4b1
--1.c.0 #499
--1.c.0 #490
--1.c.0 #495
--1.c.0 #496
--1.c.0 #492
--1.c.0 #491
--1.c.0 #493
--1.c.0 #49a
--1.c.0 #49b
--1.c.0 #497
--1.c.0 #498
--1.c.0 #49c
--1.c.0 #49d
--1.c.0 #49e
--1.c.0 #49f
--1.c.0 #4a1
--1.0 0:;:Hdd5,F;:Hdd7,F;:X;:Hdb3:b,F;:Hf3b:15,F;:Hf15:20,F
--1.c.1 #233
--1.c.0 #234
--1.c.0 #235
--1.c.0 #236
--1.c.0 #237
--1.c.0 #258
--1.0 0:;:M;FUS;:Hdd5:7,F;:Hdd7,F;:X;:Hdb3:b,F;:Hf3b:15,F;:Hf15:20,F
--1.c.1 #259
--1.c.-7 #23a
--1.c.0 #239
--1.c.0 #25c
--1.c.0 #238
--1.0 0:;:M;FUS;:H-dd7:7,F;:Hdd7,F;:X;:Hdb3:b,F;:Hf3b:15,F;:Hf15:20,F
--1.c.1 #20d
--1.c.-d #245
--1.0 0:;:H-dd7,F;:Hdd7,F;:X;:Hdb3:b,F;:Hf3b:15,F;:Hf15:20,F
--1.c.1 #24e
--1.c.-10 #2a2
--1.c.d #20e
--1.c.-6 #25a
--1.0 0:;:H953,V;:H956,V;:X;:H940:b,V;:Hf19:15,V;:Hf15:20,V
--1.c.1 #2ae
--1.c.0 #2b0
--1.c.0 #2b1
--1.c.0 #2b3
--1.c.0 #2b4
--1.c.0 #2b6
--1.c.0 #2b7
--1.c.0 #2b9
--1.c.0 #2ba
--1.c.0 #2bc
--1.c.0 #2be
--1.c.0 #2c0
--1.c.0 #2c2
--1.c.0 #2c4
--1.c.0 #2c6
--1.c.0 #2c8
--1.c.0 #2ca
--1.c.0 #2cc
--1.c.0 #2ce
--1.c.0 #2d0
--1.c.0 #2d2
--1.c.0 #2d3
--1.c.0 #2d4
--1.c.0 #2d5
--1.c.0 #2d6
--1.c.0 #2d7
--1.c.0 #2d8
--2.c.0 #2da
--1.c.0 #2db
--1.c.0 #2dc
--1.c.0 #2dd
--1.c.0 #2de
--1.c.0 #2df
--1.c.0 #2e0
--1.c.0 #2e1
--1.c.0 #2e2
--1.c.0 #2e4
--1.c.0 #2e6
--1.c.0 #2e7
--1.c.0 #2e8
--1.c.0 #2e9
--1.c.0 #2eb
--1.c.0 #2ec
--1.c.0 #2ed
--1.c.0 #2ee
--1.0 0:;:M;CUT;:H-956:7,V;:H956,V;:X;:H940:b,V;:Hf19:15,V;:Hf15:20,V
--1.c.1 #37a
--1.c.0 #37b
--1.c.0 #2a3
--1.c.0 #2a2
--1.0 0:;:U;CHF;:H11e8:7,V;:H11e9,V;:X;:H11d3:c,V;:Hf1a:17,V;:Hf15:22,V
--1.c.1 #4c2
--1.0 0:;:H11e8,V;:H11e9,V;:X;:H11d3:c,V;:Hf1a:17,V;:Hf15:22,V
--1.c.1 #430
--1.c.-2 #4c4
--1.c.2 #423
--1.c.0 #422
--1.c.0 #426
--1.c.0 #425
--1.c.0 #42d
--1.c.0 #42e
--1.c.0 #428
--1.c.0 #427
--1.c.0 #424
--1.c.0 #42c
--1.c.0 #419
--1.c.0 #415
--1.c.0 #413
--1.c.0 #417
--1.c.0 #432
--1.c.0 #431
--1.c.0 #41b
--1.c.0 #41d
--1.c.0 #433
--1.c.0 #41f
--1.c.0 #40a
--1.c.0 #420
--1.c.0 #421
--1.c.0 #435
--1.c.0 #434
--1.c.0 #429
--1.c.0 #402
--1.c.0 #3fc
--1.c.0 #3fa
--1.c.0 #3fe
--1.c.0 #409
--1.c.0 #42a
--1.c.0 #42b
--1.c.0 #3f9
--1.c.0 #3fb
--1.c.0 #401
--1.c.0 #3fd
--1.c.0 #403
--1.c.0 #404
--1.c.0 #3ff
--1.c.0 #400
--1.c.0 #405
--1.c.0 #406
--1.c.0 #407
--1.c.0 #408
--1.c.0 #40d
--1.c.0 #40e
--1.c.0 #40b
--1.c.0 #40c
--1.c.0 #40f
--1.c.0 #410
--1.c.0 #411
--1.c.0 #412
--1.0 0:;:Hdd5,V;:Hdd7,V;:X;:Hdb3:b,V;:Hf3b:15,V;:Hf15:20,V
--1.c.1 #213
--1.c.0 #214
--1.c.0 #215
--1.c.0 #216
--1.c.0 #217
--1.c.0 #218
--1.c.0 #21b
--1.c.0 #21a
--1.c.0 #261
--1.c.0 #219
--1.c.0 #21e
--1.c.0 #21d
--1.0 0:;:M;FUS;:H-dd7:7,V;:Hdd7,V;:X;:Hdb3:b,V;:Hf3b:15,V;:Hf15:20,V
--1.c.1 #205
--1.c.-d #21c
--1.c.0 #23c
--1.0 0:;:H-dd7,V;:Hdd7,V;:X;:Hdb3:b,V;:Hf3b:15,V;:Hf15:20,V
--1.c.1 #248
--1.c.-11 #23e
--1.c.11 #249
--1.c.-11 #25f
--1.c.0 #29e
--1.8 #206 ;:M#263;FUS;:H-dd7:b,V;:Hdd7,V;:X;:Hdb3:b,V;:Hf3b:15,V;:Hf15:20,V
--67.0 0:;:M;FLT;:H982:7,E;:H983,E;:X;:H977:b,E;:Hf57:15,E;:Hf15:20,E
--1.c.1 #134
--1.0 0:;:U;FLT;:H982:7,E;:H983,E;:X;:H977:b,E;:Hf57:15,E;:Hf15:20,E
--1.c.1 #142
--1.0 0:;:U2;FLT;:H982:8,E;:H983,E;:X;:H977:b,E;:Hf57:15,E;:Hf15:20,E
--1.c.1 #142
--1.c.-4 #135
--1.c.2 #143
--1.c.2 #143
--1.c.-4 #136
--1.c.0 #137
--1.0 0:;:H982,E;:H983,E;:X;:H977:b,E;:Hf57:15,E;:Hf15:20,E
--1.c.1 #108
--1.c.0 #109
--1.c.0 #10a
--1.c.0 #10b
--1.0 0:;:U3;FLT;:H982:8,E;:H983,E;:X;:H977:b,E;:Hf57:15,E;:Hf15:20,E
--1.c.1 #145
--1.0 0:;:U4;FLT;:H982:8,E;:H983,E;:X;:H977:b,E;:Hf57:15,E;:Hf15:20,E
--1.c.1 #145
--1.c.-2 #146
--1.c.2 #146
--1.c.-12 #138
--1.c.0 #139
--1.c.b #111
--1.c.0 #10d
--1.c.0 #10f
--1.c.0 #112
--1.c.0 #113
--1.c.0 #106
--1.c.0 #107
--1.c.0 #114
--1.c.0 #115
--1.c.0 #116
--1.c.0 #117
--1.c.0 #118
--1.c.0 #119
--1.c.0 #11a
--1.c.0 #11b
--1.c.0 #11d
--1.c.0 #11e
--1.c.0 #11f
--1.c.0 #120
--1.c.0 #121
--1.c.0 #122
--1.c.0 #123
--1.c.0 #124
--1.0 0:;:M;FLT;:H982:7,F;:H983,F;:X;:H977:b,F;:Hf57:15,F;:Hf15:20,F
--1.c.1 #13a
--1.c.0 #13b
--1.0 0:;:G;FLT;:H982:7,F;:H983,F;:X;:H977:b,F;:Hf57:15,F;:Hf15:20,F
--1.c.1 #13c
--1.c.0 #13d
--1.c.-3 #13e
--1.c.0 #13f
--1.c.0 #140
--1.0 0:;:H982,F;:H983,F;:X;:H977:b,F;:Hf57:15,F;:Hf15:20,F
--1.c.1 #126
--1.c.0 #128
--1.c.0 #129
--1.c.0 #12a
--1.c.0 #12c
--1.c.0 #12d
--1.c.0 #12e
--1.c.0 #12f
--1.c.0 #130
--1.c.0 #132
--1.c.0 #133
--1.0 0:;:U;FLT;:H982:7,V;:H983,V;:X;:H977:b,V;:Hf57:15,V;:Hf15:20,V
--1.c.1 #148
--1.0 0:;:U2;FLT;:H982:8,V;:H983,V;:X;:H977:b,V;:Hf57:15,V;:Hf15:20,V
--1.c.1 #148
--1.c.-2 #149
--1.c.2 #149
--1.c.-2 #14a
--1.c.0 #14b
--1.0 0:;:H982,V;:H983,V;:X;:H977:b,V;:Hf57:15,V;:Hf15:20,V
--1.c.1 #f1
--1.c.0 #f3
--1.c.0 #f5
--1.c.0 #f6
--1.c.0 #f7
--1.c.-8 #14c
--1.c.0 #14d
--1.c.8 #f2
--1.c.0 #f4
--1.c.0 #fa
--1.c.0 #f9
--1.c.0 #fb
--1.c.0 #fc
--1.c.0 #fd
--1.c.0 #fe
--1.c.0 #100
--1.c.0 #101
--1.c.0 #102
--1.c.0 #103
--1.c.0 #104
--2.c.-274 #396
--1.c.0 #397
--1.c.0 #398
--1.c.0 #399
--1.c.0 #39a
--1.c.0 #39b
--1.c.d6 #39c
--1.c.66 #395
+-2a.0 1:Enforce an angle offset defined as yaw-pitch-roll angle of the
+second plane performed in the order of x-y-z
+-1.0 1:The rotation angle of the second plane about its z-axis.
+You need to enable LockAngle for this to take effect.
+-1.0 1:Rotation angle of the second plane about its y-axis.
+You need to enable LockAngle for this to take effect.
+-1.0 1:Rotation angle of the second plane about its x-axis
+You need to enable LockAngle for this to take effect.
 ]]>
   </StringHasher2>
   <Properties Count="21" TransientCount="3">
@@ -577,7 +45,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-14T14:47:34Z"/>
+      <String value="2024-10-17T09:30:41Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -612,19 +80,272 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="c4256aaf-d80d-4033-9a63-89a8ffd1f6eb"/>
+      <Uuid value="0b4f0a1a-753a-4aff-9fc0-deaeaf9cfd9b"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
     </Property>
   </Properties>
-  <Objects Count="2" Dependencies="1">
-    <ObjectDeps Name="Link" Count="0"/>
-    <ObjectDeps Name="Part__Mirroring" Count="1">
-      <Dep Name="Link"/>
+  <Objects Count="48" Dependencies="1">
+    <ObjectDeps Name="Assembly" Count="3">
+      <Dep Name="Parts"/>
+      <Dep Name="Constraints"/>
+      <Dep Name="Elements"/>
     </ObjectDeps>
-    <Object type="App::Link" name="Link" id="2817" revision="32" file="Link.xml" />
-    <Object type="Part::Mirroring" name="Part__Mirroring" id="2818" revision="19" file="Part__Mirroring.xml" />
+    <ObjectDeps Name="Constraints" Count="8">
+      <Dep Name="Constraint007"/>
+      <Dep Name="Constraint005"/>
+      <Dep Name="Constraint003"/>
+      <Dep Name="Constraint"/>
+      <Dep Name="Constraint001"/>
+      <Dep Name="Constraint002"/>
+      <Dep Name="Constraint004"/>
+      <Dep Name="Constraint006"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Elements" Count="17">
+      <Dep Name="_Element013"/>
+      <Dep Name="_Element008"/>
+      <Dep Name="_Element011"/>
+      <Dep Name="Element001"/>
+      <Dep Name="_Element"/>
+      <Dep Name="_Element007"/>
+      <Dep Name="_Element005"/>
+      <Dep Name="_Element012"/>
+      <Dep Name="_Element001"/>
+      <Dep Name="Element"/>
+      <Dep Name="_Element003"/>
+      <Dep Name="_Element009"/>
+      <Dep Name="_Element010"/>
+      <Dep Name="_Element014"/>
+      <Dep Name="_Element002"/>
+      <Dep Name="_Element006"/>
+      <Dep Name="_Element004"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Parts" Count="4">
+      <Dep Name="Link003"/>
+      <Dep Name="Link"/>
+      <Dep Name="Link001"/>
+      <Dep Name="Link002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link" Count="0"/>
+    <ObjectDeps Name="Constraint" Count="2">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink" Count="2">
+      <Dep Name="_Element"/>
+      <Dep Name="Constraint"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link001" Count="0"/>
+    <ObjectDeps Name="Constraint001" Count="3">
+      <Dep Name="ElementLink002"/>
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink001" Count="2">
+      <Dep Name="_Element001"/>
+      <Dep Name="Constraint001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element001" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink002" Count="2">
+      <Dep Name="Constraint001"/>
+      <Dep Name="_Element002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element002" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint002" Count="3">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink003"/>
+      <Dep Name="ElementLink004"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink003" Count="2">
+      <Dep Name="_Element003"/>
+      <Dep Name="Constraint002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element003" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink004" Count="2">
+      <Dep Name="Constraint002"/>
+      <Dep Name="_Element004"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element004" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint003" Count="3">
+      <Dep Name="ElementLink006"/>
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink005"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink005" Count="2">
+      <Dep Name="_Element005"/>
+      <Dep Name="Constraint003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element005" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink006" Count="2">
+      <Dep Name="Constraint003"/>
+      <Dep Name="_Element006"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element006" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link002" Count="0"/>
+    <ObjectDeps Name="Constraint004" Count="3">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink008"/>
+      <Dep Name="ElementLink007"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink007" Count="2">
+      <Dep Name="_Element007"/>
+      <Dep Name="Constraint004"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element007" Count="2">
+      <Dep Name="Elements"/>
+      <Dep Name="Link002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink008" Count="2">
+      <Dep Name="_Element008"/>
+      <Dep Name="Constraint004"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element008" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint005" Count="3">
+      <Dep Name="ElementLink009"/>
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink010"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink009" Count="2">
+      <Dep Name="Constraint005"/>
+      <Dep Name="_Element009"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element009" Count="2">
+      <Dep Name="Elements"/>
+      <Dep Name="Link002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink010" Count="2">
+      <Dep Name="Constraint005"/>
+      <Dep Name="_Element010"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element010" Count="2">
+      <Dep Name="Link"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link003" Count="0"/>
+    <ObjectDeps Name="Constraint006" Count="3">
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink012"/>
+      <Dep Name="ElementLink011"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink011" Count="2">
+      <Dep Name="_Element011"/>
+      <Dep Name="Constraint006"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element011" Count="2">
+      <Dep Name="Link003"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink012" Count="2">
+      <Dep Name="_Element012"/>
+      <Dep Name="Constraint006"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element012" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Constraint007" Count="3">
+      <Dep Name="ElementLink013"/>
+      <Dep Name="Constraints"/>
+      <Dep Name="ElementLink014"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink013" Count="2">
+      <Dep Name="_Element013"/>
+      <Dep Name="Constraint007"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element013" Count="2">
+      <Dep Name="Link003"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="ElementLink014" Count="2">
+      <Dep Name="Constraint007"/>
+      <Dep Name="_Element014"/>
+    </ObjectDeps>
+    <ObjectDeps Name="_Element014" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Element001" Count="2">
+      <Dep Name="Link001"/>
+      <Dep Name="Elements"/>
+    </ObjectDeps>
+    <Object type="Part::FeaturePython" name="Assembly" id="1" revision="189" ViewType="Gui::ViewProviderLinkPython" file="Assembly.xml" />
+    <Object type="App::FeaturePython" name="Constraints" id="2" revision="80" ViewType="Gui::ViewProviderLinkPython" file="Constraints.xml" />
+    <Object type="App::FeaturePython" name="Elements" id="3" revision="91" ViewType="Gui::ViewProviderLinkPython" file="Elements.xml" />
+    <Object type="Part::FeaturePython" name="Parts" id="4" revision="88" ViewType="Gui::ViewProviderLinkPython" file="Parts.xml" />
+    <Object type="App::Link" name="Link" id="5" revision="4" file="Link.xml" />
+    <Object type="App::FeaturePython" name="Constraint" id="6" revision="6" ViewType="Gui::ViewProviderLinkPython" file="Constraint.xml" />
+    <Object type="App::FeaturePython" name="ElementLink" id="7" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink.xml" />
+    <Object type="Part::FeaturePython" name="_Element" id="8" revision="7" file="_Element.xml" />
+    <Object type="App::Link" name="Link001" id="9" revision="28" file="Link001.xml" />
+    <Object type="App::FeaturePython" name="Constraint001" id="10" revision="17" ViewType="Gui::ViewProviderLinkPython" file="Constraint001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink001" id="11" revision="30" ViewType="Gui::ViewProviderLinkPython" file="ElementLink001.xml" />
+    <Object type="Part::FeaturePython" name="_Element001" id="12" revision="23" file="_Element001.xml" />
+    <Object type="App::FeaturePython" name="ElementLink002" id="13" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink002.xml" />
+    <Object type="Part::FeaturePython" name="_Element002" id="14" revision="7" file="_Element002.xml" />
+    <Object type="App::FeaturePython" name="Constraint002" id="15" revision="16" ViewType="Gui::ViewProviderLinkPython" file="Constraint002.xml" />
+    <Object type="App::FeaturePython" name="ElementLink003" id="16" revision="27" ViewType="Gui::ViewProviderLinkPython" file="ElementLink003.xml" />
+    <Object type="Part::FeaturePython" name="_Element003" id="17" revision="21" file="_Element003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink004" id="18" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink004.xml" />
+    <Object type="Part::FeaturePython" name="_Element004" id="19" revision="7" file="_Element004.xml" />
+    <Object type="App::FeaturePython" name="Constraint003" id="20" revision="10" ViewType="Gui::ViewProviderLinkPython" file="Constraint003.xml" />
+    <Object type="App::FeaturePython" name="ElementLink005" id="21" revision="9" ViewType="Gui::ViewProviderLinkPython" file="ElementLink005.xml" />
+    <Object type="Part::FeaturePython" name="_Element005" id="22" revision="9" file="_Element005.xml" />
+    <Object type="App::FeaturePython" name="ElementLink006" id="23" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink006.xml" />
+    <Object type="Part::FeaturePython" name="_Element006" id="24" revision="7" file="_Element006.xml" />
+    <Object type="App::Link" name="Link002" id="25" revision="199" file="Link002.xml" />
+    <Object type="App::FeaturePython" name="Constraint004" id="26" revision="61" ViewType="Gui::ViewProviderLinkPython" file="Constraint004.xml" />
+    <Object type="App::FeaturePython" name="ElementLink007" id="27" revision="162" ViewType="Gui::ViewProviderLinkPython" file="ElementLink007.xml" />
+    <Object type="Part::FeaturePython" name="_Element007" id="28" revision="111" file="_Element007.xml" />
+    <Object type="App::FeaturePython" name="ElementLink008" id="29" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink008.xml" />
+    <Object type="Part::FeaturePython" name="_Element008" id="30" revision="7" file="_Element008.xml" />
+    <Object type="App::FeaturePython" name="Constraint005" id="31" revision="60" ViewType="Gui::ViewProviderLinkPython" file="Constraint005.xml" />
+    <Object type="App::FeaturePython" name="ElementLink009" id="32" revision="159" ViewType="Gui::ViewProviderLinkPython" file="ElementLink009.xml" />
+    <Object type="Part::FeaturePython" name="_Element009" id="33" revision="109" file="_Element009.xml" />
+    <Object type="App::FeaturePython" name="ElementLink010" id="34" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink010.xml" />
+    <Object type="Part::FeaturePython" name="_Element010" id="35" revision="7" file="_Element010.xml" />
+    <Object type="App::Link" name="Link003" id="36" revision="10" file="Link003.xml" />
+    <Object type="App::FeaturePython" name="Constraint006" id="37" revision="11" ViewType="Gui::ViewProviderLinkPython" file="Constraint006.xml" />
+    <Object type="App::FeaturePython" name="ElementLink011" id="38" revision="12" ViewType="Gui::ViewProviderLinkPython" file="ElementLink011.xml" />
+    <Object type="Part::FeaturePython" name="_Element011" id="39" revision="11" file="_Element011.xml" />
+    <Object type="App::FeaturePython" name="ElementLink012" id="40" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink012.xml" />
+    <Object type="Part::FeaturePython" name="_Element012" id="41" revision="7" file="_Element012.xml" />
+    <Object type="App::FeaturePython" name="Constraint007" id="42" revision="10" ViewType="Gui::ViewProviderLinkPython" file="Constraint007.xml" />
+    <Object type="App::FeaturePython" name="ElementLink013" id="43" revision="9" ViewType="Gui::ViewProviderLinkPython" file="ElementLink013.xml" />
+    <Object type="Part::FeaturePython" name="_Element013" id="44" revision="9" file="_Element013.xml" />
+    <Object type="App::FeaturePython" name="ElementLink014" id="45" revision="6" ViewType="Gui::ViewProviderLinkPython" file="ElementLink014.xml" />
+    <Object type="Part::FeaturePython" name="_Element014" id="46" revision="7" file="_Element014.xml" />
+    <Object type="Part::FeaturePython" name="Element" id="47" revision="7" file="Element.xml" />
+    <Object type="Part::FeaturePython" name="Element001" id="48" revision="7" file="Element001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

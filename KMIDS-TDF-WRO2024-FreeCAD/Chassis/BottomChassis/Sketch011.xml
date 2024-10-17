@@ -19,8 +19,8 @@
     </Property>
     <Property name="AttachmentSupport" type="App::PropertyLinkSubList">
       <LinkSubList count="2">
-        <Link obj="Pad015" sub="Face159" shadow=";#b366;:H1341,F.Face159"/>
-        <Link obj="Pad015" sub="Vertex174" shadow=";#ada9;:H1341,V.Vertex174"/>
+        <Link obj="Pad023" sub="Face98" shadow=";#4f14;:M;CUT;:H133b:7,F.Face98"/>
+        <Link obj="Pad023" sub="Vertex131" shadow=";#4d73;:H133b,V.Vertex131"/>
       </LinkSubList>
     </Property>
     <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
@@ -29,14 +29,14 @@
     </Property>
     <Property name="Constraints" type="Sketcher::PropertyConstraintList">
       <ConstraintList count="8">
-        <Constrain Name="" Type="13" Value="0" First="0" FirstPos="2" Second="-4" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="2" Value="0" First="0" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="14" Value="0" First="-1" FirstPos="1" Second="-3" SecondPos="1" Third="0" ThirdPos="1" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="18" Value="3" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="1.214309215545654" LabelPosition="0.2617993950843811" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="12" Value="0" First="1" FirstPos="0" Second="2" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="14" Value="0" First="1" FirstPos="3" Second="2" SecondPos="3" Third="0" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="6" Value="22" First="1" FirstPos="3" Second="2" SecondPos="3" Third="-2000" ThirdPos="0" LabelDistance="1.214309215545654" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="6" Value="10" First="1" FirstPos="3" Second="-2" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="1.214309215545654" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="14" Value="0" First="-1" FirstPos="1" Second="-3" SecondPos="1" Third="0" ThirdPos="1" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="13" Value="0" First="0" FirstPos="2" Second="-4" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
     <Property name="Exports" type="App::PropertyLinkListHidden" status="67108864">
@@ -70,28 +70,28 @@
           <LineSegment StartX="0" StartY="0" StartZ="0" EndX="0" EndY="1" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
-        <Geometry type="Part::GeomPoint" id="1" ref="Pad015.;#adc2;:H1341,V" migrated="1">
+        <Geometry type="Part::GeomPoint" id="6" ref="Pad023.;#4d76;:H133b,V" migrated="1">
           <GeoExtensions count="2">
-            <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
-            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad015.;#adc2;:H1341,V" Flags="0"/>
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="6" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
+            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad023.;#4d76;:H133b,V" Flags="0"/>
           </GeoExtensions>
-          <GeomPoint X="0" Y="-28" Z="0"/>
+          <GeomPoint X="0" Y="-32" Z="0"/>
           <Construction value="1"/>
         </Geometry>
-        <Geometry type="Part::GeomLineSegment" id="2" ref="Pad015.;#af54;:H1341,E" migrated="1">
+        <Geometry type="Part::GeomLineSegment" id="7" ref="Pad023.;#4ea5;:H133b,E" migrated="1">
           <GeoExtensions count="2">
-            <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
-            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad015.;#af54;:H1341,E" Flags="0"/>
+            <GeoExtension type="Sketcher::SketchGeometryExtension" id="7" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
+            <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad023.;#4ea5;:H133b,E" Flags="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-15" StartY="0" StartZ="0" EndX="-15" EndY="-28" EndZ="0"/>
+          <LineSegment StartX="-35" StartY="0" StartZ="0" EndX="-35" EndY="-32" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
       </GeometryList>
     </Property>
     <Property name="ExternalGeometry" type="App::PropertyLinkSubList" status="16777216">
       <LinkSubList count="2">
-        <Link obj="Pad015" sub="Vertex203" shadow=";#adc2;:H1341,V.Vertex203"/>
-        <Link obj="Pad015" sub="Edge412" shadow=";#af54;:H1341,E.Edge412"/>
+        <Link obj="Pad023" sub="Vertex128" shadow=";#4d76;:H133b,V.Vertex128"/>
+        <Link obj="Pad023" sub="Edge331" shadow=";#4ea5;:H133b,E.Edge331"/>
       </LinkSubList>
     </Property>
     <Property name="FixShape" type="App::PropertyEnumeration">
@@ -106,21 +106,21 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="0" StartY="-14" StartZ="0" EndX="-15" EndY="-14" EndZ="0"/>
+          <LineSegment StartX="0" StartY="-16" StartZ="0" EndX="-35" EndY="-16" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="4" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="4" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="-10" CenterY="-3" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="-10" CenterY="-5" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="5" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="5" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <Circle CenterX="-10" CenterY="-25" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="-10" CenterY="-27" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -169,7 +169,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="16" Py="-158" Pz="46.5" Q0="1" Q1="0" Q2="0" Q3="6.123233995736766e-17" A="3.141592653589793" Ox="1" Oy="0" Oz="0"/>
+      <PropertyPlacement Px="25" Py="-157" Pz="49.2" Q0="1" Q1="0" Q2="0" Q3="0" A="3.141592653589793" Ox="1" Oy="0" Oz="0"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -178,13 +178,13 @@ TShapes 0
 CASCADE Topology V1, (c) Matra-Datavision
 Locations 8
 1
-              1               0               0              16 
-              0              -1               0            -158 
-              0               0              -1            46.5 
+              1               0               0              25 
+              0              -1               0            -157 
+              0               0              -1            49.2 
 1
-              1               0               0              16 
-              0              -1               0            -158 
-              0               0              -1            46.5 
+              1               0               0              25 
+              0              -1               0            -157 
+              0               0              -1            49.2 
 1
               1               0               0               0 
               0               1               0               0 
@@ -193,32 +193,32 @@ Locations 8
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 18730.7914190099 
+              0               0               1 17967.0613845704 
 2  5 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 18730.7914190099 
+              0               0               1 17967.0613845704 
 2  7 -1 2 -1 3 -1 0
 Curve2ds 4
 1 0 0 1 0 
-1 0 -18730.791419009925 1 0 
+1 0 -17967.061384570385 1 0 
 1 0 0 1 0 
-1 0 -18730.791419009925 1 0 
+1 0 -17967.061384570385 1 0 
 Curves 2
-2 -10 -3 0 0 0 1 1 0 -0 -0 1 0 1.5
-2 -10 -25 0 0 0 1 1 0 -0 -0 1 0 1.5
+2 -10 -5 0 0 0 1 1 0 0 0 1 0 1.5
+2 -10 -27 0 0 0 1 1 0 0 0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
-2 6 -155 46.5 0 0 -1 1 0 0 0 -1 0 1.5
-2 6 -133 46.5 0 0 -1 1 0 0 0 -1 0 1.5
+2 15 -152 49.200000000000003 0 0 -1 1 0 0 0 -1 0 1.5
+2 15 -130 49.200000000000003 0 0 -1 1 0 0 0 -1 0 1.5
 Triangulations 0
 
 TShapes 7
 Ve
 1e-07
--8.5 -3 0
+-8.5 -5 0
 0 0
 
 0101101
@@ -238,7 +238,7 @@ Wi
 +6 0 *
 Ve
 1e-07
--8.5 -25 0
+-8.5 -27 0
 0 0
 
 0101101
@@ -266,14 +266,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="4">
 <![CDATA[
-55 PostfixCount 3
+53 PostfixCount 3
 Edge
 Vertex
 ;SKT
 
 MapCount 1
 
-ElementMap 1 55 2
+ElementMap 1 53 2
 
 Edge
 
@@ -299,8 +299,8 @@ EndMap
     </Property>
     <Property name="Support" type="App::PropertyLinkSubList" status="67108864">
       <LinkSubList count="2">
-        <Link obj="Pad015" sub="Face159" shadow=";#b366;:H1341,F.Face159"/>
-        <Link obj="Pad015" sub="Vertex174" shadow=";#ada9;:H1341,V.Vertex174"/>
+        <Link obj="Pad023" sub="Face98" shadow=";#4f14;:M;CUT;:H133b:7,F.Face98"/>
+        <Link obj="Pad023" sub="Vertex131" shadow=";#4d73;:H133b,V.Vertex131"/>
       </LinkSubList>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">

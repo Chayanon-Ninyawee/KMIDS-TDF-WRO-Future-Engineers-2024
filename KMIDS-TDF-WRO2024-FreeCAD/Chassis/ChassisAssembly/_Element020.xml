@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link002" sub="Pad001.Face9" shadow="Pad001.;#39;:M;CUT;:H3f8:7,F.Face9"/>
+      <XLink file="" stamp="" name=""/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -208,14 +208,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="11">
 <![CDATA[
-98 PostfixCount 3
+91 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 2
 
-ElementMap 1 99 3
+ElementMap 1 92 3
 
 Edge
 
@@ -251,7 +251,7 @@ NameCount 6
 
 EndMap
 
-ElementMap 2 98 3
+ElementMap 2 91 3
 
 Edge
 

@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link015" sub="1.$Element002."/>
+      <XLink file="" stamp="" name=""/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -56,9 +56,9 @@ Locations 11
               0               1               0               0 
               0               0               1               0 
 1
-              1 -8.35244366032441e-17 1.74039505357551e-15 10.5000000000008 
-8.35244366032554e-17               1 -6.47891907363669e-15 -74.5000038146956 
--1.74039505357551e-15 6.47891907363669e-15               1 70.9499778747541 
+              1 5.93482055759836e-17 1.14209268799171e-16 10.5000000000002 
+-5.93482055759836e-17               1 1.78032701838472e-16 -74.5000038146972 
+-1.14209268799171e-16 -1.78032701838472e-16               1 66.9499778747565 
 1
               1               0               0               0 
               0               1               0               0 
@@ -66,7 +66,7 @@ Locations 11
 1
               1               0               0               0 
               0              -1               0               0 
-              0               0              -1             -20 
+              0               0              -1             -16 
 1
               1               0               0               0 
               0               1               0               0 
@@ -100,7 +100,7 @@ Triangulations 0
 TShapes 4
 Ve
 1e-07
-30.75 -24.5 -22
+30.75 -24.5 -18
 0 0
 
 0101101
@@ -126,13 +126,13 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="2">
 <![CDATA[
-134 PostfixCount 2
+128 PostfixCount 2
 Edge
 Vertex
 
 MapCount 1
 
-ElementMap 1 134 2
+ElementMap 1 128 2
 
 Edge
 
@@ -140,7 +140,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#166;:X;:H126f:3,E.0 0
+;#3c;:X;:H126f:3,E.0 0
 
 Vertex
 
@@ -148,7 +148,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#163;:X;:H126f:3,V.0 0
+;#39;:X;:H126f:3,V.0 0
 
 EndMap
 ]]>

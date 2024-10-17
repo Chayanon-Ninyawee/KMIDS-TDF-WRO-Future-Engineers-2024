@@ -34,7 +34,7 @@
       <Bool value="true"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097412">
-      <XLink file="" stamp="" name="Link001" sub="Chamfer.Face80" shadow="Chamfer.;#16a1;:H531,F.Face80"/>
+      <XLink file="" stamp="" name="Link001" sub="Chamfer.Face86" shadow="Chamfer.;#16a1;:H531,F.Face86"/>
     </Property>
     <Property name="Offset" type="App::PropertyPlacement" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097152">
       <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
@@ -115,7 +115,7 @@ Curves 3
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-2 34 -2.006195011223856e-47 0 -0 -0 -1 1 0 0 0 1 0 1.5
+2 34 -2.006195011223856e-47 0 -0 -0 -1 1 0 0 -0 1 -0 1.5
 Triangulations 0
 
 TShapes 9
@@ -180,14 +180,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="6">
 <![CDATA[
-12 PostfixCount 3
+9 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 12 3
+ElementMap 1 9 3
 
 Edge
 
@@ -195,9 +195,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#8c;:X;:H532:3,E.0 0
-;#8d;:X;:H532:3,E.0 0
-;#8e;:X;:H532:3,E.0 0
+;#96;:X;:H532:3,E.0 0
+;#97;:X;:H532:3,E.0 0
+;#98;:X;:H532:3,E.0 0
 
 Face
 
@@ -205,7 +205,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#8f;:X;:H532:3,F.0 0
+;#99;:X;:H532:3,F.0 0
 
 Vertex
 
@@ -213,8 +213,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#8a;:X;:H532:3,V.0 0
-;#8b;:X;:H532:3,V.0 0
+;#94;:X;:H532:3,V.0 0
+;#95;:X;:H532:3,V.0 0
 
 EndMap
 ]]>

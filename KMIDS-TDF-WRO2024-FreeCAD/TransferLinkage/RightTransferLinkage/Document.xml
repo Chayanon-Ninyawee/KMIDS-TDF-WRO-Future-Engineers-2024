@@ -2,7 +2,7 @@
 <!--
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
-<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="b6924ddd-b8d8-48c7-8d82-c30fca2ea5f7" StringHasher="1">
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="155b6056-89b5-4288-b1e9-c503b323b7ac" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
   <StringHasher2  count="93">
 <![CDATA[
@@ -130,7 +130,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-14T14:47:34Z"/>
+      <String value="2024-10-17T09:12:57Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -165,7 +165,7 @@
       <String value=""/>
     </Property>
     <Property name="Uid" type="App::PropertyUUID" status="16777217">
-      <Uuid value="b6924ddd-b8d8-48c7-8d82-c30fca2ea5f7"/>
+      <Uuid value="155b6056-89b5-4288-b1e9-c503b323b7ac"/>
     </Property>
     <Property name="UseHasher" type="App::PropertyBool" status="67108865">
       <Bool value="true"/>
@@ -176,8 +176,8 @@
     <ObjectDeps Name="Part__Mirroring" Count="1">
       <Dep Name="Link"/>
     </ObjectDeps>
-    <Object type="App::Link" name="Link" id="34" revision="5" file="Link.xml" />
-    <Object type="Part::Mirroring" name="Part__Mirroring" id="36" revision="5" file="Part__Mirroring.xml" />
+    <Object type="App::Link" name="Link" id="34" revision="13" file="Link.xml" />
+    <Object type="Part::Mirroring" name="Part__Mirroring" id="36" revision="9" file="Part__Mirroring.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

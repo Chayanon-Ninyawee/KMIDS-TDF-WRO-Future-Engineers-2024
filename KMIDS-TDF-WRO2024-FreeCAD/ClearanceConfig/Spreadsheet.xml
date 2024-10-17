@@ -29,27 +29,27 @@
         <Cell address="A1" content="LinkageFace"/>
         <Cell alias="LinkageFace" address="B1" content="0.05"/>
         <Cell address="A2" content="LinkageFitHole"/>
-        <Cell alias="LinkageFitHole" address="B2" content="0.07"/>
+        <Cell alias="LinkageFitHole" address="B2" content="0.28"/>
         <Cell address="A3" content="LinkageHole"/>
-        <Cell alias="LinkageHole" address="B3" content="0.12"/>
+        <Cell alias="LinkageHole" address="B3" content="0.32"/>
         <Cell address="A4" content="ServoHole"/>
-        <Cell alias="ServoFitHole" address="B4" content="0.07"/>
+        <Cell alias="ServoFitHole" address="B4" content="0.1"/>
         <Cell address="A5" content="ScrewHole"/>
-        <Cell alias="ScrewHole" address="B5" content="0.12"/>
+        <Cell alias="ScrewHole" address="B5" content="0.24"/>
         <Cell address="A6" content="FrontWheelAxleHole"/>
-        <Cell alias="FrontWheelAxleHole" address="B6" content="0.12"/>
+        <Cell alias="FrontWheelAxleHole" address="B6" content="0.4"/>
         <Cell address="A7" content="BackWheelConnectorVertical"/>
         <Cell alias="BackWheelConnectorVertical" address="B7" content="0.2"/>
-        <Cell address="A8" content="BackWheelConnectorHorizontal"/>
-        <Cell alias="BackWheelConnectorHorizontal" address="B8" content="0.12"/>
+        <Cell address="A8" content="BackWheelBigAxleHole"/>
+        <Cell alias="BackWheelBigAxleHole" address="B8" content="0.5"/>
         <Cell address="A9" content="BackWheelAxleHole"/>
-        <Cell alias="BackWheelAxleHole" address="B9" content="0.2"/>
+        <Cell alias="BackWheelAxleHole" address="B9" content="0.4"/>
         <Cell address="A10" content="AxleHolderVertical"/>
         <Cell alias="AxleHolderVertical" address="B10" content="0.2"/>
         <Cell address="A11" content="AxleHolderHorizontal"/>
         <Cell alias="AxleHolderHorizontal" address="B11" content="0.2"/>
         <Cell address="A12" content="AxleHolderDepth"/>
-        <Cell alias="AxleHolderDepth" address="B12" content="0.1"/>
+        <Cell alias="AxleHolderDepth" address="B12" content="0.4"/>
       </Cells>
     </Property>
     <Property name="columnWidths" type="Spreadsheet::PropertyColumnWidths" status="218103808">

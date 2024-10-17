@@ -28,7 +28,7 @@
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
     <Property name="Label" type="App::PropertyString" status="134217728">
-      <String value="Link_BottomWheelLinkageBody__export(*BottomWheelLinkageBody)"/>
+      <String value="BottomWheelLinkageBody_M_Export"/>
     </Property>
     <Property name="Label2" type="App::PropertyString" status="128">
       <String value=""/>
@@ -58,7 +58,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="LinkedObject" type="App::PropertyXLink" status="256">
-      <XLink file="WheelLinkage/LeftWheelAssembly" stamp="2024-10-14T14:47:34Z" name="Link"/>
+      <XLink file="WheelLinkage/LeftWheelAssembly" stamp="2024-10-17T09:30:41Z" name="Link"/>
     </Property>
     <Property name="Matrix" type="App::PropertyMatrix" status="67109120">
       <PropertyMatrix a11="1" a12="0" a13="0" a14="0" a21="0" a22="1" a23="0" a24="0" a31="0" a32="0" a33="1" a34="0" a41="0" a42="0" a43="0" a44="1"/>
@@ -88,7 +88,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="TreeRank" type="App::PropertyInteger" status="2184">
-      <Integer value="348"/>
+      <Integer value="418"/>
     </Property>
     <Property name="Visibility" type="App::PropertyBool" status="648">
       <Bool value="false"/>
