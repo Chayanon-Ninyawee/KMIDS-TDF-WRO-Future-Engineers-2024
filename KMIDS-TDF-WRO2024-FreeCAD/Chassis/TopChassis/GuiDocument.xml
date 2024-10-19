@@ -8,26 +8,24 @@
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
 <Expand  count="1">
   <Expand name="Body" count="2">
-    <Expand name="Pad004"/>
-    <Expand name="Pad007"/>
+    <Expand name="Pad001"/>
+    <Expand name="Pad003"/>
   </Expand>
 </Expand>
   <Camera>
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 80.854843 -56.628078 82.824188
+  position 34.143173 -23.622849 49.242455
   orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance 59.734531
-  farDistance 160.26344
+  nearDistance -1.3159206
+  farDistance 97.674667
   aspectRatio 1
   focalDistance 100
-  height 149.18257
+  height 100.00024
 
 }
 ## overrideMode: As Is
-  
-  
   
   
   

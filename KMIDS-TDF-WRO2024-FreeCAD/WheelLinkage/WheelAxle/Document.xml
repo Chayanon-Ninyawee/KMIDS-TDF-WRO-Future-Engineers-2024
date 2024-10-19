@@ -1149,7 +1149,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-17T09:12:57Z"/>
+      <String value="2024-10-18T02:27:20Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -1196,33 +1196,33 @@
   </Properties>
   <Objects Count="31" Dependencies="1">
     <ObjectDeps Name="Body" Count="19">
-      <Dep Name="Pad003"/>
-      <Dep Name="Hole"/>
-      <Dep Name="Binder001"/>
-      <Dep Name="Pad"/>
       <Dep Name="Origin"/>
       <Dep Name="Binder"/>
-      <Dep Name="Chamfer"/>
-      <Dep Name="Pad004"/>
-      <Dep Name="Sketch003"/>
-      <Dep Name="Binder004"/>
-      <Dep Name="Pad002"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder001"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Pad005"/>
-      <Dep Name="Binder005"/>
-      <Dep Name="Chamfer001"/>
-      <Dep Name="Binder003"/>
-      <Dep Name="Pad006"/>
       <Dep Name="Binder002"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Binder003"/>
+      <Dep Name="Pad003"/>
+      <Dep Name="Binder004"/>
+      <Dep Name="Pad004"/>
+      <Dep Name="Binder005"/>
+      <Dep Name="Pad005"/>
+      <Dep Name="Chamfer"/>
+      <Dep Name="Sketch003"/>
+      <Dep Name="Pad006"/>
+      <Dep Name="Chamfer001"/>
+      <Dep Name="Hole"/>
       <Dep Name="Hole001"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="XY_Plane"/>
-      <Dep Name="XZ_Plane"/>
+      <Dep Name="X_Axis"/>
       <Dep Name="Y_Axis"/>
       <Dep Name="Z_Axis"/>
-      <Dep Name="X_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -1234,27 +1234,27 @@
     <ObjectDeps Name="Sketch" Count="0"/>
     <ObjectDeps Name="Sketch001" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="YZ_Plane"/>
       <Dep Name="Sketch001"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="2">
-      <Dep Name="Binder"/>
       <Dep Name="Body"/>
+      <Dep Name="Binder"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="YZ_Plane"/>
       <Dep Name="Sketch001"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Binder001"/>
-      <Dep Name="Pad"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Binder001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder002" Count="2">
-      <Dep Name="Sketch"/>
       <Dep Name="Body"/>
+      <Dep Name="Sketch"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad002" Count="3">
       <Dep Name="Body"/>
@@ -1263,33 +1263,33 @@
     </ObjectDeps>
     <ObjectDeps Name="Sketch002" Count="0"/>
     <ObjectDeps Name="Binder003" Count="3">
-      <Dep Name="Sketch002"/>
-      <Dep Name="Pad002"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad002"/>
+      <Dep Name="Sketch002"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad003" Count="3">
-      <Dep Name="Pad002"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad002"/>
       <Dep Name="Binder003"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder004" Count="3">
-      <Dep Name="Pad003"/>
-      <Dep Name="Sketch"/>
       <Dep Name="Body"/>
+      <Dep Name="Sketch"/>
+      <Dep Name="Pad003"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad004" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Pad003"/>
       <Dep Name="Binder004"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder005" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Link"/>
       <Dep Name="Pad004"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad005" Count="3">
-      <Dep Name="Pad004"/>
       <Dep Name="Body"/>
+      <Dep Name="Pad004"/>
       <Dep Name="Binder005"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer" Count="2">
@@ -1300,28 +1300,28 @@
       <Dep Name="Chamfer"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad006" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Chamfer"/>
       <Dep Name="Sketch003"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Chamfer001" Count="2">
       <Dep Name="Body"/>
       <Dep Name="Pad006"/>
     </ObjectDeps>
     <ObjectDeps Name="Hole" Count="4">
-      <Dep Name="Link"/>
-      <Dep Name="Link001"/>
       <Dep Name="Body"/>
+      <Dep Name="Link"/>
       <Dep Name="Chamfer001"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Link001" Count="0"/>
     <ObjectDeps Name="Hole001" Count="4">
-      <Dep Name="Hole"/>
-      <Dep Name="Link"/>
-      <Dep Name="Link001"/>
       <Dep Name="Body"/>
+      <Dep Name="Link"/>
+      <Dep Name="Hole"/>
+      <Dep Name="Link001"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1166" revision="547" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1166" revision="548" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1167" revision="6" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1168" revision="4" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1169" revision="5" file="Y_Axis.xml" />
@@ -1349,9 +1349,9 @@
     <Object type="Sketcher::SketchObject" name="Sketch003" id="1231" revision="967" file="Sketch003.xml" />
     <Object type="PartDesign::Pad" name="Pad006" id="1232" revision="51" file="Pad006.xml" />
     <Object type="PartDesign::Chamfer" name="Chamfer001" id="1233" revision="27" file="Chamfer001.xml" />
-    <Object type="PartDesign::Hole" name="Hole" id="1235" revision="83" file="Hole.xml" />
-    <Object type="App::Link" name="Link001" id="1236" revision="17" file="Link001.xml" />
-    <Object type="PartDesign::Hole" name="Hole001" id="1238" revision="30" file="Hole001.xml" />
+    <Object type="PartDesign::Hole" name="Hole" id="1235" revision="87" file="Hole.xml" />
+    <Object type="App::Link" name="Link001" id="1236" revision="18" file="Link001.xml" />
+    <Object type="PartDesign::Hole" name="Hole001" id="1238" revision="33" file="Hole001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

@@ -130,7 +130,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="-21.9" Py="1.111491850939014e-14" Pz="-6.417201193417143e-15" Q0="-0.4999999999999998" Q1="0.5000000000000001" Q2="0.5" Q3="-0.5000000000000002" A="4.188790204786391" Ox="-0.5773502691896256" Oy="0.5773502691896261" Oz="0.5773502691896258"/>
+      <PropertyPlacement Px="-21.9" Py="1.111491850939014e-14" Pz="-6.417201193417144e-15" Q0="-0.4999999999999999" Q1="0.5000000000000003" Q2="0.5000000000000001" Q3="-0.4999999999999998" A="4.188790204786391" Ox="-0.5773502691896256" Oy="0.5773502691896261" Oz="0.5773502691896258"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -144,7 +144,7 @@ Locations 1
 1.11022302462516e-16               1 -2.77555756156289e-16 -6.41720119341714e-15 
 Curve2ds 0
 Curves 1
-2 0 0 0 0 0 1 1 0 -0 -0 1 0 5.5
+2 0 0 0 0 0 1 1 0 0 0 1 0 5.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 0

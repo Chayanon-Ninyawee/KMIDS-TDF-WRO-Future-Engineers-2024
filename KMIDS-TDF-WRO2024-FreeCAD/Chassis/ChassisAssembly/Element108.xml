@@ -183,14 +183,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="9">
 <![CDATA[
-240 PostfixCount 3
+231 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 240 3
+ElementMap 1 231 3
 
 Edge
 
@@ -198,10 +198,10 @@ ChildCount 0
 
 NameCount 5
 0
-;#5a;:X;:H1344:3,E.0 0
-;#5b;:X;:H1344:3,E.0 0
-;#5c;:X;:H1344:3,E.0 0
-;#56;:X;:H1344:3,E.0 0
+;#3bf;:X;:H1344:3,E.0 0
+;#3c0;:X;:H1344:3,E.0 0
+;#3c1;:X;:H1344:3,E.0 0
+;#350;:X;:H1344:3,E.0 0
 
 Face
 
@@ -209,7 +209,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#5d;:X;:H1344:3,F.0 0
+;#3c2;:X;:H1344:3,F.0 0
 
 Vertex
 
@@ -217,10 +217,10 @@ ChildCount 0
 
 NameCount 5
 0
-;#52;:X;:H1344:3,V.0 0
-;#58;:X;:H1344:3,V.0 0
-;#59;:X;:H1344:3,V.0 0
-;#50;:X;:H1344:3,V.0 0
+;#34c;:X;:H1344:3,V.0 0
+;#3bd;:X;:H1344:3,V.0 0
+;#3be;:X;:H1344:3,V.0 0
+;#34b;:X;:H1344:3,V.0 0
 
 EndMap
 ]]>
@@ -239,7 +239,7 @@ EndMap
       <Integer value="0"/>
     </Property>
     <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
-      <Integer value="0"/>
+      <Integer value="1"/>
     </Property>
     <Property name="_Parent" type="App::PropertyLinkHidden" group=" Link" attr="0" ro="0" hide="0" doc="" status="2097162">
       <Link value="Elements"/>

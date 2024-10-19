@@ -438,7 +438,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-17T09:12:57Z"/>
+      <String value="2024-10-18T02:27:20Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -481,20 +481,20 @@
   </Properties>
   <Objects Count="15" Dependencies="1">
     <ObjectDeps Name="Body" Count="6">
-      <Dep Name="Binder001"/>
-      <Dep Name="Pad"/>
       <Dep Name="Origin"/>
       <Dep Name="Binder"/>
-      <Dep Name="Pad001"/>
+      <Dep Name="Pad"/>
       <Dep Name="Hole"/>
+      <Dep Name="Binder001"/>
+      <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Origin" Count="6">
-      <Dep Name="YZ_Plane"/>
-      <Dep Name="XY_Plane"/>
       <Dep Name="X_Axis"/>
       <Dep Name="Y_Axis"/>
-      <Dep Name="XZ_Plane"/>
       <Dep Name="Z_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
     </ObjectDeps>
     <ObjectDeps Name="X_Axis" Count="0"/>
     <ObjectDeps Name="Y_Axis" Count="0"/>
@@ -504,33 +504,33 @@
     <ObjectDeps Name="YZ_Plane" Count="0"/>
     <ObjectDeps Name="Link" Count="0"/>
     <ObjectDeps Name="Binder" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Link"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad" Count="3">
+      <Dep Name="Body"/>
       <Dep Name="Binder"/>
       <Dep Name="Pad001"/>
-      <Dep Name="Body"/>
     </ObjectDeps>
     <ObjectDeps Name="Link001" Count="0"/>
     <ObjectDeps Name="Hole" Count="4">
+      <Dep Name="Body"/>
       <Dep Name="Link"/>
       <Dep Name="Pad"/>
-      <Dep Name="Body"/>
       <Dep Name="Link001"/>
     </ObjectDeps>
     <ObjectDeps Name="Binder001" Count="3">
-      <Dep Name="Link"/>
-      <Dep Name="XY_Plane"/>
       <Dep Name="Body"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Link"/>
     </ObjectDeps>
     <ObjectDeps Name="Pad001" Count="3">
-      <Dep Name="Binder001"/>
       <Dep Name="Body"/>
       <Dep Name="Link001"/>
+      <Dep Name="Binder001"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="2" revision="100" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="2" revision="101" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="3" revision="4" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="4" revision="3" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="5" revision="4" file="Y_Axis.xml" />
@@ -541,8 +541,8 @@
     <Object type="App::Link" name="Link" id="22" revision="99" file="Link.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder" id="23" revision="184" file="Binder.xml" />
     <Object type="PartDesign::Pad" name="Pad" id="24" revision="143" file="Pad.xml" />
-    <Object type="App::Link" name="Link001" id="27" revision="22" file="Link001.xml" />
-    <Object type="PartDesign::Hole" name="Hole" id="28" revision="142" file="Hole.xml" />
+    <Object type="App::Link" name="Link001" id="27" revision="23" file="Link001.xml" />
+    <Object type="PartDesign::Hole" name="Hole" id="28" revision="146" file="Hole.xml" />
     <Object type="PartDesign::SubShapeBinder" name="Binder001" id="29" revision="29" file="Binder001.xml" />
     <Object type="PartDesign::Pad" name="Pad001" id="32" revision="90" file="Pad001.xml" />
   </Objects>

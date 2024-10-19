@@ -4,7 +4,7 @@
 -->
 <!-- FreeCAD ViewProvider -->
 <Document SchemaVersion="1" FileVersion="2">
-<ViewProvider name="Pad001" expanded="0" Extensions="True">
+<ViewProvider name="Pad001" expanded="1" Extensions="True">
   <Extensions Count="2">
     <Extension type="Gui::ViewProviderLinkObserver" name="ViewProviderLinkObserver">
     </Extension>
@@ -30,6 +30,17 @@ ffd70000
 ffd70000
 ffd70000
 ffd70000
+d2d8e100
+ffd70000
+ffd70000
+ffd70000
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
+d2d8e100
 ffd70000
 ffd70000
 ffd70000
@@ -44,16 +55,6 @@ d2d8e100
 d2d8e100
 d2d8e100
 d2d8e100
-ffd70000
-ffd70000
-ffd70000
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
-d2d8e100
 d2d8e100
 d2d8e100
 d2d8e100
@@ -61,8 +62,7 @@ ffd70000
 ffd70000
 ffd70000
 ffd70000
-ffd70000
-ffd70000
+d2d8e100
 ffd70000
 ffd70000
       </ColorList>

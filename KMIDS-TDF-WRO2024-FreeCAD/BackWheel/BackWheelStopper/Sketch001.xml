@@ -70,7 +70,7 @@
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
             <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad.;#1a;:U;XTR;:H97f:7,E" Flags="1"/>
           </GeoExtensions>
-          <Circle CenterX="2.997602166487923e-15" CenterY="11" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="2.997602166487923e-15" CenterY="11" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.6"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="2" ref="Pad.;#1b;:U;XTR;:H97f:7,E" flags="1" migrated="1">
@@ -78,7 +78,7 @@
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
             <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad.;#1b;:U;XTR;:H97f:7,E" Flags="1"/>
           </GeoExtensions>
-          <Circle CenterX="-4.329869796038111e-15" CenterY="-11" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.5"/>
+          <Circle CenterX="-4.329869796038111e-15" CenterY="-11" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.6"/>
           <Construction value="1"/>
         </Geometry>
       </GeometryList>
@@ -194,16 +194,16 @@ Curve2ds 8
 1 0 -2 1 0 
 Curves 4
 2 0 11 0 0 0 1 1 0 0 0 1 0 3
-2 0 -11.000000000000002 0 0 0 1 1 0 0 0 1 0 3
-2 2.9976021664879234e-15 11 0 0 0 1 1 0 0 0 1 0 1.5
-2 -4.3298697960381113e-15 -11.000000000000002 0 0 0 1 1 0 0 0 1 0 1.5
+2 0 -11 0 0 0 1 1 0 0 0 1 0 3
+2 2.9976021664879234e-15 11 0 0 0 1 1 0 0 0 1 0 1.6000000000000001
+2 -4.3298697960381113e-15 -11.000000000000002 0 0 0 1 1 0 0 0 1 0 1.6000000000000001
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 4
 2 1.9999999999999951 0 11 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 3
-2 2.0000000000000049 0 -11.000000000000002 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 3
-2 1.9999999999999951 2.9976021664879234e-15 11 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 1.5
-2 2.0000000000000049 -4.3298697960381113e-15 -11.000000000000002 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 1.5
+2 2.0000000000000049 0 -11 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 3
+2 1.9999999999999951 2.9976021664879234e-15 11 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 1.6000000000000001
+2 2.0000000000000049 -4.3298697960381113e-15 -11.000000000000002 -1 0 -4.4408920985006262e-16 0 1 0 -4.4408920985006262e-16 0 1 1.6000000000000001
 Triangulations 0
 
 TShapes 13
@@ -249,7 +249,7 @@ Wi
 +9 0 *
 Ve
 1e-07
-1.5 11 0
+1.6 11 0
 0 0
 
 0101101
@@ -269,7 +269,7 @@ Wi
 +6 0 *
 Ve
 1e-07
-1.5 -11 0
+1.6 -11 0
 0 0
 
 0101101

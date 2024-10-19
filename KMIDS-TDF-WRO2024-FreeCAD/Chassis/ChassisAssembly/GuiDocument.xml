@@ -9,23 +9,32 @@
 <Expand  count="1">
   <Expand name="Assembly" count="2">
     <Expand name="Constraints"/>
-    <Expand name="Parts"/>
+    <Expand name="Parts" count="1">
+      <Expand name="Link001"/>
+    </Expand>
   </Expand>
 </Expand>
   <Camera>
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 80.451477 -146.98242 118.20276
-  orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance 22.001947
-  farDistance 232.69489
+  position 37.418858 -71.123734 51.756855
+  orientation 0.74290603 0.30772179 0.59447289  1.217116
+  nearDistance -80.281349
+  farDistance 128.47298
   aspectRatio 1
   focalDistance 100
-  height 167.10493
+  height 204.10254
 
 }
 ## overrideMode: As Is
+  
+  
+  
+  
+  
+  
+  
   ]]>
   </Camera>
 </Document>

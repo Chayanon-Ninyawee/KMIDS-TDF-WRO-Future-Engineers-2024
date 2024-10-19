@@ -83,7 +83,7 @@
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="7" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
             <GeoExtension type="Sketcher::ExternalGeometryExtension" Ref="Pad023.;#4ea5;:H133b,E" Flags="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-35" StartY="0" StartZ="0" EndX="-35" EndY="-32" EndZ="0"/>
+          <LineSegment StartX="-25" StartY="0" StartZ="0" EndX="-25" EndY="-32" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
       </GeometryList>
@@ -106,7 +106,7 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="3" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000010" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="0" StartY="-16" StartZ="0" EndX="-35" EndY="-16" EndZ="0"/>
+          <LineSegment StartX="0" StartY="-16" StartZ="0" EndX="-25" EndY="-16" EndZ="0"/>
           <Construction value="1"/>
         </Geometry>
         <Geometry type="Part::GeomCircle" id="4" migrated="1">
@@ -169,7 +169,7 @@ TShapes 0
       <Bool value="false"/>
     </Property>
     <Property name="Placement" type="App::PropertyPlacement" status="8388612">
-      <PropertyPlacement Px="25" Py="-157" Pz="49.2" Q0="1" Q1="0" Q2="0" Q3="0" A="3.141592653589793" Ox="1" Oy="0" Oz="0"/>
+      <PropertyPlacement Px="25" Py="-157" Pz="50.6" Q0="1" Q1="0" Q2="0" Q3="0" A="3.141592653589793" Ox="1" Oy="0" Oz="0"/>
     </Property>
     <Property name="Shape" type="Part::PropertyPartShape">
       <Part HasherIndex="0" ElementMap="1.15.70200.4" brep="1">
@@ -180,11 +180,11 @@ Locations 8
 1
               1               0               0              25 
               0              -1               0            -157 
-              0               0              -1            49.2 
+              0               0              -1            50.6 
 1
               1               0               0              25 
               0              -1               0            -157 
-              0               0              -1            49.2 
+              0               0              -1            50.6 
 1
               1               0               0               0 
               0               1               0               0 
@@ -193,26 +193,26 @@ Locations 8
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 17967.0613845704 
+              0               0               1 17967.0899752361 
 2  5 -1 2 -1 3 -1 0
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 17967.0613845704 
+              0               0               1 17967.0899752361 
 2  7 -1 2 -1 3 -1 0
 Curve2ds 4
 1 0 0 1 0 
-1 0 -17967.061384570385 1 0 
+1 0 -17967.089975236093 1 0 
 1 0 0 1 0 
-1 0 -17967.061384570385 1 0 
+1 0 -17967.089975236093 1 0 
 Curves 2
 2 -10 -5 0 0 0 1 1 0 0 0 1 0 1.5
 2 -10 -27 0 0 0 1 1 0 0 0 1 0 1.5
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 2
-2 15 -152 49.200000000000003 0 0 -1 1 0 0 0 -1 0 1.5
-2 15 -130 49.200000000000003 0 0 -1 1 0 0 0 -1 0 1.5
+2 15 -152 50.600000000000001 0 0 -1 1 0 0 0 -1 0 1.5
+2 15 -130 50.600000000000001 0 0 -1 1 0 0 0 -1 0 1.5
 Triangulations 0
 
 TShapes 7

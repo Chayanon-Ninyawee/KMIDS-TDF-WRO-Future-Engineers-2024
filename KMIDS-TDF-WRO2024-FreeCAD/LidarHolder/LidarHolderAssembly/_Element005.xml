@@ -56,9 +56,9 @@ Locations 6
               0               1               0               0 
               0               0               1               0 
 1
--2.22044604925031e-16              -1 -1.40810761676899e-59           -10.5 
-              1 -2.22044604925031e-16 6.34155293817839e-44 2.87530416143156e-16 
--6.34155293817839e-44               0               1               3 
+-1.61204383175573e-13              -1 -3.60475549892921e-57 2.98250313335302e-12 
+              1 -1.61204383175573e-13 3.632917651264e-57 -3.36191187735868e-12 
+-3.63291765126458e-57 -3.60475549892862e-57               1               3 
 1
               1               0               0               0 
               0               1               0               0 
@@ -275,14 +275,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="21">
 <![CDATA[
-7 PostfixCount 3
+3 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 2
 
-ElementMap 1 8 3
+ElementMap 1 4 3
 
 Edge
 
@@ -328,7 +328,7 @@ NameCount 11
 
 EndMap
 
-ElementMap 2 7 3
+ElementMap 2 3 3
 
 Edge
 

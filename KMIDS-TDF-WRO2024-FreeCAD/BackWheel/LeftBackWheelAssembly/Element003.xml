@@ -168,14 +168,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="5">
 <![CDATA[
-30 PostfixCount 3
+29 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 30 3
+ElementMap 1 29 3
 
 Edge
 
