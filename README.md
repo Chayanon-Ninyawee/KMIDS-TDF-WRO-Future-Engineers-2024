@@ -100,7 +100,8 @@ without downloading.
 
 ### Wiring Diagram
 
-tba
+![circuit (1)](https://github.com/user-attachments/assets/5d74f425-f17c-4a31-8923-1de4361dd4a8)
+
 
 
 
