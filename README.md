@@ -100,7 +100,7 @@ without downloading.
 
 ### Wiring Diagram
 
-![circuit](https://github.com/user-attachments/assets/99d1d4e5-ad18-4b24-bc5a-e225442ec6d1)
+![circuit](https://github.com/user-attachments/assets/7a223edd-bf7f-4c09-91c3-a9a39c628697)
 
 
 ## Obstacle_Management  
