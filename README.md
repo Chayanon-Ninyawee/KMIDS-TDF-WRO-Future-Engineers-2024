@@ -129,6 +129,10 @@ area for parking the robot.
 
 tba
 
+## How to use the robot
+
+tba
+
 ## Design Journey
 When designing the robot, the first thing that we ruminated on is how the robot will park. This is a very
 important step to consider because we can choose to have it park back first into the wall or have it do a
