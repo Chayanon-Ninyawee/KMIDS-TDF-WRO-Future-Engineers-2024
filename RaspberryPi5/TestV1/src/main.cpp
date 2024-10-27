@@ -1,14 +1,15 @@
 #include <iostream>
-#include <vector>
 #include <csignal>
 #include <chrono>
-#include <thread>
 
 #include "sl_lidar.h"
 #include "sl_lidar_driver.h"
 
 using namespace sl;
 
+// Constant
+const char* const SERIAL_PORT = "/dev/ttyAMA0";          // Serial port path
+const int LIDAR_BAUD_RATE = 460800;                    // Baud rate for LIDAR communication
 
 bool isRunning = true;
 
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
     return -1;
   }
 
-  IChannel* serialChannel = *createSerialPortChannel("/dev/ttyAMA0", 460800);
+  IChannel* serialChannel = *createSerialPortChannel(SERIAL_PORT, LIDAR_BAUD_RATE);
   if (!serialChannel)
   {
     std::cerr << "Failed to create serial port channel." << std::endl;
