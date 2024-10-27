@@ -1,0 +1,3 @@
+[submodule "RaspberryPi5/TestV1/external/rplidar_sdk"]
+	path = RaspberryPi5/TestV1/external/rplidar_sdk
+	url = https://github.com/Slamtec/rplidar_sdk.git
