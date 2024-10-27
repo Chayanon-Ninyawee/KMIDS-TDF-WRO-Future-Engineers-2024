@@ -4,9 +4,11 @@
 #include <chrono>
 #include <thread>
 
-#include "rplidar.h"
+#include "sl_lidar.h"
+#include "sl_lidar_driver.h"
 
-using namespace rp::standalone::rplidar;
+using namespace sl;
+
 
 bool isRunning = true;
 
@@ -20,26 +22,43 @@ int main(int argc, char *argv[])
 {
   signal(SIGINT, interuptHandler);
 
-  RPlidarDriver *rplidarDriver = RPlidarDriver::CreateDriver(DRIVER_TYPE_SERIALPORT);
-  if (!rplidarDriver)
+  ILidarDriver *lidarDriver = *createLidarDriver();
+  if (!lidarDriver)
   {
-    std::cerr << "Failed to create RPLidar driver." << std::endl;
+    std::cerr << "Failed to create SLAMTEC LIDAR driver." << std::endl;
     return -1;
   }
 
-  u_result result = rplidarDriver->connect("/dev/ttyAMA0", 460800);
-  if (IS_FAIL(result))
+  IChannel* serialChannel = *createSerialPortChannel("/dev/ttyAMA0", 460800);
+  if (!serialChannel)
   {
-    std::cerr << "Failed to connect to the RPLidar." << std::endl;
-    RPlidarDriver::DisposeDriver(rplidarDriver);
+    std::cerr << "Failed to create serial port channel." << std::endl;
+
+    delete lidarDriver;
+    lidarDriver = NULL;
+
     return -1;
   }
 
-  rplidar_response_device_info_t deviceInfo;
-  result = rplidarDriver->getDeviceInfo(deviceInfo);
-  if (IS_OK(result))
+  sl_result result = lidarDriver->connect(serialChannel);
+  if (SL_IS_FAIL(result))
   {
-    std::cout << "RPLidar Device Info:" << std::endl;
+    std::cerr << "Failed to connect to the LIDAR." << std::endl;
+
+    delete serialChannel;
+    serialChannel = NULL;
+
+    delete lidarDriver;
+    lidarDriver = NULL;
+
+    return -1;
+  }
+
+  sl_lidar_response_device_info_t deviceInfo;
+  result = lidarDriver->getDeviceInfo(deviceInfo);
+  if (SL_IS_OK(result))
+  {
+    std::cout << "LIDAR Device Info:" << std::endl;
     std::cout << " - Model: " << static_cast<int>(deviceInfo.model) << std::endl;
     std::cout << " - Firmware Version: " << (deviceInfo.firmware_version >> 8) << "." << (deviceInfo.firmware_version & 0xFF) << std::endl;
     std::cout << " - Hardware Version: " << static_cast<int>(deviceInfo.hardware_version) << std::endl;
@@ -55,54 +74,40 @@ int main(int argc, char *argv[])
     std::cerr << "Failed to retrieve device information." << std::endl;
   }
 
-  rplidarDriver->startMotor();
+  lidarDriver->setMotorSpeed();
 
-  std::vector<LidarScanMode> scanModes;
-  rplidarDriver->getAllSupportedScanModes(scanModes);
-  if (scanModes.empty())
-  {
-    std::cerr << "No supported scan modes available." << std::endl;
-    rplidarDriver->stopMotor();
-    RPlidarDriver::DisposeDriver(rplidarDriver);
-    return -1;
-  }
-
-  std::cout << "Available scan modes:" << std::endl;
-  for (const auto &mode : scanModes)
-  {
-    std::cout << " - Mode ID: " << mode.id << ", us per Sample: " << mode.us_per_sample << ", Max Distance: " << mode.max_distance << "m" << std::endl;
-  }
-
-  result = rplidarDriver->startScanExpress(false, scanModes[0].id);
-  if (IS_FAIL(result))
+  result = lidarDriver->startScan(0,1);
+  if (SL_IS_FAIL(result))
   {
     std::cerr << "Failed to start scan." << std::endl;
-    rplidarDriver->stopMotor();
-    RPlidarDriver::DisposeDriver(rplidarDriver);
+    lidarDriver->setMotorSpeed(0);
+
+    delete serialChannel;
+    serialChannel = NULL;
+
+    delete lidarDriver;
+    lidarDriver = NULL;
+
     return -1;
   }
-
-  rplidar_response_measurement_node_hq_t nodes[8192];
-  size_t nodeCount = sizeof(nodes)/sizeof(rplidar_response_measurement_node_hq_t);
 
 
   auto startTime = std::chrono::high_resolution_clock::now();
 
   while (isRunning)
   {
-    result = rplidarDriver->grabScanDataHq(nodes, nodeCount, 0);
-    if (IS_FAIL(result))
-    {
-      // std::cerr << "Failed to grab scan data." << std::endl;
-      continue;
-    }
+    sl_lidar_response_measurement_node_hq_t nodes[8192];
+    size_t nodeCount = sizeof(nodes) / sizeof(sl_lidar_response_measurement_node_hq_t);
 
-    rplidarDriver->ascendScanData(nodes, nodeCount);
+    result = lidarDriver->grabScanDataHq(nodes, nodeCount);
+    if (SL_IS_FAIL(result)) continue;
+
+    lidarDriver->ascendScanData(nodes, nodeCount);
     for (size_t i = 0; i < nodeCount; ++i)
     {
       float angle = nodes[i].angle_z_q14 * 90.f / (1 << 14);
       float distance = nodes[i].dist_mm_q2 / 1000.f / (1 << 2);
-      std::cout << "Angle: " << angle << " Dist: " << distance << " m" << nodeCount << std::endl;
+      printf("Angle: %.3f\tDistance: %.3f m\n", angle, distance);
     }
 
     auto endTime = std::chrono::high_resolution_clock::now();
@@ -113,10 +118,15 @@ int main(int argc, char *argv[])
     startTime = endTime;
   }
 
-  rplidarDriver->stop();
-  rplidarDriver->stopMotor();
-  rplidarDriver->disconnect();
-  RPlidarDriver::DisposeDriver(rplidarDriver);
+  lidarDriver->stop();
+  lidarDriver->setMotorSpeed(0);
+  lidarDriver->disconnect();
+
+  delete serialChannel;
+  serialChannel = NULL;
+
+  delete lidarDriver;
+  lidarDriver = NULL;
 
   return 0;
 }
