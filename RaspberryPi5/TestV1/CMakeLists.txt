@@ -13,7 +13,9 @@ list(FILTER RPLIDAR_SDK_SOURCES EXCLUDE REGEX ".*macOS.*")
 list(FILTER RPLIDAR_SDK_SOURCES EXCLUDE REGEX ".*win32.*")
 add_library(rplidar_sdk STATIC ${RPLIDAR_SDK_SOURCES})
 
-add_executable(TestV1 src/main.cpp)
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(TestV1 ${SOURCES})
 
 target_link_libraries(TestV1 wiringPi pthread rt rplidar_sdk)
 
