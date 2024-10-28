@@ -5,6 +5,8 @@ In this project we aim to design an autonomous robot that can navigate around a 
 various rules and restrictions depending on the rounds. Our goal is to create a robot that can
 achieve the objective sets by the competition.
 
+![WRO](https://github.com/user-attachments/assets/980f8e15-9c16-48c7-9ff0-3f231338184c)
+
 ## Mobility Management
 
 ### 1.Chassis
