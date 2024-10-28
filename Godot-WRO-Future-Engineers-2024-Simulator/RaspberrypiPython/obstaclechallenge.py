@@ -16,31 +16,31 @@ ULTRASONIC_THRESHOLD = 0.78
 ULTRASONIC_TURN_TIME_WINDOW = 0.3
 TURN_COOLDOWN_TIME = 4
 
-ULTRASONIC_TIGHT_THRESHOLD = 1.10
+ULTRASONIC_TIGHT_THRESHOLD = 0.95
 ULTRASONIC_TIGHT_TURN_TIME_WINDOW = 0.3
 TIGHT_TURN_COOLDOWN_TIME = 2.7
 
 LAPS_TO_STOP = 3
 
 TRAFFIC_LIGHT_SIZE_THRESHOLD = 2000
-TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.95
+TIGHT_TURN_ULTRASONIC_THRESHOLD_1 = 0.87
 TIGHT_TURN_ULTRASONIC_THRESHOLD_2 = 0.43
-TIGHT_TURN_ULTRASONIC_THRESHOLD_NO = 0.95
+TIGHT_TURN_ULTRASONIC_THRESHOLD_NO = 0.87
 TIGHT_TURN_LINGER_TIME = 0.9
 
 TRAFFIC_LIGHT_HEADING_CORRECTION = 75
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN = 5
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_IN_MID = 32
 TRAFFIC_LIGHT_HEADING_ERROR_THRESHOLD_OUT = 3
-RED_DISTANCE_FROM_RIGHT = 0.39
+RED_DISTANCE_FROM_RIGHT = 0.37
 # RED_DISTANCE_FROM_RIGHT_MID = 0.33
 RED_WALL_DISTANCE_FROM_RIGHT = 0.17
-GREEN_DISTANCE_FROM_LEFT = 0.39
+GREEN_DISTANCE_FROM_LEFT = 0.37
 # GREEN_DISTANCE_FROM_LEFT_MID = 0.33
 GREEN_WALL_DISTANCE_FROM_LEFT = 0.17
 
 UTURN_ULTRASONIC_THRESHOLD = 0.65
-UTURN_HEADING_CORRECTION = 110
+UTURN_HEADING_CORRECTION = 120
 UTURN_HEADING_ERROR_THRESHOLD = 5
 
 PINK_THRESHOLD = 12000
@@ -276,9 +276,9 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 time_window=ULTRASONIC_TURN_TIME_WINDOW
             ):
                 if is_clockwise:
-                    suggested_heading += 89.4
+                    suggested_heading += 89.35
                 else:
-                    suggested_heading -= 89.4
+                    suggested_heading -= 89.35
                 suggested_heading %= 360
                 last_closest_block_color = None
                 is_last_closest_block_color_same = False
@@ -408,9 +408,9 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
         
         if is_ultrasonic_reach:
             if is_clockwise:
-                suggested_heading += 89.4
+                suggested_heading += 89.35
             else:
-                suggested_heading -= 89.4
+                suggested_heading -= 89.35
             suggested_heading %= 360
             last_closest_block_color = last_tight_turn_closest_block_color
             if last_closest_block_color_override is not None:
@@ -499,7 +499,7 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 uturning_phase = 2
         
         if uturning_phase == 2:
-            speed = -0.60
+            speed = -0.80
             heading_correction_override = 180
 
             if abs(abs(heading_error) - 180) <= UTURN_HEADING_ERROR_THRESHOLD:
@@ -510,15 +510,16 @@ def process_data_obstacle(ultrasonic_info: tuple[int, int, int, int],
                 turn_amount = 9
                 speed = 0.0
                 if is_clockwise:
-                    suggested_heading = 270
+                    suggested_heading = 275
                 else:
-                    suggested_heading = 90
+                    suggested_heading = 85
                 ideal_outer_wall_distance_override = IDEAL_OUTER_WALL_DISTANCE
                 last_closest_block_color = None
                 is_last_closest_block_color_same = False
                 ultrasonic_last_time_list = [time.time(), 0.0, 0.0]
                 ultrasonic_tight_last_time_list = [time.time(), 0.0, 0.0]
     elif current_state == State.PARKING_1:
+        return False
         is_linger = True
 
         speed = 0.50
