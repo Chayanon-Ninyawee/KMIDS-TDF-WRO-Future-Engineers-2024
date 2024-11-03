@@ -3,7 +3,7 @@
 #include "debugPrint.h"
 
 
-int8_t bno055_initialize(bno055_t *bno) {
+int8_t bno055_initialize(bno055_t *bno, i2c_inst_t *i2c) {
     int8_t res = bno055_pico_init(bno, i2c_default, BNO055_I2C_ADDR1);
     if (res) {
         res = bno055_pico_init(bno, i2c_default, BNO055_I2C_ADDR2);

@@ -19,7 +19,7 @@ typedef struct bno055_accel_float_t bno055_accel_float_t;
 typedef struct bno055_euler_float_t bno055_euler_float_t;
 
 
-int8_t bno055_initialize(bno055_t *bno);
+int8_t bno055_initialize(bno055_t *bno, i2c_inst_t *i2c);
 int8_t bno055_calibrate(bno055_gyro_offset_t *gyroOffset, 
                         bno055_accel_offset_t *accelOffset, 
                         bno055_mag_offset_t *magOffset);

@@ -5,6 +5,13 @@
 
 #include "debugPrint.h"
 
+const uint sda0_pin = 16;
+const uint scl0_pin = 17;
+
+const uint sda1_pin = 18;
+const uint scl1_pin = 19;
+
+
 int main() {
     stdio_init_all();
 
@@ -13,41 +20,35 @@ int main() {
     gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
 
+    // Setup i2c0
+    gpio_init(sda0_pin);
+    gpio_init(scl0_pin);
+    gpio_set_function(sda0_pin, GPIO_FUNC_I2C);
+    gpio_set_function(scl0_pin, GPIO_FUNC_I2C);
+    gpio_pull_up(sda0_pin);
+    gpio_pull_up(scl0_pin);
+    i2c_init(i2c0, 400000);
 
-    const uint sda_pin = 16;
-    const uint scl_pin = 17;
+    // Setup i2c1
+    gpio_init(sda1_pin);
+    gpio_init(scl1_pin);
+    gpio_set_function(sda1_pin, GPIO_FUNC_I2C);
+    gpio_set_function(scl1_pin, GPIO_FUNC_I2C);
+    gpio_pull_up(sda1_pin);
+    gpio_pull_up(scl1_pin);
+    i2c_init(i2c1, 400000);
 
-    gpio_init(sda_pin);
-    gpio_init(scl_pin);
-    gpio_set_function(sda_pin, GPIO_FUNC_I2C);
-    gpio_set_function(scl_pin, GPIO_FUNC_I2C);
-    gpio_pull_up(sda_pin);
-    gpio_pull_up(scl_pin);
-    i2c_init(i2c_default, 400000);
-
-    gpio_init(PICO_DEFAULT_LED_PIN);
-    gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-
-    sleep_ms(5000);
-
-    printf("Hello");
+    sleep_ms(100);
 
     bno055_t bno;
-    bno055_initialize(&bno);
+    bno055_initialize(&bno, i2c0);
     sleep_ms(100);
 
     bno055_gyro_offset_t gyroOffset;
     bno055_accel_offset_t accelOffset;
     bno055_mag_offset_t magOffset;
-    bno055_read_gyro_offset(&gyroOffset);
-    bno055_read_accel_offset(&accelOffset);
-    bno055_read_mag_offset(&magOffset);
-    DEBUG_PRINT("gyro_offset - x: %d, y: %d, z: %d\n", gyroOffset.x, gyroOffset.y, gyroOffset.z);
-    DEBUG_PRINT("accel_offset - x: %d, y: %d, z: %d, radius: %d\n", accelOffset.x, accelOffset.y, accelOffset.z, accelOffset.r);
-    DEBUG_PRINT("mag_offset - x: %d, y: %d, z: %d, radius: %d\n", magOffset.x, magOffset.y, magOffset.z, magOffset.r);
     bno055_calibrate(&gyroOffset, &accelOffset, &magOffset);
-
-    sleep_ms(1000);
+    sleep_ms(100);
 
     while (true) {
         bno055_accel_float_t accelData;
