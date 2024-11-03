@@ -11,12 +11,19 @@ set(CMAKE_CXX_STANDARD 17)
 pico_sdk_init()
 
 
+add_subdirectory(BNO055_driver)
+
+file(GLOB SOURCES "src/*.cpp")
+
 add_executable(RaspiPicoTestV1
-    src/main.cpp
+    ${SOURCES}
 )
 
-# Add pico_stdlib library which aggregates commonly used features
-target_link_libraries(RaspiPicoTestV1 pico_stdlib)
+target_link_libraries(RaspiPicoTestV1
+    pico_stdlib
+    hardware_i2c
+    pico_bno055
+)
 
 pico_enable_stdio_usb(RaspiPicoTestV1 1)
 pico_enable_stdio_uart(RaspiPicoTestV1 0)
