@@ -7,27 +7,26 @@
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
 <Expand  count="1">
-  <Expand name="Body" count="2">
-    <Expand name="Pad012"/>
-    <Expand name="Pad023"/>
+  <Expand name="Body" count="1">
+    <Expand name="Pad015"/>
   </Expand>
 </Expand>
-  <Camera extra="0" id="10" binding="0" view3d="1">
+  <Camera extra="0" id="39" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 77.842941 -161.52454 89.949142
-  orientation 0.74290597 0.30772176 0.59447283  1.217116
-  nearDistance 30.46319
-  farDistance 229.04237
+  position 82.72831 -181.11163 108.06173
+  orientation 0.74290603 0.30772179 0.59447289  1.217116
+  nearDistance 55.025105
+  farDistance 253.6534
   aspectRatio 1
   focalDistance 100
-  height 150.3644
+  height 183.65556
 
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="10"><![CDATA[
+  <View3D id="39"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>

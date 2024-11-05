@@ -9,32 +9,39 @@
 <Expand  count="1">
   <Expand name="Assembly" count="2">
     <Expand name="Constraints"/>
-    <Expand name="Parts" count="1">
-      <Expand name="Link001"/>
+    <Expand name="Parts" count="2">
+      <Expand name="Link"/>
+      <Expand name="Link007"/>
     </Expand>
   </Expand>
 </Expand>
-  <Camera>
+  <Camera extra="0" id="10" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
-  position 37.418858 -71.123734 51.756855
-  orientation 0.74290603 0.30772179 0.59447289  1.217116
-  nearDistance -80.281349
-  farDistance 128.47298
+  position 85.662636 -151.8033 123.46223
+  orientation 0.74290597 0.30772176 0.59447283  1.217116
+  nearDistance 35.435852
+  farDistance 244.42177
   aspectRatio 1
   focalDistance 100
-  height 204.10254
+  height 167.10538
 
 }
-## overrideMode: As Is
-  
-  
-  
-  
-  
-  
-  
-  ]]>
+## overrideMode: As Is]]>
   </Camera>
+  <View3D id="10"><![CDATA[
+  <Properties Count="3" TransientCount="0">
+    <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
+      <Integer value="0"/>
+    </Property>
+    <Property name="ShowNaviCube" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailView" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+  </Properties>
+]]>
+  </View3D>
 </Document>

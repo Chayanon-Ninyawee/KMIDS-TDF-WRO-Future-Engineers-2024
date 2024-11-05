@@ -33,7 +33,7 @@
         <Constrain Name="" Type="1" Value="0" First="1" FirstPos="1" Second="0" SecondPos="2" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="1" Value="0" First="1" FirstPos="2" Second="0" SecondPos="1" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
         <Constrain Name="" Type="2" Value="0" First="1" FirstPos="0" Second="-2000" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="10" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
-        <Constrain Name="" Type="6" Value="1.2" First="0" FirstPos="3" Second="1" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.2432411462068558" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
+        <Constrain Name="" Type="6" Value="1.3" First="0" FirstPos="3" Second="1" SecondPos="0" Third="-2000" ThirdPos="0" LabelDistance="0.2432411462068558" LabelPosition="0" IsDriving="1" IsInVirtualSpace="0" IsActive="1" />
       </ConstraintList>
     </Property>
     <Property name="Exports" type="App::PropertyLinkListHidden" status="67108864">
@@ -85,14 +85,14 @@
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="1" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <ArcOfCircle CenterX="-4.603161089877366e-23" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.7" StartAngle="5.499517251041217" EndAngle="10.20844601690775"/>
+          <ArcOfCircle CenterX="-1.181189822185099e-22" CenterY="0" CenterZ="0" NormalX="0" NormalY="0" NormalZ="1" AngleXU="-0" Radius="1.7" StartAngle="5.412600535919593" EndAngle="10.29536273202937"/>
           <Construction value="0"/>
         </Geometry>
         <Geometry type="Part::GeomLineSegment" id="2" migrated="1">
           <GeoExtensions count="1">
             <GeoExtension type="Sketcher::SketchGeometryExtension" id="2" internalGeometryType="0" geometryModeFlags="00000000000000000000000000000000" geometryLayer="0"/>
           </GeoExtensions>
-          <LineSegment StartX="-1.20415945788019" StartY="-1.2" StartZ="0" EndX="1.20415945788019" EndY="-1.2" EndZ="0"/>
+          <LineSegment StartX="-1.095445115011695" StartY="-1.3" StartZ="0" EndX="1.095445115011695" EndY="-1.3" EndZ="0"/>
           <Construction value="0"/>
         </Geometry>
       </GeometryList>
@@ -148,7 +148,7 @@ TShapes 0
 <![CDATA[
 
 CASCADE Topology V1, (c) Matra-Datavision
-Locations 22
+Locations 6
 1
               1               0               0               0 
               0               1               0               0 
@@ -165,112 +165,47 @@ Locations 22
 1
               1               0               0              -0 
               0               1               0              -0 
-              0               0               1 -3220.62228550548 
+              0               0               1             -11 
 2  5 -1 2 -1 3 -1 0
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1            3.85 
-2  7 -1 3 -1 0
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1              10 
-2  9 -1 7 -1 3 -1 0
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1            3.85 
-2  11 -1 3 -1 0
-1
-              1               0               0              -0 
-              0               1               0              -0 
-              0               0               1             -10 
-2  13 -1 11 -1 3 -1 0
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1            3.85 
-2  15 -1 3 -1 0
-1
-              1               0               0              -0 
-              0               1               0              -0 
-              0               0               1             -11 
-2  17 -1 15 -1 3 -1 0
-1
-              1               0               0               0 
-              0               1               0               0 
-              0               0               1            3.85 
-2  19 -1 3 -1 0
-1
-              1               0               0              -0 
-              0               1               0              -0 
-              0               0               1             -11 
-2  21 -1 19 -1 3 -1 0
-Curve2ds 12
-1 0 0 1 0 
-1 0 -3220.6222855054812 1 0 
-1 0 0 1 0 
-1 0 -10 1 0 
-1 0 0 1 0 
-1 0 -10 1 0 
+Curve2ds 2
 1 0 0 1 0 
 1 0 -11 1 0 
-1 0 0 1 0 
-1 0 -11 1 0 
-1 0 0 1 0 
-1 0 -3220.6222855054812 1 0 
 Curves 2
-2 -4.6031610898773658e-23 0 0 0 0 1 1 0 0 0 1 0 1.7
-1 -1.2041594578801902 -1.2 0 1 0 0 
+2 -1.1811898221850988e-22 0 0 0 0 1 1 0 0 0 1 0 1.7
+1 -1.0954451150116951 -1.3000000000000003 0 1 0 0 
 Polygon3D 0
 PolygonOnTriangulations 0
-Surfaces 6
-2 -4.6031610898773658e-23 0 3.8500000000000001 0 0 1 1 0 0 0 1 0 1.7
-2 -4.6031610898773658e-23 0 3.8500000000000001 -0 -0 -1 1 0 0 0 1 0 1.7
-2 -4.6031610898773658e-23 0 3.8500000000000001 0 0 1 1 0 0 0 1 0 1.7
-2 -4.6031610898773658e-23 0 3.8500000000000001 0 0 1 1 0 0 0 1 0 1.7
-2 -4.6031610898773658e-23 0 3.8500000000000001 0 0 1 1 0 0 0 1 0 1.7
-1 -1.2041594578801902 -1.2 3.8500000000000001 0 -1 0 1 0 0 -0 0 1 
+Surfaces 1
+2 -1.1811898221850988e-22 0 3.8500000000000001 0 0 1 1 0 0 0 1 0 1.7
 Triangulations 0
 
 TShapes 5
 Ve
-1.00000340160613e-07
-1.20415945787995 -1.19999999999976 0
+1.00000439307268e-07
+1.09544511501141 -1.29999999999966 0
 0 0
 
 0101101
 *
 Ve
-1.00000340241354e-07
--1.20415945787995 -1.19999999999976 0
+1.00000439280893e-07
+-1.09544511501141 -1.29999999999966 0
 0 0
 
 0101101
 *
 Ed
  1e-07 1 1 0
-1  1 0 5.49951725104122 10.2084460169078
-2  1 1 4 5.49951725104122 10.2084460169078
-2  2 1 6 5.49951725104122 10.2084460169078
-2  3 2 8 5.49951725104122 10.2084460169078
-2  4 2 10 5.49951725104122 10.2084460169078
-2  5 3 12 5.49951725104122 10.2084460169078
-2  6 3 14 5.49951725104122 10.2084460169078
-2  7 4 16 5.49951725104122 10.2084460169078
-2  8 4 18 5.49951725104122 10.2084460169078
-2  9 5 20 5.49951725104122 10.2084460169078
-2  10 5 22 5.49951725104122 10.2084460169078
+1  1 0 5.41260053591959 10.2953627320294
+2  1 1 4 5.41260053591959 10.2953627320294
+2  2 1 6 5.41260053591959 10.2953627320294
 0
 
 0101000
 +5 0 -4 0 *
 Ed
  1e-07 1 1 0
-1  2 0 0 2.40831891576038
-2  11 6 4 0 2.40831891576038
-2  12 6 6 0 2.40831891576038
+1  2 0 0 2.19089023002339
 0
 
 0101000

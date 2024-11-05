@@ -56,9 +56,9 @@ Locations 11
               0               1               0               0 
               0               0               1               0 
 1
-             -1 -4.55473351716321e-16 -2.37698138105189e-15 -31.7999999999998 
-4.55473351716321e-16              -1 -2.74461215624016e-17 -139.200003814698 
--2.37698138105189e-15 -2.74461215624027e-17               1 58.4999999999984 
+             -1 -7.6571373978539e-16 -2.37698138105189e-15 -31.7999999999998 
+7.6571373978539e-16              -1 -2.74461215624013e-17 -139.200003814698 
+-2.37698138105189e-15 -2.74461215624031e-17               1 58.4999999999984 
 1
               1               0               0               0 
               0               1               0               0 
@@ -157,14 +157,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="6">
 <![CDATA[
-122 PostfixCount 3
+121 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 122 3
+ElementMap 1 121 3
 
 Edge
 
@@ -172,9 +172,9 @@ ChildCount 0
 
 NameCount 4
 0
-;#39f;:X;:Hadc:3,E.0 0
-;#3a0;:X;:Hadc:3,E.0 0
-;#3a1;:X;:Hadc:3,E.0 0
+;#5fa;:X;:Hadc:3,E.0 0
+;#5fb;:X;:Hadc:3,E.0 0
+;#5fc;:X;:Hadc:3,E.0 0
 
 Face
 
@@ -182,7 +182,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#3a3;:X;:Hadc:3,F.0 0
+;#5fe;:X;:Hadc:3,F.0 0
 
 Vertex
 
@@ -190,8 +190,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#39c;:X;:Hadc:3,V.0 0
-;#39d;:X;:Hadc:3,V.0 0
+;#5f7;:X;:Hadc:3,V.0 0
+;#5f8;:X;:Hadc:3,V.0 0
 
 EndMap
 ]]>

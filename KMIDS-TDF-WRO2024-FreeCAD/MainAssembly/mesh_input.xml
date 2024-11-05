@@ -21,7 +21,7 @@
       <ExpressionEngine count="0"></ExpressionEngine>
     </Property>
     <Property name="Group" type="App::PropertyLinkList">
-      <LinkList count="17">
+      <LinkList count="18">
         <Link value="BottomChassisBody_export"/>
         <Link value="TopChassisBody_export"/>
         <Link value="AxleHolderBody_export"/>
@@ -39,10 +39,11 @@
         <Link value="BackWheelConnector_export"/>
         <Link value="BackWheelStopper_export"/>
         <Link value="LidarHolder_export"/>
+        <Link value="MotorHolder_export"/>
       </LinkList>
     </Property>
     <Property name="HiddenChildren" type="App::PropertyMap" group="Group" attr="8" ro="1" hide="1" doc="" status="220200960">
-      <Map count="17">
+      <Map count="18">
 <Item key="AxleHolderBody_export" value=""/>
 <Item key="BackWheelConnector_export" value=""/>
 <Item key="BackWheelStopper_export" value=""/>
@@ -56,6 +57,7 @@
 <Item key="Link_BottomTBoneLinkageBody__export" value=""/>
 <Item key="Link_BottomWheelLinkageBody__export" value=""/>
 <Item key="MotorGearBody_export" value=""/>
+<Item key="MotorHolder_export" value=""/>
 <Item key="RightBackWheelAxle_export" value=""/>
 <Item key="RightTransferLinkageBody_export" value=""/>
 <Item key="TopChassisBody_export" value=""/>

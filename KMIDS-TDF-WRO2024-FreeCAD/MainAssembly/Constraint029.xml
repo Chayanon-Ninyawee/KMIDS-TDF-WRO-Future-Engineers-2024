@@ -12,7 +12,7 @@
       <Bool value="false"/>
     </Property>
     <Property name="Distance" type="App::PropertyDistance" group="Constraint" attr="0" ro="0" hide="0" doc="" status="2097152">
-      <Float value="25.49997787475742"/>
+      <Float value="19"/>
     </Property>
     <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
       <ExpressionEngine count="0"></ExpressionEngine>

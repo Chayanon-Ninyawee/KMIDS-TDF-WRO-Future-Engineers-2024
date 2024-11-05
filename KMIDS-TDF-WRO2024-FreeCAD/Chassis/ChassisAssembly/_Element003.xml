@@ -127,7 +127,7 @@ Curves 3
 Polygon3D 0
 PolygonOnTriangulations 0
 Surfaces 1
-2 22 0 3 -0 -0 -1 1 0 0 0 1 0 1.5
+2 22 0 3 -0 -0 -1 1 0 0 -0 1 -0 1.5
 Triangulations 0
 
 TShapes 9
@@ -192,14 +192,14 @@ Co
       <ElementMap new="1" count="1"><Element key="Dummy" value="Dummy"/></ElementMap>
       <ElementMap2 count="6">
 <![CDATA[
-77 PostfixCount 3
+76 PostfixCount 3
 Edge
 Face
 Vertex
 
 MapCount 1
 
-ElementMap 1 77 3
+ElementMap 1 76 3
 
 Edge
 
