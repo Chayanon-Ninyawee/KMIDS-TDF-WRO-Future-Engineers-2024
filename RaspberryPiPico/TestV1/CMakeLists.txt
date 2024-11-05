@@ -22,6 +22,7 @@ add_executable(RaspiPicoTestV1
 target_link_libraries(RaspiPicoTestV1
     pico_stdlib
     hardware_i2c
+    pico_i2c_slave
     pico_bno055
 )
 

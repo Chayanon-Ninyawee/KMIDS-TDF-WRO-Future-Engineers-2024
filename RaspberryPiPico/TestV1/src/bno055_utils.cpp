@@ -1,6 +1,6 @@
-#include "bno055Utils.h"
+#include "bno055_utils.h"
 
-#include "debugPrint.h"
+#include "debug_print.h"
 
 
 int8_t bno055_initialize(bno055_t *bno, i2c_inst_t *i2c) {
