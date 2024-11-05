@@ -1,15 +1,19 @@
 #include <stdio.h>
 
+#include "pico/i2c_slave.h"
 #include "pico/stdlib.h"
-#include "bno055Utils.h"
+#include "bno055_utils.h"
 
-#include "debugPrint.h"
+#include "debug_print.h"
 
-const uint sda0_pin = 16;
-const uint scl0_pin = 17;
+static const uint I2C0_SDA_PIN = 16;
+static const uint I2C0_SCL_PIN = 17;
+static const uint I2C0_BAUDRATE = 400000; // 400 kHz
 
-const uint sda1_pin = 18;
-const uint scl1_pin = 19;
+static const uint I2C1_SDA_PIN = 18;
+static const uint I2C1_SCL_PIN = 19;
+static const uint I2C1_BAUDRATE = 400000; // 400 kHz
+static const uint I2C1_SLAVE_ADDR = 0x39;
 
 
 int main() {
@@ -21,22 +25,23 @@ int main() {
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
 
     // Setup i2c0
-    gpio_init(sda0_pin);
-    gpio_init(scl0_pin);
-    gpio_set_function(sda0_pin, GPIO_FUNC_I2C);
-    gpio_set_function(scl0_pin, GPIO_FUNC_I2C);
-    gpio_pull_up(sda0_pin);
-    gpio_pull_up(scl0_pin);
-    i2c_init(i2c0, 400000);
+    gpio_init(I2C0_SDA_PIN);
+    gpio_init(I2C0_SCL_PIN);
+    gpio_set_function(I2C0_SDA_PIN, GPIO_FUNC_I2C);
+    gpio_set_function(I2C0_SCL_PIN, GPIO_FUNC_I2C);
+    gpio_pull_up(I2C0_SDA_PIN);
+    gpio_pull_up(I2C0_SCL_PIN);
+    i2c_init(i2c0, I2C0_BAUDRATE);
 
     // Setup i2c1
-    gpio_init(sda1_pin);
-    gpio_init(scl1_pin);
-    gpio_set_function(sda1_pin, GPIO_FUNC_I2C);
-    gpio_set_function(scl1_pin, GPIO_FUNC_I2C);
-    gpio_pull_up(sda1_pin);
-    gpio_pull_up(scl1_pin);
-    i2c_init(i2c1, 400000);
+    gpio_init(I2C1_SDA_PIN);
+    gpio_init(I2C1_SCL_PIN);
+    gpio_set_function(I2C1_SDA_PIN, GPIO_FUNC_I2C);
+    gpio_set_function(I2C1_SCL_PIN, GPIO_FUNC_I2C);
+    gpio_pull_up(I2C1_SDA_PIN);
+    gpio_pull_up(I2C1_SCL_PIN);
+    i2c_init(i2c1, I2C1_BAUDRATE);
+    i2c_slave_init(i2c1, I2C1_SLAVE_ADDR, &i2c_slave_handler);
 
     sleep_ms(100);
 
