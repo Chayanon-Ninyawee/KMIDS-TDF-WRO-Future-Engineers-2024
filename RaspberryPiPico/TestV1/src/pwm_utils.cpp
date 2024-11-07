@@ -1,6 +1,5 @@
 #include "pwm_utils.h"
 
-// Function to set up the PWM
 void setup_pwm(uint gpio_pin, float freq) {
     gpio_set_function(gpio_pin, GPIO_FUNC_PWM);
 
@@ -15,7 +14,6 @@ void setup_pwm(uint gpio_pin, float freq) {
     pwm_set_wrap(slice_num, 65535);  // 16-bit counter (0 - 65535)
 }
 
-// Function to enable PWM with a specified duty cycle
 void enable_pwm(uint gpio_pin, float duty_cycle) {
     const uint slice_num = pwm_gpio_to_slice_num(gpio_pin);
 
@@ -24,7 +22,6 @@ void enable_pwm(uint gpio_pin, float duty_cycle) {
     pwm_set_enabled(slice_num, true);
 }
 
-// Function to disable PWM
 void disable_pwm(uint gpio_pin) {
     const uint slice_num = pwm_gpio_to_slice_num(gpio_pin);
     pwm_set_enabled(slice_num, false);
