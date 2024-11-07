@@ -3,6 +3,7 @@
 #include "pico/i2c_slave.h"
 #include "pico/stdlib.h"
 #include "bno055_utils.h"
+#include "pwm_utils.h"
 
 #include "debug_print.h"
 
@@ -15,6 +16,13 @@ static const uint I2C1_SCL_PIN = 19;
 static const uint I2C1_BAUDRATE = 400000; // 400 kHz
 static const uint I2C1_SLAVE_ADDR = 0x39;
 
+static const uint SERVO_PIN = 22;
+static const uint SERVO_MIN_ANGLE = 50;
+static const uint SERVO_MAX_ANGLE = 180;
+
+static const uint MOTOR_A_PIN = 4;
+static const uint MOTOR_B_PIN = 5;
+
 
 int main() {
     stdio_init_all();
@@ -24,50 +32,67 @@ int main() {
     gpio_init(PICO_DEFAULT_LED_PIN);
     gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
 
-    // Setup i2c0
-    gpio_init(I2C0_SDA_PIN);
-    gpio_init(I2C0_SCL_PIN);
-    gpio_set_function(I2C0_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(I2C0_SCL_PIN, GPIO_FUNC_I2C);
-    gpio_pull_up(I2C0_SDA_PIN);
-    gpio_pull_up(I2C0_SCL_PIN);
-    i2c_init(i2c0, I2C0_BAUDRATE);
+    setup_servo(SERVO_PIN, (SERVO_MAX_ANGLE+SERVO_MIN_ANGLE)/2.0f);
 
-    // Setup i2c1
-    gpio_init(I2C1_SDA_PIN);
-    gpio_init(I2C1_SCL_PIN);
-    gpio_set_function(I2C1_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(I2C1_SCL_PIN, GPIO_FUNC_I2C);
-    gpio_pull_up(I2C1_SDA_PIN);
-    gpio_pull_up(I2C1_SCL_PIN);
-    i2c_init(i2c1, I2C1_BAUDRATE);
-    i2c_slave_init(i2c1, I2C1_SLAVE_ADDR, &i2c_slave_handler);
+    setup_L9110S_motor_driver(MOTOR_A_PIN, MOTOR_B_PIN);
 
-    sleep_ms(100);
 
-    bno055_t bno;
-    bno055_initialize(&bno, i2c0);
-    sleep_ms(100);
+    // // Setup i2c0
+    // gpio_init(I2C0_SDA_PIN);
+    // gpio_init(I2C0_SCL_PIN);
+    // gpio_set_function(I2C0_SDA_PIN, GPIO_FUNC_I2C);
+    // gpio_set_function(I2C0_SCL_PIN, GPIO_FUNC_I2C);
+    // gpio_pull_up(I2C0_SDA_PIN);
+    // gpio_pull_up(I2C0_SCL_PIN);
+    // i2c_init(i2c0, I2C0_BAUDRATE);
 
-    bno055_gyro_offset_t gyroOffset;
-    bno055_accel_offset_t accelOffset;
-    bno055_mag_offset_t magOffset;
-    bno055_calibrate(&gyroOffset, &accelOffset, &magOffset);
-    sleep_ms(100);
+    // // Setup i2c1
+    // gpio_init(I2C1_SDA_PIN);
+    // gpio_init(I2C1_SCL_PIN);
+    // gpio_set_function(I2C1_SDA_PIN, GPIO_FUNC_I2C);
+    // gpio_set_function(I2C1_SCL_PIN, GPIO_FUNC_I2C);
+    // gpio_pull_up(I2C1_SDA_PIN);
+    // gpio_pull_up(I2C1_SCL_PIN);
+    // i2c_init(i2c1, I2C1_BAUDRATE);
+    // // i2c_slave_init(i2c1, I2C1_SLAVE_ADDR, &i2c_slave_handler);
+
+    // sleep_ms(100);
+
+    // bno055_t bno;
+    // bno055_initialize(&bno, i2c0);
+    // sleep_ms(100);
+
+    // bno055_gyro_offset_t gyroOffset;
+    // bno055_accel_offset_t accelOffset;
+    // bno055_mag_offset_t magOffset;
+    // bno055_calibrate(&gyroOffset, &accelOffset, &magOffset);
+    // sleep_ms(100);
 
     while (true) {
-        bno055_accel_float_t accelData;
-        bno055_convert_float_accel_xyz_msq(&accelData);
-        printf("x: %3.2f,   y: %3.2f,   z: %3.2f\n", accelData.x, accelData.y, accelData.z);
+        // bno055_accel_float_t accelData;
+        // bno055_convert_float_accel_xyz_msq(&accelData);
+        // printf("x: %3.2f,   y: %3.2f,   z: %3.2f\n", accelData.x, accelData.y, accelData.z);
 
-        bno055_euler_float_t eulerAngles;
-        bno055_convert_float_euler_hpr_deg(&eulerAngles);
-        printf("h: %3.2f,   p: %3.2f,   r: %3.2f\n\n", eulerAngles.h, eulerAngles.p, eulerAngles.r);
+        // bno055_euler_float_t eulerAngles;
+        // bno055_convert_float_euler_hpr_deg(&eulerAngles);
+        // printf("h: %3.2f,   p: %3.2f,   r: %3.2f\n\n", eulerAngles.h, eulerAngles.p, eulerAngles.r);
+
+        // gpio_put(PICO_DEFAULT_LED_PIN, true);
+        // sleep_ms(100);
+        // gpio_put(PICO_DEFAULT_LED_PIN, false);
+        // sleep_ms(100);
+
+        gpio_put(PICO_DEFAULT_LED_PIN, false);
+        set_L9110S_motor_speed(MOTOR_A_PIN, MOTOR_B_PIN, 0.0f);
+        sleep_ms(1000);
 
         gpio_put(PICO_DEFAULT_LED_PIN, true);
+        set_L9110S_motor_speed(MOTOR_A_PIN, MOTOR_B_PIN, 1.0f);
+        sleep_ms(3000);
+        set_L9110S_motor_speed(MOTOR_A_PIN, MOTOR_B_PIN, 0.0f);
         sleep_ms(100);
-        gpio_put(PICO_DEFAULT_LED_PIN, false);
-        sleep_ms(100);
+        set_L9110S_motor_speed(MOTOR_A_PIN, MOTOR_B_PIN, -1.0f);
+        sleep_ms(3000);
     }
 
     return 0;
