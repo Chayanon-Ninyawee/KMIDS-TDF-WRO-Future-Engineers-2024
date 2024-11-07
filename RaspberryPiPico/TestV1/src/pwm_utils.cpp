@@ -62,10 +62,10 @@ void set_L9110S_motor_speed(uint motorA_pin, uint motorB_pin, float speed)
         enable_pwm(motorA_pin, 0.0f);
         enable_pwm(motorB_pin, 0.0f);
     } else if (speed > 0) {
-        enable_pwm(motorA_pin, speed);
         enable_pwm(motorB_pin, 0.0f);
+        enable_pwm(motorA_pin, speed);
     } else {
-        enable_pwm(motorB_pin, -speed);
         enable_pwm(motorA_pin, 0.0f);
+        enable_pwm(motorB_pin, -speed);
     }
 }
