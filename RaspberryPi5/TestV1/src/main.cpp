@@ -2,6 +2,10 @@
 #include <vector>
 #include <cmath>
 #include <csignal>
+#include <wiringPiI2C.h>
+#include <chrono>
+#include <thread>
+
 #include "lidarController.h"
 
 bool isRunning = true;
@@ -163,58 +167,93 @@ void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage)
   }
 }
 
+
 int main(int argc, char **argv)
 {
   signal(SIGINT, interuptHandler);
 
-  lidarController::LidarController lidar;
-  if (!lidar.initialize() || !lidar.startScanning())
-  {
+  int fd = wiringPiI2CSetup(0x39);
+  if (fd == -1) {
+    printf("Failed to initialize I2C communication.\n");
     return -1;
   }
+  printf("I2C communication successfully initialized.\n");
 
-  const int width = 1200;
-  const int height = 1200;
-  const float scale = 180.0;
+  // wiringPiI2CWrite(fd, 0x02);
+  uint8_t calib[23] = {2, 0xfe, 0xff, 0x00, 0x00, 0xff, 0xff, 0xf0, 0xff, 0xf2, 0xff, 0xe0, 0xff, 0xe8, 0x03, 0x50, 0xfe, 0xe7, 0xff, 0xd0, 0x07, 0xcd, 0x01};
+  wiringPiI2CRawWrite(fd, calib, sizeof(calib));
+  std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-  cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
+  uint8_t cmd[2] = {0, 0x03};
+  wiringPiI2CRawWrite(fd, cmd, sizeof(cmd));
+  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+  uint8_t status[1] = {0};
+  while (not (status[0] & (1 << 1))) {
+    wiringPiI2CReadBlockData(fd, 1, status, sizeof(status));
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  }
+  printf("%x\n", status[0]);
+
+  uint8_t test[22] = {0};
+  wiringPiI2CReadBlockData(fd, 2, test, sizeof(test));
+
+  for (int i = 0; i < sizeof(test); i++) {
+    printf("%x, ", test[i]);
+  }
+  printf("\n");
+
+
+
+  // lidarController::LidarController lidar;
+  // if (!lidar.initialize() || !lidar.startScanning())
+  // {
+  //   return -1;
+  // }
+
+  // const int width = 1200;
+  // const int height = 1200;
+  // const float scale = 180.0;
+
+  // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
   while (isRunning)
   {
-    int64 start = cv::getTickCount();
-    auto lidarScanData = lidar.getScanData();
-    // lidar.printScanData(lidarScanData);
 
-    cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
-    cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
-    cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
+    // int64 start = cv::getTickCount();
+    // auto lidarScanData = lidar.getScanData();
+    // // lidar.printScanData(lidarScanData);
 
-    auto lines = detectLines(binaryImage);
-    auto combined_lines = combineAlignedLines(lines);
-    drawAllLines(combined_lines, outputImage);
+    // cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
+    // cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
+    // cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
 
-    for (size_t i = 0; i < combined_lines.size(); ++i)
-    {
-      cv::Vec4i line = combined_lines[i];
-      printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
-    }
+    // auto lines = detectLines(binaryImage);
+    // auto combined_lines = combineAlignedLines(lines);
+    // drawAllLines(combined_lines, outputImage);
 
-    cv::imshow("LIDAR Hough Lines", outputImage);
+    // for (size_t i = 0; i < combined_lines.size(); ++i)
+    // {
+    //   cv::Vec4i line = combined_lines[i];
+    //   printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
+    // }
 
-    char key = cv::waitKey(1);
-    if (key == 'q')
-    {
-      break;
-    }
+    // cv::imshow("LIDAR Hough Lines", outputImage);
 
-    int64 end = cv::getTickCount();
-    double duration = (end - start) / cv::getTickFrequency();
-    double fps = 1.0 / duration;
-    printf("FPS: %.3f, # of lines: %d\n", fps, combined_lines.size());
+    // char key = cv::waitKey(1);
+    // if (key == 'q')
+    // {
+    //   break;
+    // }
+
+    // int64 end = cv::getTickCount();
+    // double duration = (end - start) / cv::getTickFrequency();
+    // double fps = 1.0 / duration;
+    // printf("FPS: %.3f, # of lines: %d\n", fps, combined_lines.size());
   }
 
-  lidar.shutdown();
-  cv::destroyAllWindows();
+  // lidar.shutdown();
+  // cv::destroyAllWindows();
 
   return 0;
 }
