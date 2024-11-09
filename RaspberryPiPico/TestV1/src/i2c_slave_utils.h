@@ -1,143 +1,154 @@
 #ifndef I2C_SLAVE_UTILS_H
 #define I2C_SLAVE_UTILS_H
 
-#include <stddef.h>
-#include <stdint.h>
 #include <string.h>
 #include <algorithm>
 
 #include "bno055_utils.h"
 #include "pico/i2c_slave.h"
 
-// Command enums
-enum command {
-  DO_NOTHING = 0x00,
+namespace i2c_slave_mem_addr {
+  const size_t MEM_SIZE = 65536;
+
+  const size_t COMMAND_SIZE = 1; // This is 1 byte
+
+  const size_t STATUS_SIZE = 1; // This is 1 byte
+
+  const size_t GYRO_OFFSET_SIZE = sizeof(bno055_gyro_offset_t);
+  const size_t ACCEL_OFFSET_SIZE = sizeof(bno055_accel_offset_t);
+  const size_t MAG_OFFSET_SIZE = sizeof(bno055_mag_offset_t);
+  const size_t BNO055_CALIB_SIZE = (GYRO_OFFSET_SIZE + ACCEL_OFFSET_SIZE + MAG_OFFSET_SIZE);
+
+  const size_t ACCEL_DATA_SIZE = sizeof(bno055_accel_float_t);
+  const size_t EULER_ANGLE_SIZE = sizeof(bno055_euler_float_t);
+  const size_t BNO055_INFO_SIZE = (ACCEL_DATA_SIZE + EULER_ANGLE_SIZE);
+
+  const size_t MOTOR_PERCENT_SIZE = sizeof(float);
+  const size_t STEERING_PERCENT_SIZE = sizeof(float);
+  const size_t LOG_SIZE = 65400;
+  const size_t MOVEMENT_INFO_SIZE = (MOTOR_PERCENT_SIZE + STEERING_PERCENT_SIZE + LOG_SIZE + 5);  // Reserve 5 bytes for ending marker
+
+  const size_t COMMAND_ADDR = 0;
+  const size_t STATUS_ADDR = (COMMAND_ADDR + COMMAND_SIZE);
+  const size_t BNO055_CALIB_ADDR = (STATUS_ADDR + STATUS_SIZE);
+  const size_t BNO055_INFO_ADDR = (BNO055_CALIB_ADDR + BNO055_CALIB_SIZE);
+  const size_t MOVEMENT_INFO_ADDR = (BNO055_INFO_ADDR + BNO055_INFO_SIZE);
+
+  // Check if total memory allocation fits within the available memory
+  static_assert(MOVEMENT_INFO_ADDR + MOVEMENT_INFO_SIZE <= MEM_SIZE, "Memory allocation exceeds buffer size");
+}
+
+
+enum Command : uint8_t {
+  NO_COMMAND = 0x00,
   RESTART = 0x01,
-  BNO055_CALIB = 0x02,
-  GET_BNO055_CALIB = 0x03,
-  SEND_BNO055_CALIB = 0x04,
-  GET_INFO = 0x05,
-  SEND_INFO = 0x06
+  CALIB_NO_OFFSET = 0x02,
+  CALIB_WITH_OFFSET = 0x03,
 };
 
-// RequestType enums
-enum request_type_t {
-  NOTHING = 0x00,
-  BNO055_CALIB_DATA = 0x01,
-  INFO_DATA = 0x02
-};
-
-// Structs for specific buffer types
-struct bno055_calib_buffer {
-  uint8_t buffer[22];  // For BNO055 calibration (22 bytes)
-  uint8_t address;
-};
-
-struct recieved_info_buffer {
-  uint8_t buffer[8];  // For general info (8 bytes)
-  uint8_t address;
-};
-
-struct sending_info_buffer {
-  uint8_t buffer[65536];  // Large buffer for logs
-  uint16_t address;
-};
-
-// I2C state structure
-struct I2C_slave_state {
-  command recieved_command;
-  bool is_command_set;
-  request_type_t request_type;
-  bno055_calib_buffer recieved_bno055_calib_bytes;
-  recieved_info_buffer recieved_info_bytes;
-  bno055_calib_buffer sending_bno055_calib_bytes;
-  sending_info_buffer sending_info_bytes;
-
-  void (*restart_callback)();
-  void (*bno055_calib_callback)();
-  void (*load_bno055_calib_callback)();
-  void (*get_info_callback)();
-};
-
-extern I2C_slave_state i2c_slave_state;
-
+struct {
+  uint8_t mem[i2c_slave_mem_addr::MEM_SIZE];
+  uint8_t mem_address;
+  bool mem_address_written;
+} context;
 
 void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event);
 
 
+uint8_t test();
+
+
+void context_init();
+
 /**
- * @brief Sets BNO055 offset data to be sent via I2C.
- * 
- * @param gyroOffset Pointer to the gyro offset structure.
- * @param accelOffset Pointer to the accel offset structure.
- * @param magOffset Pointer to the magnetometer offset structure.
+ * @brief Retrieve the current command from memory.
+ * @return The current command as a Command enum.
  */
-void set_bno055_offset_data(bno055_gyro_offset_t *gyroOffset, bno055_accel_offset_t *accelOffset, bno055_mag_offset_t *magOffset);
+uint8_t get_command();
 
 /**
- * @brief Sets the info data to be sent via I2C, including accelerometer, euler angles, and log.
- * 
- * @param accelData Pointer to the accelerometer data.
- * @param eulerAngles Pointer to the euler angle data.
- * @param logPtr Pointer to the log data string.
+ * @brief Set a command in memory.
+ * @param command The command to set.
  */
-void set_info_data(bno055_accel_float_t *accelData, bno055_euler_float_t *eulerAngles, char *logs);
-
+void set_command(uint8_t command);
 
 /**
- * @brief Checks if the BNO055 offset data buffer contains valid data.
- * 
- * This function examines the BNO055 calibration buffer to determine if it 
- * has received valid data. If the buffer is entirely filled with the 
- * invalid marker (0xFF), the function returns false, indicating that no valid data is ready.
- * 
- * @return true if the buffer contains valid BNO055 offset data, false if the buffer 
- *         is entirely filled with the invalid marker (0xFF).
+ * @brief Set the running status in memory.
+ * @param is_running True if running, false otherwise.
+ */
+void set_is_running(bool is_running);
+
+/**
+ * @brief Retrieve the running status from memory.
+ * @return True if running, false otherwise.
+ */
+bool get_is_running();
+
+/**
+ * @brief Set the calibration offset readiness status in memory.
+ * @param is_calib_offset_ready True if calibration offset is ready, false otherwise.
+ */
+void set_is_calib_offset_ready(bool is_calib_offset_ready);
+
+/**
+ * @brief Retrieve the calibration offset readiness status from memory.
+ * @return True if calibration offset is ready, false otherwise.
+ */
+bool get_is_calib_offset_ready();
+
+/**
+ * @brief Set the BNO055 information readiness status in memory.
+ * @param is_bno055_info_ready True if BNO055 information is ready, false otherwise.
+ */
+void set_is_bno055_info_ready(bool is_bno055_info_ready);
+
+/**
+ * @brief Retrieve the BNO055 information readiness status from memory.
+ * @return True if BNO055 information is ready, false otherwise.
+ */
+bool get_is_bno055_info_ready();
+
+/**
+ * @brief Check if the BNO055 offset data is ready.
+ * @return True if offset data is ready, otherwise false.
  */
 bool is_bno055_offset_data_ready();
 
 /**
- * @brief Retrieves BNO055 offset data if available, checking for buffer validity.
- * 
- * This function checks if the BNO055 calibration buffer contains valid data.
- * If the buffer is entirely filled with the invalid marker (0xFF), the function 
- * will return without modifying the output parameters.
- * 
- * @param outputGyroOffset Pointer to the gyro offset output structure. If the buffer is valid, 
- *                         this will be populated with gyro offset data.
- * @param outputAccelOffset Pointer to the accel offset output structure. If the buffer is valid, 
- *                          this will be populated with accelerometer offset data.
- * @param outputMagOffset Pointer to the magnetometer offset output structure. If the buffer is valid, 
- *                        this will be populated with magnetometer offset data.
+ * @brief Retrieve BNO055 offset data if available.
+ * @param outputGyroOffset Pointer to store gyro offset data.
+ * @param outputAccelOffset Pointer to store accelerometer offset data.
+ * @param outputMagOffset Pointer to store magnetometer offset data.
  */
 void get_bno055_offset_data(bno055_gyro_offset_t *outputGyroOffset, bno055_accel_offset_t *outputAccelOffset, bno055_mag_offset_t *outputMagOffset);
 
 /**
- * @brief Checks if the motor and steering information buffer contains valid data.
- * 
- * This function examines the information buffer to determine if it has received valid data. 
- * If the buffer is entirely filled with the invalid marker (0xFF), the function returns 
- * false, indicating that no valid data is ready.
- * 
- * @return true if the buffer contains valid motor and steering information data, false if the buffer 
- *         is entirely filled with the invalid marker (0xFF).
+ * @brief Set BNO055 offset data in memory.
+ * @param gyroOffset Pointer to gyro offset data.
+ * @param accelOffset Pointer to accelerometer offset data.
+ * @param magOffset Pointer to magnetometer offset data.
  */
-bool is_info_data_ready();
+void set_bno055_offset_data(bno055_gyro_offset_t *gyroOffset, bno055_accel_offset_t *accelOffset, bno055_mag_offset_t *magOffset);
 
 /**
- * @brief Retrieves motor and steering percentage information if available, checking for buffer validity.
- * 
- * This function verifies if the information buffer contains valid data.
- * If the buffer is entirely filled with the invalid marker (0xFF), the function 
- * will return without modifying the output parameters.
- * 
- * @param outputMotorPercent Pointer to the output motor percentage. If the buffer is valid, 
- *                           this will be populated with motor percentage data.
- * @param outputSteeringPercentage Pointer to the output steering percentage. If the buffer is valid, 
- *                                 this will be populated with steering percentage data.
+ * @brief Check if movement information data is ready.
+ * @return True if movement data is ready, otherwise false.
  */
-void get_info_data(float *outputMotorPercent, float *outputSteeringPercentage);
+bool is_movement_info_data_ready();
 
+/**
+ * @brief Retrieve movement information data if available.
+ * @param outputMotorPercent Pointer to store motor percentage.
+ * @param outputSteeringPercentage Pointer to store steering percentage.
+ */
+void get_movement_info_data(float *outputMotorPercent, float *outputSteeringPercentage);
 
+/**
+ * @brief Set BNO055 information data and logs in memory.
+ * @param accelData Pointer to accelerometer data.
+ * @param eulerAngles Pointer to Euler angle data.
+ * @param logs Pointer to log data string.
+ */
+void set_bno055_info_data(bno055_accel_float_t *accelData, bno055_euler_float_t *eulerAngles, char *logs);
 
 #endif  // I2C_SLAVE_UTILS_H
