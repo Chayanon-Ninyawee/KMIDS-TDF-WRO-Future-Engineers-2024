@@ -23,5 +23,8 @@ int8_t bno055_initialize(bno055_t *bno, i2c_inst_t *i2c);
 int8_t bno055_calibrate(bno055_gyro_offset_t *gyroOffset, 
                         bno055_accel_offset_t *accelOffset, 
                         bno055_mag_offset_t *magOffset);
+int8_t bno055_load_offset(bno055_gyro_offset_t *gyroOffset, 
+                        bno055_accel_offset_t *accelOffset, 
+                        bno055_mag_offset_t *magOffset);
 
 #endif // BNO055_UTILS_H

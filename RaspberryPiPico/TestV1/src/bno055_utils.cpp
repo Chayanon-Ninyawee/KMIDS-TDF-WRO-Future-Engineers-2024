@@ -80,3 +80,23 @@ int8_t bno055_calibrate(bno055_gyro_offset_t *gyroOffset,
 
     return 0;
 }
+
+
+int8_t bno055_load_offset(bno055_gyro_offset_t *gyroOffset, 
+                        bno055_accel_offset_t *accelOffset, 
+                        bno055_mag_offset_t *magOffset) {
+    int8_t res = bno055_set_operation_mode(BNO055_OPERATION_MODE_CONFIG);
+    if (res) {
+        DEBUG_PRINT("BNO055 operation mode failed to set to CONFIG!\n");
+        return res;
+    }
+    sleep_ms(100);
+
+    bno055_write_gyro_offset(gyroOffset);
+    bno055_write_accel_offset(accelOffset);
+    bno055_write_mag_offset(magOffset);
+
+    res = bno055_set_operation_mode(BNO055_OPERATION_MODE);
+
+    return 0;
+}
