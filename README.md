@@ -54,9 +54,7 @@ in a total of 3 laps around the field, additionally must not come into contact w
 of the field. The robot also must not come into contact with the walls whether it be the 
 inner or outer walls.
 
-
-![open challenge2(dark) drawio](https://github.com/user-attachments/assets/a4d2849d-4b81-46ae-acda-06fecf008ce3)
-
+![Open chart](https://github.com/user-attachments/assets/ddbccffe-5dab-4fce-bd86-55afe057d02e)
 
 ### Obstacle Challenge  
 In the obstacle challenge, our robot will also needed to complete the requirement as said above,
@@ -64,14 +62,12 @@ but the robot will also need to avoid additional pillars of green and red that i
 the field. The pillars also have it's individual rules that the robot must obey plus a now designated
 area for parking the robot.
 
-
-![ObstacleChallenge2(dark) drawio](https://github.com/user-attachments/assets/2b8b057d-6421-4a8c-8a0d-3db446a31536)
-
+![Obstacle chart](https://github.com/user-attachments/assets/fd552782-8ea8-4165-8fa0-5567a0384821)
 
 ## Pictures
 **robot Picture**  
 
-tba
+![New robot](https://github.com/user-attachments/assets/a415d5c4-0dc0-44ec-8452-be225b8329a5)
 
 ## How to use the robot
 
