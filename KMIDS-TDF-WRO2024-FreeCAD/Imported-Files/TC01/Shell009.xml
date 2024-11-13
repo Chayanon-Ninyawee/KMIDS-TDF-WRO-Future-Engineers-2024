@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Shell009">
+  <Properties Count="11" TransientCount="1">
+    <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
+    <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="FixShape" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="TC01.step[2]"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388608">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="Shape" type="Part::PropertyPartShape">
+      <Part ElementMap="0.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 1
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+Curve2ds 2
+1 -1.4299672557172016e-13 0.0015999999909002138 1 0 
+1 -7.2830630415410269e-14 -0.00039999999750910966 1 -1.3154736378075911e-16 
+Curves 2
+2 2.43045212507971 -9.0364347023975995 -1.1914798193811 -6.4839376029572348e-11 -4.3636775667801861e-08 0.99999999999999911 7.7037197775489417e-34 -0.99999999999999911 -4.3636775667801861e-08 1 -2.8293813062426965e-18 6.4839376029572283e-11 0.075452901988379797
+2 2.4304521250798401 -9.0364347023103306 -1.19347981936951 -6.4839376029572348e-11 -4.3636775667801861e-08 0.99999999999999911 7.7037197775489417e-34 -0.99999999999999911 -4.3636775667801861e-08 1 -2.8293813062426965e-18 6.4839376029572283e-11 0.075452901988379797
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 1
+2 2.4304521250798197 -9.0364347023277904 -1.193079819372 -6.4839376029572348e-11 -4.3636775667801861e-08 0.99999999999999911 7.7037197775489417e-34 -0.99999999999999911 -4.3636775667801861e-08 1 -2.8293813062426965e-18 6.4839376029572283e-11 0.075452901988379797
+Triangulations 0
+
+TShapes 7
+Ve
+0.00102193079367518
+2.354820916565 -9.0342252781105 -1.192479819278
+0 0
+
+0101101
+*
+Ve
+0.00100000099999212
+2.43707913078803 -9.11159601696335 -1.19247982266046
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  1 0 4.68318415745725 6.37112832101411
+2  1 1 0 4.68318415745725 6.37112832101411
+0
+
+0101000
++7 0 -6 0 *
+Ed
+ 1e-07 1 1 0
+1  2 0 4.6831841574572 6.37112832101411
+2  2 1 0 4.6831841574572 6.37112832101411
+0
+
+0101000
++7 0 -6 0 *
+Wi
+
+0101100
+-5 0 +4 0 *
+Fa
+0  1e-07 1 0
+
+0101000
++3 0 *
+Sh
+
+0101000
++2 0 *
+
++1 1 ]]>
+      </Part>
+      <ElementMap/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="131"/>
+    </Property>
+    <Property name="ValidateShape" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Shell088">
+  <Properties Count="11" TransientCount="1">
+    <_Property name="_ElementMapVersion" type="App::PropertyString" status="234881024"/>
+    <Property name="ColoredElements" type="App::PropertyLinkSubHidden" status="218103808">
+      <LinkSub value="" count="0">
+      </LinkSub>
+    </Property>
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="FixShape" type="App::PropertyEnumeration">
+      <Integer value="0"/>
+    </Property>
+    <Property name="InvalidShape" type="App::PropertyBool" status="67108864">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="TC01.step[67]"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="Placement" type="App::PropertyPlacement" status="8388608">
+      <PropertyPlacement Px="0" Py="0" Pz="0" Q0="0" Q1="0" Q2="0" Q3="1" A="0" Ox="0" Oy="0" Oz="1"/>
+    </Property>
+    <Property name="Shape" type="Part::PropertyPartShape">
+      <Part ElementMap="0.15.70200.4" brep="1">
+<![CDATA[
+
+CASCADE Topology V1, (c) Matra-Datavision
+Locations 1
+1
+              1               0               0               0 
+              0               1               0               0 
+              0               0               1               0 
+Curve2ds 0
+Curves 2
+7 0 0  3 4 2  1.9728658457230002 -8.8554410413499998 -1.1934798114630001  1.9728658447634699 -8.8664167622256702 -1.1934798119427601  1.9728658438039401 -8.87739248310133 -1.1934798124225299  1.9728658428444199 -8.8883682039769987 -1.1934798129022901 
+ 0 4 1 4
+7 0 0  3 4 2  1.9728658428444199 -8.8883682040640011 -1.1914798129022901  1.9728658438039401 -8.8773924831883289 -1.1914798124225299  1.9728658447634699 -8.8664167623126691 -1.1914798119427601  1.9728658457230002 -8.8554410414370004 -1.1914798114629999 
+ 0 4 1 4
+Polygon3D 0
+PolygonOnTriangulations 0
+Surfaces 1
+1 1.9728658457230002 -8.8554410413499998 -1.1934798114630001 -0.99999999999999623 8.7422776573479365e-08 7.6427384725269411e-15 7.6427384725269711e-15 2.727146893907707e-36 1 8.7422776573479365e-08 0.99999999999999623 -6.6814941789326305e-22 
+Triangulations 0
+
+TShapes 7
+Ve
+0.00100000100000011
+1.972865845723 -8.8554410413935 -1.192479811463
+0 0
+
+0101101
+*
+Ve
+0.00100000100000011
+1.97286584284441 -8.8883682040205 -1.19247981290229
+0 0
+
+0101101
+*
+Ed
+ 1e-07 1 1 0
+1  1 0 0 0.999999999993681
+0
+
+0101000
++7 0 -6 0 *
+Ed
+ 1e-07 1 1 0
+1  2 0 0 0.999999999993573
+0
+
+0101000
++6 0 -7 0 *
+Wi
+
+0101100
++5 0 +4 0 *
+Fa
+0  1e-07 1 0
+
+0101000
++3 0 *
+Sh
+
+0101000
++2 0 *
+
++1 1 ]]>
+      </Part>
+      <ElementMap/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2185">
+      <Integer value="210"/>
+    </Property>
+    <Property name="ValidateShape" type="App::PropertyBool">
+      <Bool value="false"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>
