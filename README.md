@@ -21,7 +21,7 @@ our video demonstrating our robot can be found [here](https://youtu.be/9CfIpZZZo
 
 Our 3D model are made and design in FreeCAD specificly the [realthunder](https://github.com/realthunder/FreeCAD/releases)
 version which is a free open source CAD software that allow a wide range of developer to access the field 
-of 3D modeling. Our 3D models can be view in `KMIDS-TDF-WRO2024-FreeCAD`
+of 3D modeling. Our 3D models can be view in `KMIDS-TDF-WRO2024-FreeCAD` when openign `MainAssembly`
 
 ## Chassis
   - Material: Plastic (pla+ from esun)
