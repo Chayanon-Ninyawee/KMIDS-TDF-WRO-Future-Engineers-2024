@@ -45,6 +45,58 @@ of 3D modeling. Our 3D models can be view in `KMIDS-TDF-WRO2024-FreeCAD`
   |Orientation and motion Sensing|[BNO055](https://shopee.co.th/BNO055-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C-9-DOF-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Halley-V1-%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%A1%E0%B8%B8%E0%B8%A1-IMU-MPU-Angle-Massmore-Product-i.5641091.24661859112)|Measures acceleration and orientation comes with accelerometer, gyroscope, magnetometer|![BNO055](https://github.com/user-attachments/assets/42a6e7ae-de5f-4537-9d87-f5e2a32081af)|
   |Motor Control|[L9110S H-bridge Stepper Motor Dual DC Driver Controller Board](https://shopee.co.th/product/5401692/1540697025?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVjhKejlrTjhjZ0djRXFyYU5xR2swSUVHNmtGUDVTWDdxSzRyUWVFZGYwUDdxVmIrRUxDN09xZ05ETXdTQlpXNEd1UkszZ3BHN3lEbWpsMDJmSFRyMEJ6ZkcyZldkVmY0NXR0NTloMUEvTkM&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfBuI_zh93yA1Pe3dZ3mnCmLtWkGAH8RJ_enMkRA6Dci5gDbjywpG8IaAu1tEALw_wcB)|Control and regulate the 3V 1350RPM DC Micro Metal Gearmotor|![H-bridge](https://github.com/user-attachments/assets/730f70fb-50dc-4761-b439-ddc92e103136)|
 
+## Mobility Management
+### 1. Driving mechanism
+The robot use a steering ackerman to steer the robot left and right. We choose to use this
+method because it mimick what car actually use to steer. Due to our freedom to choose how
+to build our robot we can choose to build the robot to be as realistic as possible without
+the limitation that a lego sets will presents.
+![Steering ackerman](https://github.com/user-attachments/assets/70ba4fb7-0aec-4436-890d-90b913467d29)
+
+### 2. Robot Design
+The robot is made to be quite short because of our RPLidar C1 which needs to be at the height
+of the obstacles and walls to be able to detect them, due to this the robot is not as tall
+as other robots. We decided to use traditional car design as the base of our robot as it
+provide easy visualization on how the movement of the robot and with the 4 wheels we can
+reduce slippage of wheels. The weight of the robot is mostly concentrated in the middle
+because of the placement of the batteries which resulted in the robot having an ideal center
+of gravity that will ensure that the robot will not lift of from the arena.
+
+## Power and Senses Management
+### Power Management
+The robot is powered by 2 lithium ion batteries which is connected to the raspberry pi 5
+with the help of an uninterruptable power supply which maintain a steady connection between them.
+The lithium ion batteries provide us with a reusable power source instead of a traditional batteries
+which is great as this is more sustainable.
+
+### Sensor Management
+**1. RPlidar C1**
+The RPLidar C1 is a great alternative to normal sensors (ultrasonics, infrared) as it have the
+capabitities to take a 360 degree samples which cetralize the space for this sensor to one area.
+This sensor is positioned at the center on top of the Raspberry pi 5 and is the highest point
+of the robot.
+
+
+**2. Light sensor TC01**
+This light sensor detects colors on the field to help guide the robot in turning and rounding
+corners. This sensor is positioned at the bottom of the robot to captured the orange and blue
+lines that is present at each corner of the arena. If the sensor detects blue line first then
+the robot will make a right turn and if it detect orange first then it will make a left turm
+
+
+**3. BNO055**
+The BNO055 provides multiple feature to the robot, it can detect the acceleration of the robot
+and also it's dirention as it has a gyro sensor built into it, which helps the robot navigates
+the arena as it has access to more information on itself. The BNO055 is positioned on top of
+the Raspberry pi Pico wo conserve spaces and for ease of connection.
+
+**4. Fish-eye lens camera**
+The fish-eye lens camera provide the robot with a wide view of the arena at the front of the
+robot which helps in better obstacle detection and regonition. The camera is connected directly
+to the Raspberry Pi 5 as it's the main processor of the image and is positioned at the front to
+see the obstacle up ahead of it. The camera is not placed higher in the robot because in doing
+so will hinder the abilities of the RPLidar C1 which is at the top.
+
 ## Wiring Diagram
 
 ![circuit](https://github.com/user-attachments/assets/7a223edd-bf7f-4c09-91c3-a9a39c628697)
@@ -67,6 +119,10 @@ area for parking the robot.
 
 ![Obstacle chart](https://github.com/user-attachments/assets/fd552782-8ea8-4165-8fa0-5567a0384821)
 
+### Parking strategy
+We planned to make the robot drive it's back side into the parking area because we design the robot
+to be long enough so that it can park perfectly within the area without the robot's lenght exceeding
+the width of the parking zone.
 
 ## Design Journey
 When designing the robot, the first thing that we ruminated on is how the robot will park. This is a very
