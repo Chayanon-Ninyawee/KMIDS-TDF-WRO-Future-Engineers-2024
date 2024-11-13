@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecad.org for more information...
+-->
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
+<Expand  count="1">
+  <Expand name="Part__Mirroring"/>
+</Expand>
+  <Camera>
+<![CDATA[
+OrthographicCamera {
+  viewportMapping ADJUST_CAMERA
+  position 68.163841 -55.559021 59.549774
+  orientation 0.74290603 0.30772179 0.59447289  1.217116
+  nearDistance 57.547821
+  farDistance 137.98508
+  aspectRatio 1
+  focalDistance 100
+  height 100
+
+}
+## overrideMode: As Is
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ]]>
+  </Camera>
+</Document>
