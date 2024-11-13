@@ -1,28 +1,34 @@
 # WRO-2024-Future_Engineer
 Team: KMIDS Thermodynamically Favorable (KMIDS TDF)
 
-In this project we aim to design an autonomous robot that can navigate around a field with 
-various rules and restrictions depending on the rounds. Our goal is to create a robot that can
-achieve the objective sets by the competition.
+This is a repository for KMIDS Thermodynamically Favorable this project we aim to design an 
+autonomous robot that can navigate around a field with various rules and restrictions depending 
+on the rounds. In this repository you will find details about our robot: function, design and
+reflection from our journey.
 
-![WRO](https://github.com/user-attachments/assets/980f8e15-9c16-48c7-9ff0-3f231338184c)
+![New robot](https://github.com/user-attachments/assets/a415d5c4-0dc0-44ec-8452-be225b8329a5)
+![Team pic specific](https://github.com/user-attachments/assets/9d38cc9d-c21b-467a-9a42-78c8fbeeb7f8)
 
-## Mobility Management
+**Member**
+- **Left:** Natthapon Itthisathidkulchai (Pao)
+- **Middle:** Chayanon Ninyawee (Garfield)
+- **Right:** Pannawit Phruithithada (Prame)
 
-### Chassis
-  - Material: Plastic (pla+ from esun)
-  - Description: The chassis for our robot is made with 3D printer to facilitate a chassis that
-    is durable and flexible to endure the stress that is put on it in the competition. The 3D
-    printer also allowed us to prototype various parts in quick succession, creating an effective
-    workflow.
-    
+## Performance video
+our video demonstrating our robot can be found [here](https://youtu.be/9CfIpZZZoUU?si=juIyMaRLtTwPCz_5)
 
 ## 3D_Model
 
 Our 3D model are made and design in FreeCAD specificly the [realthunder](https://github.com/realthunder/FreeCAD/releases)
 version which is a free open source CAD software that allow a wide range of developer to access the field 
-of 3D modeling. FreeCAD also provide a more noticable look into Github changes as it's file are vieable 
-without downloading.
+of 3D modeling. Our 3D models can be view in `KMIDS-TDF-WRO2024-FreeCAD`
+
+## Chassis
+  - Material: Plastic (pla+ from esun)
+  - Description: The chassis for our robot is made with 3D printer to facilitate a chassis that
+    is durable and flexible to endure the stress that is put on it in the competition. The 3D
+    printer also allowed us to prototype various parts in quick succession, creating an effective
+    workflow.
 
 ## Specification
   |Section|Component|Description|Image|
@@ -38,9 +44,6 @@ without downloading.
   |Power Supply|Lithium ion batteries|provides power for the robot|![lithium ion batteries](https://github.com/user-attachments/assets/ee19daea-2eb3-4729-9f99-aff8291d4801)|
   |Orientation and motion Sensing|[BNO055](https://shopee.co.th/BNO055-%E0%B9%82%E0%B8%A1%E0%B8%94%E0%B8%B9%E0%B8%A5%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B8%AD%E0%B8%A3%E0%B9%8C-9-DOF-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Halley-V1-%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%A1%E0%B8%B8%E0%B8%A1-IMU-MPU-Angle-Massmore-Product-i.5641091.24661859112)|Measures acceleration and orientation comes with accelerometer, gyroscope, magnetometer|![BNO055](https://github.com/user-attachments/assets/42a6e7ae-de5f-4537-9d87-f5e2a32081af)|
   |Motor Control|[L9110S H-bridge Stepper Motor Dual DC Driver Controller Board](https://shopee.co.th/product/5401692/1540697025?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVjhKejlrTjhjZ0djRXFyYU5xR2swSUVHNmtGUDVTWDdxSzRyUWVFZGYwUDdxVmIrRUxDN09xZ05ETXdTQlpXNEd1UkszZ3BHN3lEbWpsMDJmSFRyMEJ6ZkcyZldkVmY0NXR0NTloMUEvTkM&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfBuI_zh93yA1Pe3dZ3mnCmLtWkGAH8RJ_enMkRA6Dci5gDbjywpG8IaAu1tEALw_wcB)|Control and regulate the 3V 1350RPM DC Micro Metal Gearmotor|![H-bridge](https://github.com/user-attachments/assets/730f70fb-50dc-4761-b439-ddc92e103136)|
-
-## Picture
-tba
 
 ## Wiring Diagram
 
@@ -64,14 +67,6 @@ area for parking the robot.
 
 ![Obstacle chart](https://github.com/user-attachments/assets/fd552782-8ea8-4165-8fa0-5567a0384821)
 
-## Pictures
-**robot Picture**  
-
-![New robot](https://github.com/user-attachments/assets/a415d5c4-0dc0-44ec-8452-be225b8329a5)
-
-## How to use the robot
-
-tba
 
 ## Design Journey
 When designing the robot, the first thing that we ruminated on is how the robot will park. This is a very
