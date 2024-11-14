@@ -19,6 +19,7 @@ corners. This sensor is positioned at the bottom of the robot to captured the or
 lines that is present at each corner of the arena. If the sensor detects blue line first then
 the robot will make a right turn and if it detect orange first then it will make a left turm
 
+
 **3. BNO055**
 The BNO055 provides multiple feature to the robot, it can detect the acceleration of the robot
 and also it's dirention as it has a gyro sensor built into it, which helps the robot navigates
@@ -31,7 +32,3 @@ robot which helps in better obstacle detection and regonition. The camera is con
 to the Raspberry Pi 5 as it's the main processor of the image and is positioned at the front to
 see the obstacle up ahead of it. The camera is not placed higher in the robot because in doing
 so will hinder the abilities of the RPLidar C1 which is at the top.
-
-## Wiring Diagram
-
-![circuit](https://github.com/user-attachments/assets/7a223edd-bf7f-4c09-91c3-a9a39c628697)
