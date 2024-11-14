@@ -14,6 +14,16 @@ reflection from our journey.
 - **Middle:** Chayanon Ninyawee (Garfield)
 - **Right:** Pannawit Phruithithada (Prame)
 
+## Content
+- [Code](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Code) Contains our code for the robot.
+- [KMIDS-TDF-WRO2024-FreeCAD](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/KMIDS-TDF-WRO2024-FreeCAD) Contains 3D model files of our robot and it's electronics.
+- [Mobility Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Mobility%20Management) Contains how we design our robot.
+- [Obstacle Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Obstacle%20Management) Contains how we deal with the challenges that each rounds present us.
+- [Power and Senses Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Power%20and%20Senses%20Management) Contains how we manages our electronics and various sensors.
+- [Robot Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Robot%20Picture) Contains our picture of the robot, both real and from the 3D models.
+- [Specification](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Specification) Contains the specifications of various electronics and parts uses to built this robot.
+- [Team Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Team%20Picture) Contains our team's picture.
+
 ## Performance video
 our video demonstrating our robot can be found [here](https://youtu.be/9CfIpZZZoUU?si=juIyMaRLtTwPCz_5)
 
