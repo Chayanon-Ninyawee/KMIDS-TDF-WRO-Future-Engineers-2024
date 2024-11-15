@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="25b0f4ec-5d5f-435c-b8f9-f10f7a945f98" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="219">
+<![CDATA[
+-be.0 0:;SKT;:H3ae,E
+-1.c.1 g1
+-1.0 0:;SKT;:H3ae,V
+-1.c.1 g1v1
+-1.c.0 g1v2
+-1.c.0 g4v1
+-1.c.0 g8v1
+-1.c.0 g9v1
+-1.c.0 g10v1
+-1.c.0 g18v1
+-1.c.-2 g5
+-1.c.0 g4
+-1.c.0 g8
+-1.c.0 g9
+-1.c.0 g10
+-1.c.0 g18
+-1.0 0:;FAC;:H3ae:4,F
+-1.2c.1.10
+-1.0 0:;:G;XTR;:H3ae:7,F
+-1.2c.1.12
+-1.2c.0.9
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:G;XTR;:H3ae:7,E
+-1.2c.1.18
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-64.0 0:;:U;XTR;:H3ae:7,V
+-1.2c.1.6b
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:U;XTR;:H3ae:7,E
+-1.2c.1.77
+-1.2c.0.1
+-1.2c.0.1
+-2f.0 0:;:G0;XTR;:H3ae:8,F
+-1.2c.1.ab
+-8.2c.-32.5
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-ab.0 0:;:H3af,V
+-8.2c.8.171
+-2d.0 0:;:H3af,E
+-1.2c.1.18c
+-1.2c.0.1
+-1.2c.0.-13
+-1.2c.0.81
+-4.2c.0.-7c
+-45.0 0:;:H3af,F
+-1.2c.1.1e1
+-1e.2c.-4d.-13
+-1.2c.0.89
+-1.2c.0.-7f
+-1.2c.0.81
+-1.2c.4d.-79
+-2.2c.-4d.8
+-2.2c.4d.-6
+-53.c.-16f #dc
+-2.c.0 #dd
+-2.c.0 #de
+40d.2c.143.df
+-fc.0 0:;SKT;:H3bd,V
+-1.c.1 g8v1
+-1.0 0:;SKT;:H3bd,E
+-1.c.1 g8
+-1.c.-2 g9v1
+-1.c.2 g9
+-1.c.-2 g10v1
+-1.c.2 g10
+-1.c.-2 g19v1
+-1.c.2 g19
+-1.c.-2 g22v1
+-1.c.2 g22
+-1.c.-2 g23v1
+-1.c.2 g23
+-1.0 0:;WIR;:H3bd:4,E
+-4.0 0:;WIR;:H3bd:4,V
+-2.2c.2.13
+-2.2c.0.3
+-2.2c.0.2
+-1.2c.-4.-3
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;FAC;:H3bd:4,F
+-12.2c.307.12a
+-1.2c.35.-288
+-1.2c.0.-a6
+-1.2c.4d.-8
+-18.c.-4d.44b #182
+-4.c.0.1 #183
+-4.c.0.1 #184
+-a.c.-35.-7 #32c
+-3.c.0.2 #32e
+-3.c.0.2 #330
+-3.2c.2f5.-f
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;:G;XTR;:H3bd:7,F
+-1.2c.1.5f
+-1.2c.0.-6
+-1.2c.0.8
+-1.2c.0.-6
+-1.2c.0.8
+-1.2c.0.-6
+-1.0 0:;:G;XTR;:H3bd:7,E
+-1.2c.1.67
+-1.2c.0.-7
+-1.2c.0.9
+-1.2c.0.-6
+-1.2c.0.8
+-1.2c.0.-6
+-1.0 0:;:U;XTR;:H3bd:7,V
+-1.2c.1.7
+-1.2c.0.1
+-1.0 0:;:U;XTR;:H3bd:7,E
+-1.2c.1.11
+-1.2c.0.1
+-1.0 0:;:G0;XTR;:H3bd:8,F
+-1.2c.1.18
+-1.2c.-6.d
+-1.2c.0.1
+-1.2c.3.-8
+-1.2c.0.1
+-1.2c.3.-6
+-1.2c.-6.e
+-1.2c.0.1
+-1.2c.3.-8
+-1.2c.0.1
+-1.2c.3.-7
+-13.0 0:;:M;FUS;:H-3c0:7,V
+-1.2c.1.90
+-1.2c.0.2
+-1.2c.0.-4
+-4.0 0:;:H-3c0,V
+-1.2c.1.24
+-1.2c.0.5
+-1.2c.0.-c
+-1.2c.0.1
+-1.2c.0.7
+-1.2c.0.5
+-1.0 0:;:M;FUS;:H-3c0:7,E
+-1.2c.1.9d
+-1.2c.0.2
+-1.2c.0.-4
+-1.0 0:;:M;FUS;:H3af:7,E
+-1.2c.1.4d9
+-2.2c.0.1
+-2.2c.0.1
+-2.2c.-4.49c
+-1.0 0:;:H-3c0,E
+-1.2c.1.35
+-1.2c.-c.-c
+-1.2c.c.11
+-1.2c.-c.-15
+-1.2c.c.a
+-1.2c.-c.-9
+-1.2c.c.a
+-1.2c.-c.-8
+-1.2c.c.e
+-1.2c.-c.-c
+-1.2c.c.11
+-1.0 0:;:M;FUS;:H3af:7,F
+-1.2c.1.4f5
+-1.2c.0.1
+-1.2c.0.1
+-1.0 0:;:M;FUS;:H-3c0:7,F
+-1.2c.1.5a
+-1.2c.0.2
+-1.2c.0.-4
+-1.2c.0.1
+-1.2c.0.2
+-1.2c.0.2
+-1.0 0:;:H-3c0,F
+-1.2c.1.4a
+-1.2c.0.5
+-1.2c.0.-a
+-2.0 0:;:M;FLT;:H3c0:7,F
+-1.2c.1.304
+-2.0 0:;:G;FLT;:H3c0:7,F
+-1.2c.1.305
+-1.0 0:;:M;FLT;:H3c0:7,E
+-1.2c.1.30d
+-1.2c.0.1
+-1.2c.0.1
+-1.2c.0.1
+-d.2c.-2.-6d
+-1.2c.2.1
+-1.2c.0.1
+-b.2c.-2.-3
+-9.0 0:(#ca;:H3af,E)
+-1.0 0:(#ca;K2;:H3af:3,E)
+-1.0 0:(#cb;:H3af,E)
+-1.0 0:(#cb;K2;:H3af:3,E)
+-1.0 0:(#cc;:H3af,E)
+-1.0 0:(#cc;K2;:H3af:3,E)
+-1.0 0:;:M;FUS;:H3af:7,V
+-1.2c.1.547
+-1.2c.-68.446
+-1.2c.68.-445
+-1.2c.-68.44a
+-1.2c.68.-449
+-1.2c.-68.447
+-1.28.-96.-443.d ;:M#604;FUS;:H-3c0:b,E
+-1.28.0.0.1 ;:M2#605;FUS;:H-3c0:c,E
+-1.28.4.1.1 ;:M#606;FUS;:H-3c0:b,E
+-1.28.0.0.1 ;:M2#607;FUS;:H-3c0:c,E
+-1.28.-2.1.1 ;:M#608;FUS;:H-3c0:b,E
+-1.28.0.0.1 ;:M2#609;FUS;:H-3c0:c,E
+-1.2c.ba.3
+-1.2c.-316.ab
+-1f.0 0:Shape cache
+]]>
+  </StringHasher2>
+  <Properties Count="21" TransientCount="3">
+    <_Property name="FileName" type="App::PropertyString" status="50331649"/>
+    <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
+    <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
+    <Property name="Comment" type="App::PropertyString" status="1">
+      <String value=""/>
+    </Property>
+    <Property name="Company" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreatedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreationDate" type="App::PropertyString" status="16777217">
+      <String value="2024-09-30T07:51:37Z"/>
+    </Property>
+    <Property name="ForceXML" type="App::PropertyInteger" status="1">
+      <Integer value="3"/>
+    </Property>
+    <Property name="Id" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="1">
+      <String value="WheelStopper"/>
+    </Property>
+    <Property name="LastModifiedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
+      <String value="2024-10-18T02:27:20Z"/>
+    </Property>
+    <Property name="License" type="App::PropertyString" status="1">
+      <String value="All rights reserved"/>
+    </Property>
+    <Property name="LicenseURL" type="App::PropertyString" status="1">
+      <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+    </Property>
+    <Property name="Material" type="App::PropertyMap" status="1">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Meta" type="App::PropertyMap" status="1">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="PreferBinary" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ShowHidden" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SplitXML" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailFile" type="App::PropertyFile">
+      <String value=""/>
+    </Property>
+    <Property name="TipName" type="App::PropertyString" status="83886080">
+      <String value=""/>
+    </Property>
+    <Property name="Uid" type="App::PropertyUUID" status="16777217">
+      <Uuid value="25b0f4ec-5d5f-435c-b8f9-f10f7a945f98"/>
+    </Property>
+    <Property name="UseHasher" type="App::PropertyBool" status="67108865">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+  <Objects Count="14" Dependencies="1">
+    <ObjectDeps Name="Body" Count="6">
+      <Dep Name="Origin"/>
+      <Dep Name="Sketch002"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Sketch003"/>
+      <Dep Name="Pad001"/>
+      <Dep Name="Fillet"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="Z_Axis"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="X_Axis"/>
+      <Dep Name="Y_Axis"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis" Count="0"/>
+    <ObjectDeps Name="Y_Axis" Count="0"/>
+    <ObjectDeps Name="Z_Axis" Count="0"/>
+    <ObjectDeps Name="XY_Plane" Count="0"/>
+    <ObjectDeps Name="XZ_Plane" Count="0"/>
+    <ObjectDeps Name="YZ_Plane" Count="0"/>
+    <ObjectDeps Name="Sketch002" Count="2">
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="Link"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad" Count="2">
+      <Dep Name="Body"/>
+      <Dep Name="Sketch002"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Sketch003" Count="1">
+      <Dep Name="Pad"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Pad001" Count="3">
+      <Dep Name="Body"/>
+      <Dep Name="Pad"/>
+      <Dep Name="Sketch003"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Fillet" Count="2">
+      <Dep Name="Body"/>
+      <Dep Name="Pad001"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Link" Count="0"/>
+    <Object type="PartDesign::Body" name="Body" id="928" revision="219" file="Body.xml" />
+    <Object type="App::Origin" name="Origin" id="929" revision="3" file="Origin.xml" />
+    <Object type="App::Line" name="X_Axis" id="930" revision="1" file="X_Axis.xml" />
+    <Object type="App::Line" name="Y_Axis" id="931" revision="2" file="Y_Axis.xml" />
+    <Object type="App::Line" name="Z_Axis" id="932" revision="2" file="Z_Axis.xml" />
+    <Object type="App::Plane" name="XY_Plane" id="933" revision="1" file="XY_Plane.xml" />
+    <Object type="App::Plane" name="XZ_Plane" id="934" revision="2" file="XZ_Plane.xml" />
+    <Object type="App::Plane" name="YZ_Plane" id="935" revision="2" file="YZ_Plane.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch002" id="942" revision="1702" file="Sketch002.xml" />
+    <Object type="PartDesign::Pad" name="Pad" id="943" revision="143" file="Pad.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch003" id="957" revision="1740" file="Sketch003.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="960" revision="79" file="Pad001.xml" />
+    <Object type="PartDesign::Fillet" name="Fillet" id="961" revision="41" file="Fillet.xml" />
+    <Object type="App::Link" name="Link" id="962" revision="16" file="Link.xml" />
+  </Objects>
+  <ObjectData Count="0">
+  </ObjectData>
+</Document>

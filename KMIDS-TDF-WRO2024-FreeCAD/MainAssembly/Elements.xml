@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- FreeCAD DocumentObject -->
+<Document SchemaVersion="4" FileVersion="2">
+<Object name="Elements" Extensions="True">
+  <Extensions Count="1">
+    <Extension type="App::LinkBaseExtensionPython" name="LinkBaseExtensionPython">
+    </Extension>
+  </Extensions>
+  <Properties Count="11" TransientCount="0">
+    <Property name="ExpressionEngine" type="App::PropertyExpressionEngine" status="67108864">
+      <ExpressionEngine count="0"></ExpressionEngine>
+    </Property>
+    <Property name="Group" type="App::PropertyLinkList" group="Base" attr="0" ro="0" hide="0" doc="" status="2097418">
+      <LinkList count="196">
+        <Link value="_Element"/>
+        <Link value="_Element001"/>
+        <Link value="_Element002"/>
+        <Link value="_Element003"/>
+        <Link value="_Element004"/>
+        <Link value="_Element005"/>
+        <Link value="_Element006"/>
+        <Link value="_Element007"/>
+        <Link value="_Element008"/>
+        <Link value="_Element009"/>
+        <Link value="_Element010"/>
+        <Link value="_Element011"/>
+        <Link value="_Element012"/>
+        <Link value="_Element013"/>
+        <Link value="_Element014"/>
+        <Link value="_Element015"/>
+        <Link value="_Element016"/>
+        <Link value="_Element017"/>
+        <Link value="_Element018"/>
+        <Link value="_Element019"/>
+        <Link value="_Element020"/>
+        <Link value="_Element021"/>
+        <Link value="_Element022"/>
+        <Link value="_Element023"/>
+        <Link value="_Element024"/>
+        <Link value="_Element026"/>
+        <Link value="_Element027"/>
+        <Link value="_Element028"/>
+        <Link value="_Element030"/>
+        <Link value="_Element031"/>
+        <Link value="_Element032"/>
+        <Link value="_Element033"/>
+        <Link value="_Element034"/>
+        <Link value="_Element035"/>
+        <Link value="_Element036"/>
+        <Link value="_Element038"/>
+        <Link value="_Element040"/>
+        <Link value="_Element042"/>
+        <Link value="_Element044"/>
+        <Link value="_Element046"/>
+        <Link value="_Element048"/>
+        <Link value="_Element053"/>
+        <Link value="_Element054"/>
+        <Link value="_Element055"/>
+        <Link value="_Element056"/>
+        <Link value="_Element057"/>
+        <Link value="_Element058"/>
+        <Link value="_Element059"/>
+        <Link value="_Element060"/>
+        <Link value="_Element061"/>
+        <Link value="_Element062"/>
+        <Link value="_Element063"/>
+        <Link value="_Element065"/>
+        <Link value="_Element066"/>
+        <Link value="_Element067"/>
+        <Link value="_Element068"/>
+        <Link value="_Element069"/>
+        <Link value="_Element070"/>
+        <Link value="_Element071"/>
+        <Link value="_Element072"/>
+        <Link value="_Element073"/>
+        <Link value="_Element074"/>
+        <Link value="_Element075"/>
+        <Link value="_Element077"/>
+        <Link value="_Element078"/>
+        <Link value="_Element079"/>
+        <Link value="_Element080"/>
+        <Link value="_Element081"/>
+        <Link value="_Element082"/>
+        <Link value="_Element083"/>
+        <Link value="_Element084"/>
+        <Link value="_Element085"/>
+        <Link value="_Element086"/>
+        <Link value="_Element087"/>
+        <Link value="_Element088"/>
+        <Link value="_Element089"/>
+        <Link value="_Element090"/>
+        <Link value="_Element091"/>
+        <Link value="_Element092"/>
+        <Link value="_Element093"/>
+        <Link value="_Element094"/>
+        <Link value="_Element095"/>
+        <Link value="_Element096"/>
+        <Link value="_Element097"/>
+        <Link value="_Element098"/>
+        <Link value="_Element099"/>
+        <Link value="_Element100"/>
+        <Link value="_Element101"/>
+        <Link value="_Element102"/>
+        <Link value="_Element103"/>
+        <Link value="_Element104"/>
+        <Link value="_Element105"/>
+        <Link value="_Element108"/>
+        <Link value="_Element111"/>
+        <Link value="_Element113"/>
+        <Link value="_Element115"/>
+        <Link value="_Element116"/>
+        <Link value="_Element118"/>
+        <Link value="_Element120"/>
+        <Link value="_Element122"/>
+        <Link value="_Element125"/>
+        <Link value="_Element126"/>
+        <Link value="_Element127"/>
+        <Link value="_Element128"/>
+        <Link value="_Element129"/>
+        <Link value="_Element130"/>
+        <Link value="_Element131"/>
+        <Link value="_Element132"/>
+        <Link value="_Element133"/>
+        <Link value="_Element135"/>
+        <Link value="_Element136"/>
+        <Link value="_Element137"/>
+        <Link value="_Element138"/>
+        <Link value="_Element139"/>
+        <Link value="_Element140"/>
+        <Link value="_Element141"/>
+        <Link value="_Element142"/>
+        <Link value="_Element143"/>
+        <Link value="_Element146"/>
+        <Link value="_Element147"/>
+        <Link value="_Element148"/>
+        <Link value="_Element149"/>
+        <Link value="_Element150"/>
+        <Link value="_Element151"/>
+        <Link value="_Element152"/>
+        <Link value="_Element153"/>
+        <Link value="_Element154"/>
+        <Link value="_Element155"/>
+        <Link value="_Element156"/>
+        <Link value="_Element157"/>
+        <Link value="_Element158"/>
+        <Link value="_Element159"/>
+        <Link value="_Element160"/>
+        <Link value="_Element161"/>
+        <Link value="_Element162"/>
+        <Link value="_Element163"/>
+        <Link value="_Element164"/>
+        <Link value="_Element165"/>
+        <Link value="_Element166"/>
+        <Link value="_Element167"/>
+        <Link value="_Element168"/>
+        <Link value="_Element169"/>
+        <Link value="_Element170"/>
+        <Link value="_Element171"/>
+        <Link value="_Element172"/>
+        <Link value="_Element173"/>
+        <Link value="_Element174"/>
+        <Link value="_Element175"/>
+        <Link value="_Element176"/>
+        <Link value="_Element177"/>
+        <Link value="_Element178"/>
+        <Link value="_Element179"/>
+        <Link value="_Element180"/>
+        <Link value="_Element181"/>
+        <Link value="_Element182"/>
+        <Link value="_Element183"/>
+        <Link value="_Element184"/>
+        <Link value="_Element185"/>
+        <Link value="_Element186"/>
+        <Link value="_Element187"/>
+        <Link value="_Element188"/>
+        <Link value="_Element189"/>
+        <Link value="_Element190"/>
+        <Link value="_Element191"/>
+        <Link value="_Element192"/>
+        <Link value="_Element193"/>
+        <Link value="_Element194"/>
+        <Link value="_Element195"/>
+        <Link value="_Element196"/>
+        <Link value="_Element197"/>
+        <Link value="_Element198"/>
+        <Link value="_Element199"/>
+        <Link value="_Element200"/>
+        <Link value="_Element201"/>
+        <Link value="_Element202"/>
+        <Link value="_Element203"/>
+        <Link value="_Element204"/>
+        <Link value="_Element205"/>
+        <Link value="_Element206"/>
+        <Link value="_Element207"/>
+        <Link value="_Element208"/>
+        <Link value="_Element209"/>
+        <Link value="_Element210"/>
+        <Link value="_Element211"/>
+        <Link value="_Element212"/>
+        <Link value="_Element213"/>
+        <Link value="_Element214"/>
+        <Link value="_Element215"/>
+        <Link value="_Element216"/>
+        <Link value="_Element217"/>
+        <Link value="_Element218"/>
+        <Link value="_Element219"/>
+        <Link value="_Element220"/>
+        <Link value="_Element221"/>
+        <Link value="_Element222"/>
+        <Link value="_Element223"/>
+      </LinkList>
+    </Property>
+    <Property name="GroupMode" type="App::PropertyEnumeration" group="Base" attr="0" ro="0" hide="0" doc="" status="2097434"></Property>
+    <Property name="Label" type="App::PropertyString" status="134217728">
+      <String value="Elements"/>
+    </Property>
+    <Property name="Label2" type="App::PropertyString" status="128">
+      <String value=""/>
+    </Property>
+    <Property name="Proxy" type="App::PropertyPythonObject">
+      <Python  module="freecad.asm3.assembly" class="AsmElementGroup" value="null"/>
+    </Property>
+    <Property name="TreeRank" type="App::PropertyInteger" status="2184">
+      <Integer value="0"/>
+    </Property>
+    <Property name="Visibility" type="App::PropertyBool" status="648">
+      <Bool value="false"/>
+    </Property>
+    <Property name="VisibilityList" type="App::PropertyBoolList" group="Base" attr="0" ro="0" hide="0" doc="" status="2099082">
+      <BoolList value="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+    </Property>
+    <Property name="_LinkOwner" type="App::PropertyInteger" status="201326592">
+      <Integer value="0"/>
+    </Property>
+    <Property name="_LinkVersion" type="App::PropertyInteger" status="83886080">
+      <Integer value="1"/>
+    </Property>
+  </Properties>
+</Object>
+</Document>

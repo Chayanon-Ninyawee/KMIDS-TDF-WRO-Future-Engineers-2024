@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ FreeCAD Document, see http://www.freecadweb.org for more information...
+-->
+<Document SchemaVersion="4" ProgramVersion="2024.407R14555 (Git shallow)" FileVersion="2" Uid="1a79f035-f08d-47a7-bf1d-a4985abbe614" StringHasher="1">
+  <StringHasher saveall="0" threshold="0" count="0" new="1"/>
+  <StringHasher2  count="1">
+<![CDATA[
+-1.0 0:Shape cache
+]]>
+  </StringHasher2>
+  <Properties Count="21" TransientCount="3">
+    <_Property name="FileName" type="App::PropertyString" status="50331649"/>
+    <_Property name="Tip" type="App::PropertyLink" status="33554433"/>
+    <_Property name="TransientDir" type="App::PropertyString" status="50331649"/>
+    <Property name="Comment" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Company" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreatedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="CreationDate" type="App::PropertyString" status="16777217">
+      <String value="2024-10-03T13:43:29Z"/>
+    </Property>
+    <Property name="ForceXML" type="App::PropertyInteger" status="1">
+      <Integer value="3"/>
+    </Property>
+    <Property name="Id" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="Label" type="App::PropertyString" status="1">
+      <String value="TC01"/>
+    </Property>
+    <Property name="LastModifiedBy" type="App::PropertyString">
+      <String value=""/>
+    </Property>
+    <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
+      <String value="2024-10-03T13:46:19Z"/>
+    </Property>
+    <Property name="License" type="App::PropertyString" status="1">
+      <String value="All rights reserved"/>
+    </Property>
+    <Property name="LicenseURL" type="App::PropertyString" status="1">
+      <String value="https://en.wikipedia.org/wiki/All_rights_reserved"/>
+    </Property>
+    <Property name="Material" type="App::PropertyMap">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="Meta" type="App::PropertyMap">
+      <Map count="0">
+      </Map>
+    </Property>
+    <Property name="PreferBinary" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SaveThumbnail" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ShowHidden" type="App::PropertyBool" status="1">
+      <Bool value="false"/>
+    </Property>
+    <Property name="SplitXML" type="App::PropertyBool" status="1">
+      <Bool value="true"/>
+    </Property>
+    <Property name="ThumbnailFile" type="App::PropertyFile">
+      <String value=""/>
+    </Property>
+    <Property name="TipName" type="App::PropertyString" status="83886080">
+      <String value=""/>
+    </Property>
+    <Property name="Uid" type="App::PropertyUUID" status="16777217">
+      <Uuid value="1a79f035-f08d-47a7-bf1d-a4985abbe614"/>
+    </Property>
+    <Property name="UseHasher" type="App::PropertyBool" status="67108865">
+      <Bool value="true"/>
+    </Property>
+  </Properties>
+  <Objects Count="109" Dependencies="1">
+    <ObjectDeps Name="Solid" Count="0"/>
+    <ObjectDeps Name="Solid001" Count="0"/>
+    <ObjectDeps Name="Solid002" Count="0"/>
+    <ObjectDeps Name="Solid003" Count="0"/>
+    <ObjectDeps Name="Solid004" Count="0"/>
+    <ObjectDeps Name="Solid005" Count="0"/>
+    <ObjectDeps Name="Solid006" Count="0"/>
+    <ObjectDeps Name="Shell" Count="0"/>
+    <ObjectDeps Name="Solid007" Count="0"/>
+    <ObjectDeps Name="Solid008" Count="0"/>
+    <ObjectDeps Name="Solid009" Count="0"/>
+    <ObjectDeps Name="Solid010" Count="0"/>
+    <ObjectDeps Name="Solid011" Count="0"/>
+    <ObjectDeps Name="Shell001" Count="0"/>
+    <ObjectDeps Name="Shell002" Count="0"/>
+    <ObjectDeps Name="Shell003" Count="0"/>
+    <ObjectDeps Name="Shell004" Count="0"/>
+    <ObjectDeps Name="Shell005" Count="0"/>
+    <ObjectDeps Name="Shell006" Count="0"/>
+    <ObjectDeps Name="Shell007" Count="0"/>
+    <ObjectDeps Name="Shell008" Count="0"/>
+    <ObjectDeps Name="Shell009" Count="0"/>
+    <ObjectDeps Name="Shell010" Count="0"/>
+    <ObjectDeps Name="Shell011" Count="0"/>
+    <ObjectDeps Name="Shell012" Count="0"/>
+    <ObjectDeps Name="Shell013" Count="0"/>
+    <ObjectDeps Name="Shell014" Count="0"/>
+    <ObjectDeps Name="Shell015" Count="0"/>
+    <ObjectDeps Name="Shell016" Count="0"/>
+    <ObjectDeps Name="Shell017" Count="0"/>
+    <ObjectDeps Name="Shell018" Count="0"/>
+    <ObjectDeps Name="Shell019" Count="0"/>
+    <ObjectDeps Name="Shell020" Count="0"/>
+    <ObjectDeps Name="Shell021" Count="0"/>
+    <ObjectDeps Name="Shell022" Count="0"/>
+    <ObjectDeps Name="Shell023" Count="0"/>
+    <ObjectDeps Name="Shell024" Count="0"/>
+    <ObjectDeps Name="Shell025" Count="0"/>
+    <ObjectDeps Name="Shell026" Count="0"/>
+    <ObjectDeps Name="Shell027" Count="0"/>
+    <ObjectDeps Name="Shell028" Count="0"/>
+    <ObjectDeps Name="Shell029" Count="0"/>
+    <ObjectDeps Name="Shell030" Count="0"/>
+    <ObjectDeps Name="Shell031" Count="0"/>
+    <ObjectDeps Name="Shell032" Count="0"/>
+    <ObjectDeps Name="Shell033" Count="0"/>
+    <ObjectDeps Name="Shell034" Count="0"/>
+    <ObjectDeps Name="Shell035" Count="0"/>
+    <ObjectDeps Name="Shell036" Count="0"/>
+    <ObjectDeps Name="Shell037" Count="0"/>
+    <ObjectDeps Name="Shell038" Count="0"/>
+    <ObjectDeps Name="Shell039" Count="0"/>
+    <ObjectDeps Name="Shell040" Count="0"/>
+    <ObjectDeps Name="Shell041" Count="0"/>
+    <ObjectDeps Name="Shell042" Count="0"/>
+    <ObjectDeps Name="Shell043" Count="0"/>
+    <ObjectDeps Name="Shell044" Count="0"/>
+    <ObjectDeps Name="Shell045" Count="0"/>
+    <ObjectDeps Name="Shell046" Count="0"/>
+    <ObjectDeps Name="Shell047" Count="0"/>
+    <ObjectDeps Name="Shell048" Count="0"/>
+    <ObjectDeps Name="Shell049" Count="0"/>
+    <ObjectDeps Name="Shell050" Count="0"/>
+    <ObjectDeps Name="Shell051" Count="0"/>
+    <ObjectDeps Name="Shell052" Count="0"/>
+    <ObjectDeps Name="Shell053" Count="0"/>
+    <ObjectDeps Name="Shell054" Count="0"/>
+    <ObjectDeps Name="Shell055" Count="0"/>
+    <ObjectDeps Name="Shell056" Count="0"/>
+    <ObjectDeps Name="Shell057" Count="0"/>
+    <ObjectDeps Name="Shell058" Count="0"/>
+    <ObjectDeps Name="Shell059" Count="0"/>
+    <ObjectDeps Name="Shell060" Count="0"/>
+    <ObjectDeps Name="Shell061" Count="0"/>
+    <ObjectDeps Name="Shell062" Count="0"/>
+    <ObjectDeps Name="Shell063" Count="0"/>
+    <ObjectDeps Name="Shell064" Count="0"/>
+    <ObjectDeps Name="Shell065" Count="0"/>
+    <ObjectDeps Name="Shell066" Count="0"/>
+    <ObjectDeps Name="Shell067" Count="0"/>
+    <ObjectDeps Name="Shell068" Count="0"/>
+    <ObjectDeps Name="Shell069" Count="0"/>
+    <ObjectDeps Name="Shell070" Count="0"/>
+    <ObjectDeps Name="Shell071" Count="0"/>
+    <ObjectDeps Name="Shell072" Count="0"/>
+    <ObjectDeps Name="Shell073" Count="0"/>
+    <ObjectDeps Name="Shell074" Count="0"/>
+    <ObjectDeps Name="Shell075" Count="0"/>
+    <ObjectDeps Name="Shell076" Count="0"/>
+    <ObjectDeps Name="Shell077" Count="0"/>
+    <ObjectDeps Name="Shell078" Count="0"/>
+    <ObjectDeps Name="Shell079" Count="0"/>
+    <ObjectDeps Name="Shell080" Count="0"/>
+    <ObjectDeps Name="Shell081" Count="0"/>
+    <ObjectDeps Name="Shell082" Count="0"/>
+    <ObjectDeps Name="Shell083" Count="0"/>
+    <ObjectDeps Name="Shell084" Count="0"/>
+    <ObjectDeps Name="Shell085" Count="0"/>
+    <ObjectDeps Name="Shell086" Count="0"/>
+    <ObjectDeps Name="Shell087" Count="0"/>
+    <ObjectDeps Name="Shell088" Count="0"/>
+    <ObjectDeps Name="Part" Count="102">
+      <Dep Name="Shell012"/>
+      <Dep Name="Shell075"/>
+      <Dep Name="Shell031"/>
+      <Dep Name="Shell010"/>
+      <Dep Name="Shell038"/>
+      <Dep Name="Solid007"/>
+      <Dep Name="Shell062"/>
+      <Dep Name="Shell084"/>
+      <Dep Name="Shell006"/>
+      <Dep Name="Shell073"/>
+      <Dep Name="Shell057"/>
+      <Dep Name="Shell076"/>
+      <Dep Name="Shell021"/>
+      <Dep Name="Shell053"/>
+      <Dep Name="Shell001"/>
+      <Dep Name="Shell023"/>
+      <Dep Name="Shell081"/>
+      <Dep Name="Shell016"/>
+      <Dep Name="Shell035"/>
+      <Dep Name="Shell004"/>
+      <Dep Name="Shell030"/>
+      <Dep Name="Shell040"/>
+      <Dep Name="Shell067"/>
+      <Dep Name="Shell077"/>
+      <Dep Name="Shell008"/>
+      <Dep Name="Shell068"/>
+      <Dep Name="Shell054"/>
+      <Dep Name="Shell014"/>
+      <Dep Name="Shell051"/>
+      <Dep Name="Shell044"/>
+      <Dep Name="Shell026"/>
+      <Dep Name="Shell036"/>
+      <Dep Name="Shell082"/>
+      <Dep Name="Shell027"/>
+      <Dep Name="Solid004"/>
+      <Dep Name="Shell066"/>
+      <Dep Name="Shell064"/>
+      <Dep Name="Shell080"/>
+      <Dep Name="Shell043"/>
+      <Dep Name="Shell045"/>
+      <Dep Name="Shell065"/>
+      <Dep Name="Shell037"/>
+      <Dep Name="Shell055"/>
+      <Dep Name="Shell022"/>
+      <Dep Name="Shell013"/>
+      <Dep Name="Shell007"/>
+      <Dep Name="Solid011"/>
+      <Dep Name="Shell017"/>
+      <Dep Name="Shell085"/>
+      <Dep Name="Shell069"/>
+      <Dep Name="Shell052"/>
+      <Dep Name="Shell083"/>
+      <Dep Name="Shell078"/>
+      <Dep Name="Shell070"/>
+      <Dep Name="Shell019"/>
+      <Dep Name="Shell034"/>
+      <Dep Name="Solid003"/>
+      <Dep Name="Shell042"/>
+      <Dep Name="Shell039"/>
+      <Dep Name="Shell020"/>
+      <Dep Name="Shell028"/>
+      <Dep Name="Shell050"/>
+      <Dep Name="Shell046"/>
+      <Dep Name="Shell032"/>
+      <Dep Name="Shell049"/>
+      <Dep Name="Shell058"/>
+      <Dep Name="Shell011"/>
+      <Dep Name="Solid005"/>
+      <Dep Name="Solid006"/>
+      <Dep Name="Shell074"/>
+      <Dep Name="Shell079"/>
+      <Dep Name="Solid008"/>
+      <Dep Name="Shell003"/>
+      <Dep Name="Solid001"/>
+      <Dep Name="Shell005"/>
+      <Dep Name="Shell060"/>
+      <Dep Name="Shell024"/>
+      <Dep Name="Shell015"/>
+      <Dep Name="Shell061"/>
+      <Dep Name="Shell071"/>
+      <Dep Name="Shell"/>
+      <Dep Name="Shell002"/>
+      <Dep Name="Solid010"/>
+      <Dep Name="Shell086"/>
+      <Dep Name="Shell048"/>
+      <Dep Name="Shell033"/>
+      <Dep Name="Shell047"/>
+      <Dep Name="Shell056"/>
+      <Dep Name="Shell087"/>
+      <Dep Name="Shell088"/>
+      <Dep Name="Shell025"/>
+      <Dep Name="Shell009"/>
+      <Dep Name="Shell018"/>
+      <Dep Name="Shell041"/>
+      <Dep Name="Shell072"/>
+      <Dep Name="Solid009"/>
+      <Dep Name="Shell029"/>
+      <Dep Name="Solid002"/>
+      <Dep Name="Solid"/>
+      <Dep Name="Shell059"/>
+      <Dep Name="Origin"/>
+      <Dep Name="Shell063"/>
+    </ObjectDeps>
+    <ObjectDeps Name="Origin" Count="6">
+      <Dep Name="YZ_Plane"/>
+      <Dep Name="XY_Plane"/>
+      <Dep Name="Z_Axis"/>
+      <Dep Name="XZ_Plane"/>
+      <Dep Name="Y_Axis"/>
+      <Dep Name="X_Axis"/>
+    </ObjectDeps>
+    <ObjectDeps Name="X_Axis" Count="0"/>
+    <ObjectDeps Name="Y_Axis" Count="0"/>
+    <ObjectDeps Name="Z_Axis" Count="0"/>
+    <ObjectDeps Name="XY_Plane" Count="0"/>
+    <ObjectDeps Name="XZ_Plane" Count="0"/>
+    <ObjectDeps Name="YZ_Plane" Count="0"/>
+    <Object type="Part::Feature" name="Solid" id="3061" revision="0" file="Solid.xml" />
+    <Object type="Part::Feature" name="Solid001" id="3062" revision="0" file="Solid001.xml" />
+    <Object type="Part::Feature" name="Solid002" id="3063" revision="0" file="Solid002.xml" />
+    <Object type="Part::Feature" name="Solid003" id="3064" revision="0" file="Solid003.xml" />
+    <Object type="Part::Feature" name="Solid004" id="3065" revision="0" file="Solid004.xml" />
+    <Object type="Part::Feature" name="Solid005" id="3066" revision="0" file="Solid005.xml" />
+    <Object type="Part::Feature" name="Solid006" id="3067" revision="0" file="Solid006.xml" />
+    <Object type="Part::Feature" name="Shell" id="3068" revision="0" file="Shell.xml" />
+    <Object type="Part::Feature" name="Solid007" id="3069" revision="0" file="Solid007.xml" />
+    <Object type="Part::Feature" name="Solid008" id="3070" revision="0" file="Solid008.xml" />
+    <Object type="Part::Feature" name="Solid009" id="3071" revision="0" file="Solid009.xml" />
+    <Object type="Part::Feature" name="Solid010" id="3072" revision="0" file="Solid010.xml" />
+    <Object type="Part::Feature" name="Solid011" id="3073" revision="0" file="Solid011.xml" />
+    <Object type="Part::Feature" name="Shell001" id="3074" revision="0" file="Shell001.xml" />
+    <Object type="Part::Feature" name="Shell002" id="3075" revision="0" file="Shell002.xml" />
+    <Object type="Part::Feature" name="Shell003" id="3076" revision="0" file="Shell003.xml" />
+    <Object type="Part::Feature" name="Shell004" id="3077" revision="0" file="Shell004.xml" />
+    <Object type="Part::Feature" name="Shell005" id="3078" revision="0" file="Shell005.xml" />
+    <Object type="Part::Feature" name="Shell006" id="3079" revision="0" file="Shell006.xml" />
+    <Object type="Part::Feature" name="Shell007" id="3080" revision="0" file="Shell007.xml" />
+    <Object type="Part::Feature" name="Shell008" id="3081" revision="0" file="Shell008.xml" />
+    <Object type="Part::Feature" name="Shell009" id="3082" revision="0" file="Shell009.xml" />
+    <Object type="Part::Feature" name="Shell010" id="3083" revision="0" file="Shell010.xml" />
+    <Object type="Part::Feature" name="Shell011" id="3084" revision="0" file="Shell011.xml" />
+    <Object type="Part::Feature" name="Shell012" id="3085" revision="0" file="Shell012.xml" />
+    <Object type="Part::Feature" name="Shell013" id="3086" revision="0" file="Shell013.xml" />
+    <Object type="Part::Feature" name="Shell014" id="3087" revision="0" file="Shell014.xml" />
+    <Object type="Part::Feature" name="Shell015" id="3088" revision="0" file="Shell015.xml" />
+    <Object type="Part::Feature" name="Shell016" id="3089" revision="0" file="Shell016.xml" />
+    <Object type="Part::Feature" name="Shell017" id="3090" revision="0" file="Shell017.xml" />
+    <Object type="Part::Feature" name="Shell018" id="3091" revision="0" file="Shell018.xml" />
+    <Object type="Part::Feature" name="Shell019" id="3092" revision="0" file="Shell019.xml" />
+    <Object type="Part::Feature" name="Shell020" id="3093" revision="0" file="Shell020.xml" />
+    <Object type="Part::Feature" name="Shell021" id="3094" revision="0" file="Shell021.xml" />
+    <Object type="Part::Feature" name="Shell022" id="3095" revision="0" file="Shell022.xml" />
+    <Object type="Part::Feature" name="Shell023" id="3096" revision="0" file="Shell023.xml" />
+    <Object type="Part::Feature" name="Shell024" id="3097" revision="0" file="Shell024.xml" />
+    <Object type="Part::Feature" name="Shell025" id="3098" revision="0" file="Shell025.xml" />
+    <Object type="Part::Feature" name="Shell026" id="3099" revision="0" file="Shell026.xml" />
+    <Object type="Part::Feature" name="Shell027" id="3100" revision="0" file="Shell027.xml" />
+    <Object type="Part::Feature" name="Shell028" id="3101" revision="0" file="Shell028.xml" />
+    <Object type="Part::Feature" name="Shell029" id="3102" revision="0" file="Shell029.xml" />
+    <Object type="Part::Feature" name="Shell030" id="3103" revision="0" file="Shell030.xml" />
+    <Object type="Part::Feature" name="Shell031" id="3104" revision="0" file="Shell031.xml" />
+    <Object type="Part::Feature" name="Shell032" id="3105" revision="0" file="Shell032.xml" />
+    <Object type="Part::Feature" name="Shell033" id="3106" revision="0" file="Shell033.xml" />
+    <Object type="Part::Feature" name="Shell034" id="3107" revision="0" file="Shell034.xml" />
+    <Object type="Part::Feature" name="Shell035" id="3108" revision="0" file="Shell035.xml" />
+    <Object type="Part::Feature" name="Shell036" id="3109" revision="0" file="Shell036.xml" />
+    <Object type="Part::Feature" name="Shell037" id="3110" revision="0" file="Shell037.xml" />
+    <Object type="Part::Feature" name="Shell038" id="3111" revision="0" file="Shell038.xml" />
+    <Object type="Part::Feature" name="Shell039" id="3112" revision="0" file="Shell039.xml" />
+    <Object type="Part::Feature" name="Shell040" id="3113" revision="0" file="Shell040.xml" />
+    <Object type="Part::Feature" name="Shell041" id="3114" revision="0" file="Shell041.xml" />
+    <Object type="Part::Feature" name="Shell042" id="3115" revision="0" file="Shell042.xml" />
+    <Object type="Part::Feature" name="Shell043" id="3116" revision="0" file="Shell043.xml" />
+    <Object type="Part::Feature" name="Shell044" id="3117" revision="0" file="Shell044.xml" />
+    <Object type="Part::Feature" name="Shell045" id="3118" revision="0" file="Shell045.xml" />
+    <Object type="Part::Feature" name="Shell046" id="3119" revision="0" file="Shell046.xml" />
+    <Object type="Part::Feature" name="Shell047" id="3120" revision="0" file="Shell047.xml" />
+    <Object type="Part::Feature" name="Shell048" id="3121" revision="0" file="Shell048.xml" />
+    <Object type="Part::Feature" name="Shell049" id="3122" revision="0" file="Shell049.xml" />
+    <Object type="Part::Feature" name="Shell050" id="3123" revision="0" file="Shell050.xml" />
+    <Object type="Part::Feature" name="Shell051" id="3124" revision="0" file="Shell051.xml" />
+    <Object type="Part::Feature" name="Shell052" id="3125" revision="0" file="Shell052.xml" />
+    <Object type="Part::Feature" name="Shell053" id="3126" revision="0" file="Shell053.xml" />
+    <Object type="Part::Feature" name="Shell054" id="3127" revision="0" file="Shell054.xml" />
+    <Object type="Part::Feature" name="Shell055" id="3128" revision="0" file="Shell055.xml" />
+    <Object type="Part::Feature" name="Shell056" id="3129" revision="0" file="Shell056.xml" />
+    <Object type="Part::Feature" name="Shell057" id="3130" revision="0" file="Shell057.xml" />
+    <Object type="Part::Feature" name="Shell058" id="3131" revision="0" file="Shell058.xml" />
+    <Object type="Part::Feature" name="Shell059" id="3132" revision="0" file="Shell059.xml" />
+    <Object type="Part::Feature" name="Shell060" id="3133" revision="0" file="Shell060.xml" />
+    <Object type="Part::Feature" name="Shell061" id="3134" revision="0" file="Shell061.xml" />
+    <Object type="Part::Feature" name="Shell062" id="3135" revision="0" file="Shell062.xml" />
+    <Object type="Part::Feature" name="Shell063" id="3136" revision="0" file="Shell063.xml" />
+    <Object type="Part::Feature" name="Shell064" id="3137" revision="0" file="Shell064.xml" />
+    <Object type="Part::Feature" name="Shell065" id="3138" revision="0" file="Shell065.xml" />
+    <Object type="Part::Feature" name="Shell066" id="3139" revision="0" file="Shell066.xml" />
+    <Object type="Part::Feature" name="Shell067" id="3140" revision="0" file="Shell067.xml" />
+    <Object type="Part::Feature" name="Shell068" id="3141" revision="0" file="Shell068.xml" />
+    <Object type="Part::Feature" name="Shell069" id="3142" revision="0" file="Shell069.xml" />
+    <Object type="Part::Feature" name="Shell070" id="3143" revision="0" file="Shell070.xml" />
+    <Object type="Part::Feature" name="Shell071" id="3144" revision="0" file="Shell071.xml" />
+    <Object type="Part::Feature" name="Shell072" id="3145" revision="0" file="Shell072.xml" />
+    <Object type="Part::Feature" name="Shell073" id="3146" revision="0" file="Shell073.xml" />
+    <Object type="Part::Feature" name="Shell074" id="3147" revision="0" file="Shell074.xml" />
+    <Object type="Part::Feature" name="Shell075" id="3148" revision="0" file="Shell075.xml" />
+    <Object type="Part::Feature" name="Shell076" id="3149" revision="0" file="Shell076.xml" />
+    <Object type="Part::Feature" name="Shell077" id="3150" revision="0" file="Shell077.xml" />
+    <Object type="Part::Feature" name="Shell078" id="3151" revision="0" file="Shell078.xml" />
+    <Object type="Part::Feature" name="Shell079" id="3152" revision="0" file="Shell079.xml" />
+    <Object type="Part::Feature" name="Shell080" id="3153" revision="0" file="Shell080.xml" />
+    <Object type="Part::Feature" name="Shell081" id="3154" revision="0" file="Shell081.xml" />
+    <Object type="Part::Feature" name="Shell082" id="3155" revision="0" file="Shell082.xml" />
+    <Object type="Part::Feature" name="Shell083" id="3156" revision="0" file="Shell083.xml" />
+    <Object type="Part::Feature" name="Shell084" id="3157" revision="0" file="Shell084.xml" />
+    <Object type="Part::Feature" name="Shell085" id="3158" revision="0" file="Shell085.xml" />
+    <Object type="Part::Feature" name="Shell086" id="3159" revision="0" file="Shell086.xml" />
+    <Object type="Part::Feature" name="Shell087" id="3160" revision="0" file="Shell087.xml" />
+    <Object type="Part::Feature" name="Shell088" id="3161" revision="0" file="Shell088.xml" />
+    <Object type="App::Part" name="Part" id="3162" revision="0" file="Part.xml" />
+    <Object type="App::Origin" name="Origin" id="3163" revision="0" file="Origin.xml" />
+    <Object type="App::Line" name="X_Axis" id="3164" revision="1" file="X_Axis.xml" />
+    <Object type="App::Line" name="Y_Axis" id="3165" revision="2" file="Y_Axis.xml" />
+    <Object type="App::Line" name="Z_Axis" id="3166" revision="2" file="Z_Axis.xml" />
+    <Object type="App::Plane" name="XY_Plane" id="3167" revision="1" file="XY_Plane.xml" />
+    <Object type="App::Plane" name="XZ_Plane" id="3168" revision="2" file="XZ_Plane.xml" />
+    <Object type="App::Plane" name="YZ_Plane" id="3169" revision="2" file="YZ_Plane.xml" />
+  </Objects>
+  <ObjectData Count="0">
+  </ObjectData>
+</Document>
