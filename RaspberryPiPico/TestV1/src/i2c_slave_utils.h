@@ -8,7 +8,7 @@
 #include "pico/i2c_slave.h"
 
 namespace i2c_slave_mem_addr {
-  const size_t MEM_SIZE = 65536;
+  const size_t MEM_SIZE = 256;
 
   const size_t COMMAND_SIZE = 1; // This is 1 byte
 
@@ -21,12 +21,12 @@ namespace i2c_slave_mem_addr {
 
   const size_t ACCEL_DATA_SIZE = sizeof(bno055_accel_float_t);
   const size_t EULER_ANGLE_SIZE = sizeof(bno055_euler_float_t);
-  const size_t BNO055_INFO_SIZE = (ACCEL_DATA_SIZE + EULER_ANGLE_SIZE);
+  const size_t LOG_SIZE = 200;
+  const size_t BNO055_INFO_SIZE = (ACCEL_DATA_SIZE + EULER_ANGLE_SIZE + LOG_SIZE);
 
   const size_t MOTOR_PERCENT_SIZE = sizeof(float);
   const size_t STEERING_PERCENT_SIZE = sizeof(float);
-  const size_t LOG_SIZE = 65400;
-  const size_t MOVEMENT_INFO_SIZE = (MOTOR_PERCENT_SIZE + STEERING_PERCENT_SIZE + LOG_SIZE + 5);  // Reserve 5 bytes for ending marker
+  const size_t MOVEMENT_INFO_SIZE = (MOTOR_PERCENT_SIZE + STEERING_PERCENT_SIZE);
 
   const size_t COMMAND_ADDR = 0;
   const size_t STATUS_ADDR = (COMMAND_ADDR + COMMAND_SIZE);
