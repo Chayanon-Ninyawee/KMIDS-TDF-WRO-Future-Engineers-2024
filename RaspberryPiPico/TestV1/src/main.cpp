@@ -26,9 +26,6 @@ const uint MOTOR_B_PIN = 5;
 
 char logs[] = "Test";
 
-float motorPercent = 0.0f;
-float steeringPercent = 0.0f;
-
 int main() {
   context_init();
 
@@ -100,6 +97,17 @@ int main() {
 
     set_bno055_info_data(&accelData, &eulerAngles, logs);
     set_is_bno055_info_ready(true);
+
+
+    float motorPercent = 0.0f;
+    float steeringPercent = 0.0f;
+
+    get_movement_info_data(&motorPercent, &steeringPercent);
+
+    printf("%0.2f, %0.2f\n", motorPercent, steeringPercent);
+
+    set_L9110S_motor_speed(MOTOR_A_PIN, MOTOR_B_PIN, motorPercent);
+    set_servo_angle(SERVO_PIN, SERVO_MIN_ANGLE + (SERVO_MAX_ANGLE - SERVO_MIN_ANGLE) * ((steeringPercent + 1.0)/2.0f));
 
     // gpio_put(PICO_DEFAULT_LED_PIN, true);
     // sleep_ms(100);
