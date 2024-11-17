@@ -54,4 +54,8 @@ lib/*
 bin/*
 test/test_runner
 
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/tasks.json
