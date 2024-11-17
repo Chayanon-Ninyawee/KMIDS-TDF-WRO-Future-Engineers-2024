@@ -6,12 +6,13 @@
 #include "pico/stdlib.h"
 #include "pwm_utils.h"
 
+
 const uint I2C0_SDA_PIN = 16;
 const uint I2C0_SCL_PIN = 17;
 const uint I2C0_BAUDRATE = 400000;  // 400 kHz
 
-const uint I2C1_SDA_PIN = 18;
-const uint I2C1_SCL_PIN = 19;
+const uint I2C1_SDA_PIN = 26;
+const uint I2C1_SCL_PIN = 27;
 const uint I2C1_BAUDRATE = 400000;  // 400 kHz
 const uint I2C1_SLAVE_ADDR = 0x39;
 
@@ -25,39 +26,8 @@ const uint MOTOR_B_PIN = 5;
 
 char logs[] = "Test";
 
-
-int8_t is_bno055_calib_exist = -1;
-
-
-float motorPercent = 0.0f;
-float steeringPercent = 0.0f;
-
-
-void handle_restart() {
-  
-}
-
-void handle_bno055_calib() {
-  is_bno055_calib_exist = 0;
-}
-
-void handle_load_bno055_calib() {
-  is_bno055_calib_exist = 1;
-}
-
-void handle_get_info() {
-  get_info_data(&motorPercent, &steeringPercent);
-}
-
 int main() {
-  std::fill_n(i2c_slave_state.sending_bno055_calib_bytes.buffer, sizeof(i2c_slave_state.sending_bno055_calib_bytes.buffer), 0xFF);
-  std::fill_n(i2c_slave_state.sending_info_bytes.buffer, sizeof(i2c_slave_state.sending_info_bytes.buffer), 0xFF);
-
-  i2c_slave_state.restart_callback = handle_restart;
-  i2c_slave_state.bno055_calib_callback = handle_bno055_calib;
-  i2c_slave_state.load_bno055_calib_callback = handle_load_bno055_calib;
-  i2c_slave_state.get_info_callback = handle_get_info;
-
+  context_init();
 
   stdio_init_all();
 
@@ -94,34 +64,50 @@ int main() {
   i2c_init(i2c1, I2C1_BAUDRATE);
   i2c_slave_init(i2c1, I2C1_SLAVE_ADDR, &i2c_slave_handler);
 
-  while (is_bno055_calib_exist == -1) {
-    sleep_ms(10);
+
+  set_is_running(true);
+  while (not (get_command() == Command::CALIB_NO_OFFSET or get_command() == Command::CALIB_WITH_OFFSET)) {
+    printf("%d, %d, %d\n", (int)test(), get_command(), not (get_command() == Command::CALIB_NO_OFFSET or get_command() == Command::CALIB_WITH_OFFSET));
+    sleep_ms(100);
   }
 
   bno055_gyro_offset_t gyroOffset;
   bno055_accel_offset_t accelOffset;
   bno055_mag_offset_t magOffset;
 
-  if (is_bno055_calib_exist == 1) {
+  if (get_command() == Command::CALIB_WITH_OFFSET) {
     get_bno055_offset_data(&gyroOffset, &accelOffset, &magOffset);
     bno055_load_offset(&gyroOffset, &accelOffset, &magOffset);
     sleep_ms(100);
   }
 
   bno055_calibrate(&gyroOffset, &accelOffset, &magOffset);
-  sleep_ms(100);
   set_bno055_offset_data(&gyroOffset, &accelOffset, &magOffset);
+  set_is_calib_offset_ready(true);
+  sleep_ms(100);
 
   while (true) {
     bno055_accel_float_t accelData;
     bno055_convert_float_accel_xyz_msq(&accelData);
-    DEBUG_PRINT("x: %3.2f,   y: %3.2f,   z: %3.2f\n", accelData.x, accelData.y, accelData.z);
+    // DEBUG_PRINT("x: %3.2f,   y: %3.2f,   z: %3.2f\n", accelData.x, accelData.y, accelData.z);
 
     bno055_euler_float_t eulerAngles;
     bno055_convert_float_euler_hpr_deg(&eulerAngles);
-    DEBUG_PRINT("h: %3.2f,   p: %3.2f,   r: %3.2f\n\n", eulerAngles.h, eulerAngles.p, eulerAngles.r);
+    // DEBUG_PRINT("h: %3.2f,   p: %3.2f,   r: %3.2f\n\n", eulerAngles.h, eulerAngles.p, eulerAngles.r);
 
-    set_info_data(&accelData, &eulerAngles, logs);
+    set_bno055_info_data(&accelData, &eulerAngles, logs);
+    set_is_bno055_info_ready(true);
+
+
+    float motorPercent = 0.0f;
+    float steeringPercent = 0.0f;
+
+    get_movement_info_data(&motorPercent, &steeringPercent);
+
+    printf("%0.2f, %0.2f\n", motorPercent, steeringPercent);
+
+    set_L9110S_motor_speed(MOTOR_A_PIN, MOTOR_B_PIN, motorPercent);
+    set_servo_angle(SERVO_PIN, SERVO_MIN_ANGLE + (SERVO_MAX_ANGLE - SERVO_MIN_ANGLE) * ((steeringPercent + 1.0)/2.0f));
 
     // gpio_put(PICO_DEFAULT_LED_PIN, true);
     // sleep_ms(100);
