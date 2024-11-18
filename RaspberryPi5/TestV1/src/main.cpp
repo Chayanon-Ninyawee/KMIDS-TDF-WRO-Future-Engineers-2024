@@ -6,6 +6,9 @@
 #include <chrono>
 #include <thread>
 
+#include <SDL2/SDL.h>
+#include <iostream>
+
 #include "lidarController.h"
 
 bool isRunning = true;
@@ -168,9 +171,108 @@ void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage)
 }
 
 
+
+float motorPercentSetting = 1.0f;
+
+float motorPercent = 0.0f;
+float steeringPercent = 0.0f;
+
+void handleKeyDown(SDL_Keycode key) {
+    switch (key) {
+        case SDLK_w:
+            motorPercent = motorPercentSetting;  // Forward
+            break;
+        case SDLK_s:
+            motorPercent = -motorPercentSetting; // Backward
+            break;
+        case SDLK_a:
+            steeringPercent = -0.55f; // Left
+            break;
+        case SDLK_d:
+            steeringPercent = 0.65f;  // Right
+            break;
+        case SDLK_1:
+            motorPercentSetting = 0.1f;
+            break;
+        case SDLK_2:
+            motorPercentSetting = 0.2f;
+            break;
+        case SDLK_3:
+            motorPercentSetting = 0.3f;
+            break;
+        case SDLK_4:
+            motorPercentSetting = 0.4f;
+            break;
+        case SDLK_5:
+            motorPercentSetting = 0.5f;
+            break;
+        case SDLK_6:
+            motorPercentSetting = 0.6f;
+            break;
+        case SDLK_7:
+            motorPercentSetting = 0.7f;
+            break;
+        case SDLK_8:
+            motorPercentSetting = 0.8f;
+            break;
+        case SDLK_9:
+            motorPercentSetting = 0.9f;
+            break;
+        case SDLK_0:
+            motorPercentSetting = 1.0f;
+            break;
+    }
+}
+
+void handleKeyUp(SDL_Keycode key) {
+    switch (key) {
+        case SDLK_w:
+        case SDLK_s:
+            motorPercent = 0.0f;  // Stop moving when W or S is released
+            break;
+        case SDLK_a:
+        case SDLK_d:
+            steeringPercent = 0.05f;  // Center steering when A or D is released
+            break;
+    }
+}
+
+
+
+
 int main(int argc, char **argv)
 {
   signal(SIGINT, interuptHandler);
+
+
+  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+        std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
+        return 1;
+    }
+
+    SDL_Window* window = SDL_CreateWindow("Motor and Steering Control",
+                                          SDL_WINDOWPOS_CENTERED,
+                                          SDL_WINDOWPOS_CENTERED,
+                                          640, 480, SDL_WINDOW_SHOWN);
+    if (window == nullptr) {
+        std::cerr << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
+        SDL_Quit();
+        return 1;
+    }
+
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (renderer == nullptr) {
+        std::cerr << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 1;
+    }
+
+  SDL_Event event;
+
+
+
+
 
   int fd = wiringPiI2CSetup(0x39);
   if (fd == -1) {
@@ -203,6 +305,12 @@ int main(int argc, char **argv)
   }
   printf("\n");
 
+  std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+  uint8_t cmd2[2] = {0, 0x00};
+  wiringPiI2CRawWrite(fd, cmd2, sizeof(cmd2));
+  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
 
 
   // lidarController::LidarController lidar;
@@ -219,6 +327,38 @@ int main(int argc, char **argv)
 
   while (isRunning)
   {
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        isRunning = true;
+      }  else if (event.type == SDL_KEYDOWN) {
+          handleKeyDown(event.key.keysym.sym);
+      } else if (event.type == SDL_KEYUP) {
+          handleKeyUp(event.key.keysym.sym);
+      }
+      SDL_Delay(10);
+    }
+
+           
+
+    // Clear the screen with black
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);  // Black color
+    SDL_RenderClear(renderer);
+
+    
+    uint8_t movement[1 + sizeof(motorPercent) + sizeof(steeringPercent)];
+
+    movement[0] = 248;
+  
+    memcpy(&movement[1], &motorPercent, sizeof(motorPercent));
+    memcpy(&movement[1] + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
+    wiringPiI2CRawWrite(fd, movement, sizeof(movement));
+
+
+    // Present the renderer to show the updated window
+    SDL_RenderPresent(renderer);
+    SDL_Delay(10);
+
+
 
     // int64 start = cv::getTickCount();
     // auto lidarScanData = lidar.getScanData();
@@ -251,6 +391,14 @@ int main(int argc, char **argv)
     // double fps = 1.0 / duration;
     // printf("FPS: %.3f, # of lines: %d\n", fps, combined_lines.size());
   }
+
+
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+
+
+
 
   // lidar.shutdown();
   // cv::destroyAllWindows();
