@@ -19,6 +19,6 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable(TestV1 ${SOURCES})
 
-target_link_libraries(TestV1 wiringPi pthread rt rplidar_sdk ${OpenCV_LIBS})
+target_link_libraries(TestV1 wiringPi pthread rt rplidar_sdk SDL2 ${OpenCV_LIBS})
 
 set_property(TARGET TestV1 PROPERTY CXX_STANDARD 17)
