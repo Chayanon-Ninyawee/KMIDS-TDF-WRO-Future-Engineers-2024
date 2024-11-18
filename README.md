@@ -12,8 +12,8 @@ This is a repository for KMIDS Thermodynamically Favorable this project, we aim 
 - **Right:** Pannawit Phruithithada (Prame)
 
 ## Content
-- [Code](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/Code) Contains our code for RaspberryPi5.<!--TODO at link-->
-- [Code](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/Code) Contains our code for RaspberryPiPico.<!--TODO at link-->
+- [RaspberryPi5](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/Code) Contains our code for RaspberryPi5.<!--TODO at link-->
+- [RaspberryPiPico](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/Code) Contains our code for RaspberryPiPico.<!--TODO at link-->
 - [KMIDS-TDF-WRO2024-FreeCAD](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/KMIDS-TDF-WRO2024-FreeCAD) Contains robot's 3D model and electronics.
 - [Mobility Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Mobility%20Management) Contains robot's design and mechanism.
 - [Obstacle Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Obstacle%20Management) Contains how we deal with the obstacle challenges.
