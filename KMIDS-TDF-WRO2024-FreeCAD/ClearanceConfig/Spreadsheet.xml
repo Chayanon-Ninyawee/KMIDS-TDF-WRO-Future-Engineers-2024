@@ -39,7 +39,7 @@
         <Cell address="A6" content="FrontWheelAxleHole"/>
         <Cell alias="FrontWheelAxleHole" address="B6" content="0.4"/>
         <Cell address="A7" content="BackWheelConnectorVertical"/>
-        <Cell alias="BackWheelConnectorVertical" address="B7" content="0.2"/>
+        <Cell alias="BackWheelConnectorVertical" address="B7" content="0.8"/>
         <Cell address="A8" content="BackWheelBigAxleHole"/>
         <Cell alias="BackWheelBigAxleHole" address="B8" content="0.8"/>
         <Cell address="A9" content="BackWheelAxleHole"/>
