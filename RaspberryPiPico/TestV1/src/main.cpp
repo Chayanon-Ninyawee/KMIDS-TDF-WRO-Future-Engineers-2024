@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "bno055_utils.h"
 #include "debug_print.h"
+#include "bno055_utils.h"
 #include "i2c_slave_utils.h"
 #include "pico/stdlib.h"
 #include "pwm_utils.h"
@@ -67,7 +67,10 @@ int main() {
     currentCommand == Command::CALIB_WITH_OFFSET or
     currentCommand == Command::SKIP_CALIB
   )) {
-    if (currentCommand == Command::RESTART) goto start; // Restart main
+    if (currentCommand == Command::RESTART) {
+      set_is_running(false);
+      goto start; // Restart main
+    }
     DEBUG_PRINT("Waiting for calibration command...\n");
     sleep_ms(100);
     currentCommand = get_command();
@@ -99,7 +102,10 @@ int main() {
 
   while (true) {
     uint8_t currentCommand = get_command();
-    if (currentCommand == Command::RESTART) goto start; // Restart main
+    if (currentCommand == Command::RESTART) {
+      set_is_running(false);
+      goto start; // Restart main
+    }
 
     bno055_accel_float_t accelData;
     bno055_convert_float_accel_xyz_msq(&accelData);

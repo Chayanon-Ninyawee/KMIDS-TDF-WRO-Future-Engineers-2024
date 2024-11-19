@@ -2,6 +2,17 @@
 
 using namespace i2c_slave_mem_addr;
 
+context_t context = {
+  .mem = {0},
+  .mem_address = 0,
+  .mem_address_written = false,
+  .logs = {0},
+  .logs_start = 0,
+  .logs_count = 0,
+  .logs_reading_address = 0,
+  .logs_read = false
+};
+
 void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event) {
   switch (event) {
     case I2C_SLAVE_RECEIVE:  // master has written some data

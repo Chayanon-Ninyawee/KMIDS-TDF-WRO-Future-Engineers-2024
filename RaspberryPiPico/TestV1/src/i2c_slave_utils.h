@@ -62,7 +62,7 @@ struct context_t {
   bool logs_read;
 };
 
-context_t context;
+extern context_t context;
 
 void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event);
 
