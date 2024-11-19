@@ -63,11 +63,15 @@ void i2c_master_read_logs(int fd, uint8_t *logs, size_t len) {
 }
 
 void i2c_master_print_logs(uint8_t *logs, size_t len) {
-  for (size_t i = 0; i < len; ++i) {
-    if (logs[i] == 0xFF) {  // Assuming 0xFF marks the end of valid logs
+  if (logs == NULL) {
+    return; // Handle null pointer gracefully
+  }
+
+  for (int i = 0; i < len; i++) {
+    if (logs[i] == 0xFF) {
       break;
     }
-    printf("%02X ", logs[i]);
+
+    printf("%c", logs[i]);
   }
-  printf("\n");
 }
