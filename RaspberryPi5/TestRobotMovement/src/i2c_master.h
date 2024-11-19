@@ -1,6 +1,7 @@
 #ifndef I2C_MASTER_H
 #define I2C_MASTER_H
 
+#include <stddef.h>
 #include <stdint.h>
 
 namespace i2c_slave_mem_addr {
@@ -10,13 +11,13 @@ namespace i2c_slave_mem_addr {
 
   const size_t STATUS_SIZE = 1; // This is 1 byte
 
-  const size_t GYRO_OFFSET_SIZE = sizeof(bno055_gyro_offset_t);
-  const size_t ACCEL_OFFSET_SIZE = sizeof(bno055_accel_offset_t);
-  const size_t MAG_OFFSET_SIZE = sizeof(bno055_mag_offset_t);
+  const size_t GYRO_OFFSET_SIZE = 6;
+  const size_t ACCEL_OFFSET_SIZE = 8;
+  const size_t MAG_OFFSET_SIZE = 8;
   const size_t BNO055_CALIB_SIZE = (GYRO_OFFSET_SIZE + ACCEL_OFFSET_SIZE + MAG_OFFSET_SIZE);
 
-  const size_t ACCEL_DATA_SIZE = sizeof(bno055_accel_float_t);
-  const size_t EULER_ANGLE_SIZE = sizeof(bno055_euler_float_t);
+  const size_t ACCEL_DATA_SIZE = 12;
+  const size_t EULER_ANGLE_SIZE = 12;
   const size_t BNO055_INFO_SIZE = (ACCEL_DATA_SIZE + EULER_ANGLE_SIZE);
 
   const size_t MOTOR_PERCENT_SIZE = sizeof(float);
@@ -49,7 +50,9 @@ enum Command : uint8_t {
 // Function declarations
 int i2c_master_init(uint8_t slave_address);
 void i2c_master_send_command(int fd, uint8_t command);
+void i2c_master_send_data(int fd, uint8_t reg, uint8_t *data, uint8_t len);
 void i2c_master_read_data(int fd, uint8_t reg, uint8_t *data, uint8_t len);
+void i2c_master_read_logs(int fd, uint8_t *logs);
 void i2c_master_read_logs(int fd, uint8_t *logs, size_t len);
 void i2c_master_print_logs(uint8_t *logs, size_t len);
 

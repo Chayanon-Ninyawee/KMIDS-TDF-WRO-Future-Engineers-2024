@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <wiringPiI2C.h>
 
+#include <cstring>
 #include <chrono>
 #include <cstdio>
 #include <thread>
@@ -23,7 +24,17 @@ void i2c_master_send_command(int fd, uint8_t command) {
   if (write(fd, cmd, sizeof(cmd)) == -1) {
     perror("Failed to send command");
   }
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  // std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO: Try removing this
+}
+
+void i2c_master_send_data(int fd, uint8_t reg, uint8_t *data, uint8_t len) {
+  uint8_t data_buffer[1+len];
+  data_buffer[0] = reg;
+  memcpy(&data_buffer[1], data, len);
+  if (write(fd, data_buffer, sizeof(data_buffer)) == -1) {
+    perror("Failed to send command");
+  }
+  // std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO: Try removing this
 }
 
 void i2c_master_read_data(int fd, uint8_t reg, uint8_t *data, uint8_t len) {
@@ -34,6 +45,10 @@ void i2c_master_read_data(int fd, uint8_t reg, uint8_t *data, uint8_t len) {
   if (read(fd, data, len) == -1) {
     perror("Failed to read data");
   }
+}
+
+void i2c_master_read_logs(int fd, uint8_t *logs) {
+  i2c_master_read_logs(fd, logs, i2c_slave_mem_addr::LOGS_BUFFER_SIZE);
 }
 
 void i2c_master_read_logs(int fd, uint8_t *logs, size_t len) {

@@ -1,11 +1,12 @@
 #include <SDL2/SDL.h>
-#include <wiringPiI2C.h>
 
 #include <chrono>
 #include <csignal>
 #include <cstring>
 #include <iostream>
 #include <thread>
+
+#include "i2c_master.h"
 
 
 const uint8_t PICO_ADDRESS = 0x39;
@@ -133,39 +134,28 @@ int main() {
 
   SDL_Event event;
 
-  // Setup I2C communication
-  int fd = wiringPiI2CSetup(PICO_ADDRESS);
-  if (fd == -1) {
-    printf("Failed to initialize I2C communication.\n");
-    return -1;
-  }
-  printf("I2C communication successfully initialized.\n");
+  
+  int fd = i2c_master_init(PICO_ADDRESS);
 
-  uint8_t restart_cmd[2] = {0, 0x01};
-  wiringPiI2CRawWrite(fd, restart_cmd, sizeof(restart_cmd));
+  i2c_master_send_command(fd, Command::RESTART);
   std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-  uint8_t skip_calib_cmd[2] = {0, 0x04};
-  wiringPiI2CRawWrite(fd, skip_calib_cmd, sizeof(skip_calib_cmd));
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  i2c_master_send_command(fd, Command::SKIP_CALIB);
 
-  uint8_t status[1] = {0};
-  uint8_t logs[256] = {0};
+  uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
+  uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
   while (not (status[0] & (1 << 1))) {
-    wiringPiI2CReadBlockData(fd, 1, status, sizeof(status));
+    i2c_master_read_data(fd, i2c_slave_mem_addr::STATUS_ADDR, status, sizeof(status));
     printf("%x\n", status[0]);
-    std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
-    wiringPiI2CWrite(fd, 56);
-    read(fd, logs, sizeof(logs));
+    i2c_master_read_logs(fd, logs);
     print_logs(logs, sizeof(logs));
-    std::this_thread::sleep_for(std::chrono::milliseconds(80));
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
   printf("%x\n", status[0]);
 
-  uint8_t noop_cmd[2] = {0, 0x00};
-  wiringPiI2CRawWrite(fd, noop_cmd, sizeof(noop_cmd));
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  i2c_master_send_command(fd, Command::NO_COMMAND);
 
 
   while (isRunning) {
@@ -181,13 +171,11 @@ int main() {
     }
 
     // Send movement data via I2C
-    uint8_t movement[1 + sizeof(motorPercent) + sizeof(steeringPercent)];
-
-    movement[0] = 248;
+    uint8_t movement[sizeof(motorPercent) + sizeof(steeringPercent)];
   
-    memcpy(&movement[1], &motorPercent, sizeof(motorPercent));
-    memcpy(&movement[1] + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
-    wiringPiI2CRawWrite(fd, movement, sizeof(movement));
+    memcpy(movement, &motorPercent, sizeof(motorPercent));
+    memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
+    i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
     printf("%.2f, %.2f\n", motorPercent, steeringPercent);
 
