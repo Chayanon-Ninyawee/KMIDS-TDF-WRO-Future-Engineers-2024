@@ -2,6 +2,17 @@
 
 using namespace i2c_slave_mem_addr;
 
+context_t context = {
+  .mem = {0},
+  .mem_address = 0,
+  .mem_address_written = false,
+  .logs = {0},
+  .logs_start = 0,
+  .logs_count = 0,
+  .logs_reading_address = 0,
+  .logs_read = false
+};
+
 void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event) {
   switch (event) {
     case I2C_SLAVE_RECEIVE:  // master has written some data
@@ -9,6 +20,8 @@ void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event) {
         // writes always start with the memory address
         context.mem_address = i2c_read_byte_raw(i2c);
         context.mem_address_written = true;
+
+        if (context.mem_address == LOG_ADDR) context.logs_reading_address = 0;
       } else {
         // save into memory
         context.mem[context.mem_address] = i2c_read_byte_raw(i2c);
@@ -16,11 +29,31 @@ void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event) {
       }
       break;
     case I2C_SLAVE_REQUEST:  // master is requesting data
-      // load from memory
-      i2c_write_byte_raw(i2c, context.mem[context.mem_address]);
-      context.mem_address++;
+      if (context.mem_address == LOG_ADDR) {
+        // load from logs
+        if (context.logs_reading_address < context.logs_count) {
+          i2c_write_byte_raw(i2c, context.logs[(context.logs_start + context.logs_reading_address) % LOGS_BUFFER_SIZE]);
+          context.logs_reading_address++;
+        } else {
+          // Send 0xFF if logs are exhausted
+          i2c_write_byte_raw(i2c, 0xFF);
+        }
+        context.logs_read = true;
+      } else {
+        // load from memory
+        i2c_write_byte_raw(i2c, context.mem[context.mem_address]);
+        context.mem_address++;
+      }
       break;
     case I2C_SLAVE_FINISH:  // master has signalled Stop / Restart
+      if (context.logs_read) {
+        std::fill_n(context.logs, sizeof(context.logs), 0);
+        context.logs[0] = 0xFF;
+        context.logs_start = 0;
+        context.logs_count = 0;
+        context.logs_reading_address = 0;
+        context.logs_read = false;
+      }
       context.mem_address_written = false;
       break;
     default:
@@ -29,14 +62,17 @@ void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event) {
 }
 
 
-uint8_t test() {
-  return context.mem_address;
-}
-
-void context_init() {
+void i2c_slave_context_init() {
   std::fill_n(context.mem, sizeof(context.mem), 0);
   context.mem_address = 0;
   context.mem_address_written = false;
+
+  std::fill_n(context.logs, sizeof(context.logs), 0);
+  context.logs[0] = 0xFF;
+  context.logs_start = 0;
+  context.logs_count = 0;
+  context.logs_reading_address = 0;
+  context.logs_read = false;
 }
 
 uint8_t get_command() {
@@ -136,20 +172,61 @@ void get_movement_info_data(float *outputMotorPercent, float *outputSteeringPerc
   memcpy(outputSteeringPercentage, buffer_ptr + MOTOR_PERCENT_SIZE, STEERING_PERCENT_SIZE);
 }
 
-void set_bno055_info_data(bno055_accel_float_t *accelData, bno055_euler_float_t *eulerAngles, char *logs) {
+void set_bno055_info_data(bno055_accel_float_t *accelData, bno055_euler_float_t *eulerAngles) {
   bno055_euler_float_t angleData = *eulerAngles;
   bno055_convert_float_euler_hpr_deg(&angleData);
 
   uint8_t *buffer_ptr = &context.mem[BNO055_INFO_ADDR];
   memcpy(buffer_ptr, accelData, ACCEL_DATA_SIZE);
   memcpy(buffer_ptr + ACCEL_DATA_SIZE, &angleData, EULER_ANGLE_SIZE);
+}
 
-  const size_t log_offset = ACCEL_DATA_SIZE + EULER_ANGLE_SIZE;
-  const size_t max_log_size = LOG_SIZE;
 
-  size_t log_size = strnlen(logs, max_log_size);
-  memcpy(buffer_ptr + log_offset, logs, log_size);
+void append_logs(const char *logs, size_t len) {
+    const size_t max_log_size = LOGS_BUFFER_SIZE;
 
-  // Set the next 5 bytes as the unique ending marker (0xFF)
-  memset(buffer_ptr + log_offset + log_size, 0xFF, 5);
+    // If the new data is larger than the buffer size, only keep the last `max_log_size` bytes
+    if (len > max_log_size) {
+        logs += len - max_log_size;
+        len = max_log_size;
+    }
+
+    // Calculate space needed and adjust start pointer if necessary
+    size_t space_needed = len;
+    size_t available_space = max_log_size - context.logs_count;
+
+    if (space_needed > available_space) {
+        // Remove oldest logs to make space for the new ones
+        context.logs_start = (context.logs_start + (space_needed - available_space)) % max_log_size;
+        context.logs_count -= (space_needed - available_space);
+    }
+
+    // Write the new logs into the buffer
+    size_t write_pos = (context.logs_start + context.logs_count) % max_log_size;
+
+    if (write_pos + len <= max_log_size) {
+        // Case 1: Logs fit without wrapping
+        memcpy(&context.logs[write_pos], logs, len);
+    } else {
+        // Case 2: Logs wrap around
+        size_t first_chunk = max_log_size - write_pos;
+        memcpy(&context.logs[write_pos], logs, first_chunk);
+        memcpy(&context.logs[0], logs + first_chunk, len - first_chunk);
+    }
+
+    // Update the count and ending marker
+    context.logs_count += len;
+    if (context.logs_count > max_log_size) {
+        context.logs_count = max_log_size; // Prevent overflow
+    }
+
+    // Set the unique ending marker
+    size_t end_pos = (context.logs_start + context.logs_count) % max_log_size;
+    if (end_pos != context.logs_start) {
+      context.logs[end_pos] = 0xFF;
+    }
+}
+
+uint8_t* get_logs() {
+  return context.logs;
 }

@@ -7,6 +7,8 @@ project(RaspiPicoTestV1 VERSION 0.0.0 LANGUAGES C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdiagnostics-color=always")
+
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
