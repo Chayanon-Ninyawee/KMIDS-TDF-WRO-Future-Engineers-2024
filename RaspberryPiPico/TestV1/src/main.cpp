@@ -60,6 +60,7 @@ int main() {
   i2c_slave_context_init();
 
   set_is_running(true);
+  DEBUG_PRINT("Starting...\n");
 
   uint8_t currentCommand = get_command();
   while (not (
@@ -72,7 +73,7 @@ int main() {
       goto start; // Restart main
     }
     DEBUG_PRINT("Waiting for calibration command...\n");
-    sleep_ms(100);
+    sleep_ms(50);
     currentCommand = get_command();
   }
 
@@ -99,7 +100,7 @@ int main() {
   set_is_calib_offset_ready(true);
   sleep_ms(100);
 
-
+  DEBUG_PRINT("Done Setting Up!\n");
   while (true) {
     uint8_t currentCommand = get_command();
     if (currentCommand == Command::RESTART) {
