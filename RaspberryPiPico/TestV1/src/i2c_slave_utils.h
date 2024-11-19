@@ -21,21 +21,25 @@ namespace i2c_slave_mem_addr {
 
   const size_t ACCEL_DATA_SIZE = sizeof(bno055_accel_float_t);
   const size_t EULER_ANGLE_SIZE = sizeof(bno055_euler_float_t);
-  const size_t LOG_SIZE = 200;
-  const size_t BNO055_INFO_SIZE = (ACCEL_DATA_SIZE + EULER_ANGLE_SIZE + LOG_SIZE);
+  const size_t BNO055_INFO_SIZE = (ACCEL_DATA_SIZE + EULER_ANGLE_SIZE);
 
   const size_t MOTOR_PERCENT_SIZE = sizeof(float);
   const size_t STEERING_PERCENT_SIZE = sizeof(float);
   const size_t MOVEMENT_INFO_SIZE = (MOTOR_PERCENT_SIZE + STEERING_PERCENT_SIZE);
+
+  const size_t LOG_SIZE = 1;
+  const size_t LOGS_BUFFER_SIZE = 256;
 
   const size_t COMMAND_ADDR = 0;
   const size_t STATUS_ADDR = (COMMAND_ADDR + COMMAND_SIZE);
   const size_t BNO055_CALIB_ADDR = (STATUS_ADDR + STATUS_SIZE);
   const size_t BNO055_INFO_ADDR = (BNO055_CALIB_ADDR + BNO055_CALIB_SIZE);
   const size_t MOVEMENT_INFO_ADDR = (BNO055_INFO_ADDR + BNO055_INFO_SIZE);
+  const size_t LOG_ADDR = (MOVEMENT_INFO_ADDR + MOVEMENT_INFO_SIZE);
+
 
   // Check if total memory allocation fits within the available memory
-  static_assert(MOVEMENT_INFO_ADDR + MOVEMENT_INFO_SIZE <= MEM_SIZE, "Memory allocation exceeds buffer size");
+  static_assert(LOG_ADDR + LOG_SIZE <= MEM_SIZE, "Memory allocation exceeds buffer size");
 }
 
 
@@ -44,21 +48,25 @@ enum Command : uint8_t {
   RESTART = 0x01,
   CALIB_NO_OFFSET = 0x02,
   CALIB_WITH_OFFSET = 0x03,
+  SKIP_CALIB = 0x04
 };
 
-struct {
+struct context_t {
   uint8_t mem[i2c_slave_mem_addr::MEM_SIZE];
   uint8_t mem_address;
   bool mem_address_written;
-} context;
+  uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE];
+  uint16_t logs_start;
+  uint16_t logs_count;
+  uint16_t logs_reading_address;
+  bool logs_read;
+};
+
+context_t context;
 
 void i2c_slave_handler(i2c_inst_t *i2c, i2c_slave_event_t event);
 
-
-uint8_t test();
-
-
-void context_init();
+void i2c_slave_context_init();
 
 /**
  * @brief Retrieve the current command from memory.
@@ -149,6 +157,32 @@ void get_movement_info_data(float *outputMotorPercent, float *outputSteeringPerc
  * @param eulerAngles Pointer to Euler angle data.
  * @param logs Pointer to log data string.
  */
-void set_bno055_info_data(bno055_accel_float_t *accelData, bno055_euler_float_t *eulerAngles, char *logs);
+void set_bno055_info_data(bno055_accel_float_t *accelData, bno055_euler_float_t *eulerAngles);
+
+
+/**
+ * @brief Appends new logs to the existing logs buffer with rolling behavior.
+ *
+ * This function adds the provided logs to the current logs buffer. If there 
+ * is not enough space to append the new logs, the oldest logs in the buffer 
+ * are overwritten to make room. The buffer operates as a rolling log, ensuring 
+ * that the most recent logs are always retained.
+ *
+ * A unique ending marker (0xFF) is added after the new logs, provided there 
+ * is space for it. If the buffer becomes full, the marker wraps around.
+ *
+ * @param logs A pointer to the string buffer containing the logs to append.
+ *             The logs do not need to be null-terminated as their length is 
+ *             explicitly provided.
+ * @param len The length of the logs to append. If `len` exceeds the available 
+ *            buffer space, the logs will be truncated to fit.
+ * 
+ * @note The buffer rolls over and overwrites the oldest logs when it is full.
+ * @note The writing address wraps around to the beginning of the buffer 
+ *       when reaching the end.
+ */
+void append_logs(const char *logs, size_t len);
+
+uint8_t* get_logs();
 
 #endif  // I2C_SLAVE_UTILS_H
