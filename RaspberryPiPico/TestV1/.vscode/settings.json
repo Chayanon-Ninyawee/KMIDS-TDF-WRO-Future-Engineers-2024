@@ -1,6 +1,3 @@
 {
-    "cmake.buildTask": true,
-    "cmake.configureArgs": [
-        "-DCMAKE_CXX_FLAGS=-fdiagnostics-color=always"
-    ]
+    "cmake.buildTask": true
 }
