@@ -2,14 +2,17 @@
 #include <vector>
 #include <cmath>
 #include <csignal>
-#include <wiringPiI2C.h>
 #include <chrono>
 #include <thread>
 
-#include <SDL2/SDL.h>
 #include <iostream>
 
+#include "i2c_master.h"
 #include "lidarController.h"
+
+
+const uint8_t PICO_ADDRESS = 0x39;
+
 
 bool isRunning = true;
 
@@ -171,237 +174,93 @@ void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage)
 }
 
 
-
-float motorPercentSetting = 1.0f;
-
-float motorPercent = 0.0f;
-float steeringPercent = 0.0f;
-
-void handleKeyDown(SDL_Keycode key) {
-    switch (key) {
-        case SDLK_w:
-            motorPercent = motorPercentSetting;  // Forward
-            break;
-        case SDLK_s:
-            motorPercent = -motorPercentSetting; // Backward
-            break;
-        case SDLK_a:
-            steeringPercent = -0.55f; // Left
-            break;
-        case SDLK_d:
-            steeringPercent = 0.65f;  // Right
-            break;
-        case SDLK_1:
-            motorPercentSetting = 0.1f;
-            break;
-        case SDLK_2:
-            motorPercentSetting = 0.2f;
-            break;
-        case SDLK_3:
-            motorPercentSetting = 0.3f;
-            break;
-        case SDLK_4:
-            motorPercentSetting = 0.4f;
-            break;
-        case SDLK_5:
-            motorPercentSetting = 0.5f;
-            break;
-        case SDLK_6:
-            motorPercentSetting = 0.6f;
-            break;
-        case SDLK_7:
-            motorPercentSetting = 0.7f;
-            break;
-        case SDLK_8:
-            motorPercentSetting = 0.8f;
-            break;
-        case SDLK_9:
-            motorPercentSetting = 0.9f;
-            break;
-        case SDLK_0:
-            motorPercentSetting = 1.0f;
-            break;
-    }
-}
-
-void handleKeyUp(SDL_Keycode key) {
-    switch (key) {
-        case SDLK_w:
-        case SDLK_s:
-            motorPercent = 0.0f;  // Stop moving when W or S is released
-            break;
-        case SDLK_a:
-        case SDLK_d:
-            steeringPercent = 0.05f;  // Center steering when A or D is released
-            break;
-    }
-}
-
-
-
-
 int main(int argc, char **argv)
 {
   signal(SIGINT, interuptHandler);
 
 
-  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        std::cerr << "SDL_Init Error: " << SDL_GetError() << std::endl;
-        return 1;
-    }
+  int fd = i2c_master_init(PICO_ADDRESS);
 
-    SDL_Window* window = SDL_CreateWindow("Motor and Steering Control",
-                                          SDL_WINDOWPOS_CENTERED,
-                                          SDL_WINDOWPOS_CENTERED,
-                                          640, 480, SDL_WINDOW_SHOWN);
-    if (window == nullptr) {
-        std::cerr << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return 1;
-    }
-
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (renderer == nullptr) {
-        std::cerr << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 1;
-    }
-
-  SDL_Event event;
+  i2c_master_send_command(fd, Command::RESTART);
+  std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 
+  uint8_t calib[22] = {0xfe, 0xff, 0x00, 0x00, 0xff, 0xff, 0xf0, 0xff, 0xf2, 0xff, 0xe0, 0xff, 0xe8, 0x03, 0x50, 0xfe, 0xe7, 0xff, 0xd0, 0x07, 0xcd, 0x01};
+  i2c_master_send_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
 
+  i2c_master_send_command(fd, Command::CALIB_WITH_OFFSET);
 
-
-  int fd = wiringPiI2CSetup(0x39);
-  if (fd == -1) {
-    printf("Failed to initialize I2C communication.\n");
-    return -1;
-  }
-  printf("I2C communication successfully initialized.\n");
-
-  // wiringPiI2CWrite(fd, 0x02);
-  uint8_t calib[23] = {2, 0xfe, 0xff, 0x00, 0x00, 0xff, 0xff, 0xf0, 0xff, 0xf2, 0xff, 0xe0, 0xff, 0xe8, 0x03, 0x50, 0xfe, 0xe7, 0xff, 0xd0, 0x07, 0xcd, 0x01};
-  wiringPiI2CRawWrite(fd, calib, sizeof(calib));
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
-  uint8_t cmd[2] = {0, 0x03};
-  wiringPiI2CRawWrite(fd, cmd, sizeof(cmd));
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
-  uint8_t status[1] = {0};
+  uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
+  uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
   while (not (status[0] & (1 << 1))) {
-    wiringPiI2CReadBlockData(fd, 1, status, sizeof(status));
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    i2c_master_read_data(fd, i2c_slave_mem_addr::STATUS_ADDR, status, sizeof(status));
+
+    i2c_master_read_logs(fd, logs);
+    i2c_master_print_logs(logs, sizeof(logs));
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
-  printf("%x\n", status[0]);
 
-  uint8_t test[22] = {0};
-  wiringPiI2CReadBlockData(fd, 2, test, sizeof(test));
+  uint8_t new_calib[22];
+  i2c_master_read_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
 
-  for (int i = 0; i < sizeof(test); i++) {
-    printf("%x, ", test[i]);
+  for (int i = 0; i < sizeof(new_calib); i++) {
+    printf("%x, ", new_calib[i]);
   }
   printf("\n");
 
-  std::this_thread::sleep_for(std::chrono::milliseconds(100));
-
-  uint8_t cmd2[2] = {0, 0x00};
-  wiringPiI2CRawWrite(fd, cmd2, sizeof(cmd2));
-  std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  i2c_master_send_command(fd, Command::NO_COMMAND);
+  std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
 
+  lidarController::LidarController lidar;
+  if (!lidar.initialize() || !lidar.startScanning())
+  {
+    return -1;
+  }
 
-  // lidarController::LidarController lidar;
-  // if (!lidar.initialize() || !lidar.startScanning())
-  // {
-  //   return -1;
-  // }
+  const int width = 1200;
+  const int height = 1200;
+  const float scale = 180.0;
 
-  // const int width = 1200;
-  // const int height = 1200;
-  // const float scale = 180.0;
-
-  // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
+  cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
   while (isRunning)
   {
-    while (SDL_PollEvent(&event)) {
-      if (event.type == SDL_QUIT) {
-        isRunning = true;
-      }  else if (event.type == SDL_KEYDOWN) {
-          handleKeyDown(event.key.keysym.sym);
-      } else if (event.type == SDL_KEYUP) {
-          handleKeyUp(event.key.keysym.sym);
-      }
-      SDL_Delay(10);
+    int64 start = cv::getTickCount();
+    auto lidarScanData = lidar.getScanData();
+    // lidar.printScanData(lidarScanData);
+
+    cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
+    cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
+    cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
+
+    auto lines = detectLines(binaryImage);
+    auto combined_lines = combineAlignedLines(lines);
+    drawAllLines(combined_lines, outputImage);
+
+    for (size_t i = 0; i < combined_lines.size(); ++i)
+    {
+      cv::Vec4i line = combined_lines[i];
+      printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
     }
 
-           
+    cv::imshow("LIDAR Hough Lines", outputImage);
 
-    // Clear the screen with black
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);  // Black color
-    SDL_RenderClear(renderer);
+    char key = cv::waitKey(1);
+    if (key == 'q')
+    {
+      break;
+    }
 
-    
-    uint8_t movement[1 + sizeof(motorPercent) + sizeof(steeringPercent)];
-
-    movement[0] = 248;
-  
-    memcpy(&movement[1], &motorPercent, sizeof(motorPercent));
-    memcpy(&movement[1] + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
-    wiringPiI2CRawWrite(fd, movement, sizeof(movement));
-
-
-    // Present the renderer to show the updated window
-    SDL_RenderPresent(renderer);
-    SDL_Delay(10);
-
-
-
-    // int64 start = cv::getTickCount();
-    // auto lidarScanData = lidar.getScanData();
-    // // lidar.printScanData(lidarScanData);
-
-    // cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
-    // cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
-    // cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
-
-    // auto lines = detectLines(binaryImage);
-    // auto combined_lines = combineAlignedLines(lines);
-    // drawAllLines(combined_lines, outputImage);
-
-    // for (size_t i = 0; i < combined_lines.size(); ++i)
-    // {
-    //   cv::Vec4i line = combined_lines[i];
-    //   printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
-    // }
-
-    // cv::imshow("LIDAR Hough Lines", outputImage);
-
-    // char key = cv::waitKey(1);
-    // if (key == 'q')
-    // {
-    //   break;
-    // }
-
-    // int64 end = cv::getTickCount();
-    // double duration = (end - start) / cv::getTickFrequency();
-    // double fps = 1.0 / duration;
-    // printf("FPS: %.3f, # of lines: %d\n", fps, combined_lines.size());
+    int64 end = cv::getTickCount();
+    double duration = (end - start) / cv::getTickFrequency();
+    double fps = 1.0 / duration;
+    printf("FPS: %.3f, # of lines: %d\n", fps, combined_lines.size());
   }
 
-
-  SDL_DestroyRenderer(renderer);
-  SDL_DestroyWindow(window);
-  SDL_Quit();
-
-
-
-
-  // lidar.shutdown();
-  // cv::destroyAllWindows();
+  lidar.shutdown();
+  cv::destroyAllWindows();
 
   return 0;
 }
