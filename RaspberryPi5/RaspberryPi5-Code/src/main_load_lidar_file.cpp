@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "lidarController.h"
+#include "dataSaver.h"
 
 // Convert LIDAR data to an OpenCV image for Hough Line detection
 cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int width, int height, float scale) {
@@ -156,7 +157,7 @@ int main() {
 
     // Load all scan data from file
     std::vector<std::vector<lidarController::NodeData>> allScanData =
-        lidarController::LidarController::loadAllScanDataFromFile("scan_data.bin");
+        DataSaver::loadData("scan_data.bin");
 
     if (allScanData.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;

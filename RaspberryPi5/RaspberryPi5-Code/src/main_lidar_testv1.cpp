@@ -251,12 +251,6 @@ int main(int argc, char **argv) {
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        if (lidarController::LidarController::saveScanDataToFile(lidarScanData, "scan_data.bin")) {
-            std::cout << "Scan data saved to file successfully." << std::endl;
-        } else {
-            std::cerr << "Failed to save scan data to file." << std::endl;
-        }
-
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
         cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
         cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);

@@ -9,6 +9,7 @@
 
 #include "i2c_master.h"
 #include "lidarController.h"
+#include "dataSaver.h"
 
 const uint8_t PICO_ADDRESS = 0x39;
 
@@ -178,7 +179,7 @@ int main(int argc, char** argv) {
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        if (lidarController::LidarController::saveScanDataToFile(lidarScanData, "scan_data.bin")) {
+        if (DataSaver::saveData(lidarScanData, "scan_data.bin")) {
             std::cout << "Scan data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save scan data to file." << std::endl;
