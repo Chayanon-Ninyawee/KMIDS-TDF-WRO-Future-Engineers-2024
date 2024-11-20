@@ -37,7 +37,7 @@ include_directories(. "${CAMERA_INCLUDE_DIRS}")
 set(LIBCAMERA_LIBRARIES "${LIBCAMERA_LIBRARY}" "${LIBCAMERA_BASE_LIBRARY}")
 
 # Glob all .cpp files in the src directory
-file(GLOB ALL_SOURCES "src/*.cpp")
+file(GLOB_RECURSE ALL_SOURCES "src/*.cpp")
 
 # Glob only the main files
 file(GLOB MAIN_FILES "src/main_*.cpp")
@@ -53,10 +53,10 @@ add_executable(CamTestV1 src/main_cam_testv1.cpp ${COMMON_SOURCES})
 target_link_libraries(CamTestV1 wiringPi ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
 
 add_executable(MoveTestV1 src/main_move_testv1.cpp ${COMMON_SOURCES})
-target_link_libraries(MoveTestV1 wiringPi SDL2 rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+target_link_libraries(MoveTestV1 wiringPi SDL2  ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
 
 add_executable(LoadLidarFile src/main_load_lidar_file.cpp ${COMMON_SOURCES})
 target_link_libraries(LoadLidarFile wiringPi pthread ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
 
 add_executable(RecordTestV1 src/main_record_testv1.cpp ${COMMON_SOURCES})
-target_link_libraries(RecordTestV1 wiringPi pthread rt SDL2 rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+target_link_libraries(RecordTestV1 wiringPi pthread rt SDL2 ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")

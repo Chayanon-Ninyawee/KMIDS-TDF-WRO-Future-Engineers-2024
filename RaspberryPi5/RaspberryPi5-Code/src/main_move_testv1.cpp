@@ -6,7 +6,7 @@
 #include <iostream>
 #include <thread>
 
-#include "i2c_master.h"
+#include "utils/i2c_master.h"
 
 
 const uint8_t PICO_ADDRESS = 0x39;

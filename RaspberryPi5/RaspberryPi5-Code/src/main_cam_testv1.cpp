@@ -3,7 +3,7 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
-#include "libCamera.h"
+#include "utils/libCamera.h"
 
 using namespace cv;
 

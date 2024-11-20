@@ -7,9 +7,9 @@
 #include <thread>
 #include <vector>
 
-#include "i2c_master.h"
-#include "lidarController.h"
-#include "dataSaver.h"
+#include "utils/i2c_master.h"
+#include "utils/lidarController.h"
+#include "utils/dataSaver.h"
 
 const uint8_t PICO_ADDRESS = 0x39;
 
