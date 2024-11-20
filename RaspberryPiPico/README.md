@@ -11,9 +11,13 @@ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-n
 
 - Add the path to the environment variables. You have to open “Edit the system environment variables”. ![Environment Variable](https://files.codingninjas.in/article_images/custom-upload-1683458579.webp)
 
-- Click “Environment Variables”. ![Button](https://files.codingninjas.in/article_images/custom-upload-1683458591.webp)
+- Click “Environment Variables”.
 
-- Go to “System Variables” and click on “path”. ![Path](https://files.codingninjas.in/article_images/custom-upload-1683458604.webp)
+![Button](https://files.codingninjas.in/article_images/custom-upload-1683458591.webp)
+
+- Go to “System Variables” and click on “path”. 
+
+![Path](https://files.codingninjas.in/article_images/custom-upload-1683458604.webp)
 
 - Add the path of the CMake folder along with its bin file. ![Add path](https://cdn.discordapp.com/attachments/1196726335867998269/1308132320414273628/image.png?ex=673cd4a9&is=673b8329&hm=15514336b76a615eafdb498f2a0c7ea687a2e449b91af005be9ab05bcf4717f2&)
 
@@ -25,7 +29,9 @@ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-n
 
 - After downloading, you must extract the zip file by right click and choose extract all option and install the folder and “mingw-get-setup” application. ![zip folder](https://files.codingninjas.in/article_images/custom-upload-1683458487.webp)
 
-- Click Install Button. ![Install button](https://files.codingninjas.in/article_images/custom-upload-1683517444.png)
+- Click Install Button. 
+
+![Install button](https://files.codingninjas.in/article_images/custom-upload-1683517444.png)
 
 - It will appear Installation preferences. Keep this as default and don’t change anything. Click on the “Continue” button and it will move to the next page. ![Installation preferences](https://files.codingninjas.in/article_images/custom-upload-1683458514.webp)
 
@@ -37,10 +43,18 @@ sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-n
 
 - Add the path to the environment variables. You have to open “Edit the system environment variables”. ![Environment Variable](https://files.codingninjas.in/article_images/custom-upload-1683458579.webp)
 
-- Click “Environment Variables”. ![Button](https://files.codingninjas.in/article_images/custom-upload-1683458591.webp)
+- Click “Environment Variables”. 
 
-- Go to “System Variables” and click on “path”. ![Path](https://files.codingninjas.in/article_images/custom-upload-1683458604.webp)
+![Button](https://files.codingninjas.in/article_images/custom-upload-1683458591.webp)
 
-- Add the path of the MinGW folder along with its bin file. ![Add path](https://files.codingninjas.in/article_images/custom-upload-1683458614.webp)
+- Go to “System Variables” and click on “path”. 
 
-- It is good to go now. Open commander prompt and the image below should show the g++ version installed. ![finish installation](https://files.codingninjas.in/article_images/custom-upload-1683458629.webp) 
+![Path](https://files.codingninjas.in/article_images/custom-upload-1683458604.webp)
+
+- Add the path of the MinGW folder along with its bin file. 
+
+![Add path](https://files.codingninjas.in/article_images/custom-upload-1683458614.webp)
+
+- It is good to go now. Open commander prompt and the image below should show the g++ version installed. 
+
+![finish installation](https://files.codingninjas.in/article_images/custom-upload-1683458629.webp) 
