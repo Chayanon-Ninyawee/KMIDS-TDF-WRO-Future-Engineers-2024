@@ -12,16 +12,16 @@ This is a repository for KMIDS Thermodynamically Favorable this project, we aim 
 - **Right:** Pannawit Phruithithada (Prame)
 
 ## Content
-- [RaspberryPi5](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/Code) Contains our code for RaspberryPi5.<!--TODO at link-->
-- [RaspberryPiPico](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/Code) Contains our code for RaspberryPiPico.<!--TODO at link-->
-- [KMIDS-TDF-WRO2024-FreeCAD](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/42423e1957acbe372c20b5e2d8ece8258ac3caf3/KMIDS-TDF-WRO2024-FreeCAD) Contains robot's 3D model and electronics.
-- [Mobility Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Mobility%20Management) Contains robot's design and mechanism.
-- [Obstacle Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Obstacle%20Management) Contains how we deal with the obstacle challenges.
-- [Power and Senses Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/59d9f73f7ef363b6e41c1c2cada7da4087ea8578/Documentation/Power%20and%20Senses%20Management) Contains how we manage our electronics and various sensors.
-- [Robot Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Robot%20Picture) Contains picture of the robot, both in physical and digital 3D model from FreeCad.
-- [Specification](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Specification) Contains the specifications of various electronics and parts uses to built this robot.
-- [Team Member Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/141529bab1eff6fb5a7f057b7a112ee0c0a9d1bd/Documentation/Team%20Picture) Contains our team's picture.
-- [Setup Freecad](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/fix-readme/Documentation/Setup%20freecad) Contains how to install and run Freecad.
+- [RaspberryPi5](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/RaspberryPi5) Contains our code for RaspberryPi5 and setup.<!--TODO at link-->
+- [RaspberryPiPico](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/RaspberryPiPico) Contains our code for RaspberryPiPico and setup.<!--TODO at link-->
+- [KMIDS-TDF-WRO2024-FreeCAD](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/KMIDS-TDF-WRO2024-FreeCAD) Contains robot's 3D model and electronics.
+- [Mobility Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/blob/main/Documentation/Mobility_Management/Mobility_Management.md) Contains robot's design and mechanism.
+- [Obstacle Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Obstacle%20Management) Contains how we deal with the obstacle challenges.
+- [Power and Senses Management](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Power%20and%20Senses%20Management) Contains how we manage our electronics and various sensors.
+- [Robot Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Robot%20Picture) Contains picture of the robot, both in physical and digital 3D model from FreeCad.
+- [Specification](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Specification) Contains the specifications of various electronics and parts uses to built this robot.
+- [Team Member Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Team%20Picture) Contains our team's picture.
+- [Setup Freecad](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Setup%20freecad) Contains how to install and run Freecad.
 
 ## Performance video
 Our video demonstrating our robot can be found [here](https://youtu.be/9CfIpZZZoUU?si=juIyMaRLtTwPCz_5)
