@@ -132,12 +132,62 @@ namespace lidarController
     }
   }
 
-  void LidarController::printScanData(std::vector<NodeData> nodeDataVector)
+  void LidarController::printScanData(const std::vector<NodeData>& nodeDataVector)
   {
-    for (size_t i = 0; i < nodeDataVector.size(); i++)
+    for (const auto& node : nodeDataVector)
     {
-      printf("Angle: %.3f\tDistance: %.3f m\n", nodeDataVector[i].angle, nodeDataVector[i].distance);
+      printf("Angle: %.3f\tDistance: %.3f m\n", node.angle, node.distance);
     }
     std::cout << "Node Count: " << nodeDataVector.size() << std::endl;
+  }
+
+  bool LidarController::saveScanDataToFile(const std::vector<NodeData>& nodeDataVector, const std::string& filePath, bool append)
+  {
+    std::ofstream file(filePath, append ? std::ios::binary | std::ios::app : std::ios::binary | std::ios::trunc);
+    if (!file.is_open())
+    {
+      std::cerr << "Failed to open file for saving scan data: " << filePath << std::endl;
+      return false;
+    }
+
+    size_t dataSize = nodeDataVector.size();
+    file.write(reinterpret_cast<const char*>(&dataSize), sizeof(dataSize));
+    file.write(reinterpret_cast<const char*>(nodeDataVector.data()), dataSize * sizeof(NodeData));
+
+    if (!file)
+    {
+      std::cerr << "Failed to save scan data to file." << std::endl;
+      return false;
+    }
+
+    return true;
+  }
+
+  std::vector<std::vector<NodeData>> LidarController::loadAllScanDataFromFile(const std::string& filePath)
+  {
+    std::ifstream file(filePath, std::ios::binary);
+    if (!file.is_open())
+    {
+      std::cerr << "Failed to open file for loading scan data: " << filePath << std::endl;
+      return {};
+    }
+
+    std::vector<std::vector<NodeData>> allScanData;
+    while (file)
+    {
+      size_t dataSize = 0;
+      file.read(reinterpret_cast<char*>(&dataSize), sizeof(dataSize));
+      if (!file)
+        break;
+
+      std::vector<NodeData> nodeDataVector(dataSize);
+      file.read(reinterpret_cast<char*>(nodeDataVector.data()), dataSize * sizeof(NodeData));
+      if (!file)
+        break;
+
+      allScanData.push_back(std::move(nodeDataVector));
+    }
+
+    return allScanData;
   }
 }

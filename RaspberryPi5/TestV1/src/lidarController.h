@@ -1,10 +1,13 @@
 #ifndef LIDARCONTROLLER_H
 #define LIDARCONTROLLER_H
 
-#include <vector>
-#include <iostream>
 #include "sl_lidar.h"
 #include "sl_lidar_driver.h"
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
 
 namespace lidarController {
 
@@ -67,7 +70,24 @@ namespace lidarController {
      * Prints the LIDAR scan data to the console.
      * @param nodeDataVector - A vector of NodeData containing the scan results to be printed.
      */
-    static void printScanData(std::vector<NodeData> nodeDataVector);
+    static void printScanData(const std::vector<NodeData>& nodeDataVector);
+
+    /**
+     * Saves LIDAR scan data to a binary file.
+     * @param nodeDataVector - The vector of NodeData to be saved.
+     * @param filePath - Path to the binary file.
+     * @param append - If true, appends data to the file; otherwise, overwrites it.
+     * @return true if the data is saved successfully, false otherwise.
+     */
+    static bool saveScanDataToFile(const std::vector<NodeData>& nodeDataVector, const std::string& filePath, bool append = true);
+
+    /**
+     * Loads all scan data from a binary file. 
+     * Each set of scan data is stored as a separate vector within the returned vector.
+     * @param filePath - Path to the binary file to load data from.
+     * @return A vector of vectors containing all scan data.
+     */
+    static std::vector<std::vector<NodeData>> loadAllScanDataFromFile(const std::string& filePath);
 
   private:
     sl::ILidarDriver* lidarDriver;  ///< Pointer to the LIDAR driver instance.
