@@ -185,10 +185,10 @@ int main(int argc, char **argv)
   std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 
-  uint8_t calib[22] = {0xfe, 0xff, 0x00, 0x00, 0xff, 0xff, 0xf0, 0xff, 0xf2, 0xff, 0xe0, 0xff, 0xe8, 0x03, 0x50, 0xfe, 0xe7, 0xff, 0xd0, 0x07, 0xcd, 0x01};
+  uint8_t calib[22] = {0x00, 0x00, 0xFE, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x10, 0xD3, 0x9E, 0xF5, 0xFE, 0x7F, 0x00, 0x00, 0x00, 0xD0, 0x0E, 0x1B, 0xFF, 0x7F};
   i2c_master_send_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
 
-  i2c_master_send_command(fd, Command::CALIB_WITH_OFFSET);
+  i2c_master_send_command(fd, Command::SKIP_CALIB);
 
   uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
   uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
@@ -228,8 +228,21 @@ int main(int argc, char **argv)
   while (isRunning)
   {
     int64 start = cv::getTickCount();
+
+
+    i2c_master_read_logs(fd, logs);
+    i2c_master_print_logs(logs, sizeof(logs));
+
+
     auto lidarScanData = lidar.getScanData();
     // lidar.printScanData(lidarScanData);
+
+    if (lidarController::LidarController::saveScanDataToFile(lidarScanData, "scan_data.bin")) {
+      std::cout << "Scan data saved to file successfully." << std::endl;
+    } else {
+      std::cerr << "Failed to save scan data to file." << std::endl;
+    }
+
 
     cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
     cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);

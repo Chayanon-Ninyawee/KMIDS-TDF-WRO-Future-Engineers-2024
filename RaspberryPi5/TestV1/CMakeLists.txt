@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.25.1)
-project(TestV1 VERSION 0.0.0 LANGUAGES C CXX)
+
+project(TestRobotMovement VERSION 0.0.0 LANGUAGES C CXX)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdiagnostics-color=always")
 
 include(CTest)
 enable_testing()
@@ -15,10 +20,18 @@ list(FILTER RPLIDAR_SDK_SOURCES EXCLUDE REGEX ".*macOS.*")
 list(FILTER RPLIDAR_SDK_SOURCES EXCLUDE REGEX ".*win32.*")
 add_library(rplidar_sdk STATIC ${RPLIDAR_SDK_SOURCES})
 
-file(GLOB SOURCES "src/*.cpp")
+# Glob all .cpp files in the src directory
+file(GLOB ALL_SOURCES "src/*.cpp")
 
-add_executable(TestV1 ${SOURCES})
+# Glob only the main files
+file(GLOB MAIN_FILES "src/main_*.cpp")
 
+# Get the common sources by excluding the main files
+set(COMMON_SOURCES ${ALL_SOURCES})
+list(REMOVE_ITEM COMMON_SOURCES ${MAIN_FILES})
+
+add_executable(TestV1 src/main_testv1.cpp ${COMMON_SOURCES})
 target_link_libraries(TestV1 wiringPi pthread rt rplidar_sdk SDL2 ${OpenCV_LIBS})
 
-set_property(TARGET TestV1 PROPERTY CXX_STANDARD 17)
+add_executable(LoadLidarFile src/main_load_lidar_file.cpp ${COMMON_SOURCES})
+target_link_libraries(LoadLidarFile wiringPi pthread rplidar_sdk ${OpenCV_LIBS})
