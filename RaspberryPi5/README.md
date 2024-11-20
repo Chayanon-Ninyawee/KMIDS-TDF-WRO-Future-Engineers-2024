@@ -11,7 +11,7 @@
 
 - Click the Choose OS button and menu will appear. 
 
-<img src="https://cdn.discordapp.com/attachments/1196726335867998269/1308708929718714389/image.png?ex=673eedab&is=673d9c2b&hm=cb79c6e8f50fe94e3aea4d146fa50add4f7151fb0ff35a123769ea3f42c9172f&" width="400" />
+<img src="https://cdn.mos.cms.futurecdn.net/6sCCwQaNoV3EXVUdrDGweh-970-80.png" width="400" />
 
 - Choose the top choice, Raspberry Pi OS (64-bit), for Pi 5. If there are Raspberry Pi OS on top choice, click that and choose the latest version that works with your board.
 
@@ -50,3 +50,8 @@
 <img src="https://cdn.mos.cms.futurecdn.net/upTCsdvyixsdfuyhtyKJdQ-970-80.png.webp" width="400" />
 
 - Once the process is complete, insert the microSD card into your Raspberry Pi, power it on, and give it a few seconds to connect to the network. Then, you can try logging in via SSH, assuming both the Raspberry Pi and your computer are connected to the same Wi-Fi network.
+
+## How to install CMake
+``` 
+sudo apt install -y cmake
+```
