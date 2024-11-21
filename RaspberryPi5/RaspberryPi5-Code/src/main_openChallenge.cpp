@@ -3,6 +3,10 @@
 #include <csignal>
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #include <thread>
 #include <vector>
 
@@ -64,8 +68,44 @@ void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, dou
 int main() {
     signal(SIGINT, interuptHandler);
 
-
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
+
+    float lens_position = 100;
+    float focus_step = 50;
+    LibCamera cam;
+    uint32_t width = 1024;
+    uint32_t height = 576;
+    uint32_t stride;
+    char key;
+    int window_width = 1024;
+    int window_height = 576;
+
+    // if (width > window_width)
+    // {
+    //     cv::namedWindow("libcamera-demo", cv::WINDOW_NORMAL);
+    //     cv::resizeWindow("libcamera-demo", window_width, window_height);
+    // } 
+
+    int ret = cam.initCamera();
+    cam.configureStill(width, height, formats::RGB888, 1, Orientation::Rotate180);
+    ControlList controls_;
+    int64_t frame_time = 1000000 / 10;
+	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
+    controls_.set(controls::Brightness, 0.1); // Adjust the brightness of the output images, in the range -1.0 to 1.0
+    controls_.set(controls::Contrast, 1.0); // Adjust the contrast of the output image, where 1.0 = normal contrast
+    controls_.set(controls::ExposureTime, 20000);
+    cam.set(controls_);
+
+    if (ret) {
+        cam.closeCamera();
+        printf("Camera no working!");
+        return -1;
+    }
+
+    bool flag;
+    LibcameraOutData frameData;
+    cam.startCamera();
+    cam.VideoStream(&width, &height, &stride);
 
 
 
@@ -110,7 +150,7 @@ int main() {
     }
     printf("\n");
 
-    
+
 
     i2c_master_send_command(fd, Command::NO_COMMAND);
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
@@ -131,6 +171,15 @@ int main() {
     OpenChallenge challenge = OpenChallenge (SCALE, CENTER, initial_euler_data.h);
 
     while (isRunning) {
+        flag = cam.readFrame(&frameData);
+        if (!flag) {
+            continue;
+        }
+
+        cv::Mat im(height, width, CV_8UC3, frameData.imageData, stride);
+ 
+
+
         bno055_accel_float_t accel_data;
         bno055_euler_float_t euler_data;
         i2c_master_read_bno055_accel_and_euler(fd, &accel_data, &euler_data);
@@ -168,13 +217,15 @@ int main() {
         // }
 
 
-
-        // cv::imshow("LIDAR Hough Lines", outputImage);
+        // cv::imshow("libcamera-demo", im);
+        // // cv::imshow("LIDAR Hough Lines", outputImage);
 
         // char key = cv::waitKey(1);
         // if (key == 'q') {
         //     break;
         // }
+
+        cam.returnFrameBuffer(frameData);
     }
 
     motorPercent = 0.0f;
@@ -186,6 +237,9 @@ int main() {
     memcpy(movement, &motorPercent, sizeof(motorPercent));
     memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
     i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
+
+    cam.stopCamera();
+    cam.closeCamera();
 
     lidar.shutdown();
 

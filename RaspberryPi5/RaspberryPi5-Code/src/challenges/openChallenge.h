@@ -24,7 +24,7 @@ private:
     const float MIN_HEADING_ERROR = -25.0;
 
     const float INNER_WALL_DISTANCE = 0.350;
-    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 1.280;
+    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 1.200;
 
     float lastTurnTime = 0.0f; // Tracks when the last turn was made
     const float TURN_COOLDOWN = 1.0f; // Cooldown time in seconds
