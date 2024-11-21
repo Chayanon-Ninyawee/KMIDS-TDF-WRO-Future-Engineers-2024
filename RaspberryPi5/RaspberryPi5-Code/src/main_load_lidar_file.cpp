@@ -35,8 +35,8 @@ int main() {
     cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
     // Load all scan data from file
-    std::vector<std::vector<lidarController::NodeData>> allScanData =
-        DataSaver::loadData("scan_data.bin");
+    std::vector<std::vector<lidarController::NodeData>> allScanData;
+    DataSaver::loadLogData("scan_data.bin", allScanData);
 
     if (allScanData.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;

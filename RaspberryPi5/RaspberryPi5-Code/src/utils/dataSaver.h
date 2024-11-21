@@ -1,27 +1,19 @@
 #ifndef DATASAVER_H
 #define DATASAVER_H
 
-#include <vector>
 #include <string>
-#include "lidarController.h" // For NodeData
+#include <vector>
 
-namespace DataSaver
-{
-  // Function to save scan data to a file
-  // Parameters:
-  //   scanData - Vector containing LIDAR scan data
-  //   filePath - File path where the data should be saved
-  //   append - Flag to indicate if data should be appended (default is false)
-  // Returns:
-  //   true if data was successfully saved, false otherwise
-  bool saveData(const std::vector<lidarController::NodeData>& scanData, const std::string& filePath, bool append = true);
+#include "lidarController.h"  // For NodeData
 
-  // Function to load all scan data from a file
-  // Parameters:
-  //   filePath - File path from which the data should be loaded
-  // Returns:
-  //   A vector of scan data, each represented as a vector of NodeData
-  std::vector<std::vector<lidarController::NodeData>> loadData(const std::string& filePath);
-}
+namespace DataSaver {
 
-#endif // DATASAVER_H
+bool saveData(const uint8_t calibData[22], const std::string& filePath, bool append = true);
+bool loadData(const std::string& filePath, uint8_t calibData[22]);
+
+bool saveLogData(const std::vector<lidarController::NodeData>& scanData, const std::string& filePath, bool append = true);
+bool loadLogData(const std::string& filePath, std::vector<std::vector<lidarController::NodeData>>& allScanData);
+
+}  // namespace DataSaver
+
+#endif  // DATASAVER_H

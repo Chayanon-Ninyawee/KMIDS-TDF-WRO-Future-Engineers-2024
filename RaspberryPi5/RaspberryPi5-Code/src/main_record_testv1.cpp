@@ -118,10 +118,15 @@ int main(int argc, char** argv) {
     i2c_master_send_command(fd, Command::RESTART);
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-    uint8_t calib[22] = {0x00, 0x00, 0xFE, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x10, 0xD3, 0x9E, 0xF5, 0xFE, 0x7F, 0x00, 0x00, 0x00, 0xD0, 0x0E, 0x1B, 0xFF, 0x7F};
-    i2c_master_send_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
+    uint8_t calib[22];
+    bool isCalibDataExist = DataSaver::loadData("config/calibData.bin", calib);
 
-    i2c_master_send_command(fd, Command::SKIP_CALIB);
+    if (isCalibDataExist) {
+        i2c_master_send_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
+        i2c_master_send_command(fd, Command::CALIB_WITH_OFFSET);
+    } else {
+        i2c_master_send_command(fd, Command::CALIB_NO_OFFSET);
+    }
 
     uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
     uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
@@ -136,6 +141,8 @@ int main(int argc, char** argv) {
 
     uint8_t new_calib[22];
     i2c_master_read_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
+
+    DataSaver::saveData(new_calib, "config/calibData.bin", false);
 
     for (int i = 0; i < sizeof(new_calib); i++) {
         printf("%x, ", new_calib[i]);
@@ -179,7 +186,7 @@ int main(int argc, char** argv) {
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        if (DataSaver::saveData(lidarScanData, "scan_data.bin")) {
+        if (DataSaver::saveLogData(lidarScanData, "scan_data.bin")) {
             std::cout << "Scan data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save scan data to file." << std::endl;
