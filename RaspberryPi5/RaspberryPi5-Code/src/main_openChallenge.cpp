@@ -31,6 +31,12 @@ const float SCALE = 180.0;
 const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
 
+LibCamera cam;
+uint32_t camWidth = 1024;
+uint32_t camHeight = 576;
+uint32_t camStride;
+
+
 bool isRunning = true;
 
 void interuptHandler(int signum) {
@@ -70,24 +76,9 @@ int main() {
 
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
-    float lens_position = 100;
-    float focus_step = 50;
-    LibCamera cam;
-    uint32_t width = 1024;
-    uint32_t height = 576;
-    uint32_t stride;
-    char key;
-    int window_width = 1024;
-    int window_height = 576;
-
-    // if (width > window_width)
-    // {
-    //     cv::namedWindow("libcamera-demo", cv::WINDOW_NORMAL);
-    //     cv::resizeWindow("libcamera-demo", window_width, window_height);
-    // } 
 
     int ret = cam.initCamera();
-    cam.configureStill(width, height, formats::RGB888, 1, Orientation::Rotate180);
+    cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
     ControlList controls_;
     int64_t frame_time = 1000000 / 10;
 	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
@@ -105,7 +96,7 @@ int main() {
     bool flag;
     LibcameraOutData frameData;
     cam.startCamera();
-    cam.VideoStream(&width, &height, &stride);
+    cam.VideoStream(&camWidth, &camHeight, &camStride);
 
 
 
@@ -176,7 +167,7 @@ int main() {
             continue;
         }
 
-        cv::Mat im(height, width, CV_8UC3, frameData.imageData, stride);
+        cv::Mat im(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
  
 
 
@@ -210,15 +201,15 @@ int main() {
         i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
-        // if (DataSaver::saveLogData("log/logData2.bin", lidarScanData, accel_data, euler_data)) {
-        //     std::cout << "Log data saved to file successfully." << std::endl;
-        // } else {
-        //     std::cerr << "Failed to save log data to file." << std::endl;
-        // }
+        if (DataSaver::saveLogData("log/logData2.bin", lidarScanData, accel_data, euler_data, im)) {
+            std::cout << "Log data saved to file successfully." << std::endl;
+        } else {
+            std::cerr << "Failed to save log data to file." << std::endl;
+        }
 
 
         // cv::imshow("libcamera-demo", im);
-        // // cv::imshow("LIDAR Hough Lines", outputImage);
+        // cv::imshow("LIDAR Hough Lines", outputImage);
 
         // char key = cv::waitKey(1);
         // if (key == 'q') {

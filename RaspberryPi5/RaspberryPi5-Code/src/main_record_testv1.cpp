@@ -10,6 +10,7 @@
 #include "utils/i2c_master.h"
 #include "utils/lidarController.h"
 #include "utils/dataSaver.h"
+#include "utils/libCamera.h"
 
 const uint8_t PICO_ADDRESS = 0x39;
 
@@ -17,6 +18,13 @@ const uint8_t PICO_ADDRESS = 0x39;
 float motorPercent = 0.0f;
 float steeringPercent = 0.0f;
 float motorPercentSetting = 1.0f;
+
+
+LibCamera cam;
+uint32_t camWidth = 1024;
+uint32_t camHeight = 576;
+uint32_t camStride;
+
 
 bool isRunning = true;
 
@@ -113,6 +121,34 @@ int main(int argc, char** argv) {
 
     SDL_Event event;
 
+
+
+
+    int ret = cam.initCamera();
+    cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
+    ControlList controls_;
+    int64_t frame_time = 1000000 / 10;
+	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
+    controls_.set(controls::Brightness, 0.1); // Adjust the brightness of the output images, in the range -1.0 to 1.0
+    controls_.set(controls::Contrast, 1.0); // Adjust the contrast of the output image, where 1.0 = normal contrast
+    controls_.set(controls::ExposureTime, 20000);
+    cam.set(controls_);
+
+    if (ret) {
+        cam.closeCamera();
+        printf("Camera no working!");
+        return -1;
+    }
+
+    bool flag;
+    LibcameraOutData frameData;
+    cam.startCamera();
+    cam.VideoStream(&camWidth, &camHeight, &camStride);
+
+
+
+
+
     int fd = i2c_master_init(PICO_ADDRESS);
 
     i2c_master_send_command(fd, Command::RESTART);
@@ -162,6 +198,15 @@ int main(int argc, char** argv) {
     const float scale = 180.0;
 
     while (isRunning) {
+        flag = cam.readFrame(&frameData);
+        if (!flag) {
+            continue;
+        }
+
+        cv::Mat im(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
+
+
+
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 isRunning = false;
@@ -190,7 +235,7 @@ int main(int argc, char** argv) {
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        if (DataSaver::saveLogData("log/logData.bin", lidarScanData, accel_data, euler_data)) {
+        if (DataSaver::saveLogData("log/logData.bin", lidarScanData, accel_data, euler_data, im)) {
             std::cout << "Log data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save log data to file." << std::endl;

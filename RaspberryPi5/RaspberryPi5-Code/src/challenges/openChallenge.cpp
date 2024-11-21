@@ -106,7 +106,7 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
     desiredYaw += headingCorrection;
 
 
-    motorPercent = 1.0;
+    motorPercent = 0.40;
     steeringPercent = steeringPID.calculate(fmod(desiredYaw - relativeYaw + 360.0f + 180.0f, 360.0f) - 180.0f, deltaTime);
 
     printf("SteeringPercent: %.3f, relativeYaw: %.3f, frontWallDistance: %.3f, innerWallDistance: %.3f\n", steeringPercent, relativeYaw, frontWallDistance, innerWallDistance);

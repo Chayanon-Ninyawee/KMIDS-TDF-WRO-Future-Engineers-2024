@@ -71,7 +71,12 @@ bool loadData(const std::string& filePath, uint8_t calibData[22]) {
     return true;
 }
 
-bool saveLogData(const std::string& filePath, const std::vector<lidarController::NodeData>& scanData, const bno055_accel_float_t& accel_data, const bno055_euler_float_t& euler_data, bool append) {
+bool saveLogData(const std::string& filePath, 
+                 const std::vector<lidarController::NodeData>& scanData, 
+                 const bno055_accel_float_t& accel_data, 
+                 const bno055_euler_float_t& euler_data, 
+                 const cv::Mat& image, 
+                 bool append) {
     // Create directory if needed
     if (!createDirectoryIfNeeded(filePath)) {
         std::cerr << "Failed to create directory for saving log data." << std::endl;
@@ -80,41 +85,50 @@ bool saveLogData(const std::string& filePath, const std::vector<lidarController:
 
     std::ofstream file(filePath, append ? std::ios::binary | std::ios::app : std::ios::binary | std::ios::trunc);
     if (!file.is_open()) {
-        std::cerr << "Failed to open file for saving scan data: " << filePath << std::endl;
+        std::cerr << "Failed to open file for saving log data: " << filePath << std::endl;
         return false;
     }
 
-    // Save the size of the data vector first
+    // Save scan data size and contents
     size_t dataSize = scanData.size();
     file.write(reinterpret_cast<const char*>(&dataSize), sizeof(dataSize));
-
-    // Save the actual data (lidar scan data)
     file.write(reinterpret_cast<const char*>(scanData.data()), dataSize * sizeof(lidarController::NodeData));
 
-    // Save the accel data
+    // Save accel and Euler data
     file.write(reinterpret_cast<const char*>(&accel_data), sizeof(bno055_accel_float_t));
-
-    // Save the Euler data
     file.write(reinterpret_cast<const char*>(&euler_data), sizeof(bno055_euler_float_t));
 
+    // Encode and save image data
+    std::vector<uchar> buffer;
+    cv::imencode(".png", image, buffer);  // Save as PNG
+    size_t imgSize = buffer.size();
+    file.write(reinterpret_cast<const char*>(&imgSize), sizeof(imgSize));  // Save image size
+    file.write(reinterpret_cast<const char*>(buffer.data()), imgSize);     // Save image bytes
+
     if (!file) {
-        std::cerr << "Failed to save scan data to file." << std::endl;
+        std::cerr << "Failed to save log data to file." << std::endl;
         return false;
     }
 
     return true;
 }
 
-bool loadLogData(const std::string& filePath, std::vector<std::vector<lidarController::NodeData>>& allScanData, std::vector<bno055_accel_float_t>& allAccelData, std::vector<bno055_euler_float_t>& allEulerData) {
+
+bool loadLogData(const std::string& filePath, 
+                 std::vector<std::vector<lidarController::NodeData>>& allScanData, 
+                 std::vector<bno055_accel_float_t>& allAccelData, 
+                 std::vector<bno055_euler_float_t>& allEulerData, 
+                 std::vector<cv::Mat>& allImages) {
     std::ifstream file(filePath, std::ios::binary);
     if (!file.is_open()) {
-        std::cerr << "Failed to open file for loading scan data: " << filePath << std::endl;
+        std::cerr << "Failed to open file for loading log data: " << filePath << std::endl;
         return false;
     }
 
-    allScanData.clear();  // Ensure the output container is empty before loading new data
+    allScanData.clear();
     allAccelData.clear();
     allEulerData.clear();
+    allImages.clear();
 
     // Read data chunks
     while (file) {
@@ -128,24 +142,38 @@ bool loadLogData(const std::string& filePath, std::vector<std::vector<lidarContr
         if (!file)
             break;
 
-        // Read accel data
         bno055_accel_float_t accel_data;
         file.read(reinterpret_cast<char*>(&accel_data), sizeof(bno055_accel_float_t));
 
-        // Read Euler data
         bno055_euler_float_t euler_data;
         file.read(reinterpret_cast<char*>(&euler_data), sizeof(bno055_euler_float_t));
 
+        // Read image data
+        size_t imgSize = 0;
+        file.read(reinterpret_cast<char*>(&imgSize), sizeof(imgSize));
         if (!file)
             break;
 
-        // Store the data
+        std::vector<uchar> buffer(imgSize);
+        file.read(reinterpret_cast<char*>(buffer.data()), imgSize);
+        if (!file)
+            break;
+
+        cv::Mat image = cv::imdecode(buffer, cv::IMREAD_UNCHANGED);
+        if (image.empty()) {
+            std::cerr << "Failed to decode image from file." << std::endl;
+            return false;
+        }
+
+        // Store the loaded data
         allScanData.push_back(std::move(scanData));
         allAccelData.push_back(accel_data);
         allEulerData.push_back(euler_data);
+        allImages.push_back(image);
     }
 
     return true;
 }
+
 
 }  // namespace DataSaver

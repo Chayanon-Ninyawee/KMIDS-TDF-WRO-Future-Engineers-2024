@@ -50,7 +50,8 @@ int main() {
     std::vector<std::vector<lidarController::NodeData>> allScanData;
     std::vector<bno055_accel_float_t> allAccelData;
     std::vector<bno055_euler_float_t> allEulerData;
-    DataSaver::loadLogData("log/logData.bin", allScanData, allAccelData, allEulerData);
+    std::vector<cv::Mat> allIm;
+    DataSaver::loadLogData("log/logData2.bin", allScanData, allAccelData, allEulerData, allIm);
 
     if (allScanData.empty() || allAccelData.empty() || allEulerData.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;
@@ -59,6 +60,8 @@ int main() {
 
     // Iterate through all scan data and print each scan
     for (size_t i = 0; i < allScanData.size(); ++i) {
+        cv::Mat im = allIm[i];
+
         bno055_accel_float_t accelData = allAccelData[i];
         bno055_euler_float_t eulerData = allEulerData[i];
 
@@ -79,7 +82,7 @@ int main() {
             printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
         }
 
-        cv::imshow("LIDAR Hough Lines", outputImage);
+        cv::imshow("LIDAR Hough Lines", im);
 
         char key = cv::waitKey(100);
         if (key == 'q') {
