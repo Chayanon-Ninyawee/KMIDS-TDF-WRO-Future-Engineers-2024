@@ -47,6 +47,24 @@ enum Command : uint8_t {
   SKIP_CALIB = 0x04
 };
 
+/*!
+ * @brief struct for Accel-output data of precision float
+ */
+struct bno055_accel_float_t {
+    float x; /**< accel x float data */
+    float y; /**< accel y float data */
+    float z; /**< accel z float data */
+};
+
+/*!
+ * @brief struct for Euler-output data of precision float
+ */
+struct bno055_euler_float_t {
+    float h; /**< Euler h float data */
+    float r; /**< Euler r float data */
+    float p; /**< Euler p float data */
+};
+
 
 /**
  * @brief Initializes the I2C master communication with the specified slave address.
@@ -110,6 +128,57 @@ void i2c_master_read_logs(int fd, uint8_t *logs, size_t len);
 void i2c_master_print_logs(uint8_t *logs, size_t len);
 
 
+
+/**
+ * @brief Reads the Command data from the I2C slave.
+ *
+ * @param fd File descriptor of the I2C device.
+ * @param command Pointer to the buffer to store the command byte.
+ */
+void i2c_master_read_command(int fd, uint8_t *command);
+
+/**
+ * @brief Reads the Status data from the I2C slave.
+ *
+ * @param fd File descriptor of the I2C device.
+ * @param status Pointer to the buffer to store the status byte.
+ */
+void i2c_master_read_status(int fd, uint8_t *status);
+
+/**
+ * @brief Reads the BNO055 Calibration data from the I2C slave.
+ *
+ * @param fd File descriptor of the I2C device.
+ * @param calibration_data Pointer to the buffer to store the calibration data.
+ */
+void i2c_master_read_bno055_calibration(int fd, uint8_t *calibration_data);
+
+/**
+ * @brief Reads the BNO055 Info data from the I2C slave.
+ *
+ * @param fd File descriptor of the I2C device.
+ * @param info_data Pointer to the buffer to store the info data.
+ */
+void i2c_master_read_bno055_info(int fd, uint8_t *info_data);
+
+/**
+ * @brief Reads the Movement Info data from the I2C slave.
+ *
+ * @param fd File descriptor of the I2C device.
+ * @param movement_info Pointer to the buffer to store the movement info data.
+ */
+void i2c_master_read_movement_info(int fd, uint8_t *movement_info);
+
+
+/**
+ * @brief Reads both the acceleration and Euler angle data from the BNO055
+ *        and stores them in the provided structures.
+ *
+ * @param fd File descriptor of the I2C device.
+ * @param accel_data Pointer to the structure where accel data will be stored.
+ * @param euler_data Pointer to the structure where Euler data will be stored.
+ */
+void i2c_master_read_bno055_accel_and_euler(int fd, bno055_accel_float_t *accel_data, bno055_euler_float_t *euler_data);
 
 
 #endif // I2C_MASTER_H

@@ -131,7 +131,7 @@ int main(int argc, char** argv) {
     uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
     uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
     while (not(status[0] & (1 << 1))) {
-        i2c_master_read_data(fd, i2c_slave_mem_addr::STATUS_ADDR, status, sizeof(status));
+        i2c_master_read_status(fd, status);
 
         i2c_master_read_logs(fd, logs);
         i2c_master_print_logs(logs, sizeof(logs));
@@ -140,7 +140,7 @@ int main(int argc, char** argv) {
     }
 
     uint8_t new_calib[22];
-    i2c_master_read_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
+    i2c_master_read_bno055_calibration(fd, new_calib);
 
     DataSaver::saveData(new_calib, "config/calibData.bin", false);
 
@@ -180,16 +180,20 @@ int main(int argc, char** argv) {
         memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
         i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
+        bno055_accel_float_t accel_data;
+        bno055_euler_float_t euler_data;
+        i2c_master_read_bno055_accel_and_euler(fd, &accel_data, &euler_data);
+
         i2c_master_read_logs(fd, logs);
         i2c_master_print_logs(logs, sizeof(logs));
 
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        if (DataSaver::saveLogData(lidarScanData, "scan_data.bin")) {
-            std::cout << "Scan data saved to file successfully." << std::endl;
+        if (DataSaver::saveLogData(lidarScanData, "log/logData.bin")) {
+            std::cout << "Log data saved to file successfully." << std::endl;
         } else {
-            std::cerr << "Failed to save scan data to file." << std::endl;
+            std::cerr << "Failed to save log data to file." << std::endl;
         }
         
         // Render window
