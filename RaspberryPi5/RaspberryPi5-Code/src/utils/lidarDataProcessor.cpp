@@ -3,11 +3,11 @@
 #include <cmath>
 
 // Convert LIDAR data to an OpenCV image for Hough Line detection
-cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int width, int height, float scale) {
+cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData>& data, int width, int height, float scale) {
     cv::Mat image = cv::Mat::zeros(height, width, CV_8UC1);  // Grayscale image for binary line detection
     cv::Point center(width / 2, height / 2);
 
-    for (const auto &point : data) {
+    for (const auto& point : data) {
         if (point.distance < 0.005)
             continue;
         if (point.distance > 3.200)
@@ -29,17 +29,17 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int
 }
 
 // Detect lines using Hough Transform
-std::vector<cv::Vec4i> detectLines(const cv::Mat &binaryImage) {
+std::vector<cv::Vec4i> detectLines(const cv::Mat& binaryImage) {
     std::vector<cv::Vec4i> lines;
     cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 50, 50, 10);
     return lines;
 }
 
 // Helper function to calculate the angle of a line in degrees
-double calculateAngle(const cv::Vec4i &line) {
+double calculateAngle(const cv::Vec4i& line) {
     double angle = atan2(line[3] - line[1], line[2] - line[0]) * 180.0 / CV_PI;
-    angle = std::fmod(angle + 360.0, 360.0); // Map to [0, 360)
-    return angle > 180.0 ? angle - 180.0 : angle; // Map to [0, 180)
+    angle = std::fmod(angle + 360.0, 360.0);       // Map to [0, 360)
+    return angle > 180.0 ? angle - 180.0 : angle;  // Map to [0, 180)
 }
 
 // Calculate perpendicular distance
@@ -57,23 +57,34 @@ bool areLinesAligned(const cv::Vec4i& line1, const cv::Vec4i& line2, double angl
     double angle1 = calculateAngle(line1);
     double angle2 = calculateAngle(line2);
 
-    if (std::abs(angle1 - angle2) > angleThreshold) {
-        return false;
-    }
+    if (std::abs(angle1 - angle2) >= angleThreshold and std::abs(std::abs(angle1 - angle2) - 180) >= angleThreshold)
+  {
+    return false;
+  }
 
     cv::Point2f start2(line2[0], line2[1]);
     cv::Point2f end2(line2[2], line2[3]);
 
-    if (pointLinePerpendicularDistance(start2, line1) > collinearThreshold ||
-        pointLinePerpendicularDistance(end2, line1) > collinearThreshold) {
-        return false;
+    if (pointLinePerpendicularDistance(start2, line1) <= collinearThreshold ||
+        pointLinePerpendicularDistance(end2, line1) <= collinearThreshold) {
+        return true;
     }
 
-    return true;
+    // Additional check: divide line2 into intermediate points and check collinearity
+    int numIntermediatePoints = 10;  // You can adjust this based on your needs
+    for (int i = 1; i < numIntermediatePoints; ++i) {
+        float t = float(i) / float(numIntermediatePoints - 1);  // Calculate a point along line2
+        cv::Point2f pointOnLine2 = start2 + t * (end2 - start2);  // Get the point along the line2 segment
+
+        if (pointLinePerpendicularDistance(pointOnLine2, line1) <= collinearThreshold) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
-std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double angleThreshold, double collinearThreshold)
-{
+std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double angleThreshold, double collinearThreshold) {
     // Ensure each line has its first point to the left (smaller x-coordinate) of the second point
     auto normalizeLine = [](cv::Vec4i& line) {
         if (line[0] > line[2] || (line[0] == line[2] && line[1] > line[3])) {
@@ -146,8 +157,8 @@ std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double 
                     start = minPoint;
                     end = maxPoint;
 
-                    used[j] = true; // Mark as combined
-                    merged = true;  // Signal a merge occurred
+                    used[j] = true;  // Mark as combined
+                    merged = true;   // Signal a merge occurred
                 }
             }
 
@@ -160,7 +171,109 @@ std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double 
         // Update lines with the newly combined lines
         lines = std::move(newLines);
 
-    } while (merged); // Repeat until no further merges are possible
+    } while (merged);  // Repeat until no further merges are possible
 
     return lines;
+}
+
+// Function to analyze the combined lines with gyro data and classify them as NORTH, EAST, SOUTH, WEST
+std::vector<WallDirection> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center) {
+    std::vector<WallDirection> wallDirections;
+
+    // Gyro yaw is assumed to be in degrees with 0° = NORTH, 90° = EAST, 180° = SOUTH, 270° = WEST
+    // Adjust the combined line angles based on the gyro data.
+    for (const auto& line : combinedLines) {
+        double lineAngle = calculateAngle(line);  // Get the angle of the line
+
+        // Determine if the line is more vertical (NORTH/SOUTH) or horizontal (EAST/WEST)
+        WallDirection direction;  // Default direction is NORTH
+
+        bool isLineHorizontal = lineAngle < 45 || lineAngle >= 135;
+
+        WallDirection gyroDirection = NORTH;
+        if (gyroYaw >= 0.0f && gyroYaw < 45.0f) {
+            gyroDirection = NORTH;
+        } else if (gyroYaw >= 45.0f && gyroYaw < 135.0f) {
+            gyroDirection = EAST;
+        } else if (gyroYaw >= 135.0f && gyroYaw < 225.0f) {
+            gyroDirection = SOUTH;
+        } else if (gyroYaw >= 225.0f && gyroYaw < 315.0f) {
+            gyroDirection = WEST;
+        }
+
+        // Check if the line is in the front, back, left, or right of the robot
+        // Using the line's midpoint for classification
+        cv::Point midpoint((line[0] + line[2]) / 2, (line[1] + line[3]) / 2);
+
+        if (isLineHorizontal) {
+            if (midpoint.y < center.y) {
+                switch (gyroDirection) {
+                    case NORTH:
+                        direction = NORTH;
+                        break;
+                    case EAST:
+                        direction = EAST;
+                        break;
+                    case SOUTH:
+                        direction = SOUTH;
+                        break;
+                    case WEST:
+                        direction = WEST;
+                        break;
+                }
+            } else {
+                switch (gyroDirection) {
+                    case NORTH:
+                        direction = SOUTH;
+                        break;
+                    case EAST:
+                        direction = WEST;
+                        break;
+                    case SOUTH:
+                        direction = NORTH;
+                        break;
+                    case WEST:
+                        direction = EAST;
+                        break;
+                }
+            }
+        } else {
+            if (midpoint.x > center.x) {
+                switch (gyroDirection) {
+                    case NORTH:
+                        direction = EAST;
+                        break;
+                    case EAST:
+                        direction = SOUTH;
+                        break;
+                    case SOUTH:
+                        direction = WEST;
+                        break;
+                    case WEST:
+                        direction = NORTH;
+                        break;
+                }
+            } else {
+                switch (gyroDirection) {
+                    case NORTH:
+                        direction = WEST;
+                        break;
+                    case EAST:
+                        direction = NORTH;
+                        break;
+                    case SOUTH:
+                        direction = EAST;
+                        break;
+                    case WEST:
+                        direction = SOUTH;
+                        break;
+                }
+            }
+        }
+
+        // Add the classified direction to the list
+        wallDirections.push_back(direction);
+    }
+
+    return wallDirections;
 }

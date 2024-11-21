@@ -10,26 +10,38 @@
 #include "utils/lidarDataProcessor.h"
 #include "utils/dataSaver.h"
 
+const int WIDTH = 1200;
+const int HEIGHT = 1200;
+const float SCALE = 180.0;
 
+const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
-// Draw all lines with different colors
-void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage) {
+// Draw all lines with different colors based on direction (NORTH, EAST, SOUTH, WEST)
+void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, double gyroYaw) {
+    // Analyze the direction of each wall using the analyzeWallDirection function
+    std::vector<WallDirection> wallDirections = analyzeWallDirection(lines, gyroYaw, CENTER);
+
     for (size_t i = 0; i < lines.size(); ++i) {
-        // Generate a bright, contrasting color by using modulo values to avoid dark colors
-        int r = ((i * 73) % 156) + 100;   // Red component, adjusted to stay above 100
-        int g = ((i * 89) % 156) + 100;   // Green component, adjusted to stay above 100
-        int b = ((i * 113) % 156) + 100;  // Blue component, adjusted to stay above 100
-
-        cv::Scalar color(0, 255, 0);  // Ensure colors are bright and non-black
         cv::Vec4i line = lines[i];
+        WallDirection direction = wallDirections[i];  // Get the direction of the current line
+
+        // Determine the color based on the direction
+        cv::Scalar color;
+        if (direction == NORTH) {
+            color = cv::Scalar(0, 0, 255); // Red for NORTH
+        } else if (direction == EAST) {
+            color = cv::Scalar(0, 255, 0); // Green for EAST
+        } else if (direction == SOUTH) {
+            color = cv::Scalar(255, 0, 0); // Blue for SOUTH
+        } else if (direction == WEST) {
+            color = cv::Scalar(255, 255, 0); // Yellow for WEST
+        }
+
+        // Draw the line with the determined color
         cv::line(outputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 2, cv::LINE_AA);
     }
 }
 
-
-const int width = 1200;
-const int height = 1200;
-const float scale = 180.0;
 
 int main() {
     cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
@@ -54,13 +66,13 @@ int main() {
         printf("Euler - H: %f, R: %f, P: %f\n", eulerData.h, eulerData.r, eulerData.p);
 
 
-        cv::Mat binaryImage = lidarDataToImage(allScanData[i], width, height, scale);
-        cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
+        cv::Mat binaryImage = lidarDataToImage(allScanData[i], WIDTH, HEIGHT, SCALE);
+        cv::Mat outputImage = cv::Mat::zeros(HEIGHT, WIDTH, CV_8UC3);
         cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
 
         auto lines = detectLines(binaryImage);
         auto combined_lines = combineAlignedLines(lines);
-        drawAllLines(combined_lines, outputImage);
+        drawAllLines(combined_lines, outputImage, fmod(eulerData.h - 259.0f + 360.0f, 360.0f));
 
         for (size_t i = 0; i < combined_lines.size(); ++i) {
             cv::Vec4i line = combined_lines[i];

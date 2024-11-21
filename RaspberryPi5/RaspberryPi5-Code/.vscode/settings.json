@@ -64,7 +64,8 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "cinttypes": "cpp",
-        "optional": "cpp"
+        "optional": "cpp",
+        "codecvt": "cpp"
     },
     "cmake.generator": "Unix Makefiles",
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}"
