@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
     uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
     uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
     while (not(status[0] & (1 << 1))) {
-        i2c_master_read_data(fd, i2c_slave_mem_addr::STATUS_ADDR, status, sizeof(status));
+        i2c_master_read_status(fd, status);
 
         i2c_master_read_logs(fd, logs);
         i2c_master_print_logs(logs, sizeof(logs));
@@ -65,9 +65,9 @@ int main(int argc, char **argv) {
     }
 
     uint8_t new_calib[22];
-    i2c_master_read_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
+    i2c_master_read_bno055_calibration(fd, new_calib);
 
-    DataSaver::saveData(new_calib, "config/calibData.bin", false);
+    DataSaver::saveData("config/calibData.bin", new_calib, false);
 
     for (int i = 0; i < sizeof(new_calib); i++) {
         printf("%x, ", new_calib[i]);

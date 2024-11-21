@@ -142,7 +142,7 @@ int main(int argc, char** argv) {
     uint8_t new_calib[22];
     i2c_master_read_bno055_calibration(fd, new_calib);
 
-    DataSaver::saveData(new_calib, "config/calibData.bin", false);
+    DataSaver::saveData("config/calibData.bin", new_calib, false);
 
     for (int i = 0; i < sizeof(new_calib); i++) {
         printf("%x, ", new_calib[i]);
@@ -190,7 +190,7 @@ int main(int argc, char** argv) {
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        if (DataSaver::saveLogData(lidarScanData, "log/logData.bin")) {
+        if (DataSaver::saveLogData("log/logData.bin", lidarScanData, accel_data, euler_data)) {
             std::cout << "Log data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save log data to file." << std::endl;

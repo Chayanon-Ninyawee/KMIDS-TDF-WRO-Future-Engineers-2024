@@ -36,15 +36,24 @@ int main() {
 
     // Load all scan data from file
     std::vector<std::vector<lidarController::NodeData>> allScanData;
-    DataSaver::loadLogData("scan_data.bin", allScanData);
+    std::vector<bno055_accel_float_t> allAccelData;
+    std::vector<bno055_euler_float_t> allEulerData;
+    DataSaver::loadLogData("log/logData.bin", allScanData, allAccelData, allEulerData);
 
-    if (allScanData.empty()) {
+    if (allScanData.empty() || allAccelData.empty() || allEulerData.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;
         return -1;
     }
 
     // Iterate through all scan data and print each scan
     for (size_t i = 0; i < allScanData.size(); ++i) {
+        bno055_accel_float_t accelData = allAccelData[i];
+        bno055_euler_float_t eulerData = allEulerData[i];
+
+        printf("Accel - X: %f, Y: %f, Z: %f\n", accelData.x, accelData.y, accelData.z);
+        printf("Euler - H: %f, R: %f, P: %f\n", eulerData.h, eulerData.r, eulerData.p);
+
+
         cv::Mat binaryImage = lidarDataToImage(allScanData[i], width, height, scale);
         cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
         cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
@@ -60,7 +69,7 @@ int main() {
 
         cv::imshow("LIDAR Hough Lines", outputImage);
 
-        char key = cv::waitKey(1);
+        char key = cv::waitKey(100);
         if (key == 'q') {
             break;
         }
