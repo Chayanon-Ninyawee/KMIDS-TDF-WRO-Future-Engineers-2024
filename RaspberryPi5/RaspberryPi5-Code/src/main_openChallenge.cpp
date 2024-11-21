@@ -34,14 +34,49 @@ void interuptHandler(int signum) {
 }
 
 
+// Draw all lines with different colors based on direction (NORTH, EAST, SOUTH, WEST)
+void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, double gyroYaw) {
+    // Analyze the direction of each wall using the analyzeWallDirection function
+    std::vector<Direction> wallDirections = analyzeWallDirection(lines, gyroYaw, CENTER);
+
+    for (size_t i = 0; i < lines.size(); ++i) {
+        cv::Vec4i line = lines[i];
+        Direction direction = wallDirections[i];  // Get the direction of the current line
+
+        // Determine the color based on the direction
+        cv::Scalar color;
+        if (direction == NORTH) {
+            color = cv::Scalar(0, 0, 255); // Red for NORTH
+        } else if (direction == EAST) {
+            color = cv::Scalar(0, 255, 0); // Green for EAST
+        } else if (direction == SOUTH) {
+            color = cv::Scalar(255, 0, 0); // Blue for SOUTH
+        } else if (direction == WEST) {
+            color = cv::Scalar(255, 255, 0); // Yellow for WEST
+        }
+
+        // Draw the line with the determined color
+        cv::line(outputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 2, cv::LINE_AA);
+    }
+}
+
 
 int main() {
     signal(SIGINT, interuptHandler);
 
+
+    // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
+
+
+
     int fd = i2c_master_init(PICO_ADDRESS);
+
+    uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
 
     i2c_master_send_command(fd, Command::RESTART);
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+
 
     uint8_t calib[22];
     bool isCalibDataExist = DataSaver::loadData("config/calibData.bin", calib);
@@ -53,8 +88,9 @@ int main() {
         i2c_master_send_command(fd, Command::CALIB_NO_OFFSET);
     }
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
     uint8_t status[i2c_slave_mem_addr::STATUS_SIZE] = {0};
-    uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
     while (not(status[0] & (1 << 1))) {
         i2c_master_read_status(fd, status);
 
@@ -73,6 +109,8 @@ int main() {
         printf("%x, ", new_calib[i]);
     }
     printf("\n");
+
+    
 
     i2c_master_send_command(fd, Command::NO_COMMAND);
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
@@ -105,6 +143,10 @@ int main() {
         auto lines = detectLines(binaryImage);
         auto combined_lines = combineAlignedLines(lines);
 
+
+        // cv::Mat outputImage = cv::Mat::zeros(HEIGHT, WIDTH, CV_8UC3);
+        // cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
+        // drawAllLines(combined_lines, outputImage, fmod(euler_data.h - initial_euler_data.h + 360.0f, 360.0f));
         
 
         challenge.update(combined_lines, euler_data.h, motorPercent, steeringPercent);
@@ -119,11 +161,20 @@ int main() {
         i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
-        if (DataSaver::saveLogData("log/logData2.bin", lidarScanData, accel_data, euler_data)) {
-            std::cout << "Log data saved to file successfully." << std::endl;
-        } else {
-            std::cerr << "Failed to save log data to file." << std::endl;
-        }
+        // if (DataSaver::saveLogData("log/logData2.bin", lidarScanData, accel_data, euler_data)) {
+        //     std::cout << "Log data saved to file successfully." << std::endl;
+        // } else {
+        //     std::cerr << "Failed to save log data to file." << std::endl;
+        // }
+
+
+
+        // cv::imshow("LIDAR Hough Lines", outputImage);
+
+        // char key = cv::waitKey(1);
+        // if (key == 'q') {
+        //     break;
+        // }
     }
 
     motorPercent = 0.0f;
