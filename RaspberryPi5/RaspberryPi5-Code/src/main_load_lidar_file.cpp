@@ -19,11 +19,11 @@ const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 // Draw all lines with different colors based on direction (NORTH, EAST, SOUTH, WEST)
 void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, double gyroYaw) {
     // Analyze the direction of each wall using the analyzeWallDirection function
-    std::vector<WallDirection> wallDirections = analyzeWallDirection(lines, gyroYaw, CENTER);
+    std::vector<Direction> wallDirections = analyzeWallDirection(lines, gyroYaw, CENTER);
 
     for (size_t i = 0; i < lines.size(); ++i) {
         cv::Vec4i line = lines[i];
-        WallDirection direction = wallDirections[i];  // Get the direction of the current line
+        Direction direction = wallDirections[i];  // Get the direction of the current line
 
         // Determine the color based on the direction
         cv::Scalar color;

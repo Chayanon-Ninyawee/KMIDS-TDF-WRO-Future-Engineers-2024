@@ -57,10 +57,9 @@ bool areLinesAligned(const cv::Vec4i& line1, const cv::Vec4i& line2, double angl
     double angle1 = calculateAngle(line1);
     double angle2 = calculateAngle(line2);
 
-    if (std::abs(angle1 - angle2) >= angleThreshold and std::abs(std::abs(angle1 - angle2) - 180) >= angleThreshold)
-  {
-    return false;
-  }
+    if (std::abs(angle1 - angle2) >= angleThreshold and std::abs(std::abs(angle1 - angle2) - 180) >= angleThreshold) {
+        return false;
+    }
 
     cv::Point2f start2(line2[0], line2[1]);
     cv::Point2f end2(line2[2], line2[3]);
@@ -73,7 +72,7 @@ bool areLinesAligned(const cv::Vec4i& line1, const cv::Vec4i& line2, double angl
     // Additional check: divide line2 into intermediate points and check collinearity
     int numIntermediatePoints = 10;  // You can adjust this based on your needs
     for (int i = 1; i < numIntermediatePoints; ++i) {
-        float t = float(i) / float(numIntermediatePoints - 1);  // Calculate a point along line2
+        float t = float(i) / float(numIntermediatePoints - 1);    // Calculate a point along line2
         cv::Point2f pointOnLine2 = start2 + t * (end2 - start2);  // Get the point along the line2 segment
 
         if (pointLinePerpendicularDistance(pointOnLine2, line1) <= collinearThreshold) {
@@ -177,8 +176,8 @@ std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double 
 }
 
 // Function to analyze the combined lines with gyro data and classify them as NORTH, EAST, SOUTH, WEST
-std::vector<WallDirection> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center) {
-    std::vector<WallDirection> wallDirections;
+std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center) {
+    std::vector<Direction> wallDirections;
 
     // Gyro yaw is assumed to be in degrees with 0° = NORTH, 90° = EAST, 180° = SOUTH, 270° = WEST
     // Adjust the combined line angles based on the gyro data.
@@ -186,11 +185,11 @@ std::vector<WallDirection> analyzeWallDirection(const std::vector<cv::Vec4i>& co
         double lineAngle = calculateAngle(line);  // Get the angle of the line
 
         // Determine if the line is more vertical (NORTH/SOUTH) or horizontal (EAST/WEST)
-        WallDirection direction;  // Default direction is NORTH
+        Direction direction;  // Default direction is NORTH
 
         bool isLineHorizontal = lineAngle < 45 || lineAngle >= 135;
 
-        WallDirection gyroDirection = NORTH;
+        Direction gyroDirection = NORTH;
         if (gyroYaw >= 0.0f && gyroYaw < 45.0f) {
             gyroDirection = NORTH;
         } else if (gyroYaw >= 45.0f && gyroYaw < 135.0f) {
@@ -276,4 +275,8 @@ std::vector<WallDirection> analyzeWallDirection(const std::vector<cv::Vec4i>& co
     }
 
     return wallDirections;
+}
+
+float convertLidarDistanceToActualDistance(int scale, double lidarDistance) {
+    return lidarDistance / (float)scale;
 }

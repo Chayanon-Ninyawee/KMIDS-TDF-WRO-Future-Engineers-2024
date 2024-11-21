@@ -6,12 +6,7 @@
 
 #include "lidarController.h"
 
-enum WallDirection {
-    NORTH,
-    EAST,
-    SOUTH,
-    WEST
-};
+#include "direction.h"
 
 // Converts LIDAR data to a grayscale OpenCV image for Hough Line detection
 cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int width, int height, float scale);
@@ -32,6 +27,8 @@ bool areLinesAligned(const cv::Vec4i& line1, const cv::Vec4i& line2, double angl
 std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double angleThreshold = 12.0, double collinearThreshold = 10.0);
 
 // Function to analyze the combined lines with gyro data and classify them as NORTH, EAST, SOUTH, WEST
-std::vector<WallDirection> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center);
+std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center);
+
+float convertLidarDistanceToActualDistance(int scale, double lidarDistance);
 
 #endif // LIDAR_DATA_PROCESSOR_H

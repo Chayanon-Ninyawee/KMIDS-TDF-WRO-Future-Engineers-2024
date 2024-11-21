@@ -46,6 +46,9 @@ file(GLOB MAIN_FILES "src/main_*.cpp")
 set(COMMON_SOURCES ${ALL_SOURCES})
 list(REMOVE_ITEM COMMON_SOURCES ${MAIN_FILES})
 
+add_executable(OpenChallenge src/main_openChallenge.cpp ${COMMON_SOURCES})
+target_link_libraries(OpenChallenge wiringPi pthread rt ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+
 add_executable(LidarTestV1 src/main_lidar_testv1.cpp ${COMMON_SOURCES})
 target_link_libraries(LidarTestV1 wiringPi pthread rt ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
 
