@@ -14,11 +14,17 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int
 // Detects lines using the Hough Transform
 std::vector<cv::Vec4i> detectLines(const cv::Mat &binaryImage);
 
+double lineLength(const cv::Vec4i& line);
+
 // Calculates the angle of a line in degrees
 double calculateAngle(const cv::Vec4i &line);
 
 // Calculates the perpendicular distance from a point to a line
 double pointLinePerpendicularDistance(const cv::Point2f& pt, const cv::Vec4i& line);
+
+double pointToLineSegmentDistance(const cv::Point2f& P, const cv::Vec4i& lineSegment);
+
+cv::Vec4i extendLine(const cv::Vec4i& line, double factor);
 
 // Checks if two lines are aligned and collinear within specified thresholds
 bool areLinesAligned(const cv::Vec4i& line1, const cv::Vec4i& line2, double angleThreshold, double collinearThreshold);

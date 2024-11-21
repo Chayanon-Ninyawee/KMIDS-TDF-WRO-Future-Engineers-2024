@@ -31,8 +31,12 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData>& data, int
 // Detect lines using Hough Transform
 std::vector<cv::Vec4i> detectLines(const cv::Mat& binaryImage) {
     std::vector<cv::Vec4i> lines;
-    cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 50, 50, 10);
+    cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 50, 50, 30);
     return lines;
+}
+
+double lineLength(const cv::Vec4i& line) {
+    return cv::norm(cv::Point(line[2], line[3]) - cv::Point(line[0], line[1]));
 }
 
 // Helper function to calculate the angle of a line in degrees
@@ -50,6 +54,50 @@ double pointLinePerpendicularDistance(const cv::Point2f& pt, const cv::Vec4i& li
     return std::abs((lineEnd.y - lineStart.y) * pt.x - (lineEnd.x - lineStart.x) * pt.y +
                     lineEnd.x * lineStart.y - lineEnd.y * lineStart.x) /
            lineLength;
+}
+
+double pointToLineSegmentDistance(const cv::Point2f& P, const cv::Vec4i& lineSegment) {
+    // Extract endpoints from the line segment
+    cv::Point2f A(lineSegment[0], lineSegment[1]);
+    cv::Point2f B(lineSegment[2], lineSegment[3]);
+
+    // Vector from A to P
+    cv::Point2f AP = P - A;
+    // Vector from A to B
+    cv::Point2f AB = B - A;
+
+    // Squared length of AB
+    double AB_squared = AB.dot(AB);
+
+    // Handle case where A and B are the same point
+    if (AB_squared == 0.0) {
+        return cv::norm(P - A);
+    }
+
+    // Projection factor of P onto AB
+    double t = AP.dot(AB) / AB_squared;
+
+    // Clamp t to the range [0, 1]
+    t = std::max(0.0, std::min(1.0, t));
+
+    // Closest point on the line segment to P
+    cv::Point2f closestPoint = A + t * AB;
+
+    // Distance from P to the closest point
+    return cv::norm(P - closestPoint);
+}
+
+cv::Vec4i extendLine(const cv::Vec4i& line, double factor) {
+    cv::Point2f A(line[0], line[1]); // Start point
+    cv::Point2f B(line[2], line[3]); // End point
+
+    cv::Point2f AB = B - A;          // Line vector
+    AB *= factor / cv::norm(AB);     // Scale vector by the factor
+
+    cv::Point2f newA = A - AB;       // Extend backward
+    cv::Point2f newB = B + AB;       // Extend forward
+
+    return cv::Vec4i(cvRound(newA.x), cvRound(newA.y), cvRound(newB.x), cvRound(newB.y));
 }
 
 // Check alignment and collinearity

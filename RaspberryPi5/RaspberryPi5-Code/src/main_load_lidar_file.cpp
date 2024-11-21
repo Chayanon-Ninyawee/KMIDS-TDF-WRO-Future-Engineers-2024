@@ -75,14 +75,63 @@ int main() {
 
         auto lines = detectLines(binaryImage);
         auto combined_lines = combineAlignedLines(lines);
-        drawAllLines(combined_lines, outputImage, fmod(eulerData.h - 259.0f + 360.0f, 360.0f));
+        drawAllLines(combined_lines, outputImage, fmod(eulerData.h - allEulerData[0].h + 360.0f, 360.0f));
+
+        cv::Mat dilatedBinaryImage = binaryImage.clone();
+
+        // Create a structuring element (kernel) of the specified size
+        cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(20, 20));
+
+        // Apply dilation to the binary image
+        cv::dilate(binaryImage, dilatedBinaryImage, kernel);
+
+        std::vector<std::vector<cv::Point>> contours;
+        cv::findContours(dilatedBinaryImage, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+
+        std::vector<cv::Point> pillarPoints;
+        for (const auto& contour : contours) {
+            double area = cv::contourArea(contour);
+
+            if (area >= 450 && area <= 700) {
+                cv::Moments moments = cv::moments(contour);
+
+                int centroidX = static_cast<int>(moments.m10 / moments.m00);
+                int centroidY = static_cast<int>(moments.m01 / moments.m00);
+
+                cv::Point point(centroidX, centroidY);
+
+                for (const auto& line : combined_lines) {
+                    cv::Vec4i extendedLine = extendLine(line, 1 + (30.0f / lineLength(line)));
+                    if (pointToLineSegmentDistance(point, extendedLine) > 40) {
+                        pillarPoints.push_back(point);
+                    }
+                }
+            }
+        }
+
+        for (const auto point : pillarPoints) {
+            cv::circle(outputImage, point, 10, cv::Scalar(255, 120, 255), cv::FILLED);
+        }
+
+        cv::circle(outputImage, CENTER, 10, cv::Scalar(0, 120, 255), cv::FILLED);
+
+        // cv::Mat noWallBinaryImage = binaryImage.clone();
+        // for (const auto& line : combined_lines) {
+        //     // Extract the start and end points from the cv::Vec4i line
+        //     cv::Point start(line[0], line[1]);
+        //     cv::Point end(line[2], line[3]);
+
+        //     // Draw a thick black line on the noWallBinaryImage
+        //     cv::line(noWallBinaryImage, start, end, cv::Scalar(0), 40);
+        // }
+        // cv::cvtColor(noWallBinaryImage, outputImage, cv::COLOR_GRAY2BGR);
 
         for (size_t i = 0; i < combined_lines.size(); ++i) {
             cv::Vec4i line = combined_lines[i];
             printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
         }
 
-        cv::imshow("LIDAR Hough Lines", im);
+        cv::imshow("LIDAR Hough Lines", outputImage);
 
         char key = cv::waitKey(100);
         if (key == 'q') {

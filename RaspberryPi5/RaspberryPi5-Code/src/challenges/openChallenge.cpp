@@ -2,11 +2,6 @@
 
 #include <algorithm>
 
-// Helper function to calculate line length
-float lineLength(const cv::Vec4i& line) {
-    return sqrt(pow(line[2] - line[0], 2) + pow(line[3] - line[1], 2));
-}
-
 // Find the longest line in a given group of walls
 cv::Vec4i findLongestLine(const std::vector<cv::Vec4i>& lines) {
     cv::Vec4i longestLine;
