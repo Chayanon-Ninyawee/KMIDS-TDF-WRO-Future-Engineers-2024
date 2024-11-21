@@ -17,10 +17,7 @@ const float SCALE = 180.0;
 const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
 // Draw all lines with different colors based on direction (NORTH, EAST, SOUTH, WEST)
-void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, double gyroYaw) {
-    // Analyze the direction of each wall using the analyzeWallDirection function
-    std::vector<Direction> wallDirections = analyzeWallDirection(lines, gyroYaw, CENTER);
-
+void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, const std::vector<Direction> &wallDirections) {
     for (size_t i = 0; i < lines.size(); ++i) {
         cv::Vec4i line = lines[i];
         Direction direction = wallDirections[i];  // Get the direction of the current line
@@ -73,50 +70,33 @@ int main() {
         cv::Mat outputImage = cv::Mat::zeros(HEIGHT, WIDTH, CV_8UC3);
         cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
 
+        auto angle = fmod(eulerData.h - allEulerData[0].h + 360.0f, 360.0f);
+
         auto lines = detectLines(binaryImage);
-        auto combined_lines = combineAlignedLines(lines);
-        drawAllLines(combined_lines, outputImage, fmod(eulerData.h - allEulerData[0].h + 360.0f, 360.0f));
+        auto combinedLines = combineAlignedLines(lines);
+        auto wallDirections = analyzeWallDirection(combinedLines, angle, CENTER);
 
-        cv::Mat dilatedBinaryImage = binaryImage.clone();
+        drawAllLines(outputImage, combinedLines, wallDirections);
 
-        // Create a structuring element (kernel) of the specified size
-        cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(20, 20));
+        
+        Direction direction = NORTH;
 
-        // Apply dilation to the binary image
-        cv::dilate(binaryImage, dilatedBinaryImage, kernel);
+        if (angle >= 337.5 || angle < 22.5) direction = NORTH;
+        else if (angle >= 22.5 && angle < 112.5) direction = EAST;
+        else if (angle >= 112.5 && angle < 202.5) direction = SOUTH;
+        else if (angle >= 202.5 && angle < 292.5) direction = WEST;
+        else direction = NORTH; // Handles wrap-around for safety
 
-        std::vector<std::vector<cv::Point>> contours;
-        cv::findContours(dilatedBinaryImage, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
 
-        std::vector<cv::Point> pillarPoints;
-        for (const auto& contour : contours) {
-            double area = cv::contourArea(contour);
-
-            if (area >= 450 && area <= 700) {
-                cv::Moments moments = cv::moments(contour);
-
-                int centroidX = static_cast<int>(moments.m10 / moments.m00);
-                int centroidY = static_cast<int>(moments.m01 / moments.m00);
-
-                cv::Point point(centroidX, centroidY);
-
-                for (const auto& line : combined_lines) {
-                    cv::Vec4i extendedLine = extendLine(line, 1 + (30.0f / lineLength(line)));
-                    if (pointToLineSegmentDistance(point, extendedLine) > 40) {
-                        pillarPoints.push_back(point);
-                    }
-                }
-            }
-        }
-
-        for (const auto point : pillarPoints) {
+        for (const auto point : trafficLightPoints) {
             cv::circle(outputImage, point, 10, cv::Scalar(255, 120, 255), cv::FILLED);
         }
 
         cv::circle(outputImage, CENTER, 10, cv::Scalar(0, 120, 255), cv::FILLED);
 
         // cv::Mat noWallBinaryImage = binaryImage.clone();
-        // for (const auto& line : combined_lines) {
+        // for (const auto& line : combinedLines) {
         //     // Extract the start and end points from the cv::Vec4i line
         //     cv::Point start(line[0], line[1]);
         //     cv::Point end(line[2], line[3]);
@@ -126,8 +106,8 @@ int main() {
         // }
         // cv::cvtColor(noWallBinaryImage, outputImage, cv::COLOR_GRAY2BGR);
 
-        for (size_t i = 0; i < combined_lines.size(); ++i) {
-            cv::Vec4i line = combined_lines[i];
+        for (size_t i = 0; i < combinedLines.size(); ++i) {
+            cv::Vec4i line = combinedLines[i];
             printf("Line: %d, (%d, %d), (%d, %d), angle: %.2f\n", i, line[0], line[1], line[2], line[3], calculateAngle(line));
         }
 

@@ -325,6 +325,52 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
     return wallDirections;
 }
 
+std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction) {
+    cv::Mat dilatedBinaryImage = binaryImage.clone();
+    cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(20, 20));
+    cv::dilate(binaryImage, dilatedBinaryImage, kernel);
+
+    std::vector<std::vector<cv::Point>> contours;
+    cv::findContours(dilatedBinaryImage, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
+
+    std::vector<cv::Point> trafficLightPoints;
+    for (const auto& contour : contours) {
+        double area = cv::contourArea(contour);
+
+        if (area >= 400 && area <= 750) {
+            cv::Moments moments = cv::moments(contour);
+
+            int centroidX = static_cast<int>(moments.m10 / moments.m00);
+            int centroidY = static_cast<int>(moments.m01 / moments.m00);
+
+            cv::Point point(centroidX, centroidY);
+
+            for (size_t i = 0; i < combinedLines.size(); ++i) {
+                cv::Vec4i line = combinedLines[i];
+                Direction wallDirection = wallDirections[i];
+
+                RelativeDirection outerWallRelativeDirection;
+                if (turnDirection == CLOCKWISE) {
+                    outerWallRelativeDirection = LEFT;
+                } else if (turnDirection == COUNTER_CLOCKWISE) {
+                    outerWallRelativeDirection = RIGHT;
+                } else {
+                    outerWallRelativeDirection = RIGHT;
+                }
+                if (wallDirection == calculateRelativeDirection(direction, FRONT) or wallDirection == calculateRelativeDirection(direction, outerWallRelativeDirection)) {
+                    double distance = pointToLineSegmentDistance(point, line);
+                    if (distance > 40 and distance < 140) {
+                        trafficLightPoints.push_back(point);
+                    }
+                }
+            }
+        }
+    }
+
+    return trafficLightPoints;
+}
+
+
 float convertLidarDistanceToActualDistance(int scale, double lidarDistance) {
     return lidarDistance / (float)scale;
 }

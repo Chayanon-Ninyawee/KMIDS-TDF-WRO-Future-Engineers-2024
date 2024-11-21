@@ -8,13 +8,6 @@
 #include "../utils/PIDController.cpp"
 
 
-enum TurnDirection {
-    CLOCKWISE,
-    COUNTER_CLOCKWISE,
-    UNKNOWN
-};
-
-
 class OpenChallenge {
 private:
     PIDController steeringPID = PIDController(0.009f, 0.0f, 0.0f);

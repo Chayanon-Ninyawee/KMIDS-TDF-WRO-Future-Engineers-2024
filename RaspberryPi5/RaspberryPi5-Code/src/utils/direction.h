@@ -19,6 +19,12 @@ enum RelativeDirection {
     RIGHT
 };
 
+enum TurnDirection {
+    CLOCKWISE,
+    COUNTER_CLOCKWISE,
+    UNKNOWN
+};
+
 // Function to calculate the new direction based on the current direction and relative move
 Direction calculateRelativeDirection(Direction currentDirection, RelativeDirection relativeMove);
 
