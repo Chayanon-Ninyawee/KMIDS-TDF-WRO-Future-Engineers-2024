@@ -13,6 +13,14 @@
 
 const uint8_t PICO_ADDRESS = 0x39;
 
+const int WIDTH = 1200;
+const int HEIGHT = 1200;
+const float SCALE = 180.0;
+
+float motorPercent = 0.0f;
+float steeringPercent = 0.0f;
+
+
 bool isRunning = true;
 
 void interuptHandler(int signum) {
@@ -82,14 +90,21 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    const int width = 1200;
-    const int height = 1200;
-    const float scale = 180.0;
-
     cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
     while (isRunning) {
         int64 start = cv::getTickCount();
+
+        // Send movement data via I2C
+        uint8_t movement[sizeof(motorPercent) + sizeof(steeringPercent)];
+
+        memcpy(movement, &motorPercent, sizeof(motorPercent));
+        memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
+        i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
+
+        bno055_accel_float_t accel_data;
+        bno055_euler_float_t euler_data;
+        i2c_master_read_bno055_accel_and_euler(fd, &accel_data, &euler_data);
 
         i2c_master_read_logs(fd, logs);
         i2c_master_print_logs(logs, sizeof(logs));
@@ -97,8 +112,8 @@ int main(int argc, char **argv) {
         auto lidarScanData = lidar.getScanData();
         // lidar.printScanData(lidarScanData);
 
-        cv::Mat binaryImage = lidarDataToImage(lidarScanData, width, height, scale);
-        cv::Mat outputImage = cv::Mat::zeros(height, width, CV_8UC3);
+        cv::Mat binaryImage = lidarDataToImage(lidarScanData, WIDTH, HEIGHT, SCALE);
+        cv::Mat outputImage = cv::Mat::zeros(HEIGHT, WIDTH, CV_8UC3);
         cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
 
         auto lines = detectLines(binaryImage);
