@@ -238,8 +238,12 @@ int main(int argc, char **argv) {
 
         cv::circle(outputImage, CENTER, 10, cv::Scalar(0, 120, 255), cv::FILLED);
 
-        cv::Mat filteredCameraImage = filterAllColors(cameraImage);
-        cv::imshow("LIDAR Hough Lines", filteredCameraImage);
+        // cv::Mat filteredCameraImage = filterAllColors(cameraImage);
+        auto cameraImageData = processImage(cameraImage);
+        cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
+
+
+        cv::imshow("LIDAR Hough Lines", processedImage);
 
 
 

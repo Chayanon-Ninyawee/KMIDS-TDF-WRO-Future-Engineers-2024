@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+const float CROP_PERCENT = 0.485;
+
 // Define constants for color ranges and minimum contour areas
 const cv::Scalar lowerBlueLine(100, 100, 150);
 const cv::Scalar upperBlueLine(140, 220, 220);
@@ -19,10 +21,19 @@ const cv::Scalar upperGreenLight(50, 190, 250);
 const cv::Scalar lowerPinkLight(165, 244, 200);
 const cv::Scalar upperPinkLight(171, 255, 255);
 
-const int minBlueLineArea = 500;
-const int minOrangeLineArea = 500;
+const int minBlueLineArea = 0;
+const int minOrangeLineArea = 0;
 const int minRedLineArea = 500;
 const int minGreenLineArea = 500;
+
+// Struct to store block data
+struct Block {
+    int x;
+    int y;
+    int lowestY;
+    int size;
+    cv::Scalar color;
+};
 
 // Struct to store the processing results
 struct ImageProcessingResult {
@@ -30,11 +41,7 @@ struct ImageProcessingResult {
     int blueLineSize;
     int orangeLineY;
     int orangeLineSize;
-    int closestBlockX;
-    int closestBlockY;
-    int closestBlockLowestY;
-    int closestBlockSize;
-    std::string closestBlockColor;
+    std::vector<Block> blocks;  // A vector to store block data
     int pinkX;
     int pinkY;
     int pinkSize;
@@ -49,5 +56,11 @@ ImageProcessingResult processImage(const cv::Mat &image);
 
 // New function declaration
 cv::Mat filterAllColors(const cv::Mat &image);
+
+float pixelToAngleInLidar(int pixelX, int imageWidth, float fov, float lidarCameraDistance);
+
+
+
+cv::Mat drawImageProcessingResult(const ImageProcessingResult &result, cv::Mat &image);
 
 #endif // IMAGE_PROCESSOR_H
