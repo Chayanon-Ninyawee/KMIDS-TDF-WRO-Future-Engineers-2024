@@ -201,7 +201,7 @@ int main() {
         i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
-        if (DataSaver::saveLogData("log/logData2.bin", lidarScanData, accel_data, euler_data, im)) {
+        if (DataSaver::saveLogData("log/logData3.bin", lidarScanData, accel_data, euler_data, im)) {
             std::cout << "Log data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save log data to file." << std::endl;

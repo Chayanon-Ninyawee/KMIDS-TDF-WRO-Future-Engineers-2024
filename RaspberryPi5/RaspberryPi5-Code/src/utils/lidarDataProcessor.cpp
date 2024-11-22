@@ -31,7 +31,7 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData>& data, int
 // Detect lines using Hough Transform
 std::vector<cv::Vec4i> detectLines(const cv::Mat& binaryImage) {
     std::vector<cv::Vec4i> lines;
-    cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 50, 50, 30);
+    cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 20, 60, 30);
     return lines;
 }
 
@@ -337,7 +337,7 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
     for (const auto& contour : contours) {
         double area = cv::contourArea(contour);
 
-        if (area >= 400 && area <= 750) {
+        if (area >= 400 && area <= 900) {
             cv::Moments moments = cv::moments(contour);
 
             int centroidX = static_cast<int>(moments.m10 / moments.m00);
@@ -345,6 +345,8 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
 
             cv::Point point(centroidX, centroidY);
 
+            double frontDistance = 0;
+            double outerDistance = 0;
             for (size_t i = 0; i < combinedLines.size(); ++i) {
                 cv::Vec4i line = combinedLines[i];
                 Direction wallDirection = wallDirections[i];
@@ -357,13 +359,20 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
                 } else {
                     outerWallRelativeDirection = RIGHT;
                 }
-                if (wallDirection == calculateRelativeDirection(direction, FRONT) or wallDirection == calculateRelativeDirection(direction, outerWallRelativeDirection)) {
-                    double distance = pointToLineSegmentDistance(point, line);
-                    if (distance > 40 and distance < 140) {
-                        trafficLightPoints.push_back(point);
-                    }
+                if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
+                    frontDistance = pointLinePerpendicularDistance(point, line);
+                } else if (wallDirection == calculateRelativeDirection(direction, outerWallRelativeDirection)) {
+                    outerDistance = pointLinePerpendicularDistance(point, line);
                 }
             }
+
+            const double outerEdge = 40;
+            const double innerEdge = 140;
+
+            if (frontDistance < outerEdge or outerDistance < outerEdge) continue;
+            if (frontDistance > innerEdge and outerDistance > innerEdge) continue;
+
+            trafficLightPoints.push_back(point);
         }
     }
 
