@@ -26,13 +26,21 @@ const int minOrangeLineArea = 0;
 const int minRedLineArea = 500;
 const int minGreenLineArea = 500;
 
+enum Color {
+    BLUE,
+    ORANGE,
+    RED,
+    GREEN,
+    PINK
+};
+
 // Struct to store block data
 struct Block {
     int x;
     int y;
     int lowestY;
     int size;
-    cv::Scalar color;
+    Color color;
 };
 
 // Struct to store the processing results
@@ -57,7 +65,9 @@ ImageProcessingResult processImage(const cv::Mat &image);
 // New function declaration
 cv::Mat filterAllColors(const cv::Mat &image);
 
-float pixelToAngleInLidar(int pixelX, int imageWidth, float fov, float lidarCameraDistance);
+
+
+float pixelToAngle(int pixelX, int imageWidth, int centerOffset, float fov);
 
 
 

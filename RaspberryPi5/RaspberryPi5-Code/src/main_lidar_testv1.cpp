@@ -55,6 +55,20 @@ void onMouse(int event, int x, int y, int flags, void* userdata) {
 
 
 
+void drawRadialLines(cv::Mat &image, const cv::Point &center, float angle, int length, cv::Scalar color, int thickness = 1) {
+    // Convert angle to radians
+    double theta = angle * CV_PI / 180.0;
+
+    // Calculate the end point of the line
+    int endX = static_cast<int>(center.x + length * std::sin(theta));
+    int endY = static_cast<int>(center.y - length * std::cos(theta));
+
+    // Draw the line from the center to the end point
+    cv::line(image, center, cv::Point(endX, endY), color, thickness);
+}
+
+
+
 
 
 
@@ -200,12 +214,13 @@ int main(int argc, char **argv) {
         // lidar.printScanData(lidarScanData);
 
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, LIDAR_WIDTH, LIDAR_HEIGHT, LIDAR_SCALE);
-        cv::Mat outputImage = cv::Mat::zeros(LIDAR_HEIGHT, LIDAR_WIDTH, CV_8UC3);
-        cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
+        cv::Mat lidarOutputImage = cv::Mat::zeros(LIDAR_HEIGHT, LIDAR_WIDTH, CV_8UC3);
+        cv::cvtColor(binaryImage, lidarOutputImage, cv::COLOR_GRAY2BGR);
 
 
 
-        auto angle = fmod(eulerData.h - initialEulerData.h + 360.0f, 360.0f);
+        // auto angle = fmod(eulerData.h - initialEulerData.h + 360.0f, 360.0f);
+        float angle = 0.0;
 
 
 
@@ -213,7 +228,7 @@ int main(int argc, char **argv) {
         auto combinedLines = combineAlignedLines(lines);
         auto wallDirections = analyzeWallDirection(combinedLines, angle, CENTER);
 
-        drawAllLines(outputImage, combinedLines, wallDirections);
+        drawAllLines(lidarOutputImage, combinedLines, wallDirections);
 
 
 
@@ -233,19 +248,31 @@ int main(int argc, char **argv) {
 
 
         for (const auto point : trafficLightPoints) {
-            cv::circle(outputImage, point, 5, cv::Scalar(255, 120, 255), cv::FILLED);
+            cv::circle(lidarOutputImage, point, 5, cv::Scalar(255, 120, 255), cv::FILLED);
         }
 
-        cv::circle(outputImage, CENTER, 10, cv::Scalar(0, 120, 255), cv::FILLED);
+        cv::circle(lidarOutputImage, CENTER, 10, cv::Scalar(0, 120, 255), cv::FILLED);
 
         // cv::Mat filteredCameraImage = filterAllColors(cameraImage);
         auto cameraImageData = processImage(cameraImage);
         cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
 
+        
+        for (Block block : cameraImageData.blocks) {
+            float blockAngle = pixelToAngle(block.x, camWidth, 90, 65.0f);
+            cv::Scalar color;
+            if (block.color == RED) {
+                color = cv::Scalar(0, 0, 255);
+            } else {
+                color = cv::Scalar(0, 255, 0);
+            }
 
-        cv::imshow("LIDAR Hough Lines", processedImage);
+            drawRadialLines(lidarOutputImage, CENTER, blockAngle, 800, color, 2);
+            // printf("color: %d, blockAngle: %.2f\n", block.color, blockAngle);
+        }
 
 
+        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
 
 
 

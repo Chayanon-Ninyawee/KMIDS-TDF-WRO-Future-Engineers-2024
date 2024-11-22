@@ -85,14 +85,14 @@ ImageProcessingResult processImage(const cv::Mat &image) {
     for (const auto &contour : contoursRed) {
         if (cv::contourArea(contour) > minRedLineArea) {
             auto [centroid, area, lowestPoint] = getCentroidAndArea(contour);
-            redBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), cv::Scalar(0, 0, 255)});
+            redBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), RED});
         }
     }
 
     for (const auto &contour : contoursGreen) {
         if (cv::contourArea(contour) > minGreenLineArea) {
             auto [centroid, area, lowestPoint] = getCentroidAndArea(contour);
-            greenBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), cv::Scalar(0, 255, 0)});
+            greenBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), GREEN});
         }
     }
 
@@ -165,33 +165,10 @@ cv::Mat filterAllColors(const cv::Mat &image) {
 }
 
 
-float pixelToAngleInLidar(int pixelX, int imageWidth, float fov, float lidarCameraDistance) {
-    const float DEG_TO_RAD = CV_PI / 180.0f;
-    const float RAD_TO_DEG = 180.0f / CV_PI;
-
-    float centerX = imageWidth / 2.0f;               // Center of the image
-    float anglePerPixel = fov / imageWidth;         // Angular resolution per pixel
-    float originalAngle = (pixelX - centerX) * anglePerPixel; // Original angle in degrees
-
-    // Convert to radians for calculation
-    float theta = originalAngle * DEG_TO_RAD;
-
-    // Assume a normalized focal length (you can adjust if needed)
-    float focalLength = 1.0f;
-
-    // Adjust angle based on the virtual camera position
-    float tanTheta = std::tan(theta);
-    float tanPhi = tanTheta * focalLength / (focalLength - lidarCameraDistance * tanTheta);
-
-    float phi = std::atan(tanPhi); // Adjusted angle in radians
-
-    // Convert back to degrees and wrap if negative
-    float adjustedAngle = phi * RAD_TO_DEG;
-    if (adjustedAngle < 0) {
-        adjustedAngle += 360.0f;
-    }
-
-    return adjustedAngle;
+float pixelToAngle(int pixelX, int imageWidth, int centerOffset, float fov) {
+    float centerX = imageWidth / 2.0f + centerOffset; // Center of the image
+    float anglePerPixel = fov / imageWidth; // Angular resolution per pixel
+    return (pixelX - centerX) * anglePerPixel; // Calculate the angle
 }
 
 
@@ -218,15 +195,22 @@ cv::Mat drawImageProcessingResult(const ImageProcessingResult &result, cv::Mat &
 
     // Draw blocks (red and green)
     for (const auto &block : result.blocks) {
-        cv::circle(outputImage, cv::Point(block.x, block.y), 5, block.color, -1);
+        cv::Scalar color;
+        if (block.color == RED) {
+            color = cv::Scalar(0, 0, 255);
+        } else {
+            color = cv::Scalar(0, 255, 0);
+        }
+
+        cv::circle(outputImage, cv::Point(block.x, block.y), 5, color, -1);
         cv::putText(outputImage, 
                     "Size: " + std::to_string(block.size), 
                     cv::Point(block.x + 10, block.y - 10), 
-                    cv::FONT_HERSHEY_SIMPLEX, 0.4, block.color, 1);
+                    cv::FONT_HERSHEY_SIMPLEX, 0.4, color, 1);
         cv::putText(outputImage, 
                     "Lowest Y: " + std::to_string(block.lowestY), 
                     cv::Point(block.x + 10, block.y + 10), 
-                    cv::FONT_HERSHEY_SIMPLEX, 0.4, block.color, 1);
+                    cv::FONT_HERSHEY_SIMPLEX, 0.4, color, 1);
     }
 
     // Draw pink region information
