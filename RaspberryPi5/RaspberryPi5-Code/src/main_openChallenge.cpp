@@ -32,8 +32,8 @@ const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
 
 LibCamera cam;
-uint32_t camWidth = 1024;
-uint32_t camHeight = 576;
+uint32_t camWidth = 1280;
+uint32_t camHeight = 720;
 uint32_t camStride;
 
 
@@ -159,7 +159,7 @@ int main() {
     bno055_euler_float_t initial_euler_data;
     i2c_master_read_bno055_accel_and_euler(fd, &initial_accel_data, &initial_euler_data);
 
-    OpenChallenge challenge = OpenChallenge (LIDAR_SCALE, CENTER, initial_euler_data.h);
+    OpenChallenge challenge = OpenChallenge (LIDAR_SCALE, CENTER, fmod(initial_euler_data.h + 6.0f + 360.0f, 360.0f));
 
     while (isRunning) {
         flag = cam.readFrame(&frameData);
@@ -201,7 +201,7 @@ int main() {
         i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
-        if (DataSaver::saveLogData("log/logData3.bin", lidarScanData, accel_data, euler_data, im)) {
+        if (DataSaver::saveLogData("log/logData4.bin", lidarScanData, accel_data, euler_data, im)) {
             std::cout << "Log data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save log data to file." << std::endl;

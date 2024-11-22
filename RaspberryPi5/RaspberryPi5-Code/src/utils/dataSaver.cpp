@@ -118,7 +118,7 @@ bool loadLogData(const std::string& filePath,
                  std::vector<std::vector<lidarController::NodeData>>& allScanData, 
                  std::vector<bno055_accel_float_t>& allAccelData, 
                  std::vector<bno055_euler_float_t>& allEulerData, 
-                 std::vector<cv::Mat>& allImages) {
+                 std::vector<cv::Mat>& allCameraImage) {
     std::ifstream file(filePath, std::ios::binary);
     if (!file.is_open()) {
         std::cerr << "Failed to open file for loading log data: " << filePath << std::endl;
@@ -128,7 +128,7 @@ bool loadLogData(const std::string& filePath,
     allScanData.clear();
     allAccelData.clear();
     allEulerData.clear();
-    allImages.clear();
+    allCameraImage.clear();
 
     // Read data chunks
     while (file) {
@@ -169,7 +169,7 @@ bool loadLogData(const std::string& filePath,
         allScanData.push_back(std::move(scanData));
         allAccelData.push_back(accel_data);
         allEulerData.push_back(euler_data);
-        allImages.push_back(image);
+        allCameraImage.push_back(image);
     }
 
     return true;

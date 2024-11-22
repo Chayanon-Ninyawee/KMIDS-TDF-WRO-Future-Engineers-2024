@@ -60,35 +60,33 @@ double pointLinePerpendicularDistance(const cv::Point2f& pt, const cv::Vec4i& li
            lineLength;
 }
 
-double pointToLineSegmentDistance(const cv::Point2f& P, const cv::Vec4i& lineSegment) {
-    // Extract endpoints from the line segment
-    cv::Point2f A(lineSegment[0], lineSegment[1]);
-    cv::Point2f B(lineSegment[2], lineSegment[3]);
+double pointLinePerpendicularDirection(const cv::Point2f& pt, const cv::Vec4i& line) {
+    // Extract line endpoints
+    cv::Point2f lineStart(line[0], line[1]);
+    cv::Point2f lineEnd(line[2], line[3]);
 
-    // Vector from A to P
-    cv::Point2f AP = P - A;
-    // Vector from A to B
-    cv::Point2f AB = B - A;
+    // Compute the direction vector of the line
+    cv::Point2f lineVec = lineEnd - lineStart;
 
-    // Squared length of AB
-    double AB_squared = AB.dot(AB);
+    // Compute the perpendicular vector to the line
+    cv::Point2f perpVec(-lineVec.y, lineVec.x); // Rotate by 90 degrees counterclockwise
 
-    // Handle case where A and B are the same point
-    if (AB_squared == 0.0) {
-        return cv::norm(P - A);
+    // Compute the vector from the line to the point
+    cv::Point2f pointVec = pt - lineStart;
+
+    // Determine the relative direction (dot product)
+    double dot = pointVec.x * perpVec.x + pointVec.y * perpVec.y;
+
+    // Determine the angle of the perpendicular vector (atan2 returns in radians)
+    double angle = std::atan2(perpVec.y, perpVec.x) * 180.0 / CV_PI;
+
+    // Normalize the angle to 0–360 degrees
+    if (dot < 0) {
+        angle += 180.0; // Flip direction if the point is on the other side
     }
+    angle = std::fmod(angle + 360.0, 360.0);
 
-    // Projection factor of P onto AB
-    double t = AP.dot(AB) / AB_squared;
-
-    // Clamp t to the range [0, 1]
-    t = std::max(0.0, std::min(1.0, t));
-
-    // Closest point on the line segment to P
-    cv::Point2f closestPoint = A + t * AB;
-
-    // Distance from P to the closest point
-    return cv::norm(P - closestPoint);
+    return angle;
 }
 
 cv::Vec4i extendLine(const cv::Vec4i& line, double factor) {
@@ -234,93 +232,17 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
     // Gyro yaw is assumed to be in degrees with 0° = NORTH, 90° = EAST, 180° = SOUTH, 270° = WEST
     // Adjust the combined line angles based on the gyro data.
     for (const auto& line : combinedLines) {
-        double lineAngle = calculateAngle(line);  // Get the angle of the line
+        // double lineAngle = calculateAngle(line);
+        double perpendicularLineDirection = pointLinePerpendicularDirection(center, line);
 
-        // Determine if the line is more vertical (NORTH/SOUTH) or horizontal (EAST/WEST)
-        Direction direction;  // Default direction is NORTH
+        // double relativeLineAngle = fmod(lineAngle + gyroYaw + 360.0f, 360.0f);
+        double relativePerpendicularLineDirection = fmod(perpendicularLineDirection + gyroYaw - 90.0f + 360.0f, 360.0f);
 
-        bool isLineHorizontal = lineAngle < 45 || lineAngle >= 135;
-
-        Direction gyroDirection = NORTH;
-        if (gyroYaw >= 0.0f && gyroYaw < 45.0f) {
-            gyroDirection = NORTH;
-        } else if (gyroYaw >= 45.0f && gyroYaw < 135.0f) {
-            gyroDirection = EAST;
-        } else if (gyroYaw >= 135.0f && gyroYaw < 225.0f) {
-            gyroDirection = SOUTH;
-        } else if (gyroYaw >= 225.0f && gyroYaw < 315.0f) {
-            gyroDirection = WEST;
-        }
-
-        // Check if the line is in the front, back, left, or right of the robot
-        // Using the line's midpoint for classification
-        cv::Point midpoint((line[0] + line[2]) / 2, (line[1] + line[3]) / 2);
-
-        if (isLineHorizontal) {
-            if (midpoint.y < center.y) {
-                switch (gyroDirection) {
-                    case NORTH:
-                        direction = NORTH;
-                        break;
-                    case EAST:
-                        direction = EAST;
-                        break;
-                    case SOUTH:
-                        direction = SOUTH;
-                        break;
-                    case WEST:
-                        direction = WEST;
-                        break;
-                }
-            } else {
-                switch (gyroDirection) {
-                    case NORTH:
-                        direction = SOUTH;
-                        break;
-                    case EAST:
-                        direction = WEST;
-                        break;
-                    case SOUTH:
-                        direction = NORTH;
-                        break;
-                    case WEST:
-                        direction = EAST;
-                        break;
-                }
-            }
-        } else {
-            if (midpoint.x > center.x) {
-                switch (gyroDirection) {
-                    case NORTH:
-                        direction = EAST;
-                        break;
-                    case EAST:
-                        direction = SOUTH;
-                        break;
-                    case SOUTH:
-                        direction = WEST;
-                        break;
-                    case WEST:
-                        direction = NORTH;
-                        break;
-                }
-            } else {
-                switch (gyroDirection) {
-                    case NORTH:
-                        direction = WEST;
-                        break;
-                    case EAST:
-                        direction = NORTH;
-                        break;
-                    case SOUTH:
-                        direction = EAST;
-                        break;
-                    case WEST:
-                        direction = SOUTH;
-                        break;
-                }
-            }
-        }
+        Direction direction = NORTH;
+        if (relativePerpendicularLineDirection >= 315 || relativePerpendicularLineDirection < 45) direction = NORTH;
+        else if (relativePerpendicularLineDirection >= 45 && relativePerpendicularLineDirection < 135) direction = EAST;
+        else if (relativePerpendicularLineDirection >= 135 && relativePerpendicularLineDirection < 225) direction = SOUTH;
+        else if (relativePerpendicularLineDirection >= 225 && relativePerpendicularLineDirection < 315) direction = WEST;
 
         // Add the classified direction to the list
         wallDirections.push_back(direction);
@@ -341,7 +263,7 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
     for (const auto& contour : contours) {
         double area = cv::contourArea(contour);
 
-        if (area >= 400 && area <= 900) {
+        if (area >= 300 && area <= 1400) {
             cv::Moments moments = cv::moments(contour);
 
             int centroidX = static_cast<int>(moments.m10 / moments.m00);

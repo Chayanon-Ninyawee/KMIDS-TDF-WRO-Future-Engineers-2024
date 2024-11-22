@@ -24,6 +24,8 @@ double calculateAngle(const cv::Vec4i &line);
 // Calculates the perpendicular distance from a point to a line
 double pointLinePerpendicularDistance(const cv::Point2f& pt, const cv::Vec4i& line);
 
+double pointLinePerpendicularDirection(const cv::Point2f& pt, const cv::Vec4i& line);
+
 double pointToLineSegmentDistance(const cv::Point2f& P, const cv::Vec4i& lineSegment);
 
 cv::Vec4i extendLine(const cv::Vec4i& line, double factor);

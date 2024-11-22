@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-const float CROP_PERCENT = 0.485;
+const float CROP_PERCENT = 0.50;
 
 // Define constants for color ranges and minimum contour areas
 const cv::Scalar lowerBlueLine(100, 100, 150);
@@ -16,13 +16,13 @@ const cv::Scalar lowerRed1Light(0, 180, 200);
 const cv::Scalar upperRed1Light(1, 220, 255);
 const cv::Scalar lowerRed2Light(177, 180, 200);
 const cv::Scalar upperRed2Light(180, 255, 255);
-const cv::Scalar lowerGreenLight(27, 70, 90);
+const cv::Scalar lowerGreenLight(34, 70, 90);
 const cv::Scalar upperGreenLight(50, 190, 250);
 const cv::Scalar lowerPinkLight(165, 244, 200);
 const cv::Scalar upperPinkLight(171, 255, 255);
 
-const int minBlueLineArea = 0;
-const int minOrangeLineArea = 0;
+const int minBlueLineArea = 150;
+const int minOrangeLineArea = 150;
 const int minRedLineArea = 500;
 const int minGreenLineArea = 500;
 

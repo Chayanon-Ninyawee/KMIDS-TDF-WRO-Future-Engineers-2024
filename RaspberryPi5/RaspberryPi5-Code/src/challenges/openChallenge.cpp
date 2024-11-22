@@ -39,7 +39,7 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
     auto wallDirections = analyzeWallDirection(combined_lines, relativeYaw, center);
 
     float frontWallDistance = OpenChallenge::FRONT_WALL_DISTANCE_TURN_THRESHOLD + 0.1;
-    float innerWallDistance = OpenChallenge::INNER_WALL_DISTANCE;
+    float outerWallDistance = OpenChallenge::OUTER_WALL_DISTANCE;
 
     std::vector<cv::Vec4i> frontWalls;
     std::vector<cv::Vec4i> innerWalls;
@@ -78,9 +78,9 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
         frontWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestFrontWall));
     }
 
-    if (!innerWalls.empty()) {
-        cv::Vec4i longestInnerWall = findLongestLine(innerWalls);
-        innerWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestInnerWall));
+    if (!outerWalls.empty()) {
+        cv::Vec4i longestOuterWall = findLongestLine(outerWalls);
+        outerWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestOuterWall));
     }
 
     if (frontWallDistance <= FRONT_WALL_DISTANCE_TURN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
@@ -95,7 +95,7 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
     }
 
 
-    float headingCorrection = wallDistancePID.calculate(INNER_WALL_DISTANCE - innerWallDistance, deltaTime);
+    float headingCorrection = wallDistancePID.calculate(-(OUTER_WALL_DISTANCE - outerWallDistance), deltaTime);
     headingCorrection = std::max(std::min(headingCorrection, MAX_HEADING_ERROR), -MAX_HEADING_ERROR);
 
     desiredYaw += headingCorrection;
@@ -104,7 +104,7 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
     motorPercent = 0.40;
     steeringPercent = steeringPID.calculate(fmod(desiredYaw - relativeYaw + 360.0f + 180.0f, 360.0f) - 180.0f, deltaTime);
 
-    printf("SteeringPercent: %.3f, relativeYaw: %.3f, frontWallDistance: %.3f, innerWallDistance: %.3f\n", steeringPercent, relativeYaw, frontWallDistance, innerWallDistance);
+    printf("SteeringPercent: %.3f, relativeYaw: %.3f, frontWallDistance: %.3f, outerWallDistance: %.3f\n", steeringPercent, relativeYaw, frontWallDistance, outerWallDistance);
 
     lastUpdateTime = currentTime;
 }

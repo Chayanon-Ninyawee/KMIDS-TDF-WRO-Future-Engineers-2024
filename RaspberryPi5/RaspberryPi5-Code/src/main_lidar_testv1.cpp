@@ -160,12 +160,17 @@ int main(int argc, char **argv) {
 
 
 
+
+
     // Set up Lidar
 
     lidarController::LidarController lidar;
     if (!lidar.initialize() || !lidar.startScanning()) {
         return -1;
     }
+
+
+
 
 
 
@@ -178,9 +183,19 @@ int main(int argc, char **argv) {
     printf("Press Any Key to Start\n");  
     getchar();
 
+
+
+
+
     bno055_accel_float_t initialAccelData;
     bno055_euler_float_t initialEulerData;
     i2c_master_read_bno055_accel_and_euler(fd, &initialAccelData, &initialEulerData);
+
+
+
+
+
+
 
     int64 start = cv::getTickCount();
     while (isRunning) {
@@ -191,13 +206,6 @@ int main(int argc, char **argv) {
 
         cv::Mat cameraImage(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
         cam.returnFrameBuffer(frameData);
-
-
-        uint8_t movement[sizeof(motorPercent) + sizeof(steeringPercent)];
-
-        memcpy(movement, &motorPercent, sizeof(motorPercent));
-        memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
-        i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
         bno055_accel_float_t accelData;
@@ -301,8 +309,11 @@ int main(int argc, char **argv) {
 
 
 
+        uint8_t movement[sizeof(motorPercent) + sizeof(steeringPercent)];
 
-
+        memcpy(movement, &motorPercent, sizeof(motorPercent));
+        memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
+        i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
         char key = cv::waitKey(1);
