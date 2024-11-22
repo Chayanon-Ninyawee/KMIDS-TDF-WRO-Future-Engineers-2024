@@ -12,32 +12,10 @@
 
 const int WIDTH = 1200;
 const int HEIGHT = 1200;
-const float SCALE = 180.0;
+const float LIDAR_SCALE = 180.0;
 
 const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
-// Draw all lines with different colors based on direction (NORTH, EAST, SOUTH, WEST)
-void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, const std::vector<Direction> &wallDirections) {
-    for (size_t i = 0; i < lines.size(); ++i) {
-        cv::Vec4i line = lines[i];
-        Direction direction = wallDirections[i];  // Get the direction of the current line
-
-        // Determine the color based on the direction
-        cv::Scalar color;
-        if (direction == NORTH) {
-            color = cv::Scalar(0, 0, 255); // Red for NORTH
-        } else if (direction == EAST) {
-            color = cv::Scalar(0, 255, 0); // Green for EAST
-        } else if (direction == SOUTH) {
-            color = cv::Scalar(255, 0, 0); // Blue for SOUTH
-        } else if (direction == WEST) {
-            color = cv::Scalar(255, 255, 0); // Yellow for WEST
-        }
-
-        // Draw the line with the determined color
-        cv::line(outputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 2, cv::LINE_AA);
-    }
-}
 
 
 int main() {
@@ -66,7 +44,7 @@ int main() {
         printf("Euler - H: %f, R: %f, P: %f\n", eulerData.h, eulerData.r, eulerData.p);
 
 
-        cv::Mat binaryImage = lidarDataToImage(allScanData[i], WIDTH, HEIGHT, SCALE);
+        cv::Mat binaryImage = lidarDataToImage(allScanData[i], WIDTH, HEIGHT, LIDAR_SCALE);
         cv::Mat outputImage = cv::Mat::zeros(HEIGHT, WIDTH, CV_8UC3);
         cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
 

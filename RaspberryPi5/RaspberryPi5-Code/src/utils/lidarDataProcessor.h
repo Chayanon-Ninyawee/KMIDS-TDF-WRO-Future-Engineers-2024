@@ -11,6 +11,8 @@
 // Converts LIDAR data to a grayscale OpenCV image for Hough Line detection
 cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int width, int height, float scale);
 
+float convertLidarDistanceToActualDistance(int scale, double lidarDistance);
+
 // Detects lines using the Hough Transform
 std::vector<cv::Vec4i> detectLines(const cv::Mat &binaryImage);
 
@@ -38,5 +40,7 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
 std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction);
 
 float convertLidarDistanceToActualDistance(int scale, double lidarDistance);
+
+void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, const std::vector<Direction> &wallDirections);
 
 #endif // LIDAR_DATA_PROCESSOR_H

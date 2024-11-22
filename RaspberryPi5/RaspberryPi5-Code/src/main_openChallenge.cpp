@@ -26,7 +26,7 @@ float steeringPercent = 0.0f;
 
 const int WIDTH = 1200;
 const int HEIGHT = 1200;
-const float SCALE = 180.0;
+const float LIDAR_SCALE = 180.0;
 
 const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
@@ -159,7 +159,7 @@ int main() {
     bno055_euler_float_t initial_euler_data;
     i2c_master_read_bno055_accel_and_euler(fd, &initial_accel_data, &initial_euler_data);
 
-    OpenChallenge challenge = OpenChallenge (SCALE, CENTER, initial_euler_data.h);
+    OpenChallenge challenge = OpenChallenge (LIDAR_SCALE, CENTER, initial_euler_data.h);
 
     while (isRunning) {
         flag = cam.readFrame(&frameData);
@@ -179,7 +179,7 @@ int main() {
         i2c_master_print_logs(logs, sizeof(logs));
 
         auto lidarScanData = lidar.getScanData();
-        cv::Mat binaryImage = lidarDataToImage(lidarScanData, WIDTH, HEIGHT, SCALE);
+        cv::Mat binaryImage = lidarDataToImage(lidarScanData, WIDTH, HEIGHT, LIDAR_SCALE);
         auto lines = detectLines(binaryImage);
         auto combined_lines = combineAlignedLines(lines);
 

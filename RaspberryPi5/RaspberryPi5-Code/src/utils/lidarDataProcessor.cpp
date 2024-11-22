@@ -28,6 +28,10 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData>& data, int
     return image;
 }
 
+float convertLidarDistanceToActualDistance(int scale, double lidarDistance) {
+    return lidarDistance / (float)scale;
+}
+
 // Detect lines using Hough Transform
 std::vector<cv::Vec4i> detectLines(const cv::Mat& binaryImage) {
     std::vector<cv::Vec4i> lines;
@@ -380,6 +384,24 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
 }
 
 
-float convertLidarDistanceToActualDistance(int scale, double lidarDistance) {
-    return lidarDistance / (float)scale;
+void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, const std::vector<Direction> &wallDirections) {
+    for (size_t i = 0; i < lines.size(); ++i) {
+        cv::Vec4i line = lines[i];
+        Direction direction = wallDirections[i];  // Get the direction of the current line
+
+        // Determine the color based on the direction
+        cv::Scalar color;
+        if (direction == NORTH) {
+            color = cv::Scalar(0, 0, 255); // Red for NORTH
+        } else if (direction == EAST) {
+            color = cv::Scalar(0, 255, 0); // Green for EAST
+        } else if (direction == SOUTH) {
+            color = cv::Scalar(255, 0, 0); // Blue for SOUTH
+        } else if (direction == WEST) {
+            color = cv::Scalar(255, 255, 0); // Yellow for WEST
+        }
+
+        // Draw the line with the determined color
+        cv::line(outputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 2, cv::LINE_AA);
+    }
 }
