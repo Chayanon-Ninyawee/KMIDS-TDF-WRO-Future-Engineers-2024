@@ -25,10 +25,5 @@ This is a repository for KMIDS Thermodynamically Favorable this project, we aim 
 
 ## Performance video
 Our video demonstrating our robot can be found [here](https://youtu.be/9CfIpZZZoUU?si=juIyMaRLtTwPCz_5)
-
-## 3D Model
-
-Our 3D model is made and designed in FreeCAD from the [realthunder](https://github.com/realthunder/FreeCAD/releases) version which is free open source CAD software that allows a wide range of developers to access the field of 3D modeling. Our 3D model can be viewed in `KMIDS-TDF-WRO2024-FreeCAD` when opening `MainAssembly`. We use `creality Ender-3 V3` to print the chassis of our robot but other printer should also work just fine.
-
 ## Design Journey
 When designing the robot, our first consideration was its parking strategy. This is a crucial decision, as we had to choose between having the robot reverse into a wall or perform a parallel parking maneuver. Next, we focused on optimizing the robot's turning angle to ensure it could avoid obstacles effectively by maximizing its range of motion. Following that, we moved on to designing the chassis and determining the optimal placement for the various electronic components. A significant challenge during this stage was the limitation of our RPLIDAR C1 sensor, which must be positioned at a precise height to detect the wall properly. Finally, the prototyping phase proved to be the most challenging. We repeatedly faced issues with 3D printing, as the actual printed parts often deviated from the original design, requiring constant adjustments and refinements to achieve the desired results.
