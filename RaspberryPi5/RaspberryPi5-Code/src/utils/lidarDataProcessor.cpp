@@ -284,7 +284,7 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
                 else if (gyroYaw >= 135 && gyroYaw < 225) direction = SOUTH;
                 else if (gyroYaw >= 225 && gyroYaw < 315) direction = WEST;
 
-                RelativeDirection outerWallRelativeDirection;
+                RelativeDirection outerWallRelativeDirection; // TODO: Change this to left and right wall
                 if (turnDirection == CLOCKWISE) {
                     outerWallRelativeDirection = LEFT;
                 } else if (turnDirection == COUNTER_CLOCKWISE) {
@@ -391,12 +391,13 @@ TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLin
             leftHigher = leftEnd;
         }
 
-        if (leftHigher.x + 30 < frontLefter.x) {
-            if (leftHigher.x < 120) return TurnDirection::COUNTER_CLOCKWISE;
+        if (leftHigher.x + 30 /* TODO: Remove this magic nubmer */ < frontLefter.x) {
+            if (leftHigher.x < 120 /* TODO: Remove this magic nubmer */) return TurnDirection::COUNTER_CLOCKWISE;
             continue;
         }
 
         if (abs(frontLefter.y - leftHigher.y) < 60) return TurnDirection::CLOCKWISE;
+        if (leftHigher.x - 40 /* TODO: Remove this magic nubmer */ > frontLefter.x) return TurnDirection::COUNTER_CLOCKWISE;
     }
 
     for (auto rightLine : rightLines) {
@@ -410,12 +411,13 @@ TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLin
             rightHigher = rightEnd;
         }
 
-        if (rightHigher.x - 30 > frontRighter.x) {
-            if (rightHigher.x > 1200 - 120) return TurnDirection::CLOCKWISE;
+        if (rightHigher.x - 30 /* TODO: Remove this magic nubmer */ > frontRighter.x) {
+            if (rightHigher.x > 1200 - 120 /* TODO: Remove this magic nubmer */) return TurnDirection::CLOCKWISE;
             continue;
         }
 
-        if (abs(frontRighter.y - rightHigher.y) < 60) return TurnDirection::COUNTER_CLOCKWISE;
+        if (abs(frontRighter.y - rightHigher.y) < 60 /* TODO: Remove this magic nubmer */) return TurnDirection::COUNTER_CLOCKWISE;
+        if (rightHigher.x + 40 /* TODO: Remove this magic nubmer */ < frontLefter.x) return TurnDirection::CLOCKWISE;
     }
 
     return TurnDirection::UNKNOWN;

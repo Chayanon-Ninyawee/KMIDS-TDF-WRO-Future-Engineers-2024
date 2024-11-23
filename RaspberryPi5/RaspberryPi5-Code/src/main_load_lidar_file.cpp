@@ -101,14 +101,12 @@ int main() {
         }
 
         if (key == 'p') playVideo = !playVideo; // Toggle play/pause
-        if (key == 'a' && !playVideo) frameIndex--; // Rewind 1 frame
+        if (key == 'a' && !playVideo && frameIndex > 0) frameIndex--; // Rewind 1 frame
         if (key == 'd' && !playVideo) frameIndex++; // Forward 1 frame
         if (key == 'q') break; // Exit loop
 
         // Boundary check during play
         if (frameIndex >= allScanData.size()) frameIndex = allScanData.size() - 1;
-        if (frameIndex < 0) frameIndex =0;
-
 
 
 
@@ -184,7 +182,7 @@ int main() {
 
         cv::imshow("LIDAR Hough Lines", lidarOutputImage);
 
-        // printf("turnDirection: %d\n", turnDirection);
+        printf("turnDirection: %d\n", turnDirection);
 
 
 
