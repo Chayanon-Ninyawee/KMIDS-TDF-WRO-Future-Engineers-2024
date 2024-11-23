@@ -16,7 +16,7 @@ const uint I2C1_BAUDRATE = 400000;  // 400 kHz
 const uint I2C1_SLAVE_ADDR = 0x39;
 
 const uint SERVO_PIN = 22;
-const uint SERVO_MIN_ANGLE = 50;
+const uint SERVO_MIN_ANGLE = 75;
 const uint SERVO_MAX_ANGLE = 180;
 
 const uint MOTOR_A_PIN = 4;
@@ -56,10 +56,20 @@ int main() {
   i2c_init(i2c1, I2C1_BAUDRATE);
   i2c_slave_init(i2c1, I2C1_SLAVE_ADDR, &i2c_slave_handler);
 
+  // while (true) {
+  //   set_servo_angle(SERVO_PIN, (SERVO_MAX_ANGLE + SERVO_MIN_ANGLE) / 2.0f);
+  //   sleep_ms(1000);
+  //   set_servo_angle(SERVO_PIN, SERVO_MAX_ANGLE);
+  //   sleep_ms(1000);
+  //   set_servo_angle(SERVO_PIN, SERVO_MIN_ANGLE);
+  //   sleep_ms(1000);
+  // }
+
   start:
   i2c_slave_context_init();
 
   set_is_running(true);
+  DEBUG_PRINT("Starting...\n");
 
   uint8_t currentCommand = get_command();
   while (not (
@@ -72,7 +82,7 @@ int main() {
       goto start; // Restart main
     }
     DEBUG_PRINT("Waiting for calibration command...\n");
-    sleep_ms(100);
+    sleep_ms(50);
     currentCommand = get_command();
   }
 
@@ -99,7 +109,7 @@ int main() {
   set_is_calib_offset_ready(true);
   sleep_ms(100);
 
-
+  DEBUG_PRINT("Done Setting Up!\n");
   while (true) {
     uint8_t currentCommand = get_command();
     if (currentCommand == Command::RESTART) {

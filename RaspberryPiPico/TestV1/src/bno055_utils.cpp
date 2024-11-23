@@ -49,7 +49,7 @@ int8_t bno055_calibrate(bno055_gyro_offset_t *gyroOffset,
             break;
         }
 
-        sleep_ms(200);
+        sleep_ms(100);
     }
 
 
