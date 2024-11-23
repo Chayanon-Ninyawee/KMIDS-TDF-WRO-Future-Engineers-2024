@@ -1,0 +1,58 @@
+#ifndef OPENCHALLENGE_H
+#define OPENCHALLENGE_H
+
+#include <vector>
+#include <opencv2/opencv.hpp>
+
+#include "../utils/lidarDataProcessor.h"
+#include "../utils/PIDController.cpp"
+
+
+class OpenChallenge {
+private:
+    PIDController steeringPID = PIDController(0.015f, 0.0f, 0.0015f);
+    PIDController wallDistancePID = PIDController(100.0f, 0.0f, 0.003f);
+
+    const float MAX_HEADING_ERROR = 25.0;
+    const float MIN_HEADING_ERROR = -25.0;
+
+    const float OUTER_WALL_DISTANCE = 0.350;
+    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 1.900;
+    const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 0.900;
+    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.700;
+
+    bool isRunning = true;
+
+    float lastTurnTime = 0.0f; // Tracks when the last turn was made
+    const float TURN_COOLDOWN = 2.0f; // Cooldown time in seconds
+    const float STOP_COOLDOWN = 1.0f; // Cooldown time to stop after turn in seconds
+
+    int scale;
+    cv::Point center;          // Center point of the lidar map
+    float initialGyroYaw;      // Initial yaw angle from the gyro for reference
+
+    Direction direction = NORTH;
+    TurnDirection turnDirection = UNKNOWN;
+    int numberofTurn = 0;
+
+public:
+    /**
+     * @brief Constructor to initialize the OpenChallenge class.
+     * 
+     * @param center Center point of the lidar map.
+     * @param initialGyroYaw Initial yaw angle from the gyro.
+     */
+    OpenChallenge(int scale, cv::Point center, float initialGyroYaw);
+
+    /**
+     * @brief Update motor and steering percentages based on detected lines and current gyro yaw.
+     * 
+     * @param combined_lines Vector of detected and combined lines.
+     * @param gyroYaw Current yaw angle from the gyro.
+     * @param motorPercent Output parameter for motor speed as a percentage (-1.0 to 1.0).
+     * @param steeringPercent Output parameter for steering angle as a percentage (-1.0 to 1.0).
+     */
+    void update(const std::vector<cv::Vec4i>& combined_lines, float gyroYaw, float& motorPercent, float& steeringPercent);
+};
+
+#endif // OPENCHALLENGE_H
