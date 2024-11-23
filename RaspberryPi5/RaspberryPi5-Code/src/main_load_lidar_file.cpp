@@ -150,7 +150,9 @@ int main() {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, angle);
+
+        TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, angle);
 
 
 
@@ -181,6 +183,8 @@ int main() {
 
 
         cv::imshow("LIDAR Hough Lines", lidarOutputImage);
+
+        // printf("turnDirection: %d\n", turnDirection);
 
 
 

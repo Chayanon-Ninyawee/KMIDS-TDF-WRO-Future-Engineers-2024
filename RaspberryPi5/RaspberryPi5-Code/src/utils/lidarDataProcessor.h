@@ -39,7 +39,9 @@ std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double 
 // Function to analyze the combined lines with gyro data and classify them as NORTH, EAST, SOUTH, WEST
 std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center);
 
-std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction);
+std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, float gyroYaw);
+
+TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, float gyroYaw);
 
 float convertLidarDistanceToActualDistance(int scale, double lidarDistance);
 

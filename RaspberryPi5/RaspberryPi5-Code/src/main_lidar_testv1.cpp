@@ -250,7 +250,7 @@ int main(int argc, char **argv) {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, angle);
 
 
 

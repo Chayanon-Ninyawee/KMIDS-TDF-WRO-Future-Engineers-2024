@@ -251,7 +251,7 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
     return wallDirections;
 }
 
-std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction) {
+std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, float gyroYaw) {
     cv::Mat dilatedBinaryImage = binaryImage.clone();
     cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(20, 20));
     cv::dilate(binaryImage, dilatedBinaryImage, kernel);
@@ -272,10 +272,17 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
             cv::Point point(centroidX, centroidY);
 
             double frontDistance = 0;
+            cv::Point2f frontMidPoint(-1.0f, -1.0f); // Initialize with a sentinel value (-1, -1)
             double outerDistance = 0;
             for (size_t i = 0; i < combinedLines.size(); ++i) {
                 cv::Vec4i line = combinedLines[i];
                 Direction wallDirection = wallDirections[i];
+
+                Direction direction = NORTH;
+                if (gyroYaw >= 315 || gyroYaw < 45) direction = NORTH;
+                else if (gyroYaw >= 45 && gyroYaw < 135) direction = EAST;
+                else if (gyroYaw >= 135 && gyroYaw < 225) direction = SOUTH;
+                else if (gyroYaw >= 225 && gyroYaw < 315) direction = WEST;
 
                 RelativeDirection outerWallRelativeDirection;
                 if (turnDirection == CLOCKWISE) {
@@ -286,7 +293,20 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
                     outerWallRelativeDirection = RIGHT;
                 }
                 if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
-                    frontDistance = pointLinePerpendicularDistance(point, line);
+                    if (not (frontMidPoint == cv::Point2f(-1.0f, -1.0f))) {
+                        cv::Point2f start(line[0], line[1]);
+                        cv::Point2f end(line[2], line[3]);
+                        cv::Point2f newFrontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+                        if (frontMidPoint.y > newFrontMidPoint.y) { // Check if new midpoint is higher
+                            frontDistance = pointLinePerpendicularDistance(point, line);
+                            frontMidPoint = newFrontMidPoint;
+                        }
+                    } else {
+                        frontDistance = pointLinePerpendicularDistance(point, line);
+                        cv::Point2f start(line[0], line[1]);
+                        cv::Point2f end(line[2], line[3]);
+                        frontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+                    }
                 } else if (wallDirection == calculateRelativeDirection(direction, outerWallRelativeDirection)) {
                     outerDistance = pointLinePerpendicularDistance(point, line);
                 }
@@ -303,6 +323,102 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
     }
 
     return trafficLightPoints;
+}
+
+TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, float gyroYaw) {
+    cv::Vec4i frontLine(-1.0f, -1.0f, -1.0f, -1.0f); // Initialize with a sentinel value (-1, -1, -1, -1)
+    std::vector<cv::Vec4i> leftLines;
+    std::vector<cv::Vec4i> rightLines;
+
+    for (size_t i = 0; i < combinedLines.size(); ++i) {
+        cv::Vec4i line = combinedLines[i];
+        Direction wallDirection = wallDirections[i];
+
+        Direction direction = NORTH;
+        if (gyroYaw >= 315 || gyroYaw < 45) direction = NORTH;
+        else if (gyroYaw >= 45 && gyroYaw < 135) direction = EAST;
+        else if (gyroYaw >= 135 && gyroYaw < 225) direction = SOUTH;
+        else if (gyroYaw >= 225 && gyroYaw < 315) direction = WEST;
+
+        if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
+            if (not (frontLine == cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                cv::Point2f start(line[0], line[1]);
+                cv::Point2f end(line[2], line[3]);
+                cv::Point2f newFrontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+
+                cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+                cv::Point2f frontMidPoint = cv::Point2f((frontStart.x + frontEnd.x) / 2, (frontStart.y + frontEnd.y) / 2);
+
+                if (frontMidPoint.y > newFrontMidPoint.y) { // Check if new midpoint is higher
+                    frontLine = line;
+                }
+            } else {
+                frontLine = line;
+            }
+        } else if (wallDirection == calculateRelativeDirection(direction, LEFT)) {
+            leftLines.push_back(line);
+        } else if (wallDirection == calculateRelativeDirection(direction, RIGHT)) {
+            rightLines.push_back(line);
+        }
+    }
+
+    if (frontLine == cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f)) return TurnDirection::UNKNOWN;
+    if (leftLines.empty() && rightLines.empty()) return TurnDirection::UNKNOWN;
+
+    cv::Point2f frontStart(frontLine[0], frontLine[1]);
+    cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+    // cv::Point2f frontMidPoint = cv::Point2f((frontStart.x + frontEnd.x) / 2, (frontStart.y + frontEnd.y) / 2);
+
+    cv::Point2f frontLefter;
+    cv::Point2f frontRighter;
+    if (frontStart.x < frontEnd.x) {
+        frontLefter = frontStart;
+        frontRighter = frontEnd;
+    } else {
+        frontLefter = frontEnd;
+        frontRighter = frontStart;
+    }
+
+    for (auto leftLines : leftLines) {
+        cv::Point2f leftStart(leftLines[0], leftLines[1]);
+        cv::Point2f leftEnd(leftLines[2], leftLines[3]);
+
+        cv::Point2f leftHigher;
+        if (leftStart.y < leftEnd.y) {
+            leftHigher = leftStart;
+        } else {
+            leftHigher = leftEnd;
+        }
+
+        if (leftHigher.x + 30 < frontLefter.x) {
+            if (leftHigher.x < 120) return TurnDirection::COUNTER_CLOCKWISE;
+            continue;
+        }
+
+        if (abs(frontLefter.y - leftHigher.y) < 60) return TurnDirection::CLOCKWISE;
+    }
+
+    for (auto rightLine : rightLines) {
+        cv::Point2f rightStart(rightLine[0], rightLine[1]);
+        cv::Point2f rightEnd(rightLine[2], rightLine[3]);
+
+        cv::Point2f rightHigher;
+        if (rightStart.y < rightEnd.y) {
+            rightHigher = rightStart;
+        } else {
+            rightHigher = rightEnd;
+        }
+
+        if (rightHigher.x - 30 > frontRighter.x) {
+            if (rightHigher.x > 1200 - 120) return TurnDirection::CLOCKWISE;
+            continue;
+        }
+
+        if (abs(frontRighter.y - rightHigher.y) < 60) return TurnDirection::COUNTER_CLOCKWISE;
+    }
+
+    return TurnDirection::UNKNOWN;
 }
 
 
