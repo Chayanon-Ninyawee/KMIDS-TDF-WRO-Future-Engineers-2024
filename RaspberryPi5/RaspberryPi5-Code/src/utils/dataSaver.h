@@ -5,8 +5,8 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
-#include "lidarController.h"  // For NodeData
-#include "i2c_master.h"
+#include "lidar_struct.h"
+#include "bno055_struct.h"
 
 namespace DataSaver {
 
