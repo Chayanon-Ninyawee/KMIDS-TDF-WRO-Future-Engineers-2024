@@ -1,10 +1,13 @@
 #ifndef LIDARCONTROLLER_H
 #define LIDARCONTROLLER_H
 
-#include <vector>
-#include <iostream>
 #include "sl_lidar.h"
 #include "sl_lidar_driver.h"
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
 
 namespace lidarController {
 
@@ -67,7 +70,7 @@ namespace lidarController {
      * Prints the LIDAR scan data to the console.
      * @param nodeDataVector - A vector of NodeData containing the scan results to be printed.
      */
-    static void printScanData(std::vector<NodeData> nodeDataVector);
+    static void printScanData(const std::vector<NodeData>& nodeDataVector);
 
   private:
     sl::ILidarDriver* lidarDriver;  ///< Pointer to the LIDAR driver instance.

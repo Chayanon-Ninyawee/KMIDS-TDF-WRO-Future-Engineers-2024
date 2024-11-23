@@ -6,7 +6,7 @@
 #include <iostream>
 #include <thread>
 
-#include "i2c_master.h"
+#include "utils/i2c_master.h"
 
 
 const uint8_t PICO_ADDRESS = 0x39;
@@ -86,26 +86,6 @@ void handleKeyUp(SDL_Keycode key) {
 }
 
 
-
-
-void print_logs(uint8_t *logs, size_t len) {
-  if (logs == NULL) {
-    return; // Handle null pointer gracefully
-  }
-
-  printf("Processed logs:\n");
-  for (int i = 0; i < len; i++) {
-    if (logs[i] == 0xFF) {
-      // continue;
-      break; // Stop at the first occurrence of 0xFF
-    }
-
-    printf("%c", logs[i]); // Print the character directly
-  }
-  printf("\n");
-}
-
-
 int main() {
   signal(SIGINT, interruptHandler);
 
@@ -146,17 +126,15 @@ int main() {
   uint8_t logs[i2c_slave_mem_addr::LOGS_BUFFER_SIZE] = {0};
   while (not (status[0] & (1 << 1))) {
     i2c_master_read_data(fd, i2c_slave_mem_addr::STATUS_ADDR, status, sizeof(status));
-    printf("%x\n", status[0]);
 
     i2c_master_read_logs(fd, logs);
-    print_logs(logs, sizeof(logs));
+    i2c_master_print_logs(logs, sizeof(logs));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
   }
-  printf("%x\n", status[0]);
 
   i2c_master_send_command(fd, Command::NO_COMMAND);
-
+  std::this_thread::sleep_for(std::chrono::milliseconds(20));
 
   while (isRunning) {
     while (SDL_PollEvent(&event)) {
@@ -177,7 +155,8 @@ int main() {
     memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
     i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
-    printf("%.2f, %.2f\n", motorPercent, steeringPercent);
+    i2c_master_read_logs(fd, logs);
+    i2c_master_print_logs(logs, sizeof(logs));
 
 
     // Render window

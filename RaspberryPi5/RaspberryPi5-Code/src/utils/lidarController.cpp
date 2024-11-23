@@ -132,12 +132,13 @@ namespace lidarController
     }
   }
 
-  void LidarController::printScanData(std::vector<NodeData> nodeDataVector)
+  void LidarController::printScanData(const std::vector<NodeData>& nodeDataVector)
   {
-    for (size_t i = 0; i < nodeDataVector.size(); i++)
+    for (const auto& node : nodeDataVector)
     {
-      printf("Angle: %.3f\tDistance: %.3f m\n", nodeDataVector[i].angle, nodeDataVector[i].distance);
+      printf("Angle: %.3f\tDistance: %.3f m\n", node.angle, node.distance);
     }
     std::cout << "Node Count: " << nodeDataVector.size() << std::endl;
   }
+
 }
