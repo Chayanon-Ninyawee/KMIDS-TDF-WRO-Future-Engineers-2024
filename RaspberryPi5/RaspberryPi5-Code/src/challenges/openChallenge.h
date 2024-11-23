@@ -10,24 +10,29 @@
 
 class OpenChallenge {
 private:
-    PIDController steeringPID = PIDController(0.020f, 0.0f, 0.0f);
-    PIDController wallDistancePID = PIDController(200.0f, 0.0f, 0.0f);
+    PIDController steeringPID = PIDController(0.015f, 0.0f, 0.0015f);
+    PIDController wallDistancePID = PIDController(100.0f, 0.0f, 0.003f);
 
     const float MAX_HEADING_ERROR = 25.0;
     const float MIN_HEADING_ERROR = -25.0;
 
-    const float OUTER_WALL_DISTANCE = 0.230;
-    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.500;
+    const float OUTER_WALL_DISTANCE = 0.350;
+    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 1.900;
+    const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 0.900;
+    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.700;
+
+    bool isRunning = true;
 
     float lastTurnTime = 0.0f; // Tracks when the last turn was made
     const float TURN_COOLDOWN = 2.0f; // Cooldown time in seconds
+    const float STOP_COOLDOWN = 1.0f; // Cooldown time to stop after turn in seconds
 
     int scale;
     cv::Point center;          // Center point of the lidar map
     float initialGyroYaw;      // Initial yaw angle from the gyro for reference
 
     Direction direction = NORTH;
-    TurnDirection turnDirection = COUNTER_CLOCKWISE;
+    TurnDirection turnDirection = UNKNOWN;
     int numberofTurn = 0;
 
 public:

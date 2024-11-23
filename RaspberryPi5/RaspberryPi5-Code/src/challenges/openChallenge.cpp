@@ -24,11 +24,12 @@ OpenChallenge::OpenChallenge(int scale, cv::Point center, float initialGyroYaw)
     // Constructor: Initialize variables or perform setup if needed.
 }
 
-
+float lastUpdateTime = static_cast<float>(cv::getTickCount() / cv::getTickFrequency());
 void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float gyroYaw, float& motorPercent, float& steeringPercent) {
-    static float lastUpdateTime = static_cast<float>(cv::getTickCount());
     float currentTime = static_cast<float>(cv::getTickCount()) / cv::getTickFrequency();
-    float deltaTime = (currentTime - lastUpdateTime) / cv::getTickFrequency();
+    float deltaTime = currentTime - lastUpdateTime;
+
+    motorPercent = 1.00;
 
     float desiredYaw = directionToHeading(OpenChallenge::direction);
     
@@ -38,12 +39,17 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
     // Analyze wall directions using lidar data and relative yaw
     auto wallDirections = analyzeWallDirection(combined_lines, relativeYaw, center);
 
-    float frontWallDistance = OpenChallenge::FRONT_WALL_DISTANCE_TURN_THRESHOLD + 0.1;
-    float outerWallDistance = OpenChallenge::OUTER_WALL_DISTANCE;
+    if (OpenChallenge::turnDirection == TurnDirection::UNKNOWN) {
+        OpenChallenge::turnDirection = lidarDetectTurnDirection(combined_lines, wallDirections, relativeYaw);
+    }
+
+    float frontWallDistance = NAN;
+    float leftWallDistance = NAN;
+    float rightWallDistance = NAN;
 
     std::vector<cv::Vec4i> frontWalls;
-    std::vector<cv::Vec4i> innerWalls;
-    std::vector<cv::Vec4i> outerWalls;
+    std::vector<cv::Vec4i> leftWalls;
+    std::vector<cv::Vec4i> rightWalls;
     
     for (size_t i = 0; i < combined_lines.size(); ++i) {
         cv::Vec4i line = combined_lines[i];
@@ -52,24 +58,12 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
         if (direction == OpenChallenge::direction) {
             frontWalls.push_back(line);
             continue;
-        }
-
-        if (turnDirection == CLOCKWISE) {
-            if (direction == calculateRelativeDirection(OpenChallenge::direction, RIGHT)) {
-                innerWalls.push_back(line);
-                continue;
-            } else if (direction == calculateRelativeDirection(OpenChallenge::direction, LEFT)) {
-                outerWalls.push_back(line);
-                continue;
-            }
-        } else if (turnDirection == COUNTER_CLOCKWISE) {
-            if (direction == calculateRelativeDirection(OpenChallenge::direction, RIGHT)) {
-                outerWalls.push_back(line);
-                continue;
-            } else if (direction == calculateRelativeDirection(OpenChallenge::direction, LEFT)) {
-                innerWalls.push_back(line);
-                continue;
-            }
+        } else if (direction == calculateRelativeDirection(OpenChallenge::direction, RIGHT)) {
+            rightWalls.push_back(line);
+            continue;
+        } else if (direction == calculateRelativeDirection(OpenChallenge::direction, LEFT)) {
+            leftWalls.push_back(line);
+            continue;
         }
     }
 
@@ -78,33 +72,67 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
         frontWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestFrontWall));
     }
 
-    if (!outerWalls.empty()) {
-        cv::Vec4i longestOuterWall = findLongestLine(outerWalls);
-        outerWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestOuterWall));
+    if (!rightWalls.empty()) {
+        cv::Vec4i longestRightWall = findLongestLine(rightWalls);
+        rightWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestRightWall));
     }
 
-    if (frontWallDistance <= FRONT_WALL_DISTANCE_TURN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
-        // TODO: Add cooldown
-        if (turnDirection == CLOCKWISE) {
-            OpenChallenge::direction = calculateRelativeDirection(OpenChallenge::direction, RIGHT);
-        } else if (turnDirection == COUNTER_CLOCKWISE) {
-            OpenChallenge::direction = calculateRelativeDirection(OpenChallenge::direction, LEFT);
+    if (!leftWalls.empty()) {
+        cv::Vec4i longestLeftWall = findLongestLine(leftWalls);
+        leftWallDistance = convertLidarDistanceToActualDistance(OpenChallenge::scale, pointLinePerpendicularDistance(OpenChallenge::center, longestLeftWall));
+    }
+
+    if (not std::isnan(frontWallDistance)) {
+        if (frontWallDistance <= FRONT_WALL_DISTANCE_STOP_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN && OpenChallenge::numberofTurn >= 3*4) {
+            OpenChallenge::isRunning = false;
         }
+        if (frontWallDistance <= FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
+            motorPercent = 0.50;
+        }
+        if (frontWallDistance <= FRONT_WALL_DISTANCE_TURN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
+            if (turnDirection == CLOCKWISE) {
+                OpenChallenge::direction = calculateRelativeDirection(OpenChallenge::direction, RIGHT);
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                OpenChallenge::direction = calculateRelativeDirection(OpenChallenge::direction, LEFT);
+            }
 
-        lastTurnTime = currentTime;
+            lastTurnTime = currentTime;
+            OpenChallenge::numberofTurn++;
+        }
     }
 
+    float wallDistanceError;
+    if (turnDirection == CLOCKWISE) {
+        if (not std::isnan(leftWallDistance)) {
+            wallDistanceError = OUTER_WALL_DISTANCE - leftWallDistance;
+        } else {
+            wallDistanceError = 0;
+        }
+    } else if (turnDirection == COUNTER_CLOCKWISE) {
+        if (not std::isnan(rightWallDistance)) {
+            wallDistanceError = -(OUTER_WALL_DISTANCE - rightWallDistance);
+        } else {
+            wallDistanceError = 0;
+        }
+    } else {
+        if ((not std::isnan(leftWallDistance)) && (not std::isnan(rightWallDistance))) {
+            wallDistanceError = (leftWallDistance - rightWallDistance) / 2.0f;
+        } else {
+            wallDistanceError = 0;
+        }
+    }
 
-    float headingCorrection = wallDistancePID.calculate(-(OUTER_WALL_DISTANCE - outerWallDistance), deltaTime);
+    float headingCorrection = wallDistancePID.calculate(wallDistanceError, deltaTime);
     headingCorrection = std::max(std::min(headingCorrection, MAX_HEADING_ERROR), -MAX_HEADING_ERROR);
 
     desiredYaw += headingCorrection;
 
-
-    motorPercent = 0.40;
+    if (not OpenChallenge::isRunning) {
+        motorPercent = 0.0f;
+    } 
     steeringPercent = steeringPID.calculate(fmod(desiredYaw - relativeYaw + 360.0f + 180.0f, 360.0f) - 180.0f, deltaTime);
 
-    printf("SteeringPercent: %.3f, relativeYaw: %.3f, frontWallDistance: %.3f, outerWallDistance: %.3f\n", steeringPercent, relativeYaw, frontWallDistance, outerWallDistance);
+    printf("SteeringPercent: %.3f, relativeYaw: %.3f, frontWallDistance: %.3f, leftWallDistance: %.3f, deltaTime: %.3f\n", steeringPercent, relativeYaw, frontWallDistance, leftWallDistance, deltaTime);
 
     lastUpdateTime = currentTime;
 }
