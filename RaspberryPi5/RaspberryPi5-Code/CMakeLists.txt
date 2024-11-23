@@ -123,9 +123,13 @@ target_link_libraries(LidarDataProcessorUtils LidarControllerUtils ${OpenCV_LIBS
 # Helper function to verify libraries are available before linking
 function(verify_and_add_executable target_name source_files dependencies)
     foreach(dep ${dependencies})
+        # Check if the dependency is a valid library or target
         if (NOT TARGET ${dep})
-            message(WARNING "Skipping ${target_name} because dependency ${dep} is missing.")
-            return()
+            find_library(LIB_PATH ${dep})
+            if (NOT LIB_PATH)
+                message(WARNING "Skipping ${target_name} because dependency ${dep} is missing.")
+                return()
+            endif()
         endif()
     endforeach()
     add_executable(${target_name} ${source_files})
