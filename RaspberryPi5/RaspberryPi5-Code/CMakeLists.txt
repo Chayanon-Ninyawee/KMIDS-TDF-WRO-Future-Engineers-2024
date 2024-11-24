@@ -151,6 +151,12 @@ verify_and_add_executable(OpenChallenge
     "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;DataSaverUtils"
 )
 
+# OpenChallenge executable
+verify_and_add_executable(ObstacleChallenge 
+    "src/main_obstacleChallenge.cpp;src/challenges/obstacleChallenge.cpp" 
+    "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
+)
+
 # LidarTestV1 executable
 verify_and_add_executable(LidarTestV1 
     "src/main_lidar_testv1.cpp" 

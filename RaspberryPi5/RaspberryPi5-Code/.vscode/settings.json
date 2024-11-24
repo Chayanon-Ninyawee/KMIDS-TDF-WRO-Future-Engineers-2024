@@ -65,7 +65,9 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "optional": "cpp",
-        "codecvt": "cpp"
+        "codecvt": "cpp",
+        "any": "cpp",
+        "variant": "cpp"
     },
     "cmake.generator": "Unix Makefiles",
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}",
