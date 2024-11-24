@@ -112,6 +112,8 @@ int main() {
 
 
         cv::Mat cameraImage = allCameraImage[frameIndex];
+        // cv::Mat cameraImage;
+        // cv::flip(allCameraImage[frameIndex], cameraImage, 1);
 
         bno055_accel_float_t accelData = allAccelData[frameIndex];
         bno055_euler_float_t eulerData = allEulerData[frameIndex];
@@ -120,12 +122,15 @@ int main() {
 
 
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, LIDAR_WIDTH, LIDAR_HEIGHT, LIDAR_SCALE);
+        // cv::Mat binaryImage;
+        // cv::flip(lidarDataToImage(lidarScanData, LIDAR_WIDTH, LIDAR_HEIGHT, LIDAR_SCALE), binaryImage, 1);
         cv::Mat lidarOutputImage = cv::Mat::zeros(LIDAR_HEIGHT, LIDAR_WIDTH, CV_8UC3);
         cv::cvtColor(binaryImage, lidarOutputImage, cv::COLOR_GRAY2BGR);
 
 
 
         auto angle = fmod(eulerData.h - initialEulerData.h + 360.0f, 360.0f);
+        // auto angle = fmod(-(eulerData.h - initialEulerData.h) + 360.0f + 360.0f, 360.0f);
         // float angle = 0.0;
 
 
@@ -139,7 +144,7 @@ int main() {
 
 
 
-        Direction direction = NORTH;
+        Direction direction = NORTH; // Placeholder for intended direction (work fine for testing)
         if (angle >= 315 || angle < 45) direction = NORTH;
         else if (angle >= 45 && angle < 135) direction = EAST;
         else if (angle >= 135 && angle < 225) direction = SOUTH;
@@ -148,9 +153,10 @@ int main() {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, angle);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
+        // auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
 
-        TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, angle);
+        TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, direction);
 
 
 
