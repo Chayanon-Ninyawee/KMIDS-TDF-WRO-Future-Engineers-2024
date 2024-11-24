@@ -7,6 +7,18 @@
 #include "lidarController.h"
 
 #include "direction.h"
+#include "imageProcessor.h"
+
+struct BlockInfo {
+    float angle;  // Angle in radians
+    int size;
+    Color color;  // Color of the traffic light
+};
+
+struct ProcessedBlock {
+    cv::Point point; // Location of block
+    Color color;  // Color of the traffic light
+};
 
 // Converts LIDAR data to a grayscale OpenCV image for Hough Line detection
 cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData> &data, int width, int height, float scale);
@@ -41,10 +53,18 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
 
 std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction);
 
+std::vector<ProcessedBlock> processTrafficLight(
+    const std::vector<cv::Point>& trafficLightPoints, 
+    const std::vector<BlockInfo>& blockAngles,
+    const cv::Point& center
+);
+
 TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, Direction direction);
 
 float convertLidarDistanceToActualDistance(int scale, double lidarDistance);
 
 void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, const std::vector<Direction> &wallDirections);
+
+void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedBlock>& processedBlocks);
 
 #endif // LIDAR_DATA_PROCESSOR_H

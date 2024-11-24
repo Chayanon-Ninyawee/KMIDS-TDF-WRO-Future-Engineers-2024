@@ -253,18 +253,26 @@ int main(int argc, char **argv) {
         cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
 
         
+        std::vector<BlockInfo> blockAngles;
         for (Block block : cameraImageData.blocks) {
-            float blockAngle = pixelToAngle(block.x, camWidth, 20, 88.0f);
-            cv::Scalar color;
-            if (block.color == RED) {
-                color = cv::Scalar(0, 0, 255);
-            } else {
-                color = cv::Scalar(0, 255, 0);
-            }
+            BlockInfo blockAngle;
+            blockAngle.angle = pixelToAngle(block.x, camWidth, 20, 88.0f);
+            blockAngle.size = block.size;
+            blockAngle.color = block.color;
+            blockAngles.push_back(blockAngle);
+            
+            // cv::Scalar color;
+            // if (blockAngle.color == RED) {
+            //     color = cv::Scalar(0, 0, 255);
+            // } else {
+            //     color = cv::Scalar(0, 255, 0);
+            // }
 
-            drawRadialLines(lidarOutputImage, CENTER, blockAngle, 800, color, 2);
-            // printf("color: %d, blockAngle: %.2f\n", block.color, blockAngle);
+            // drawRadialLines(lidarOutputImage, CENTER, blockAngle.angle, 800, color, 2);
         }
+        auto processedTrafficLights = processTrafficLight(trafficLightPoints, blockAngles, CENTER);
+
+        drawTrafficLights(lidarOutputImage, processedTrafficLights);
 
 
         cv::imshow("LIDAR Hough Lines", lidarOutputImage);
