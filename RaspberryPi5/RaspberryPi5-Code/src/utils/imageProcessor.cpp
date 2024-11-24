@@ -71,11 +71,13 @@ ImageProcessingResult processImage(const cv::Mat &image) {
     int orangeLineSize = orangeCoordinates.size();
 
     // Masks for red and green
-    cv::Mat maskRed1, maskRed2, maskRed, maskGreen;
+    cv::Mat maskRed1, maskRed2, maskRed, maskGreen1, maskGreen2, maskGreen;
     cv::inRange(hsvImage, lowerRed1Light, upperRed1Light, maskRed1);
     cv::inRange(hsvImage, lowerRed2Light, upperRed2Light, maskRed2);
     maskRed = maskRed1 | maskRed2;
-    cv::inRange(hsvImage, lowerGreenLight, upperGreenLight, maskGreen);
+    cv::inRange(hsvImage, lowerGreen1Light, upperGreen1Light, maskGreen1);
+    cv::inRange(hsvImage, lowerGreen2Light, upperGreen2Light, maskGreen2);
+    maskGreen = maskGreen1 | maskGreen2;
 
     std::vector<std::vector<cv::Point>> contoursRed, contoursGreen;
     cv::findContours(maskRed, contoursRed, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
@@ -125,7 +127,7 @@ ImageProcessingResult processImage(const cv::Mat &image) {
 
 
 cv::Mat filterAllColors(const cv::Mat &image) {
-    cv::Mat hsvImage, maskBlue, maskOrange, maskRed1, maskRed2, maskRed, maskGreen, maskPink;
+    cv::Mat hsvImage, maskBlue, maskOrange, maskRed1, maskRed2, maskRed, maskGreen1, maskGreen2, maskGreen, maskPink;
     cv::Mat filledBlue, filledOrange, filledRed, filledGreen, filledPink, finalImage;
 
     // Convert the image to HSV color space
@@ -136,11 +138,14 @@ cv::Mat filterAllColors(const cv::Mat &image) {
     cv::inRange(hsvImage, lowerOrangeLine, upperOrangeLine, maskOrange);
     cv::inRange(hsvImage, lowerRed1Light, upperRed1Light, maskRed1);
     cv::inRange(hsvImage, lowerRed2Light, upperRed2Light, maskRed2);
-    cv::inRange(hsvImage, lowerGreenLight, upperGreenLight, maskGreen);
+    cv::inRange(hsvImage, lowerGreen1Light, upperGreen1Light, maskGreen1);
+    cv::inRange(hsvImage, lowerGreen2Light, upperGreen2Light, maskGreen2);
     cv::inRange(hsvImage, lowerPinkLight, upperPinkLight, maskPink);
 
     // Merge two red masks
     maskRed = maskRed1 | maskRed2;
+    maskGreen = maskGreen1 | maskGreen2;
+
 
     // Create colored images for each mask
     filledBlue = cv::Mat::zeros(image.size(), image.type());

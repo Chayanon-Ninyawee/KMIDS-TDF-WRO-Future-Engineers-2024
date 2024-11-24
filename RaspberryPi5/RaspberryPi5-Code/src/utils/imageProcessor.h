@@ -14,10 +14,12 @@ const cv::Scalar lowerOrangeLine(4, 120, 180);
 const cv::Scalar upperOrangeLine(16, 230, 255);
 const cv::Scalar lowerRed1Light(0, 180, 180);
 const cv::Scalar upperRed1Light(1, 255, 255);
-const cv::Scalar lowerRed2Light(177, 180, 180);
+const cv::Scalar lowerRed2Light(176, 180, 180);
 const cv::Scalar upperRed2Light(180, 255, 255);
-const cv::Scalar lowerGreenLight(34, 70, 90);
-const cv::Scalar upperGreenLight(50, 220, 250);
+const cv::Scalar lowerGreen1Light(32, 70, 90);
+const cv::Scalar upperGreen1Light(44, 250, 250);
+const cv::Scalar lowerGreen2Light(45, 140, 130);
+const cv::Scalar upperGreen2Light(50, 190, 170);
 const cv::Scalar lowerPinkLight(165, 244, 200);
 const cv::Scalar upperPinkLight(171, 255, 255);
 

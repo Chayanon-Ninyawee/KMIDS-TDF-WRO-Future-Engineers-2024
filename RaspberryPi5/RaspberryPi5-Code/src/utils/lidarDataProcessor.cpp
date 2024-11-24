@@ -404,25 +404,28 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
     return trafficLightPoints;
 }
 
-std::vector<ProcessedBlock> processTrafficLight(
+std::vector<ProcessedTrafficLight> processTrafficLight(
     const std::vector<cv::Point>& trafficLightPoints, 
     const std::vector<BlockInfo>& blockInfos,
     const cv::Point& center
 ) {
-    constexpr float MAX_ANGLE_DIFFERENCE = 5.0f; // Replace magic number with named constant
-    constexpr int BLOCK_SIZE_THRESHOLD = 2500;
+    constexpr int BLOCK_SIZE_TO_PRIORITIZE_DISTANCE = 5000;
+    constexpr int MIN_BLOCK_SIZE = 500;
+    constexpr float MAX_LIDAR_CAM_ANGLE_DIFFERENCE = 8.0f;
 
-    std::vector<ProcessedBlock> processedBlocks;
+    std::vector<ProcessedTrafficLight> processedBlocks;
 
     for (const BlockInfo& blockInfo : blockInfos) {
-        ProcessedBlock processedBlock;
+        if (blockInfo.size < MIN_BLOCK_SIZE) continue;
+
+        ProcessedTrafficLight processedBlock;
         processedBlock.color = blockInfo.color;
 
-        float minAngleDifference = std::numeric_limits<float>::max();
         float correspondingAngle = blockInfo.angle;
 
-        cv::Point closestPoint; 
-        float shortestDistance = std::numeric_limits<float>::max();
+        cv::Point closestPoint;
+        float minAngleDifference = std::numeric_limits<float>::max();
+        float minDistance = std::numeric_limits<float>::max();
 
         for (const cv::Point& point : trafficLightPoints) {
             // Calculate the angle between the center and the traffic light point in radians
@@ -430,31 +433,29 @@ std::vector<ProcessedBlock> processTrafficLight(
             float angleDegrees = angleRadians * (180 / M_PI);  // Convert to degrees
             angleDegrees = fmod(90.0f - angleDegrees + 720.0f, 360.0f);
 
+            if (not ((angleDegrees > 320 && angleDegrees <= 360) || (angleDegrees >= 0 && angleDegrees < 40))) continue;
+
             // Calculate the absolute difference between angles
             float angleDifference = std::fmod(std::abs(angleDegrees - correspondingAngle), 360.0f);
             angleDifference = std::min(angleDifference, 360.0f - angleDifference);
 
-            // Handle based on block size
-            if (blockInfo.size > BLOCK_SIZE_THRESHOLD) {
-                // Select the closest point to the center
-                float distance = cv::norm(point - center);
-                if (distance < shortestDistance && ((angleDegrees > 330 && angleDegrees <= 360) || (angleDegrees >= 0 && angleDegrees < 30))) {
-                    shortestDistance = distance;
-                    closestPoint = point;
-                }
-            } else {
-                // Select the point with the smallest angle difference
-                if (angleDifference < minAngleDifference) {
+            float distance = cv::norm(point - center);
+
+            if (angleDifference > MAX_LIDAR_CAM_ANGLE_DIFFERENCE) continue;
+
+            if (blockInfo.size >= BLOCK_SIZE_TO_PRIORITIZE_DISTANCE) {
+                if (distance < minDistance) {
                     minAngleDifference = angleDifference;
+                    minDistance = distance;
                     closestPoint = point;
                 }
+            } else if (angleDifference < minAngleDifference) {
+                minAngleDifference = angleDifference;
+                closestPoint = point;
             }
         }
 
-        // Skip blocks with angle differences exceeding the threshold (for small blocks)
-        if (blockInfo.size <= BLOCK_SIZE_THRESHOLD && minAngleDifference > MAX_ANGLE_DIFFERENCE) {
-            continue;
-        }
+        if (minAngleDifference == std::numeric_limits<float>::max()) continue;
 
         // Assign the selected point
         processedBlock.point = closestPoint;
@@ -580,9 +581,9 @@ void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, con
     }
 }
 
-void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedBlock>& processedBlocks) {
+void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedTrafficLight>& processedBlocks) {
     // Iterate through the processed blocks and draw the traffic light points
-    for (const ProcessedBlock& block : processedBlocks) {
+    for (const ProcessedTrafficLight& block : processedBlocks) {
         // Draw the point (circle) at the traffic light location
         cv::Scalar color;
         switch (block.color) {

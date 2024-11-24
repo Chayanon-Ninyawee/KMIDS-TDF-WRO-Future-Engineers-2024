@@ -67,7 +67,11 @@
         "optional": "cpp",
         "codecvt": "cpp",
         "any": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "*.ipp": "cpp",
+        "format": "cpp"
     },
     "cmake.generator": "Unix Makefiles",
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}",

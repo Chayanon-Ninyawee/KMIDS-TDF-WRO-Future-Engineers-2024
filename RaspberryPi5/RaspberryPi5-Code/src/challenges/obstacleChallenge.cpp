@@ -132,7 +132,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
     }
     auto processedTrafficLights = processTrafficLight(trafficLightPoints, blockAngles, center);
 
-    ProcessedBlock closestTrafficLight;
+    ProcessedTrafficLight closestTrafficLight;
     float closestTrafficLightDistance = std::numeric_limits<float>::max();
     for (auto processedTrafficLight : processedTrafficLights) {
         float distance = cv::norm(processedTrafficLight.point - center);

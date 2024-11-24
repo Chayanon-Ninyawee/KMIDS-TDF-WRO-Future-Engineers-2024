@@ -10,12 +10,12 @@
 #include "imageProcessor.h"
 
 struct BlockInfo {
-    float angle;  // Angle in radians
+    float angle;  // Angle in degrees
     int size;
     Color color;  // Color of the traffic light
 };
 
-struct ProcessedBlock {
+struct ProcessedTrafficLight {
     cv::Point point; // Location of block
     Color color;  // Color of the traffic light
 };
@@ -53,7 +53,7 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
 
 std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction);
 
-std::vector<ProcessedBlock> processTrafficLight(
+std::vector<ProcessedTrafficLight> processTrafficLight(
     const std::vector<cv::Point>& trafficLightPoints, 
     const std::vector<BlockInfo>& blockAngles,
     const cv::Point& center
@@ -65,6 +65,6 @@ float convertLidarDistanceToActualDistance(int scale, double lidarDistance);
 
 void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, const std::vector<Direction> &wallDirections);
 
-void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedBlock>& processedBlocks);
+void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedTrafficLight>& processedBlocks);
 
 #endif // LIDAR_DATA_PROCESSOR_H

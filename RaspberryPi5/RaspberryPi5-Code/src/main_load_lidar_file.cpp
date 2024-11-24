@@ -75,7 +75,7 @@ int main() {
     std::vector<bno055_accel_float_t> allAccelData;
     std::vector<bno055_euler_float_t> allEulerData;
     std::vector<cv::Mat> allCameraImage;
-    DataSaver::loadLogData("log/logData1.bin", allScanData, allAccelData, allEulerData, allCameraImage);
+    DataSaver::loadLogData("log/logData2.bin", allScanData, allAccelData, allEulerData, allCameraImage);
 
     if (allScanData.empty() || allAccelData.empty() || allEulerData.empty() || allCameraImage.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;
@@ -159,7 +159,7 @@ int main() {
 
 
         // auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
 
         TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, direction);
 
@@ -174,6 +174,7 @@ int main() {
 
         // cv::Mat filteredCameraImage = filterAllColors(cameraImage);
         auto cameraImageData = processImage(cameraImage);
+        // auto filteredCameraImage = filterAllColors(cameraImage);
         cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
 
         std::vector<BlockInfo> blockAngles;
