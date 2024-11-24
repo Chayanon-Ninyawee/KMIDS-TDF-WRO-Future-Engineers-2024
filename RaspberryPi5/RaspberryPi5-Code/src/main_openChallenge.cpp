@@ -13,7 +13,7 @@
 #include "challenges/openChallenge.h"
 
 #include "utils/i2c_master.h"
-#include "utils/libCamera.h"
+#include "utils/lccv.hpp"
 #include "utils/lidarController.h"
 #include "utils/lidarDataProcessor.h"
 #include "utils/dataSaver.h"
@@ -31,10 +31,8 @@ const float LIDAR_SCALE = 180.0;
 const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
 
-LibCamera cam;
 uint32_t camWidth = 1296;
 uint32_t camHeight = 972;
-uint32_t camStride;
 
 
 float lastGyroYaw = 0.0f;
@@ -80,26 +78,15 @@ int main() {
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
 
-    int ret = cam.initCamera();
-    cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
-    ControlList controls_;
-    int64_t frame_time = 1000000 / 10;
-	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
-    controls_.set(controls::Brightness, 0.1); // Adjust the brightness of the output images, in the range -1.0 to 1.0
-    controls_.set(controls::Contrast, 1.0); // Adjust the contrast of the output image, where 1.0 = normal contrast
-    controls_.set(controls::ExposureTime, 20000);
-    cam.set(controls_);
-
-    if (ret) {
-        cam.closeCamera();
-        printf("Camera no working!");
-        return -1;
-    }
-
-    bool flag;
-    LibcameraOutData frameData;
-    cam.startCamera();
-    cam.VideoStream(&camWidth, &camHeight, &camStride);
+    lccv::PiCamera cam;
+    cam.options->video_width = camWidth;
+    cam.options->video_height = camHeight;
+    cam.options->framerate = 10;
+    cam.options->brightness = 0.2;
+    cam.options->contrast = 1.6;
+    cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
+    cam.options->verbose = true;
+    cam.startVideo();
 
 
 
@@ -168,12 +155,12 @@ int main() {
     OpenChallenge challenge = OpenChallenge (LIDAR_SCALE, CENTER, 0.0f);
 
     while (isRunning) {
-        flag = cam.readFrame(&frameData);
-        if (!flag) {
-            continue;
+        cv::Mat rawCameraImage;
+        if(!cam.getVideoFrame(rawCameraImage, 1000)){
+            std::cout<<"Timeout error"<<std::endl;
         }
-        cv::Mat cameraImage(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
-        cam.returnFrameBuffer(frameData);
+        cv::Mat cameraImage;
+        cv::flip(rawCameraImage, cameraImage, -1);
  
 
 
@@ -210,8 +197,10 @@ int main() {
         challenge.update(combined_lines, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f), motorPercent, steeringPercent);
 
 
-
-        // if (DataSaver::saveLogData("log/logData1.bin", lidarScanData, accel_data, euler_data, cameraImage)) {
+        // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
+        // cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
+        // cv::Mat croppedImage = cameraImage(cropRegion);
+        // if (DataSaver::saveLogData("log/logData1.bin", lidarScanData, accel_data, euler_data, croppedImage)) {
         //     // std::cout << "Log data saved to file successfully." << std::endl;
         // } else {
         //     std::cerr << "Failed to save log data to file." << std::endl;
@@ -248,8 +237,7 @@ int main() {
     memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
     i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
-    cam.stopCamera();
-    cam.closeCamera();
+    cam.stopVideo();
 
     lidar.shutdown();
 

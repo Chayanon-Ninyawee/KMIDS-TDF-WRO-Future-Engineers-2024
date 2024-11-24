@@ -98,8 +98,17 @@ if (LIBCAMERA_FOUND)
     )
     target_include_directories(LibCameraUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
     target_link_libraries(LibCameraUtils ${LIBCAMERA_LIBRARIES})
+
+    add_library(liblccv STATIC
+        src/utils/lccv.cpp
+        src/utils/libcamera_app_options.cpp
+        src/utils/libcamera_app.cpp
+    )
+    target_include_directories(liblccv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    target_link_libraries(liblccv ${LIBCAMERA_LIBRARIES})
 else()
     message(WARNING "Skipping LibCameraUtils as libCamera is not available.")
+    message(WARNING "Skipping liblccv as libCamera is not available.")
 endif()
 
 
@@ -139,13 +148,13 @@ endfunction()
 # OpenChallenge executable
 verify_and_add_executable(OpenChallenge 
     "src/main_openChallenge.cpp;src/challenges/openChallenge.cpp" 
-    "I2CMasterUtils;LibCameraUtils;LidarControllerUtils;LidarDataProcessorUtils;DataSaverUtils"
+    "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;DataSaverUtils"
 )
 
 # LidarTestV1 executable
 verify_and_add_executable(LidarTestV1 
     "src/main_lidar_testv1.cpp" 
-    "I2CMasterUtils;LibCameraUtils;LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
+    "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
 )
 
 # CamTestV1 executable

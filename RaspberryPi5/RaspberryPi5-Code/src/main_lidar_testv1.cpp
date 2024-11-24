@@ -9,7 +9,7 @@
 #include "utils/i2c_master.h"
 #include "utils/lidarController.h"
 #include "utils/lidarDataProcessor.h"
-#include "utils/libCamera.h"
+#include "utils/lccv.hpp"
 #include "utils/imageProcessor.h"
 #include "utils/dataSaver.h"
 
@@ -21,10 +21,8 @@ const float LIDAR_SCALE = 180.0;
 
 const cv::Point CENTER(LIDAR_WIDTH/2, LIDAR_HEIGHT/2);
 
-LibCamera cam;
-uint32_t camWidth = 1296;
-uint32_t camHeight = 972;
-uint32_t camStride;
+uint32_t camWidth = 648;
+uint32_t camHeight = 486;
 
 
 float motorPercent = 0.0f;
@@ -85,26 +83,15 @@ int main(int argc, char **argv) {
 
     // Set up camera
 
-    int ret = cam.initCamera();
-    cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
-    ControlList controls_;
-    int64_t frame_time = 1000000 / 10;
-	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
-    controls_.set(controls::Brightness, 0.2); // Adjust the brightness of the output images, in the range -1.0 to 1.0
-    controls_.set(controls::Contrast, 1.6); // Adjust the contrast of the output image, where 1.0 = normal contrast
-    controls_.set(controls::ExposureTime, 20000);
-    cam.set(controls_);
-
-    if (ret) {
-        cam.closeCamera();
-        printf("Camera not working!\n");
-        return -1;
-    }
-
-    bool flag;
-    LibcameraOutData frameData;
-    cam.startCamera();
-    cam.VideoStream(&camWidth, &camHeight, &camStride);
+    lccv::PiCamera cam;
+    cam.options->video_width = camWidth;
+    cam.options->video_height = camHeight;
+    cam.options->framerate = 10;
+    cam.options->brightness = 0.2;
+    cam.options->contrast = 1.6;
+    cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
+    cam.options->verbose = true;
+    cam.startVideo();
 
 
 
@@ -199,13 +186,12 @@ int main(int argc, char **argv) {
 
     int64 start = cv::getTickCount();
     while (isRunning) {
-        flag = cam.readFrame(&frameData);
-        if (!flag) {
-            continue;
+        cv::Mat rawCameraImage;
+        if(!cam.getVideoFrame(rawCameraImage, 1000)){
+            std::cout<<"Timeout error"<<std::endl;
         }
-
-        cv::Mat cameraImage(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
-        cam.returnFrameBuffer(frameData);
+        cv::Mat cameraImage;
+        cv::flip(rawCameraImage, cameraImage, -1);
 
 
         bno055_accel_float_t accelData;
@@ -263,11 +249,12 @@ int main(int argc, char **argv) {
 
         // cv::Mat filteredCameraImage = filterAllColors(cameraImage);
         auto cameraImageData = processImage(cameraImage);
+        auto filteredImage = filterAllColors(cameraImage);
         cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
 
         
         for (Block block : cameraImageData.blocks) {
-            float blockAngle = pixelToAngle(block.x, camWidth, 90, 65.0f);
+            float blockAngle = pixelToAngle(block.x, camWidth, 20, 88.0f);
             cv::Scalar color;
             if (block.color == RED) {
                 color = cv::Scalar(0, 0, 255);
@@ -280,7 +267,7 @@ int main(int argc, char **argv) {
         }
 
 
-        cv::imshow("LIDAR Hough Lines", processedImage);
+        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
 
 
 
@@ -329,8 +316,7 @@ int main(int argc, char **argv) {
         start = cv::getTickCount();
     }
 
-    cam.stopCamera();
-    cam.closeCamera();
+    cam.stopVideo();
 
     lidar.shutdown();
     cv::destroyAllWindows();
