@@ -75,7 +75,7 @@ int main() {
     std::vector<bno055_accel_float_t> allAccelData;
     std::vector<bno055_euler_float_t> allEulerData;
     std::vector<cv::Mat> allCameraImage;
-    DataSaver::loadLogData("log/logData4.bin", allScanData, allAccelData, allEulerData, allCameraImage);
+    DataSaver::loadLogData("log/logData1.bin", allScanData, allAccelData, allEulerData, allCameraImage);
 
     if (allScanData.empty() || allAccelData.empty() || allEulerData.empty() || allCameraImage.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;
@@ -111,7 +111,12 @@ int main() {
 
 
 
-        cv::Mat cameraImage = allCameraImage[frameIndex];
+        cv::Mat rawCameraImage = allCameraImage[frameIndex];
+        cv::Mat cameraImage(rawCameraImage.rows * 2, rawCameraImage.cols, rawCameraImage.type());
+        cameraImage.setTo(cv::Scalar(0, 0, 0)); // black in BGR
+        rawCameraImage.copyTo(cameraImage(cv::Rect(0, rawCameraImage.rows, rawCameraImage.cols, rawCameraImage.rows)));
+
+
         // cv::Mat cameraImage;
         // cv::flip(allCameraImage[frameIndex], cameraImage, 1);
 
@@ -153,8 +158,8 @@ int main() {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
-        // auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
+        // auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
 
         TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, direction);
 
@@ -173,7 +178,7 @@ int main() {
 
         
         for (Block block : cameraImageData.blocks) {
-            float blockAngle = pixelToAngle(block.x, camWidth, 90, 65.0f);
+            float blockAngle = pixelToAngle(block.x, camWidth, 20, 88.0f);
             cv::Scalar color;
             if (block.color == RED) {
                 color = cv::Scalar(0, 0, 255);
@@ -184,6 +189,7 @@ int main() {
             drawRadialLines(lidarOutputImage, CENTER, blockAngle, 800, color, 2);
             // printf("color: %d, blockAngle: %.2f\n", block.color, blockAngle);
         }
+
 
 
         cv::imshow("LIDAR Hough Lines", lidarOutputImage);
