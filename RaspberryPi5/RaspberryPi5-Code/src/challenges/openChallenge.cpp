@@ -40,7 +40,7 @@ void OpenChallenge::update(const std::vector<cv::Vec4i>& combined_lines, float g
     auto wallDirections = analyzeWallDirection(combined_lines, relativeYaw, center);
 
     if (OpenChallenge::turnDirection == TurnDirection::UNKNOWN) {
-        OpenChallenge::turnDirection = lidarDetectTurnDirection(combined_lines, wallDirections, relativeYaw);
+        OpenChallenge::turnDirection = lidarDetectTurnDirection(combined_lines, wallDirections, direction);
     }
 
     float frontWallDistance = NAN;

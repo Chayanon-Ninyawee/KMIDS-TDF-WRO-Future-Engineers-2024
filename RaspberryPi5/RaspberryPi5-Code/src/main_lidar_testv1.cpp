@@ -22,8 +22,8 @@ const float LIDAR_SCALE = 180.0;
 const cv::Point CENTER(LIDAR_WIDTH/2, LIDAR_HEIGHT/2);
 
 LibCamera cam;
-uint32_t camWidth = 1280;
-uint32_t camHeight = 720;
+uint32_t camWidth = 1296;
+uint32_t camHeight = 972;
 uint32_t camStride;
 
 
@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
     int ret = cam.initCamera();
     cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
     ControlList controls_;
-    int64_t frame_time = 1000000 / 20;
+    int64_t frame_time = 1000000 / 10;
 	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
     controls_.set(controls::Brightness, 0.2); // Adjust the brightness of the output images, in the range -1.0 to 1.0
     controls_.set(controls::Contrast, 1.6); // Adjust the contrast of the output image, where 1.0 = normal contrast
@@ -250,7 +250,7 @@ int main(int argc, char **argv) {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, angle);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
 
 
 
@@ -280,7 +280,7 @@ int main(int argc, char **argv) {
         }
 
 
-        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
+        cv::imshow("LIDAR Hough Lines", processedImage);
 
 
 
