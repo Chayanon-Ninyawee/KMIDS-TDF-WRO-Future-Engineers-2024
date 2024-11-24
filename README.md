@@ -21,7 +21,7 @@ This is a repository for KMIDS Thermodynamically Favorable this project, we aim 
 - [Robot Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Robot%20Picture) Contains picture of the robot, both in physical and digital 3D model from FreeCad.
 - [Specification](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Specification) Contains the specifications of various electronics and parts uses to built this robot.
 - [Team Member Picture](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/main/Documentation/Team%20Picture) Contains our team's picture.
--[3D Model]() Contains the process of developing and modeling the chassis.
+- [3D Model](https://github.com/Chayanon-Ninyawee/KMIDS-TDF-WRO-Future-Engineers-2024/tree/fix-readme/Documentation/3D%20model) Contains the process of developing and modeling the chassis.
 
 ## Performance video
 Our video demonstrating our robot can be found [here](https://youtu.be/9CfIpZZZoUU?si=juIyMaRLtTwPCz_5)
