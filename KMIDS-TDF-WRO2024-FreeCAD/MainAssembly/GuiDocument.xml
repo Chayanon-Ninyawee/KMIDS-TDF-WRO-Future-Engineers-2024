@@ -6,18 +6,17 @@
  FreeCAD Document, see http://www.freecadweb.org for more information...
 -->
 <Document SchemaVersion="1" FileVersion="2" Split="1" HasExpansion="1">
-<Expand  count="2">
+<Expand  count="1">
   <Expand name="Assembly"/>
-  <Expand name="mesh_input"/>
 </Expand>
-  <Camera extra="0" id="14" binding="0" view3d="1">
+  <Camera extra="0" id="5" binding="0" view3d="1">
 <![CDATA[
 OrthographicCamera {
   viewportMapping ADJUST_CAMERA
   position 106.44221 -163.11926 154.13918
-  orientation 0.74290597 0.30772176 0.59447283  1.217116
+  orientation 0.74290603 0.30772179 0.59447289  1.217116
   nearDistance 47.029568
-  farDistance 340.20523
+  farDistance 340.20529
   aspectRatio 1
   focalDistance 64.889854
   height 231.49268
@@ -25,7 +24,7 @@ OrthographicCamera {
 }
 ## overrideMode: As Is]]>
   </Camera>
-  <View3D id="14"><![CDATA[
+  <View3D id="5"><![CDATA[
   <Properties Count="3" TransientCount="0">
     <Property name="DrawStyle" type="App::PropertyEnumeration" status="1">
       <Integer value="0"/>
