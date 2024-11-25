@@ -32,8 +32,6 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
     /*
     TODO
     - Save trafficLightLocation (e.g. Outer 1 1, Inner 3 1)
-    - Check traffic light on the side before turn
-    - Check traffic light on the back before avoiding next traffic light
 
     - UTURN
     - PARKING
@@ -146,17 +144,14 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
         case State::NORMAL:
             motorPercent = 0.40;
 
-            if (not std::isnan(frontWallDistance)) {
+            if (not isnan(frontWallDistance)) {
                 if (frontWallDistance <= FRONT_WALL_DISTANCE_STOP_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN && numberofTurn >= 3 * 4) {
                     state = State::STOP;
                     goto STOP_STATE;
                 }
                 if (frontWallDistance <= FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
-                    motorPercent = 0.25;
-                }
-                if (frontWallDistance <= FRONT_WALL_DISTANCE_TURN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
-                    state = State::TURNING;
-                    goto TURNING_STATE;
+                    state = State::SLOW_BEFORE_TURN;
+                    goto SLOW_BEFORE_TURN_STATE;
                 }
             }
 
@@ -178,6 +173,8 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                         trafficLightDistanceFromCenter = 0.500 - toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLight.point, rightWall));
                     }
                 }
+
+                // TODO: Save the trafficLight
 
                 if (not isnan(trafficLightDistanceFromCenter)) {
                     if (closestTrafficLight.color == Color::RED) {
@@ -222,6 +219,87 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
             float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
             steeringPercent = steeringPID.calculate(headingError, deltaTime);
+            break;
+        }
+        SLOW_BEFORE_TURN_STATE: {
+        case State::SLOW_BEFORE_TURN:
+            motorPercent = 0.25f;
+            if (not isnan(frontWallDistance)) {
+                float frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TURN_THRESHOLD;
+
+                if (turnDirection == CLOCKWISE && (wallDistanceBias == RED_LEFT_WALL_BIAS || wallDistanceBias == RED_RIGHT_WALL_BIAS)) {
+                    cv::Point closestTrafficLightAfterTurnPoint;
+                    float closestTrafficLightAfterTurnDistance = std::numeric_limits<float>::max();
+                    for (auto trafficLightPoint : trafficLightPoints) {
+                        // Calculate the angle between the center and the traffic light point in radians
+                        float angleRadians = std::atan2(-(trafficLightPoint.y - lidarCenter.y), trafficLightPoint.x - lidarCenter.x);
+                        float angleDegrees = angleRadians * (180 / M_PI);  // Convert to degrees
+                        angleDegrees = fmod(90.0f - angleDegrees + 720.0f, 360.0f);
+
+                        if (not (angleDegrees >= 0 && angleDegrees < 90)) continue; // TODO: Remove this magic number
+
+                        float distance = cv::norm(trafficLightPoint - lidarCenter);
+                        if (distance < closestTrafficLightAfterTurnDistance) {
+                            closestTrafficLightAfterTurnDistance = distance;
+                            closestTrafficLightAfterTurnPoint = trafficLightPoint;
+                        }
+                    }
+
+                    float trafficLightAfterTurnDistanceFromCenter = toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLightAfterTurnPoint, frontWall)) - 0.500;
+
+                    if (closestTrafficLight.color == Color::RED) {
+                        if (trafficLightAfterTurnDistanceFromCenter > 0.0) {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
+                        } else {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD;
+                        }
+                    } else if (closestTrafficLight.color == Color::GREEN) {
+                        if (trafficLightAfterTurnDistanceFromCenter > 0.0) {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
+                        } else {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD;
+                        }
+                    }
+                } else if (turnDirection == COUNTER_CLOCKWISE && (wallDistanceBias == GREEN_LEFT_WALL_BIAS || wallDistanceBias == GREEN_RIGHT_WALL_BIAS)) {
+                    cv::Point closestTrafficLightAfterTurnPoint;
+                    float closestTrafficLightAfterTurnDistance = std::numeric_limits<float>::max();
+                    for (auto trafficLightPoint : trafficLightPoints) {
+                        // Calculate the angle between the center and the traffic light point in radians
+                        float angleRadians = std::atan2(-(trafficLightPoint.y - lidarCenter.y), trafficLightPoint.x - lidarCenter.x);
+                        float angleDegrees = angleRadians * (180 / M_PI);  // Convert to degrees
+                        angleDegrees = fmod(90.0f - angleDegrees + 720.0f, 360.0f);
+
+                        if (not (angleDegrees > 270 && angleDegrees <= 360)) continue; // TODO: Remove this magic number
+
+                        float distance = cv::norm(trafficLightPoint - lidarCenter);
+                        if (distance < closestTrafficLightAfterTurnDistance) {
+                            closestTrafficLightAfterTurnDistance = distance;
+                            closestTrafficLightAfterTurnPoint = trafficLightPoint;
+                        }
+                    }
+
+                    float trafficLightAfterTurnDistanceFromCenter = 0.500 - toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLightAfterTurnPoint, frontWall));
+
+                    if (closestTrafficLight.color == Color::RED) {
+                        if (trafficLightAfterTurnDistanceFromCenter > 0.0) {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD;
+                        } else {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
+                        }
+                    } else if (closestTrafficLight.color == Color::GREEN) {
+                        if (trafficLightAfterTurnDistanceFromCenter > 0.0) {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD;
+                        } else {
+                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
+                        }
+                    }
+                }
+
+                if (frontWallDistance <= frontWallDistanceTurnThreshold) {
+                    state = State::TURNING;
+                    goto TURNING_STATE;
+                }
+            }
             break;
         }
         TURNING_STATE: { // Run once just after changing state
