@@ -13,7 +13,7 @@
 #include "challenges/openChallenge.h"
 
 #include "utils/i2c_master.h"
-#include "utils/lccv.hpp"
+// #include "utils/lccv.hpp"
 #include "utils/lidarController.h"
 #include "utils/lidarDataProcessor.h"
 #include "utils/dataSaver.h"
@@ -78,15 +78,15 @@ int main() {
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
 
-    lccv::PiCamera cam;
-    cam.options->video_width = camWidth;
-    cam.options->video_height = camHeight;
-    cam.options->framerate = 10;
-    cam.options->brightness = 0.2;
-    cam.options->contrast = 1.6;
-    cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
-    cam.options->verbose = true;
-    cam.startVideo();
+    // lccv::PiCamera cam;
+    // cam.options->video_width = camWidth;
+    // cam.options->video_height = camHeight;
+    // cam.options->framerate = 10;
+    // cam.options->brightness = 0.2;
+    // cam.options->contrast = 1.6;
+    // cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
+    // cam.options->verbose = true;
+    // cam.startVideo();
 
 
 
@@ -152,15 +152,15 @@ int main() {
 
     lastGyroYaw = initial_euler_data.h;
 
-    OpenChallenge challenge = OpenChallenge (LIDAR_SCALE, CENTER, 0.0f);
+    OpenChallenge challenge = OpenChallenge(LIDAR_SCALE, CENTER);
 
     while (isRunning) {
-        cv::Mat rawCameraImage;
-        if(!cam.getVideoFrame(rawCameraImage, 1000)){
-            std::cout<<"Timeout error"<<std::endl;
-        }
-        cv::Mat cameraImage;
-        cv::flip(rawCameraImage, cameraImage, -1);
+        // cv::Mat rawCameraImage;
+        // if(!cam.getVideoFrame(rawCameraImage, 1000)){
+        //     std::cout<<"Timeout error"<<std::endl;
+        // }
+        // cv::Mat cameraImage;
+        // cv::flip(rawCameraImage, cameraImage, -1);
  
 
 
@@ -194,7 +194,7 @@ int main() {
         // drawAllLines(combined_lines, outputImage, fmod(euler_data.h - initial_euler_data.h + 360.0f, 360.0f));
         
 
-        challenge.update(combined_lines, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f), motorPercent, steeringPercent);
+        challenge.update(binaryImage, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f), motorPercent, steeringPercent);
 
 
         // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
@@ -237,7 +237,7 @@ int main() {
     memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
     i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
-    cam.stopVideo();
+    // cam.stopVideo();
 
     lidar.shutdown();
 

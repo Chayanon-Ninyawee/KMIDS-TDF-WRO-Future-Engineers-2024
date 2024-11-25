@@ -152,7 +152,7 @@ int main() {
 
     lastGyroYaw = initial_euler_data.h;
 
-    ObstacleChallenge challenge = ObstacleChallenge(LIDAR_SCALE, CENTER, 0.0f);
+    ObstacleChallenge challenge = ObstacleChallenge(LIDAR_SCALE, CENTER);
 
     while (isRunning) {
         cv::Mat rawCameraImage;

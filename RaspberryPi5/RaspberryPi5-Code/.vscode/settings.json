@@ -75,5 +75,30 @@
     },
     "cmake.generator": "Unix Makefiles",
     "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, ColumnLimit: 0, IndentWidth: 4}",
-    "git.autofetch": false
+    "git.autofetch": false,
+    // "cmake.configureArgs": [
+    //     "-DIGNORE_DEPENDENCY_CHECK=1 "
+    // ],
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "alert",
+            "foreground": "#FF79C6", // Pink for TODO
+            "type": "text"
+        },
+        "FIXME": {
+            "icon": "flame",
+            "foreground": "#FF5555", // Red for FIXME
+            "type": "text"
+        },
+        "NOTE": {
+            "icon": "info",
+            "foreground": "#8BE9FD", // Cyan for NOTE
+            "type": "text"
+        }
+    },
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "NOTE"
+    ]
 }

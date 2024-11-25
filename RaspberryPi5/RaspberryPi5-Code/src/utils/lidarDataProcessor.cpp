@@ -28,7 +28,7 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData>& data, int
     return image;
 }
 
-float convertLidarDistanceToActualDistance(int scale, double lidarDistance) {
+float toMeter(int scale, double lidarDistance) {
     return lidarDistance / (float)scale;
 }
 

@@ -131,16 +131,23 @@ target_link_libraries(LidarDataProcessorUtils LidarControllerUtils ${OpenCV_LIBS
 
 # Helper function to verify libraries are available before linking
 function(verify_and_add_executable target_name source_files dependencies)
-    foreach(dep ${dependencies})
-        # Check if the dependency is a valid library or target
-        if (NOT TARGET ${dep})
-            find_library(LIB_PATH ${dep})
-            if (NOT LIB_PATH)
-                message(WARNING "Skipping ${target_name} because dependency ${dep} is missing.")
-                return()
+    # Check if dependency verification should be ignored
+    if (DEFINED IGNORE_DEPENDENCY_CHECK AND IGNORE_DEPENDENCY_CHECK)
+        message(STATUS "Dependency check is ignored for target: ${target_name}")
+    else()
+        foreach(dep ${dependencies})
+            # Check if the dependency is a valid library or target
+            if (NOT TARGET ${dep})
+                find_library(LIB_PATH ${dep})
+                if (NOT LIB_PATH)
+                    message(WARNING "Skipping ${target_name} because dependency ${dep} is missing.")
+                    return()
+                endif()
             endif()
-        endif()
-    endforeach()
+        endforeach()
+    endif()
+
+    # Add the executable and link libraries
     add_executable(${target_name} ${source_files})
     target_link_libraries(${target_name} ${dependencies})
 endfunction()
@@ -148,10 +155,10 @@ endfunction()
 # OpenChallenge executable
 verify_and_add_executable(OpenChallenge 
     "src/main_openChallenge.cpp;src/challenges/openChallenge.cpp" 
-    "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;DataSaverUtils"
+    "I2CMasterUtils;LidarControllerUtils;LidarDataProcessorUtils;DataSaverUtils"
 )
 
-# OpenChallenge executable
+# ObstacleChallenge executable
 verify_and_add_executable(ObstacleChallenge 
     "src/main_obstacleChallenge.cpp;src/challenges/obstacleChallenge.cpp" 
     "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
