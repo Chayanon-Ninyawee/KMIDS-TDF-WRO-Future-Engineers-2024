@@ -17,6 +17,7 @@ struct BlockInfo {
 
 struct ProcessedTrafficLight {
     cv::Point point; // Location of block
+    int size;
     Color color;  // Color of the traffic light
 };
 

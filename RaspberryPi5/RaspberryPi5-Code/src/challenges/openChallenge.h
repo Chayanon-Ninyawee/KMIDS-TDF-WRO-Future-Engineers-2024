@@ -15,23 +15,23 @@ enum class State {
 
 class OpenChallenge {
 private:
-    PIDController steeringPID = PIDController(0.015f, 0.0f, 0.0015f);
-    PIDController wallDistancePID = PIDController(100.0f, 0.0f, 0.003f);
+    PIDController steeringPID = PIDController(0.017f, 0.0f, 0.0019f);
+    PIDController wallDistancePID = PIDController(50.0f, 0.0f, 0.0030f);
 
     const float MAX_HEADING_ERROR = 25.0;
     const float MIN_HEADING_ERROR = -25.0;
 
-    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 1.900;
-    const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 0.900;
-    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.700;
+    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 2.200;
+    const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 1.000;
+    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.690;
 
     const float OUTER_WALL_DISTANCE = 0.350;
 
-    const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 5.0;
+    const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 10.0;
 
-    float lastTurnTime = 0.0f; // Tracks when the last turn was made
-    const float TURN_COOLDOWN = 2.0f; // Cooldown time in seconds
-    const float STOP_COOLDOWN = 1.0f; // Cooldown time to stop after turn in seconds
+    float lastTurnTime = -1.0f; // Tracks when the last turn was made
+    const float TURN_COOLDOWN = 1.0f; // Cooldown time in seconds
+    const float STOP_COOLDOWN = 0.2f; // Cooldown time to stop after turn in seconds
 
     State state = State::NORMAL;
 

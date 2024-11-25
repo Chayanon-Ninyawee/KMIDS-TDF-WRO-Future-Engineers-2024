@@ -186,7 +186,7 @@ int main() {
         auto lidarScanData = lidar.getScanData();
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, WIDTH, HEIGHT, LIDAR_SCALE);
 
-        challenge.update(binaryImage, cameraImage, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f), motorPercent, steeringPercent);
+        challenge.update(binaryImage, cameraImage, fmod(accumulateGyroYaw*1.0065+ 360.0f*20, 360.0f), motorPercent, steeringPercent);
 
 
         // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);

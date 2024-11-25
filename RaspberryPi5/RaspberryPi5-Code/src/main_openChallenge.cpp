@@ -177,7 +177,7 @@ int main() {
         accumulateGyroYaw += deltaYaw;
         lastGyroYaw = euler_data.h;
 
-        printf("accumulateGyroYaw: %.2f, test: %.2f, ", accumulateGyroYaw, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f));
+        // printf("accumulateGyroYaw: %.2f, test: %.2f, ", accumulateGyroYaw, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f));
 
 
         i2c_master_read_logs(fd, logs);

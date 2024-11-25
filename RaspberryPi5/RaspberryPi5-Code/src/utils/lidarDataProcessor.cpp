@@ -420,6 +420,7 @@ std::vector<ProcessedTrafficLight> processTrafficLight(
 
         ProcessedTrafficLight processedBlock;
         processedBlock.color = blockInfo.color;
+        processedBlock.size = blockInfo.size;
 
         float correspondingAngle = blockInfo.angle;
 

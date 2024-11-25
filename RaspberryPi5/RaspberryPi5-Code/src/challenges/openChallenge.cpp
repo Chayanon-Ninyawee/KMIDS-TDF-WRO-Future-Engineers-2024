@@ -142,7 +142,7 @@ float currentTime = static_cast<float>(cv::getTickCount()) / cv::getTickFrequenc
                 robotDirection = calculateRelativeDirection(robotDirection, LEFT);
             }
         case State::TURNING:
-            motorPercent = 0.70f;
+            motorPercent = 0.50f;
 
             float desiredYaw = directionToHeading(robotDirection);
             float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
