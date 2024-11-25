@@ -433,7 +433,7 @@ std::vector<ProcessedTrafficLight> processTrafficLight(
             float angleDegrees = angleRadians * (180 / M_PI);  // Convert to degrees
             angleDegrees = fmod(90.0f - angleDegrees + 720.0f, 360.0f);
 
-            if (not ((angleDegrees > 320 && angleDegrees <= 360) || (angleDegrees >= 0 && angleDegrees < 40))) continue;
+            if (not ((angleDegrees > 320 && angleDegrees <= 360) || (angleDegrees >= 0 && angleDegrees < 40))) continue; // TODO: Remove this magic numbers
 
             // Calculate the absolute difference between angles
             float angleDifference = std::fmod(std::abs(angleDegrees - correspondingAngle), 360.0f);

@@ -21,10 +21,11 @@ private:
     const float MAX_HEADING_ERROR = 25.0;
     const float MIN_HEADING_ERROR = -25.0;
 
-    const float OUTER_WALL_DISTANCE = 0.350;
     const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 1.900;
     const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 0.900;
     const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.700;
+
+    const float OUTER_WALL_DISTANCE = 0.350;
 
     const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 5.0;
 

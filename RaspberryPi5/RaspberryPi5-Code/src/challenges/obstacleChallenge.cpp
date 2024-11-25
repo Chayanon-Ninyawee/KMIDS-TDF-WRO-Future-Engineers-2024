@@ -123,6 +123,23 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
         }
     }
 
+    cv::Point closestPassedTrafficLightPoint;
+    float closestPassedTrafficLightDistance = std::numeric_limits<float>::max();
+    for (auto trafficLightPoint : trafficLightPoints) {
+        // Calculate the angle between the center and the traffic light point in radians
+        float angleRadians = std::atan2(-(trafficLightPoint.y - lidarCenter.y), trafficLightPoint.x - lidarCenter.x);
+        float angleDegrees = angleRadians * (180 / M_PI);  // Convert to degrees
+        angleDegrees = fmod(90.0f - angleDegrees + 720.0f, 360.0f);
+
+        if ((angleDegrees > 330 && angleDegrees <= 360) || (angleDegrees >= 0 && angleDegrees < 30)) continue; // TODO: Remove this magic number
+
+        float distance = cv::norm(trafficLightPoint - lidarCenter);
+        if (distance < closestPassedTrafficLightDistance) {
+            closestPassedTrafficLightDistance = distance;
+            closestPassedTrafficLightPoint = trafficLightPoint;
+        }
+    }
+
 
     switch (state) {
         NORMAL_STATE: {
@@ -135,13 +152,50 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                     goto STOP_STATE;
                 }
                 if (frontWallDistance <= FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
-                    motorPercent = 0.30;
+                    motorPercent = 0.25;
                 }
                 if (frontWallDistance <= FRONT_WALL_DISTANCE_TURN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
                     state = State::TURNING;
                     goto TURNING_STATE;
                 }
             }
+
+
+            if (toMeter(lidarScale, closestPassedTrafficLightDistance) > 0.150 && closestTrafficLightDistance != std::numeric_limits<float>::max()) {
+                float trafficLightDistanceFromCenter = NAN;
+                if (turnDirection == CLOCKWISE) {
+                    if (not std::isnan(leftWallDistance)) {
+                        trafficLightDistanceFromCenter = toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLight.point, leftWall)) - 0.500;
+                    }
+                } else if (turnDirection == COUNTER_CLOCKWISE) {
+                    if (not std::isnan(rightWallDistance)) {
+                        trafficLightDistanceFromCenter = 0.500 - toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLight.point, rightWall));
+                    }
+                } else {
+                    if (not std::isnan(leftWallDistance)) {
+                        trafficLightDistanceFromCenter = toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLight.point, leftWall)) - 0.500;
+                    } else if (not std::isnan(rightWallDistance)) {
+                        trafficLightDistanceFromCenter = 0.500 - toMeter(lidarScale, pointLinePerpendicularDistance(closestTrafficLight.point, rightWall));
+                    }
+                }
+
+                if (not isnan(trafficLightDistanceFromCenter)) {
+                    if (closestTrafficLight.color == Color::RED) {
+                        if (trafficLightDistanceFromCenter > 0.0) {
+                            wallDistanceBias = RED_RIGHT_WALL_BIAS;
+                        } else {
+                            wallDistanceBias = RED_LEFT_WALL_BIAS;
+                        }
+                    } else if (closestTrafficLight.color == Color::GREEN) {
+                        if (trafficLightDistanceFromCenter > 0.0) {
+                            wallDistanceBias = GREEN_RIGHT_WALL_BIAS;
+                        } else {
+                            wallDistanceBias = GREEN_LEFT_WALL_BIAS;
+                        }
+                    }
+                }
+            }
+
 
             float wallDistanceError = 0;
             if (turnDirection == CLOCKWISE) {
@@ -177,7 +231,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 robotDirection = calculateRelativeDirection(robotDirection, LEFT);
             }
         case State::TURNING:
-            motorPercent = 0.40f;
+            motorPercent = 0.35f;
 
             float desiredYaw = directionToHeading(robotDirection);
             float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
@@ -185,7 +239,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
 
             if (abs(headingError) < MAX_HEADING_ERROR_BEFORE_EXIT_TURNING) {
-                wallDistanceBias = 0.500; // TODO: Handle traffic light after turn
+                wallDistanceBias = 0.000; // TODO: Handle traffic light after turn
                 lastTurnTime = currentTime;
                 numberofTurn++;
 

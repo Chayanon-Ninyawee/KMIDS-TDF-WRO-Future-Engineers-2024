@@ -27,6 +27,11 @@ private:
     const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 1.100;
     const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.850;
 
+    const float RED_RIGHT_WALL_BIAS = 0.350;
+    const float RED_LEFT_WALL_BIAS = 0.150;
+    const float GREEN_RIGHT_WALL_BIAS = -0.150;
+    const float GREEN_LEFT_WALL_BIAS = -0.350;
+
     const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 5.0;
 
     float lastTurnTime = 0.0f; // Tracks when the last turn was made
