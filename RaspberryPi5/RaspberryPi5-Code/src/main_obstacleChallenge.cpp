@@ -81,9 +81,11 @@ int main() {
     lccv::PiCamera cam;
     cam.options->video_width = camWidth;
     cam.options->video_height = camHeight;
-    cam.options->framerate = 10;
+    cam.options->framerate = 30; // Increase frame rate for reduced blur
     cam.options->brightness = 0.2;
-    cam.options->contrast = 1.6;
+    cam.options->contrast = 1.0;
+    cam.options->shutter = 10000; // Set shutter speed to 500 µs (adjust as needed)
+    cam.options->gain = 10.0; // Increase gain for brightness compensation
     cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
     cam.options->verbose = true;
     cam.startVideo();
@@ -187,6 +189,7 @@ int main() {
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, WIDTH, HEIGHT, LIDAR_SCALE);
 
         challenge.update(binaryImage, cameraImage, fmod(accumulateGyroYaw*1.0065+ 360.0f*20, 360.0f), motorPercent, steeringPercent);
+        steeringPercent = std::clamp(steeringPercent, -1.0f, 1.0f);
 
 
         // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
@@ -211,7 +214,7 @@ int main() {
 
 
         // cv::imshow("libcamera-demo", cameraImage);
-        // cv::imshow("LIDAR Hough Lines", outputImage);
+        // cv::imshow("LIDAR Hough Lines", filterAllColors(cameraImage));
 
         // char key = cv::waitKey(1);
         // if (key == 'q') {

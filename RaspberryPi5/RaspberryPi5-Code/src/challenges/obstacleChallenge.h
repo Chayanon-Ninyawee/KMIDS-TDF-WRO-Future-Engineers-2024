@@ -25,7 +25,8 @@ enum class TrafficLightRingPosition {
 enum class TrafficLightPosition {
     BLUE,
     MID,
-    ORANGE
+    ORANGE,
+    NO_POSITION
 };
 
 struct TrafficLightSearchKey {
@@ -40,20 +41,21 @@ struct TrafficLightSearchKey {
 
 class ObstacleChallenge {
 private:
-    PIDController steeringPID = PIDController(0.026f, 0.0f, 0.0010f);
-    PIDController wallDistancePID = PIDController(200.0f, 0.0f, 0.00010f);
+    PIDController steeringPID = PIDController(0.026f, 0.0f, 0.0008f);
+    PIDController wallDistancePID = PIDController(200.0f, 0.0010f, 0.00000f);
 
     const float MAX_HEADING_ERROR = 40.0;
     const float MIN_HEADING_ERROR = -40.0;
 
     const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 1.900;
     const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 1.300;
-    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.820;
+    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.780;
 
     const float FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD = 1.040;
     const float FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD = 0.870;
-    const float FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD = 0.500;
+    const float FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD = 0.480;
     const float FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD = 0.670;
+    float frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TURN_THRESHOLD;
 
     const float RED_RIGHT_WALL_BIAS = 0.250;
     const float RED_LEFT_WALL_BIAS = 0.120;
@@ -72,6 +74,8 @@ private:
     State state = State::NORMAL;
 
     std::map<TrafficLightSearchKey, std::pair<TrafficLightRingPosition, Color>> trafficLightMap;
+    TrafficLightPosition lastTrafficLightPosition;
+    Direction lastTrafficLightDirection;
 
     float wallDistanceBias = 0.000; // Negative is left bias and positive is right bias
 

@@ -86,12 +86,15 @@ int main(int argc, char **argv) {
     lccv::PiCamera cam;
     cam.options->video_width = camWidth;
     cam.options->video_height = camHeight;
-    cam.options->framerate = 10;
+    cam.options->framerate = 30; // Increase frame rate for reduced blur
     cam.options->brightness = 0.2;
-    cam.options->contrast = 1.6;
+    cam.options->contrast = 1.0;
+    cam.options->shutter = 10000; // Set shutter speed to 500 µs (adjust as needed)
+    cam.options->gain = 10.0; // Increase gain for brightness compensation
     cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
     cam.options->verbose = true;
     cam.startVideo();
+
 
 
 
@@ -275,7 +278,7 @@ int main(int argc, char **argv) {
         drawTrafficLights(lidarOutputImage, processedTrafficLights);
 
 
-        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
+        cv::imshow("LIDAR Hough Lines", processedImage);
 
 
 

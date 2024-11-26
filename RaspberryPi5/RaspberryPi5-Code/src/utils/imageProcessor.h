@@ -25,8 +25,8 @@ const cv::Scalar upperPinkLight(171, 255, 255);
 
 const int minBlueLineArea = 37;
 const int minOrangeLineArea = 37;
-const int minRedLineArea = 400;
-const int minGreenLineArea = 400;
+const int minRedLineArea = 300;
+const int minGreenLineArea = 300;
 
 enum Color {
     BLUE,

@@ -583,8 +583,8 @@ std::vector<ProcessedTrafficLight> processTrafficLight(
     const cv::Point& center
 ) {
     constexpr int BLOCK_SIZE_TO_PRIORITIZE_DISTANCE = 5000;
-    constexpr int MIN_BLOCK_SIZE = 500;
-    constexpr float MAX_LIDAR_CAM_ANGLE_DIFFERENCE = 8.0f;
+    constexpr int MIN_BLOCK_SIZE = 0;
+    constexpr float MAX_LIDAR_CAM_ANGLE_DIFFERENCE = 10.0f;
 
     std::vector<ProcessedTrafficLight> processedBlocks;
 
