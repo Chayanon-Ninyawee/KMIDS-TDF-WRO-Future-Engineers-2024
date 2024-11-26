@@ -404,6 +404,179 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
     return trafficLightPoints;
 }
 
+std::vector<cv::Vec4i> detectParkingZone(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction) {
+    std::vector<cv::Vec4i> lines;
+    cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 20, 30, 30);
+
+    // Filter lines based on length and proximity to combinedLines
+    const double MAX_LENGTH = 60.0;
+    const double MAX_DISTANCE = 10.0; // Distance threshold for proximity
+    std::vector<cv::Vec4i> filteredLines;
+
+    for (const auto& line : lines) {
+        // Calculate the length of the line
+        double length = std::sqrt(std::pow(line[2] - line[0], 2) + std::pow(line[3] - line[1], 2));
+        if (length > MAX_LENGTH) continue;
+
+        // Check proximity of both endpoints to the combined lines
+        cv::Point p1(line[0], line[1]);
+        cv::Point p2(line[2], line[3]);
+
+        cv::Vec4i frontLine(-1.0f, -1.0f, -1.0f, -1.0f);  // Initialize with a sentinel value (-1, -1, -1, -1)
+        std::vector<cv::Vec4i> leftLines;
+        std::vector<cv::Vec4i> rightLines;
+
+        for (size_t i = 0; i < combinedLines.size(); ++i) {
+            cv::Vec4i line = combinedLines[i];
+            Direction wallDirection = wallDirections[i];
+
+            if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
+                if (not(frontLine == cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                    cv::Point2f start(line[0], line[1]);
+                    cv::Point2f end(line[2], line[3]);
+                    cv::Point2f newFrontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+
+                    cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                    cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+                    cv::Point2f frontMidPoint = cv::Point2f((frontStart.x + frontEnd.x) / 2, (frontStart.y + frontEnd.y) / 2);
+
+                    if (frontMidPoint.y > newFrontMidPoint.y) {  // Check if new midpoint is higher
+                        frontLine = line;
+                    }
+                } else {
+                    frontLine = line;
+                }
+            } else if (wallDirection == calculateRelativeDirection(direction, LEFT)) {
+                leftLines.push_back(line);
+            } else if (wallDirection == calculateRelativeDirection(direction, RIGHT)) {
+                rightLines.push_back(line);
+            }
+        }
+
+        double frontDistance1 = 0;
+        double frontDistance2 = 0;
+        double outerDistance1 = 0;
+        double outerDistance2 = 0;
+        double outerFarDistance1 = -1;  // Initialize with a sentinel value -1
+        double outerFarDistance2 = -1;  // Initialize with a sentinel value -1
+
+        if (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f)) {
+            frontDistance1 = pointLinePerpendicularDistance(p1, frontLine);
+            frontDistance2 = pointLinePerpendicularDistance(p2, frontLine);
+        }
+
+        if (turnDirection == CLOCKWISE) {
+            if (not leftLines.empty()) {
+                outerDistance1 = pointLinePerpendicularDistance(p1, leftLines[0]);
+                outerDistance2 = pointLinePerpendicularDistance(p2, leftLines[0]);
+            }
+            if ((not rightLines.empty()) && (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+
+                cv::Point2f frontLefter;
+                cv::Point2f frontRighter;
+
+                if (frontStart.x < frontEnd.x) {
+                    frontLefter = frontStart;
+                    frontRighter = frontEnd;
+                } else {
+                    frontLefter = frontEnd;
+                    frontRighter = frontStart;
+                }
+
+                for (auto rightLine : rightLines) {
+                    cv::Point2f rightStart(rightLine[0], rightLine[1]);
+                    cv::Point2f rightEnd(rightLine[2], rightLine[3]);
+
+                    cv::Point2f rightHigher;
+                    if (rightStart.y < rightEnd.y) {
+                        rightHigher = rightStart;
+                    } else {
+                        rightHigher = rightEnd;
+                    }
+
+                    if (rightHigher.x - 30 /* TODO: Remove this magic nubmer */ > frontRighter.x) {
+                        if (rightHigher.x > 1200 - 120 /* TODO: Remove this magic nubmer */) {
+                            outerFarDistance1 = pointLinePerpendicularDistance(p1, rightLine);
+                            outerFarDistance2 = pointLinePerpendicularDistance(p2, rightLine);
+                        }
+                    }
+                }
+            }
+        } else if (turnDirection == COUNTER_CLOCKWISE || turnDirection == UNKNOWN) {
+            if (not rightLines.empty()) {
+                outerDistance1 = pointLinePerpendicularDistance(p1, rightLines[0]);
+                outerDistance2 = pointLinePerpendicularDistance(p2, rightLines[0]);
+            }
+            if ((not leftLines.empty()) && (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+
+                cv::Point2f frontLefter;
+                cv::Point2f frontRighter;
+
+                if (frontStart.x < frontEnd.x) {
+                    frontLefter = frontStart;
+                    frontRighter = frontEnd;
+                } else {
+                    frontLefter = frontEnd;
+                    frontRighter = frontStart;
+                }
+
+                for (auto leftLine : leftLines) {
+                    cv::Point2f leftStart(leftLine[0], leftLine[1]);
+                    cv::Point2f leftEnd(leftLine[2], leftLine[3]);
+
+                    cv::Point2f leftHigher;
+                    if (leftStart.y < leftEnd.y) {
+                        leftHigher = leftStart;
+                    } else {
+                        leftHigher = leftEnd;
+                    }
+
+                    if (leftHigher.x + 30 /* TODO: Remove this magic nubmer */ < frontLefter.x) {
+                        if (leftHigher.x < 120 /* TODO: Remove this magic nubmer */) {
+                            outerFarDistance1 = pointLinePerpendicularDistance(p1, leftLine);
+                            outerFarDistance2 = pointLinePerpendicularDistance(p2, leftLine);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Put these thing in the header files
+        const double frontOuterEdge = 40;
+        const double outerEdge = 20;
+        const double innerEdge = 160;
+
+        bool isDistanceClose1 = false;
+        bool isDistanceClose2 = false;
+
+        if (outerFarDistance1 != -1) {
+            if (frontDistance1 < frontOuterEdge or frontDistance1 > 540 - frontOuterEdge or outerDistance1 < outerEdge or outerFarDistance1 < outerEdge) isDistanceClose1 = true;
+            if (frontDistance1 > innerEdge and outerDistance1 > innerEdge and outerFarDistance1 > innerEdge) isDistanceClose1 = true;
+        } else {
+            if (frontDistance1 < frontOuterEdge or frontDistance1 > 540 - frontOuterEdge or outerDistance1 < outerEdge) isDistanceClose1 = true;
+            if (frontDistance1 > innerEdge and outerDistance1 > innerEdge) isDistanceClose1 = true;
+        }
+
+        if (outerFarDistance2 != -1) {
+            if (frontDistance2 < frontOuterEdge or frontDistance2 > 540 - frontOuterEdge or outerDistance2 < outerEdge or outerFarDistance2 < outerEdge) isDistanceClose2 = true;
+            if (frontDistance2 > innerEdge and outerDistance2 > innerEdge and outerFarDistance2 > innerEdge) isDistanceClose2 = true;
+        } else {
+            if (frontDistance2 < frontOuterEdge or frontDistance2 > 540 - frontOuterEdge or outerDistance2 < outerEdge) isDistanceClose2 = true;
+            if (frontDistance2 > innerEdge and outerDistance2 > innerEdge) isDistanceClose2 = true;
+        }
+
+        if (not (isDistanceClose1 && isDistanceClose2)) {
+            filteredLines.push_back(line);
+        }
+    }
+
+    return filteredLines;
+}
+
 std::vector<ProcessedTrafficLight> processTrafficLight(
     const std::vector<cv::Point>& trafficLightPoints, 
     const std::vector<BlockInfo>& blockInfos,

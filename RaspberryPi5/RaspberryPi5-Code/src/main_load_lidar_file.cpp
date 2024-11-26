@@ -75,7 +75,7 @@ int main() {
     std::vector<bno055_accel_float_t> allAccelData;
     std::vector<bno055_euler_float_t> allEulerData;
     std::vector<cv::Mat> allCameraImage;
-    DataSaver::loadLogData("log/logData2.bin", allScanData, allAccelData, allEulerData, allCameraImage);
+    DataSaver::loadLogData("log/logData3.bin", allScanData, allAccelData, allEulerData, allCameraImage);
 
     if (allScanData.empty() || allAccelData.empty() || allEulerData.empty() || allCameraImage.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;
@@ -159,7 +159,7 @@ int main() {
 
 
         // auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
 
         TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, direction);
 
@@ -197,6 +197,12 @@ int main() {
         auto processedTrafficLights = processTrafficLight(trafficLightPoints, blockAngles, CENTER);
 
         drawTrafficLights(lidarOutputImage, processedTrafficLights);
+
+        auto test = detectParkingZone(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
+
+        for (const auto& line : test) {
+            cv::line(lidarOutputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), cv::Scalar(0, 255, 255), 2, cv::LINE_AA);
+        }
 
 
         cv::imshow("LIDAR Hough Lines", lidarOutputImage);

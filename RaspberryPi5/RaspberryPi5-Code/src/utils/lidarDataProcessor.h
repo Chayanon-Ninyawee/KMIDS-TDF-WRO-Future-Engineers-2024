@@ -54,6 +54,8 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
 
 std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction);
 
+std::vector<cv::Vec4i> detectParkingZone(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction);
+
 std::vector<ProcessedTrafficLight> processTrafficLight(
     const std::vector<cv::Point>& trafficLightPoints, 
     const std::vector<BlockInfo>& blockAngles,
