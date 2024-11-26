@@ -225,11 +225,11 @@ std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double 
     return lines;
 }
 
-// Function to analyze the combined lines with gyro data and classify them as NORTH, EAST, SOUTH, WEST
+// Function to analyze the combined lines with gyro data and classify them as Direction::NORTH, Direction::EAST, Direction::SOUTH, Direction::WEST
 std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center) {
     std::vector<Direction> wallDirections;
 
-    // Gyro yaw is assumed to be in degrees with 0° = NORTH, 90° = EAST, 180° = SOUTH, 270° = WEST
+    // Gyro yaw is assumed to be in degrees with 0° = Direction::NORTH, 90° = Direction::EAST, 180° = Direction::SOUTH, 270° = Direction::WEST
     // Adjust the combined line angles based on the gyro data.
     for (const auto& line : combinedLines) {
         // double lineAngle = calculateAngle(line);
@@ -238,11 +238,11 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
         // double relativeLineAngle = fmod(lineAngle + gyroYaw + 360.0f, 360.0f);
         double relativePerpendicularLineDirection = fmod(perpendicularLineDirection + gyroYaw - 90.0f + 360.0f, 360.0f);
 
-        Direction direction = NORTH;
-        if (relativePerpendicularLineDirection >= 315 || relativePerpendicularLineDirection < 45) direction = NORTH;
-        else if (relativePerpendicularLineDirection >= 45 && relativePerpendicularLineDirection < 135) direction = EAST;
-        else if (relativePerpendicularLineDirection >= 135 && relativePerpendicularLineDirection < 225) direction = SOUTH;
-        else if (relativePerpendicularLineDirection >= 225 && relativePerpendicularLineDirection < 315) direction = WEST;
+        Direction direction = Direction::NORTH;
+        if (relativePerpendicularLineDirection >= 315 || relativePerpendicularLineDirection < 45) direction = Direction::NORTH;
+        else if (relativePerpendicularLineDirection >= 45 && relativePerpendicularLineDirection < 135) direction = Direction::EAST;
+        else if (relativePerpendicularLineDirection >= 135 && relativePerpendicularLineDirection < 225) direction = Direction::SOUTH;
+        else if (relativePerpendicularLineDirection >= 225 && relativePerpendicularLineDirection < 315) direction = Direction::WEST;
 
         // Add the classified direction to the list
         wallDirections.push_back(direction);
@@ -740,14 +740,14 @@ void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, con
 
         // Determine the color based on the direction
         cv::Scalar color;
-        if (direction == NORTH) {
-            color = cv::Scalar(0, 0, 255); // Red for NORTH
-        } else if (direction == EAST) {
-            color = cv::Scalar(0, 255, 0); // Green for EAST
-        } else if (direction == SOUTH) {
-            color = cv::Scalar(255, 0, 0); // Blue for SOUTH
-        } else if (direction == WEST) {
-            color = cv::Scalar(255, 255, 0); // Yellow for WEST
+        if (direction == Direction::NORTH) {
+            color = cv::Scalar(0, 0, 255); // Red for Direction::NORTH
+        } else if (direction == Direction::EAST) {
+            color = cv::Scalar(0, 255, 0); // Green for Direction::EAST
+        } else if (direction == Direction::SOUTH) {
+            color = cv::Scalar(255, 0, 0); // Blue for Direction::SOUTH
+        } else if (direction == Direction::WEST) {
+            color = cv::Scalar(255, 255, 0); // Yellow for Direction::WEST
         }
 
         // Draw the line with the determined color
@@ -761,8 +761,8 @@ void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedTrafficL
         // Draw the point (circle) at the traffic light location
         cv::Scalar color;
         switch (block.color) {
-            case RED:    color = cv::Scalar(0, 0, 255); break;   // Red
-            case GREEN:  color = cv::Scalar(0, 255, 0); break;   // Green
+            case Color::RED:    color = cv::Scalar(0, 0, 255); break;   // Red
+            case Color::GREEN:  color = cv::Scalar(0, 255, 0); break;   // Green
         }
 
         // Draw a circle at the traffic light's position

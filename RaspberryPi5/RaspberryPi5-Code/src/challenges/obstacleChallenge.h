@@ -16,7 +16,9 @@ enum class State {
     TURNING,
     UTURNING_1,
     UTURNING_2,
-    FIND_PARKING_ZONE
+    FIND_PARKING_ZONE,
+    PARKING_1,
+    PARKING_2
 };
 
 enum class TrafficLightRingPosition {
@@ -68,8 +70,8 @@ private:
     const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 5.0;
 
     float lastTurnTime = 0.0f; // Tracks when the last turn was made
-    const float TURN_COOLDOWN = 0.6f; // Cooldown time in seconds
-    const float FIND_PARKING_COOLDOWN = 0.2f; // Cooldown time to stop after turn in seconds
+    const float TURN_COOLDOWN = 1.1f; // Cooldown time in seconds
+    const float FIND_PARKING_COOLDOWN = 1.1f; // Cooldown time to stop after turn in seconds
 
     float lastTrafficTime = 0.0f; // Tracks when the last turn was made
     const float TRAFFIC_COOLDOWN = 0.8f; // Cooldown time in seconds

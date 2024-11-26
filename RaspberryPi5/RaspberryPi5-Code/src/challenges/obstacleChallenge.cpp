@@ -19,7 +19,6 @@ cv::Vec4i findLongestLine(const std::vector<cv::Vec4i>& lines) {
 
 ObstacleChallenge::ObstacleChallenge(int lidarScale, cv::Point lidarCenter)
     : lidarScale(lidarScale), lidarCenter(lidarCenter) {
-    // Constructor: Initialize variables or perform setup if needed.
 }
 
 float lastUpdateTime = static_cast<float>(cv::getTickCount() / cv::getTickFrequency());
@@ -103,6 +102,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
         if (turnDirection == TurnDirection::CLOCKWISE) {
             if (!isnan(leftWallDistance)) {
                 for (auto processedTrafficLight : processedTrafficLights) {
+                    if (not (processedTrafficLight.color == Color::RED or processedTrafficLight.color == Color::GREEN)) continue;
                     // if (processedTrafficLight.size < 600) continue;
 
                     float trafficLightDistanceFromLeft = toMeter(lidarScale, pointLinePerpendicularDistance(processedTrafficLight.point, leftWall));
@@ -114,11 +114,11 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
                     if (trafficLightDistanceFromLeft < 0.900) {
                         // Determine TrafficLightPosition based on distance from the front
-                        if (trafficLightDistanceFromFront > 0.80 && trafficLightDistanceFromFront < 1.20) {
+                        if (trafficLightDistanceFromFront > 0.85 && trafficLightDistanceFromFront < 1.15) {
                             trafficLightPosition = TrafficLightPosition::ORANGE;
-                        } else if (trafficLightDistanceFromFront > 1.30 && trafficLightDistanceFromFront < 1.70) {
+                        } else if (trafficLightDistanceFromFront > 1.35 && trafficLightDistanceFromFront < 1.65) {
                             trafficLightPosition = TrafficLightPosition::MID;
-                        } else if (trafficLightDistanceFromFront > 1.80 && trafficLightDistanceFromFront < 2.20) {
+                        } else if (trafficLightDistanceFromFront > 1.85 && trafficLightDistanceFromFront < 2.15) {
                             trafficLightPosition = TrafficLightPosition::BLUE;
                         } else {
                             trafficLightPosition = TrafficLightPosition::NO_POSITION;
@@ -136,7 +136,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                         relativeDirection = calculateRelativeDirection(robotDirection, LEFT);
                     } else {
                         // Determine TrafficLightPosition based on distance from the left
-                        if (trafficLightDistanceFromLeft >= 0.900 && trafficLightDistanceFromLeft < 1.20) {
+                        if (trafficLightDistanceFromLeft >= 0.900 && trafficLightDistanceFromLeft < 1.15) {
                             trafficLightPosition = TrafficLightPosition::BLUE;
                         } else if (trafficLightDistanceFromLeft > 1.30 && trafficLightDistanceFromLeft < 1.70) {
                             trafficLightPosition = TrafficLightPosition::NO_POSITION;
@@ -190,7 +190,8 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
         } else if (turnDirection == TurnDirection::COUNTER_CLOCKWISE) {
             if (!isnan(rightWallDistance)) {
                 for (auto processedTrafficLight : processedTrafficLights) {
-                    if (processedTrafficLight.size < 600) continue;
+                    if (not (processedTrafficLight.color == Color::RED or processedTrafficLight.color == Color::GREEN)) continue;
+                    // if (processedTrafficLight.size < 600) continue;
 
                     float trafficLightDistanceFromRight = toMeter(lidarScale, pointLinePerpendicularDistance(processedTrafficLight.point, rightWall));
                     float trafficLightDistanceFromFront = toMeter(lidarScale, pointLinePerpendicularDistance(processedTrafficLight.point, frontWall));
@@ -201,12 +202,14 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
                     if (trafficLightDistanceFromRight < 0.900) {
                         // Determine TrafficLightPosition based on distance from the front
-                        if (trafficLightDistanceFromFront > 0.80 && trafficLightDistanceFromFront < 1.20) {
+                        if (trafficLightDistanceFromFront > 0.80 && trafficLightDistanceFromFront < 1.15) {
                             trafficLightPosition = TrafficLightPosition::BLUE;
-                        } else if (trafficLightDistanceFromFront > 1.30 && trafficLightDistanceFromFront < 1.70) {
+                        } else if (trafficLightDistanceFromFront > 1.35 && trafficLightDistanceFromFront < 1.65) {
                             trafficLightPosition = TrafficLightPosition::MID;
-                        } else if (trafficLightDistanceFromFront > 1.80 && trafficLightDistanceFromFront < 2.20) {
+                        } else if (trafficLightDistanceFromFront > 1.85 && trafficLightDistanceFromFront < 2.15) {
                             trafficLightPosition = TrafficLightPosition::ORANGE;
+                        } else {
+                            trafficLightPosition = TrafficLightPosition::NO_POSITION;
                         }
 
                         // Determine TrafficLightRingPosition
@@ -221,7 +224,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                         relativeDirection = calculateRelativeDirection(robotDirection, RIGHT);
                     } else {
                         // Determine TrafficLightPosition based on distance from the left
-                        if (trafficLightDistanceFromRight >= 0.900 && trafficLightDistanceFromRight < 1.20) {
+                        if (trafficLightDistanceFromRight >= 0.900 && trafficLightDistanceFromRight < 1.15) {
                             trafficLightPosition = TrafficLightPosition::ORANGE;
                         } else if (trafficLightDistanceFromRight > 1.30 && trafficLightDistanceFromRight < 1.70) {
                             trafficLightPosition = TrafficLightPosition::NO_POSITION;
@@ -243,7 +246,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                     TrafficLightSearchKey key = {trafficLightPosition, relativeDirection};
 
                     // Check if the key exists before adding
-                    if (trafficLightMap.find(key) == trafficLightMap.end()) {
+                    if (trafficLightMap.find(key) == trafficLightMap.end() && trafficLightPosition != TrafficLightPosition::NO_POSITION) {
                         trafficLightMap[key] = {trafficLightRingPosition, processedTrafficLight.color};
                         
                         std::cout << "Traffic Light Map Contents:\n";
@@ -297,7 +300,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                     key = {TrafficLightPosition::MID, Direction::SOUTH};
                 }
                 if (trafficLightMap.find(key) == trafficLightMap.end()) {
-                    key = {trafficLightPositionEnd, Direction::SOUTH};
+                    key = {trafficLightPositionStart, Direction::SOUTH};
                 }
 
                 if (trafficLightMap.find(key) != trafficLightMap.end()) {
@@ -306,12 +309,12 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                     }
                 }
 
-                if (numberofTurn >= 2*4 - 1 && isUturn) {
+                if (numberofTurn == 2*4 - 1 && isUturn) {
                     if (frontWallDistance <= FRONT_WALL_DISTANCE_UTURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
                         state = State::UTURNING_1;
                         goto UTURNING_1_STATE;
                     }
-                } else if (numberofTurn >= 3*4 - 1) {
+                } else if (numberofTurn == 3*4 - 1) {
                     if (frontWallDistance <= FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
                         isFindParking = true;
                         state = State::TURNING;
@@ -344,7 +347,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                     }
 
                     if (frontWallDistance > 1.00 && frontWallDistance <= 2.90) {
-                        TrafficLightSearchKey key;
+                        TrafficLightSearchKey key = {TrafficLightPosition::NO_POSITION, Direction::NORTH};
                         if (trafficLightMap.find(key) == trafficLightMap.end() && frontWallDistance > 2.00 && frontWallDistance <= 2.90 && not (lastTrafficLightPosition == trafficLightPositionStart && lastTrafficLightDirection == relativeDirection)) {
                             key = {trafficLightPositionStart, relativeDirection};
                         }
@@ -356,7 +359,9 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                         }
 
                         if (trafficLightMap.find(key) != trafficLightMap.end()) {
-                            // lastTrafficTime = currentTime;
+                            lastTrafficLightPosition = key.lightPosition;
+                            lastTrafficLightDirection = key.direction;
+
                             if (trafficLightMap[key].second == Color::RED) {
                                 if (trafficLightMap[key].first == trafficLightRingPositionOnLeft) {
                                     wallDistanceBias = RED_LEFT_WALL_BIAS;
@@ -428,54 +433,58 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 if (turnDirection == CLOCKWISE) {
                     TrafficLightSearchKey key = {trafficLightPositionStart, relativeDirection};
 
-                    if (trafficLightMap[key].second == Color::RED) {
-                        if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
-                        } else {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
+                    if (trafficLightMap.find(key) != trafficLightMap.end()) {
+                        if (trafficLightMap[key].second == Color::RED) {
+                            if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            } else {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            }
+                            state = State::WAITING_FOR_TURN;
+                        } else if (trafficLightMap[key].second == Color::GREEN) {
+                            if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            } else {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            }
+                            state = State::WAITING_FOR_TURN;
                         }
-                        state = State::WAITING_FOR_TURN;
-                    } else if (trafficLightMap[key].second == Color::GREEN) {
-                        if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
-                        } else {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
-                        }
-                        state = State::WAITING_FOR_TURN;
                     }
                 } else if (turnDirection == COUNTER_CLOCKWISE) {
                     TrafficLightSearchKey key = {trafficLightPositionStart, relativeDirection};
 
-                    if (trafficLightMap[key].second == Color::RED) {
-                        if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
-                        } else {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
+                    if (trafficLightMap.find(key) != trafficLightMap.end()) {
+                        if (trafficLightMap[key].second == Color::RED) {
+                            if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            } else {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            }
+                            state = State::WAITING_FOR_TURN;
+                        } else if (trafficLightMap[key].second == Color::GREEN) {
+                            if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            } else {
+                                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD;
+                                lastTrafficLightPosition = trafficLightPositionStart;
+                                lastTrafficLightDirection = relativeDirection;
+                            }
+                            state = State::WAITING_FOR_TURN;
                         }
-                        state = State::WAITING_FOR_TURN;
-                    } else if (trafficLightMap[key].second == Color::GREEN) {
-                        if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
-                        } else {
-                            frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD;
-                            lastTrafficLightPosition = trafficLightPositionStart;
-                            lastTrafficLightDirection = relativeDirection;
-                        }
-                        state = State::WAITING_FOR_TURN;
                     }
                 }
             }
@@ -624,6 +633,43 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
     }
     FIND_PARKING_ZONE_STATE: {
         case State::FIND_PARKING_ZONE:
+            motorPercent = 0.25f;
+
+            auto potentialParkingWalls = detectParkingZone(lidarBinaryImage, combinedLines, wallDirections, turnDirection, robotDirection);
+
+            std::vector<cv::Vec4i> parkingWalls;
+            for (const auto& potentialParkingWall : potentialParkingWalls) {
+                float wallAngle = pointLinePerpendicularDirection(lidarCenter, potentialParkingWall);
+                if (!(wallAngle > 70 && wallAngle < 110)) continue;
+
+                // Extract points (x1, y1) and (x2, y2)
+                int x1 = potentialParkingWall[0];
+                int x2 = potentialParkingWall[2];
+
+                // Find leftestX and rightestX
+                int leftestX = std::min(x1, x2);
+                int rightestX = std::max(x1, x2);
+
+                if (turnDirection == CLOCKWISE) {
+                    if (leftestX < lidarCenter.x && rightestX + 20 > lidarCenter.x) {
+                        parkingWalls.push_back(potentialParkingWall);
+                    }
+                } else if (turnDirection == COUNTER_CLOCKWISE) {
+                    if (leftestX - 20 < lidarCenter.x && rightestX > lidarCenter.x) {
+                        parkingWalls.push_back(potentialParkingWall);
+                    }
+                }
+            }
+
+            for (auto parkingWall : parkingWalls) {
+                printf("Found Park Wall!\n");
+                if (pointLinePerpendicularDistance(lidarCenter, parkingWall) < 110) {
+                    state = State::PARKING_1;
+                    goto PARKING_1_STATE;
+                }
+            }
+
+
             if (not isnan(frontWallDistance)) {
                 if (frontWallDistance <= FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
                     state = State::TURNING;
@@ -664,9 +710,102 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
             steeringPercent = steeringPID.calculate(headingError, deltaTime);
             break;
     }
+    PARKING_1_STATE: {
+        case State::PARKING_1:
+            motorPercent = 0.18;
+
+            auto potentialParkingWalls = detectParkingZone(lidarBinaryImage, combinedLines, wallDirections, turnDirection, robotDirection);
+
+            std::vector<cv::Vec4i> parkingWalls;
+            for (const auto& potentialParkingWall : potentialParkingWalls) {
+                float wallAngle = pointLinePerpendicularDirection(lidarCenter, potentialParkingWall);
+                if (!(wallAngle > 250 && wallAngle < 290)) continue;
+
+                // Extract points (x1, y1) and (x2, y2)
+                int x1 = potentialParkingWall[0];
+                int x2 = potentialParkingWall[2];
+
+                // Find leftestX and rightestX
+                int leftestX = std::min(x1, x2);
+                int rightestX = std::max(x1, x2);
+
+                if (turnDirection == CLOCKWISE) {
+                    if (rightestX < lidarCenter.x) {
+                        parkingWalls.push_back(potentialParkingWall);
+                    }
+                } else if (turnDirection == COUNTER_CLOCKWISE) {
+                    if (leftestX > lidarCenter.x) {
+                        parkingWalls.push_back(potentialParkingWall);
+                    }
+                }
+            }
+
+            for (auto parkingWall : parkingWalls) {
+                printf("Found Park Wall!\n");
+                float parkingWallAngle = pointLinePerpendicularDirection(lidarCenter, parkingWall);
+                if (pointLinePerpendicularDistance(lidarCenter, parkingWall) > 66 && (parkingWallAngle > 250 && parkingWallAngle < 290)) {
+                    state = State::PARKING_2;
+                    goto PARKING_2_STATE;
+                }
+            }
+
+
+            if (turnDirection == CLOCKWISE) {
+                wallDistanceBias = -0.150;
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                wallDistanceBias = 0.150;
+            }
+
+            float wallDistanceError = 0;
+            if (turnDirection == CLOCKWISE) {
+                if (not std::isnan(leftWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (leftWallDistance - 0.500);
+                }
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                if (not std::isnan(rightWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (0.500 - rightWallDistance);
+                }
+            } else {
+                if (not std::isnan(leftWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (leftWallDistance - 0.500);
+                } else if (not std::isnan(rightWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (0.500 - rightWallDistance);
+                }
+            }
+
+            float headingCorrection = wallDistancePID.calculate(wallDistanceError, deltaTime);
+            headingCorrection = std::max(std::min(headingCorrection, MAX_HEADING_ERROR), -MAX_HEADING_ERROR);
+
+            float desiredYaw = directionToHeading(robotDirection);
+            desiredYaw += headingCorrection;
+
+            float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
+            steeringPercent = steeringPID.calculate(headingError, deltaTime);
+            break;
+    }
+    PARKING_2_STATE: {
+        case State::PARKING_2:
+            motorPercent = -0.25;
+            float desiredYaw = directionToHeading(robotDirection);
+
+            if (turnDirection == CLOCKWISE) {
+                desiredYaw += 94;
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                desiredYaw -= 94;
+            }
+
+            float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
+            steeringPercent = steeringPID.calculate(-headingError, deltaTime);
+
+            if (abs(headingError) < MAX_HEADING_ERROR_BEFORE_EXIT_TURNING) {
+                state = State::STOP;
+                goto STOP_STATE;
+            }
+            break;
+    }
     STOP_STATE: {
         case State::STOP:
-            motorPercent = 0.0f;
+            motorPercent = -0.10f;
             steeringPercent = 0.0f;
             break;
     }

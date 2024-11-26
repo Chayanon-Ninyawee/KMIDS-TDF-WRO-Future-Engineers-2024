@@ -28,7 +28,7 @@ const int minOrangeLineArea = 37;
 const int minRedLineArea = 300;
 const int minGreenLineArea = 300;
 
-enum Color {
+enum class Color {
     BLUE,
     ORANGE,
     RED,

@@ -87,14 +87,14 @@ ImageProcessingResult processImage(const cv::Mat &image) {
     for (const auto &contour : contoursRed) {
         if (cv::contourArea(contour) > minRedLineArea) {
             auto [centroid, area, lowestPoint] = getCentroidAndArea(contour);
-            redBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), RED});
+            redBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), Color::RED});
         }
     }
 
     for (const auto &contour : contoursGreen) {
         if (cv::contourArea(contour) > minGreenLineArea) {
             auto [centroid, area, lowestPoint] = getCentroidAndArea(contour);
-            greenBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), GREEN});
+            greenBlocks.push_back({centroid.x, centroid.y + cropHeight, lowestPoint.y + cropHeight, static_cast<int>(area), Color::GREEN});
         }
     }
 
@@ -201,7 +201,7 @@ cv::Mat drawImageProcessingResult(const ImageProcessingResult &result, cv::Mat &
     // Draw blocks (red and green)
     for (const auto &block : result.blocks) {
         cv::Scalar color;
-        if (block.color == RED) {
+        if (block.color == Color::RED) {
             color = cv::Scalar(0, 0, 255);
         } else {
             color = cv::Scalar(0, 255, 0);
