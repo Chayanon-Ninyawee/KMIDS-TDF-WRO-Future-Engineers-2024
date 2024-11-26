@@ -205,7 +205,7 @@ int main() {
         }
 
 
-        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
+        cv::imshow("LIDAR Hough Lines", processedImage);
 
         // printf("turnDirection: %d\n", turnDirection);
 
