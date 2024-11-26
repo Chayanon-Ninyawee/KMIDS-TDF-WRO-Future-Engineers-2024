@@ -17,6 +17,27 @@ enum class State {
     UTURNING
 };
 
+enum class TrafficLightRingPosition {
+    OUTER,
+    INNER
+};
+
+enum class TrafficLightPosition {
+    BLUE,
+    MID,
+    ORANGE
+};
+
+struct TrafficLightSearchKey {
+    TrafficLightPosition lightPosition;
+    Direction direction;
+
+    // Custom operator< for use in std::map
+    bool operator<(const TrafficLightSearchKey& other) const {
+        return std::tie(lightPosition, direction) < std::tie(other.lightPosition, other.direction);
+    }
+};
+
 class ObstacleChallenge {
 private:
     PIDController steeringPID = PIDController(0.026f, 0.0f, 0.0010f);
@@ -35,8 +56,8 @@ private:
     const float FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD = 0.670;
 
     const float RED_RIGHT_WALL_BIAS = 0.250;
-    const float RED_LEFT_WALL_BIAS = 0.150;
-    const float GREEN_RIGHT_WALL_BIAS = -0.150;
+    const float RED_LEFT_WALL_BIAS = 0.120;
+    const float GREEN_RIGHT_WALL_BIAS = -0.120;
     const float GREEN_LEFT_WALL_BIAS = -0.250;
 
     const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 5.0;
@@ -49,6 +70,8 @@ private:
     const float TRAFFIC_COOLDOWN = 0.8f; // Cooldown time in seconds
 
     State state = State::NORMAL;
+
+    std::map<TrafficLightSearchKey, std::pair<TrafficLightRingPosition, Color>> trafficLightMap;
 
     float wallDistanceBias = 0.000; // Negative is left bias and positive is right bias
 
