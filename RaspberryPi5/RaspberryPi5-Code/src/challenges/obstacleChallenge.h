@@ -15,7 +15,8 @@ enum class State {
     WAITING_FOR_TURN,
     TURNING,
     UTURNING_1,
-    UTURNING_2
+    UTURNING_2,
+    FIND_PARKING_ZONE
 };
 
 enum class TrafficLightRingPosition {
@@ -48,7 +49,7 @@ private:
     const float MAX_HEADING_ERROR = 40.0;
     const float MIN_HEADING_ERROR = -40.0;
 
-    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 2.100;
+    const float FRONT_WALL_DISTANCE_FIND_PARKING_THRESHOLD = 2.100;
     const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 1.300;
     const float FRONT_WALL_DISTANCE_UTURN_THRESHOLD = 0.500;
     const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.750;
@@ -68,12 +69,13 @@ private:
 
     float lastTurnTime = 0.0f; // Tracks when the last turn was made
     const float TURN_COOLDOWN = 0.6f; // Cooldown time in seconds
-    const float STOP_COOLDOWN = 0.2f; // Cooldown time to stop after turn in seconds
+    const float FIND_PARKING_COOLDOWN = 0.2f; // Cooldown time to stop after turn in seconds
 
     float lastTrafficTime = 0.0f; // Tracks when the last turn was made
     const float TRAFFIC_COOLDOWN = 0.8f; // Cooldown time in seconds
 
     State state = State::NORMAL;
+    bool isFindParking = false;
 
     std::map<TrafficLightSearchKey, std::pair<TrafficLightRingPosition, Color>> trafficLightMap;
     TrafficLightPosition lastTrafficLightPosition;

@@ -307,20 +307,21 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 }
 
                 if (numberofTurn >= 2*4 - 1 && isUturn) {
-                    if (frontWallDistance <= FRONT_WALL_DISTANCE_UTURN_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN) {
+                    if (frontWallDistance <= FRONT_WALL_DISTANCE_UTURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
                         state = State::UTURNING_1;
                         goto UTURNING_1_STATE;
+                    }
+                } else if (numberofTurn >= 3*4 - 1) {
+                    if (frontWallDistance <= FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
+                        isFindParking = true;
+                        state = State::TURNING;
+                        goto TURNING_STATE;
                     }
                 } else {
                     if (frontWallDistance <= FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
                         state = State::SLOW_BEFORE_TURN;
                         goto SLOW_BEFORE_TURN_STATE;
-                        }
-                }
-                
-                if (frontWallDistance <= FRONT_WALL_DISTANCE_STOP_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN && numberofTurn >= 3*4) {
-                    state = State::STOP;
-                    goto STOP_STATE;
+                    }
                 }
 
                 if (turnDirection != TurnDirection::UNKNOWN) {
@@ -556,8 +557,13 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 lastTurnTime = currentTime;
                 numberofTurn++;
 
-                state = State::NORMAL;
-                goto NORMAL_STATE;
+                if (isFindParking) {
+                    state = State::FIND_PARKING_ZONE;
+                    goto FIND_PARKING_ZONE_STATE;
+                } else {
+                    state = State::NORMAL;
+                    goto NORMAL_STATE;
+                }
             }
             break;
     }
@@ -614,6 +620,48 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 state = State::NORMAL;
                 goto NORMAL_STATE;
             }
+            break;
+    }
+    FIND_PARKING_ZONE_STATE: {
+        case State::FIND_PARKING_ZONE:
+            if (not isnan(frontWallDistance)) {
+                if (frontWallDistance <= FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
+                    state = State::TURNING;
+                    goto TURNING_STATE;
+                }
+            }
+
+            if (turnDirection == CLOCKWISE) {
+                wallDistanceBias = GREEN_LEFT_WALL_BIAS;
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                wallDistanceBias = RED_RIGHT_WALL_BIAS;
+            }
+
+            float wallDistanceError = 0;
+            if (turnDirection == CLOCKWISE) {
+                if (not std::isnan(leftWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (leftWallDistance - 0.500);
+                }
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                if (not std::isnan(rightWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (0.500 - rightWallDistance);
+                }
+            } else {
+                if (not std::isnan(leftWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (leftWallDistance - 0.500);
+                } else if (not std::isnan(rightWallDistance)) {
+                    wallDistanceError = wallDistanceBias - (0.500 - rightWallDistance);
+                }
+            }
+
+            float headingCorrection = wallDistancePID.calculate(wallDistanceError, deltaTime);
+            headingCorrection = std::max(std::min(headingCorrection, MAX_HEADING_ERROR), -MAX_HEADING_ERROR);
+
+            float desiredYaw = directionToHeading(robotDirection);
+            desiredYaw += headingCorrection;
+
+            float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
+            steeringPercent = steeringPID.calculate(headingError, deltaTime);
             break;
     }
     STOP_STATE: {
