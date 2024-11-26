@@ -12,21 +12,21 @@ const cv::Scalar lowerBlueLine(100, 100, 150);
 const cv::Scalar upperBlueLine(140, 220, 220);
 const cv::Scalar lowerOrangeLine(4, 120, 180);
 const cv::Scalar upperOrangeLine(16, 230, 255);
-const cv::Scalar lowerRed1Light(0, 180, 180);
-const cv::Scalar upperRed1Light(1, 255, 255);
-const cv::Scalar lowerRed2Light(173, 100, 180);
-const cv::Scalar upperRed2Light(180, 255, 255);
-const cv::Scalar lowerGreen1Light(32, 70, 90);
-const cv::Scalar upperGreen1Light(44, 250, 250);
-const cv::Scalar lowerGreen2Light(45, 100, 100);
-const cv::Scalar upperGreen2Light(57, 190, 240);
+const cv::Scalar lowerRed1Light(0, 120, 185);
+const cv::Scalar upperRed1Light(1, 205, 255);
+const cv::Scalar lowerRed2Light(176, 120, 185);
+const cv::Scalar upperRed2Light(180, 205, 255);
+const cv::Scalar lowerGreen1Light(32, 75, 140);
+const cv::Scalar upperGreen1Light(50, 135, 190);
+const cv::Scalar lowerGreen2Light(50, 135, 190);
+const cv::Scalar upperGreen2Light(50, 135, 190);
 const cv::Scalar lowerPinkLight(165, 244, 200);
 const cv::Scalar upperPinkLight(171, 255, 255);
 
 const int minBlueLineArea = 37;
 const int minOrangeLineArea = 37;
-const int minRedLineArea = 125;
-const int minGreenLineArea = 125;
+const int minRedLineArea = 400;
+const int minGreenLineArea = 400;
 
 enum Color {
     BLUE,
