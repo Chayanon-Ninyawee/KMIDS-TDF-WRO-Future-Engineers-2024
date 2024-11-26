@@ -14,7 +14,8 @@ enum class State {
     SLOW_BEFORE_TURN,
     WAITING_FOR_TURN,
     TURNING,
-    UTURNING
+    UTURNING_1,
+    UTURNING_2
 };
 
 enum class TrafficLightRingPosition {
@@ -47,26 +48,27 @@ private:
     const float MAX_HEADING_ERROR = 40.0;
     const float MIN_HEADING_ERROR = -40.0;
 
-    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 1.900;
+    const float FRONT_WALL_DISTANCE_STOP_THRESHOLD = 2.100;
     const float FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD = 1.300;
-    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.780;
+    const float FRONT_WALL_DISTANCE_UTURN_THRESHOLD = 0.500;
+    const float FRONT_WALL_DISTANCE_TURN_THRESHOLD = 0.750;
 
-    const float FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD = 1.040;
+    const float FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD = 1.020;
     const float FRONT_WALL_DISTANCE_TIGHT_INNER_LESS_TURN_THRESHOLD = 0.870;
-    const float FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD = 0.480;
+    const float FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD = 0.460;
     const float FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD = 0.670;
     float frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TURN_THRESHOLD;
 
-    const float RED_RIGHT_WALL_BIAS = 0.250;
+    const float RED_RIGHT_WALL_BIAS = 0.280;
     const float RED_LEFT_WALL_BIAS = 0.120;
     const float GREEN_RIGHT_WALL_BIAS = -0.120;
-    const float GREEN_LEFT_WALL_BIAS = -0.250;
+    const float GREEN_LEFT_WALL_BIAS = -0.280;
 
     const float MAX_HEADING_ERROR_BEFORE_EXIT_TURNING = 5.0;
 
     float lastTurnTime = 0.0f; // Tracks when the last turn was made
     const float TURN_COOLDOWN = 0.6f; // Cooldown time in seconds
-    const float STOP_COOLDOWN = 0.3f; // Cooldown time to stop after turn in seconds
+    const float STOP_COOLDOWN = 0.2f; // Cooldown time to stop after turn in seconds
 
     float lastTrafficTime = 0.0f; // Tracks when the last turn was made
     const float TRAFFIC_COOLDOWN = 0.8f; // Cooldown time in seconds

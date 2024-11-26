@@ -29,7 +29,6 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
     /*
     TODO
-    - UTURN
     - PARKING
     */
 
@@ -280,13 +279,48 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
             motorPercent = 0.25;
 
             if (not isnan(frontWallDistance)) {
-                if (frontWallDistance <= FRONT_WALL_DISTANCE_STOP_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN && numberofTurn >= 3 * 4) {
+                bool isUturn = false;
+
+                TrafficLightPosition trafficLightPositionStart;
+                TrafficLightPosition trafficLightPositionEnd;
+
+                if (turnDirection == CLOCKWISE) {
+                    trafficLightPositionStart = TrafficLightPosition::BLUE;
+                    trafficLightPositionEnd = TrafficLightPosition::ORANGE;
+                } else if (turnDirection == COUNTER_CLOCKWISE) {
+                    trafficLightPositionStart = TrafficLightPosition::ORANGE;
+                    trafficLightPositionEnd = TrafficLightPosition::BLUE;
+                }
+
+                TrafficLightSearchKey key = {trafficLightPositionEnd, Direction::SOUTH};
+                if (trafficLightMap.find(key) == trafficLightMap.end()) {
+                    key = {TrafficLightPosition::MID, Direction::SOUTH};
+                }
+                if (trafficLightMap.find(key) == trafficLightMap.end()) {
+                    key = {trafficLightPositionEnd, Direction::SOUTH};
+                }
+
+                if (trafficLightMap.find(key) != trafficLightMap.end()) {
+                    if (trafficLightMap[key].second == Color::RED) {
+                        isUturn = true;
+                    }
+                }
+
+                if (numberofTurn >= 2*4 - 1 && isUturn) {
+                    if (frontWallDistance <= FRONT_WALL_DISTANCE_UTURN_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN) {
+                        state = State::UTURNING_1;
+                        goto UTURNING_1_STATE;
+                    }
+                } else {
+                    if (frontWallDistance <= FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
+                        state = State::SLOW_BEFORE_TURN;
+                        goto SLOW_BEFORE_TURN_STATE;
+                        }
+                }
+                
+                if (frontWallDistance <= FRONT_WALL_DISTANCE_STOP_THRESHOLD && currentTime - lastTurnTime >= STOP_COOLDOWN && numberofTurn >= 3*4) {
                     state = State::STOP;
                     goto STOP_STATE;
-                }
-                if (frontWallDistance <= FRONT_WALL_DISTANCE_SLOWDOWN_THRESHOLD && currentTime - lastTurnTime >= TURN_COOLDOWN) {
-                    state = State::SLOW_BEFORE_TURN;
-                    goto SLOW_BEFORE_TURN_STATE;
                 }
 
                 if (turnDirection != TurnDirection::UNKNOWN) {
@@ -521,6 +555,61 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TURN_THRESHOLD;
                 lastTurnTime = currentTime;
                 numberofTurn++;
+
+                state = State::NORMAL;
+                goto NORMAL_STATE;
+            }
+            break;
+    }
+    UTURNING_1_STATE: {
+        case State::UTURNING_1:
+            float yawCorrection = 0.0f;
+            if (turnDirection == CLOCKWISE) {
+                if (wallDistanceBias == RED_LEFT_WALL_BIAS || wallDistanceBias == RED_RIGHT_WALL_BIAS) {
+                    yawCorrection = -80.0f;
+                } else {
+                    yawCorrection = 80.0f;
+                }
+            } else if (turnDirection == COUNTER_CLOCKWISE) {
+                if (wallDistanceBias == GREEN_LEFT_WALL_BIAS || wallDistanceBias == GREEN_RIGHT_WALL_BIAS) {
+                    yawCorrection = 80.0f;
+                } else {
+                    yawCorrection = -80.0f;
+                }
+            }
+            float desiredYaw = directionToHeading(robotDirection);
+            desiredYaw += yawCorrection;
+
+            float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
+            steeringPercent = steeringPID.calculate(headingError, deltaTime);
+
+            if (abs(headingError) < 30) {
+                state = State::UTURNING_2;
+                goto UTURNING_2_STATE;
+            }
+            break;
+    }
+    UTURNING_2_STATE: {
+        case State::UTURNING_2:
+            float desiredYaw = directionToHeading(robotDirection);
+            desiredYaw += 180;
+
+            float headingError = fmod(desiredYaw - gyroYaw + 360.0f + 180.0f, 360.0f) - 180.0f;
+            steeringPercent = steeringPID.calculate(headingError, deltaTime);
+
+            if (abs(headingError) < MAX_HEADING_ERROR_BEFORE_EXIT_TURNING) {
+                if (turnDirection == CLOCKWISE) {
+                    turnDirection = COUNTER_CLOCKWISE;
+                } else if (turnDirection == COUNTER_CLOCKWISE) {
+                    turnDirection = CLOCKWISE;
+                }
+
+                lastTrafficLightPosition = TrafficLightPosition::NO_POSITION;
+
+                robotDirection = calculateRelativeDirection(robotDirection, BACK);
+                frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TURN_THRESHOLD;
+                lastTurnTime = currentTime;
+                numberofTurn += 2;
 
                 state = State::NORMAL;
                 goto NORMAL_STATE;
