@@ -9,6 +9,7 @@
 #include <opencv2/highgui.hpp>
 #include <thread>
 #include <vector>
+#include <wiringPi.h>
 
 #include "challenges/openChallenge.h"
 
@@ -18,6 +19,7 @@
 #include "utils/lidarDataProcessor.h"
 #include "utils/dataSaver.h"
 
+const int BUTTON_PIN = 23;
 const uint8_t PICO_ADDRESS = 0x39;
 
 float motorPercent = 0.0f;
@@ -89,6 +91,16 @@ int main() {
     // cam.startVideo();
 
 
+    if (wiringPiSetupGpio() == -1) { // Use GPIO numbering
+        printf("WiringPi setup failed.\n");
+        return -1;
+    }
+
+    // Set up GPIO 23 as input with pull-up resistor
+    pinMode(BUTTON_PIN, INPUT);
+    pullUpDnControl(BUTTON_PIN, PUD_UP); // Enable pull-up resistor
+
+
 
     int fd = i2c_master_init(PICO_ADDRESS);
 
@@ -143,8 +155,10 @@ int main() {
         return -1;
     }
 
-    printf("Press Any Key to Start\n");  
-    getchar();
+    while (digitalRead(BUTTON_PIN) == HIGH) {
+        delay(10); // Small delay to reduce CPU usage
+    }
+    delay(500);
 
     bno055_accel_float_t initial_accel_data;
     bno055_euler_float_t initial_euler_data;
