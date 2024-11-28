@@ -25,9 +25,9 @@
 
 <img src="https://cdn.mos.cms.futurecdn.net/cQHK7tWkKGRENVuMkR5Gkg-970-80.png.webp" width="400" />
 
-- Click Edit Settings 
+- Clear and Click Edit Settings 
 
-<img src="https://cdn.discordapp.com/attachments/1196726335867998269/1308709818537742407/image.png?ex=673eee7f&is=673d9cff&hm=0e207f68b3dde950df18f7399f9416c38dd36799c61f329f531dafe86e39a99c&" width="400" />
+<img src="https://robu.in/wp-content/uploads/2024/01/o9.jpg" width="400" />
 
 - Fill in all blank on the General tab: hostname, username / password, wireless LAN (If you plan to use Wi-Fi, and locale settings).
 
