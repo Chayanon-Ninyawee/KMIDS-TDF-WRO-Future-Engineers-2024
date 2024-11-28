@@ -170,6 +170,7 @@ int main() {
 
     ObstacleChallenge challenge = ObstacleChallenge(LIDAR_SCALE, CENTER);
 
+
     while (isRunning) {
         cv::Mat rawCameraImage;
         if(!cam.getVideoFrame(rawCameraImage, 1000)){
@@ -206,14 +207,14 @@ int main() {
         steeringPercent = std::clamp(steeringPercent, -1.0f, 1.0f);
 
 
-        // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
-        // cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
-        // cv::Mat croppedImage = cameraImage(cropRegion);
-        // if (DataSaver::saveLogData("log/logData1.bin", lidarScanData, accel_data, euler_data, croppedImage)) {
-        //     // std::cout << "Log data saved to file successfully." << std::endl;
-        // } else {
-        //     std::cerr << "Failed to save log data to file." << std::endl;
-        // }
+        int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
+        cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
+        cv::Mat croppedImage = cameraImage(cropRegion);
+        if (DataSaver::saveLogData("log/logData11.bin", lidarScanData, accel_data, euler_data, croppedImage)) {
+            // std::cout << "Log data saved to file successfully." << std::endl;
+        } else {
+            std::cerr << "Failed to save log data to file." << std::endl;
+        }
 
 
         // motorPercent = 0.0f;

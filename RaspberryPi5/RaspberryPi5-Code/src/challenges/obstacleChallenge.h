@@ -1,6 +1,8 @@
 #ifndef OBSTACLECHALLENGE_H
 #define OBSTACLECHALLENGE_H
 
+#include <queue>
+#include <unordered_set>
 #include <vector>
 #include <opencv2/opencv.hpp>
 
@@ -43,6 +45,19 @@ struct TrafficLightSearchKey {
     }
 };
 
+// Hash function for TrafficLightSearchKey (for use in std::unordered_set)
+namespace std {
+    template <>
+    struct hash<TrafficLightSearchKey> {
+        size_t operator()(const TrafficLightSearchKey& key) const {
+            // Combine the hashes of lightPosition and direction
+            size_t h1 = std::hash<int>{}(static_cast<int>(key.lightPosition));
+            size_t h2 = std::hash<int>{}(static_cast<int>(key.direction));
+            return h1 ^ (h2 << 1);  // Combine the two hashes (simple XOR-based combining)
+        }
+    };
+}
+
 class ObstacleChallenge {
 private:
     PIDController steeringPID = PIDController(0.026f, 0.0f, 0.0008f);
@@ -80,6 +95,8 @@ private:
     bool isFindParking = false;
 
     std::map<TrafficLightSearchKey, std::pair<TrafficLightRingPosition, Color>> trafficLightMap;
+    std::queue<TrafficLightSearchKey> trafficLightOrderQueue;  // Maintains the order of insertion
+    std::unordered_set<TrafficLightSearchKey> trafficLightKeySet; // For fast duplicate checking
     TrafficLightPosition lastTrafficLightPosition;
     Direction lastTrafficLightDirection;
 

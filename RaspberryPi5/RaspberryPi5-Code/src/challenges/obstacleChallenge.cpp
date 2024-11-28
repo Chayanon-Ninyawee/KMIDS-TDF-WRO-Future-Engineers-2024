@@ -284,37 +284,18 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
             if (not isnan(frontWallDistance)) {
                 bool isUturn = false;
 
-                TrafficLightPosition trafficLightPositionStart;
-                TrafficLightPosition trafficLightPositionEnd;
-
-                if (turnDirection == CLOCKWISE) {
-                    trafficLightPositionStart = TrafficLightPosition::BLUE;
-                    trafficLightPositionEnd = TrafficLightPosition::ORANGE;
-                } else if (turnDirection == COUNTER_CLOCKWISE) {
-                    trafficLightPositionStart = TrafficLightPosition::ORANGE;
-                    trafficLightPositionEnd = TrafficLightPosition::BLUE;
-                }
-
-                TrafficLightSearchKey key = {trafficLightPositionEnd, Direction::SOUTH};
-                if (trafficLightMap.find(key) == trafficLightMap.end()) {
-                    key = {TrafficLightPosition::MID, Direction::SOUTH};
-                }
-                if (trafficLightMap.find(key) == trafficLightMap.end()) {
-                    key = {trafficLightPositionStart, Direction::SOUTH};
-                }
-
-                if (trafficLightMap.find(key) != trafficLightMap.end()) {
-                    if (trafficLightMap[key].second == Color::RED) {
+                if (!trafficLightOrderQueue.empty()) {
+                    if (trafficLightMap[trafficLightOrderQueue.back()].second == Color::RED) {
                         isUturn = true;
                     }
                 }
 
-                if (numberofTurn == 2*4 - 1 && isUturn) {
+                if (numberofTurn == 2*4 && isUturn) {
                     if (frontWallDistance <= FRONT_WALL_DISTANCE_UTURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
                         state = State::UTURNING_1;
                         goto UTURNING_1_STATE;
                     }
-                } else if (numberofTurn == 3*4 - 1) {
+                } else if (numberofTurn == 3*4) {
                     if (frontWallDistance <= FRONT_WALL_DISTANCE_TIGHT_OUTER_MORE_TURN_THRESHOLD && currentTime - lastTurnTime >= FIND_PARKING_COOLDOWN) {
                         isFindParking = true;
                         state = State::TURNING;
@@ -363,12 +344,20 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                             lastTrafficLightDirection = key.direction;
 
                             if (trafficLightMap[key].second == Color::RED) {
+                                if (trafficLightKeySet.find(key) == trafficLightKeySet.end()) {  // Check if it's not a duplicate
+                                    trafficLightOrderQueue.push(key);  // Add the key to the queue to preserve the order
+                                    trafficLightKeySet.insert(key);    // Mark the key as seen
+                                }
                                 if (trafficLightMap[key].first == trafficLightRingPositionOnLeft) {
                                     wallDistanceBias = RED_LEFT_WALL_BIAS;
                                 } else {
                                     wallDistanceBias = RED_RIGHT_WALL_BIAS;
                                 }
                             } else if (trafficLightMap[key].second == Color::GREEN) {
+                                if (trafficLightKeySet.find(key) == trafficLightKeySet.end()) {  // Check if it's not a duplicate
+                                    trafficLightOrderQueue.push(key);  // Add the key to the queue to preserve the order
+                                    trafficLightKeySet.insert(key);    // Mark the key as seen
+                                }
                                 if (trafficLightMap[key].first == trafficLightRingPositionOnLeft) {
                                     wallDistanceBias = GREEN_LEFT_WALL_BIAS;
                                 } else {
@@ -435,6 +424,10 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
                     if (trafficLightMap.find(key) != trafficLightMap.end()) {
                         if (trafficLightMap[key].second == Color::RED) {
+                            if (trafficLightKeySet.find(key) == trafficLightKeySet.end()) {  // Check if it's not a duplicate
+                                trafficLightOrderQueue.push(key);  // Add the key to the queue to preserve the order
+                                trafficLightKeySet.insert(key);    // Mark the key as seen
+                            }
                             if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
                                 frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
                                 lastTrafficLightPosition = trafficLightPositionStart;
@@ -446,6 +439,10 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                             }
                             state = State::WAITING_FOR_TURN;
                         } else if (trafficLightMap[key].second == Color::GREEN) {
+                            if (trafficLightKeySet.find(key) == trafficLightKeySet.end()) {  // Check if it's not a duplicate
+                                trafficLightOrderQueue.push(key);  // Add the key to the queue to preserve the order
+                                trafficLightKeySet.insert(key);    // Mark the key as seen
+                            }
                             if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
                                 frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
                                 lastTrafficLightPosition = trafficLightPositionStart;
@@ -463,6 +460,10 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
 
                     if (trafficLightMap.find(key) != trafficLightMap.end()) {
                         if (trafficLightMap[key].second == Color::RED) {
+                            if (trafficLightKeySet.find(key) == trafficLightKeySet.end()) {  // Check if it's not a duplicate
+                                trafficLightOrderQueue.push(key);  // Add the key to the queue to preserve the order
+                                trafficLightKeySet.insert(key);    // Mark the key as seen
+                            }
                             if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
                                 frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_OUTER_LESS_TURN_THRESHOLD;
                                 lastTrafficLightPosition = trafficLightPositionStart;
@@ -474,6 +475,10 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                             }
                             state = State::WAITING_FOR_TURN;
                         } else if (trafficLightMap[key].second == Color::GREEN) {
+                            if (trafficLightKeySet.find(key) == trafficLightKeySet.end()) {  // Check if it's not a duplicate
+                                trafficLightOrderQueue.push(key);  // Add the key to the queue to preserve the order
+                                trafficLightKeySet.insert(key);    // Mark the key as seen
+                            }
                             if (trafficLightMap[key].first == TrafficLightRingPosition::INNER) {
                                 frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TIGHT_INNER_MORE_TURN_THRESHOLD;
                                 lastTrafficLightPosition = trafficLightPositionStart;
@@ -624,7 +629,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
                 robotDirection = calculateRelativeDirection(robotDirection, BACK);
                 frontWallDistanceTurnThreshold = FRONT_WALL_DISTANCE_TURN_THRESHOLD;
                 lastTurnTime = currentTime;
-                numberofTurn += 2;
+                numberofTurn++;
 
                 state = State::NORMAL;
                 goto NORMAL_STATE;
@@ -743,7 +748,7 @@ void ObstacleChallenge::update(const cv::Mat& lidarBinaryImage, const cv::Mat& c
             for (auto parkingWall : parkingWalls) {
                 printf("Found Park Wall!\n");
                 float parkingWallAngle = pointLinePerpendicularDirection(lidarCenter, parkingWall);
-                if (pointLinePerpendicularDistance(lidarCenter, parkingWall) > 66 && (parkingWallAngle > 250 && parkingWallAngle < 290)) {
+                if (pointLinePerpendicularDistance(lidarCenter, parkingWall) > 62 && (parkingWallAngle > 250 && parkingWallAngle < 290)) {
                     state = State::PARKING_2;
                     goto PARKING_2_STATE;
                 }
