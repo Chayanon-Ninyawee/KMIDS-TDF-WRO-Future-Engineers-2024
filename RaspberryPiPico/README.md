@@ -40,7 +40,9 @@
 
 - Wait downloading the “MinGW Installation Manager” as shown in the image below. ![downloading manager](https://files.codingninjas.in/article_images/custom-upload-1683458527.webp)
 
-- It is mandatory to mark “mingw-developer-tool” (provide some necessary developer tools) and “mingw32-base” (basic MinGW installation). As the image below, there are multiple versions of GNU Compilers. It depends on your needs, and which compiler you want to install. ![Compilers](https://files.codingninjas.in/article_images/custom-upload-1683458541.webp)
+- It is mandatory to mark “mingw-developer-tool” (provide some necessary developer tools) and “mingw32-base” (basic MinGW installation). As the image below, there are multiple versions of GNU Compilers. It depends on your needs, and which compiler you want to install. 
+
+![Compilers](https://files.codingninjas.in/article_images/custom-upload-1683458541.webp)
 
 - Click on the “Apply Changes” to install all the libraries, header-files and modules of the GNU Compiler that selected. ![Apply Change](https://files.codingninjas.in/article_images/custom-upload-1683458554.webp)
 
@@ -74,7 +76,7 @@ These instructions and steps are Linux-based only. For other platforms and detai
 sudo apt install cmake gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
 ```
 - There are multiple ways to set up project to point to use the Raspberry Pi Pico SDK:
-##### - Cloning the SDK locally
+### - Cloning the SDK locally
 1. ```git clone``` Raspberry Pi Pico SDK from this [repository](https://github.com/raspberrypi/pico-sdk/tree/develop/?tab=readme-ov-file)
 2. Copy [pico_sdk_import.cmake](https://github.com/raspberrypi/pico-sdk/blob/master/external/pico_sdk_import.cmake) from the SDK into project directory.
 3. Set ```PICO_SDK_PATH``` to the SDK location in environment, or pass it (```-DPICO_SDK_PATH=```) to cmake later.
@@ -94,7 +96,7 @@ pico_sdk_init()
 # rest of project
 
 ```      
-##### - Setup with the Raspberry Pi Pico SDK as a submodule
+### - Setup with the Raspberry Pi Pico SDK as a submodule
 1. Clone the SDK as a submodule ```called pico-sdk```
 2. Setup a ```CMakeLists.txt``` like:
 ```
@@ -112,7 +114,7 @@ pico_sdk_init()
 # rest of project
 
 ```
-##### - Set up with automatic download from GitHub
+### - Set up with automatic download from GitHub
 1. Copy [pico_sdk_import.cmake](https://github.com/raspberrypi/pico-sdk/blob/master/external/pico_sdk_import.cmake) from the SDK into project directory
 2. Setup a ```CMakeLists.txt``` like:
 ```
@@ -133,7 +135,7 @@ pico_sdk_init()
 
 # rest of project
 ```
-##### - Cloning the SDK locally, but without copying ```pico_sdk_import.cmake```
+### - Cloning the SDK locally, but without copying ```pico_sdk_import.cmake```
 1. ```git clone``` from this [Raspberry Pi Pico SDK repository](https://github.com/raspberrypi/pico-sdk/tree/develop/?tab=readme-ov-file)
 2. Setup a ```CMakeLists.txt``` like:
 ```
