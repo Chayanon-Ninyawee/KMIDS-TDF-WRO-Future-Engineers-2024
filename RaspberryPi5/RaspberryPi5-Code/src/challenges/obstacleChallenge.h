@@ -43,6 +43,11 @@ struct TrafficLightSearchKey {
     bool operator<(const TrafficLightSearchKey& other) const {
         return std::tie(lightPosition, direction) < std::tie(other.lightPosition, other.direction);
     }
+
+    // Define operator== for unordered_set
+    bool operator==(const TrafficLightSearchKey& other) const {
+        return lightPosition == other.lightPosition && direction == other.direction;
+    }
 };
 
 // Hash function for TrafficLightSearchKey (for use in std::unordered_set)

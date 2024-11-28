@@ -77,6 +77,14 @@ void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, dou
 int main() {
     signal(SIGINT, interuptHandler);
 
+    std::time_t now = std::time(nullptr);
+    std::tm localTime;
+    localtime_r(&now, &localTime); // Use `localtime_r` for thread-safe conversion
+
+    std::ostringstream timestampStream;
+    timestampStream << std::put_time(&localTime, "%Y%m%d_%H%M%S"); // Format: YYYYMMDD_HHMMSS
+    std::string timestamp = timestampStream.str();
+
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
 
@@ -210,7 +218,7 @@ int main() {
         int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
         cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
         cv::Mat croppedImage = cameraImage(cropRegion);
-        if (DataSaver::saveLogData("log/logData11.bin", lidarScanData, accel_data, euler_data, croppedImage)) {
+        if (DataSaver::saveLogData("log/obstacle_" + timestamp + ".bin", lidarScanData, accel_data, euler_data, croppedImage)) {
             // std::cout << "Log data saved to file successfully." << std::endl;
         } else {
             std::cerr << "Failed to save log data to file." << std::endl;
