@@ -161,7 +161,7 @@ Co
 +3 7 *
 Co
 
-0100000
+1100000
 +2 2 *
 
 +1 1 ]]>
@@ -184,8 +184,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#b8;:X;:H69:3,E.0 0
-;#b9;:X;:H69:3,E.0 0
+;#6f;:X;:H69:3,E.0 0
+;#70;:X;:H69:3,E.0 0
 
 Face
 
@@ -193,7 +193,7 @@ ChildCount 0
 
 NameCount 2
 0
-;#ba;:X;:H69:3,F.0 0
+;#71;:X;:H69:3,F.0 0
 
 Vertex
 
@@ -201,8 +201,8 @@ ChildCount 0
 
 NameCount 3
 0
-;#b6;:X;:H69:3,V.0 0
-;#b7;:X;:H69:3,V.0 0
+;#6d;:X;:H69:3,V.0 0
+;#6e;:X;:H69:3,V.0 0
 
 EndMap
 ]]>
