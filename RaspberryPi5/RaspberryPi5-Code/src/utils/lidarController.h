@@ -9,16 +9,9 @@
 #include <iostream>
 #include <stdexcept>
 
-namespace lidarController {
+#include "lidar_struct.h"
 
-  /**
-   * Structure to hold data for each LIDAR scan node.
-   * Contains the angle and distance of the detected point.
-   */
-  struct NodeData {
-    float angle;
-    float distance;
-  };
+namespace lidarController {
   
   /**
    * LidarController class handles initialization, control, and data acquisition

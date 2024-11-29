@@ -4,6 +4,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "bno055_struct.h"
+
 namespace i2c_slave_mem_addr {
   const size_t MEM_SIZE = 256;
 
@@ -45,24 +47,6 @@ enum Command : uint8_t {
   CALIB_NO_OFFSET = 0x02,
   CALIB_WITH_OFFSET = 0x03,
   SKIP_CALIB = 0x04
-};
-
-/*!
- * @brief struct for Accel-output data of precision float
- */
-struct bno055_accel_float_t {
-    float x; /**< accel x float data */
-    float y; /**< accel y float data */
-    float z; /**< accel z float data */
-};
-
-/*!
- * @brief struct for Euler-output data of precision float
- */
-struct bno055_euler_float_t {
-    float h; /**< Euler h float data */
-    float r; /**< Euler r float data */
-    float p; /**< Euler p float data */
 };
 
 

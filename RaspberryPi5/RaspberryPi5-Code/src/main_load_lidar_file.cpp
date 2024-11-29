@@ -75,7 +75,7 @@ int main() {
     std::vector<bno055_accel_float_t> allAccelData;
     std::vector<bno055_euler_float_t> allEulerData;
     std::vector<cv::Mat> allCameraImage;
-    DataSaver::loadLogData("log/logData4.bin", allScanData, allAccelData, allEulerData, allCameraImage);
+    DataSaver::loadLogData("log/logData3.bin", allScanData, allAccelData, allEulerData, allCameraImage);
 
     if (allScanData.empty() || allAccelData.empty() || allEulerData.empty() || allCameraImage.empty()) {
         std::cerr << "No scan data found in file or failed to load." << std::endl;
@@ -101,19 +101,24 @@ int main() {
         }
 
         if (key == 'p') playVideo = !playVideo; // Toggle play/pause
-        if (key == 'a' && !playVideo) frameIndex--; // Rewind 1 frame
+        if (key == 'a' && !playVideo && frameIndex > 0) frameIndex--; // Rewind 1 frame
         if (key == 'd' && !playVideo) frameIndex++; // Forward 1 frame
         if (key == 'q') break; // Exit loop
 
         // Boundary check during play
         if (frameIndex >= allScanData.size()) frameIndex = allScanData.size() - 1;
-        if (frameIndex < 0) frameIndex =0;
 
 
 
 
+        cv::Mat rawCameraImage = allCameraImage[frameIndex];
+        cv::Mat cameraImage(rawCameraImage.rows * 2, rawCameraImage.cols, rawCameraImage.type());
+        cameraImage.setTo(cv::Scalar(0, 0, 0)); // black in BGR
+        rawCameraImage.copyTo(cameraImage(cv::Rect(0, rawCameraImage.rows, rawCameraImage.cols, rawCameraImage.rows)));
 
-        cv::Mat cameraImage = allCameraImage[frameIndex];
+
+        // cv::Mat cameraImage;
+        // cv::flip(allCameraImage[frameIndex], cameraImage, 1);
 
         bno055_accel_float_t accelData = allAccelData[frameIndex];
         bno055_euler_float_t eulerData = allEulerData[frameIndex];
@@ -122,12 +127,15 @@ int main() {
 
 
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, LIDAR_WIDTH, LIDAR_HEIGHT, LIDAR_SCALE);
+        // cv::Mat binaryImage;
+        // cv::flip(lidarDataToImage(lidarScanData, LIDAR_WIDTH, LIDAR_HEIGHT, LIDAR_SCALE), binaryImage, 1);
         cv::Mat lidarOutputImage = cv::Mat::zeros(LIDAR_HEIGHT, LIDAR_WIDTH, CV_8UC3);
         cv::cvtColor(binaryImage, lidarOutputImage, cv::COLOR_GRAY2BGR);
 
 
 
         auto angle = fmod(eulerData.h - initialEulerData.h + 360.0f, 360.0f);
+        // auto angle = fmod(-(eulerData.h - initialEulerData.h) + 360.0f + 360.0f, 360.0f);
         // float angle = 0.0;
 
 
@@ -141,7 +149,7 @@ int main() {
 
 
 
-        Direction direction = NORTH;
+        Direction direction = NORTH; // Placeholder for intended direction (work fine for testing)
         if (angle >= 315 || angle < 45) direction = NORTH;
         else if (angle >= 45 && angle < 135) direction = EAST;
         else if (angle >= 135 && angle < 225) direction = SOUTH;
@@ -150,9 +158,10 @@ int main() {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, angle);
+        // auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
 
-        TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, angle);
+        TurnDirection turnDirection = lidarDetectTurnDirection(combinedLines, wallDirections, direction);
 
 
 
@@ -165,24 +174,38 @@ int main() {
 
         // cv::Mat filteredCameraImage = filterAllColors(cameraImage);
         auto cameraImageData = processImage(cameraImage);
+        // auto filteredCameraImage = filterAllColors(cameraImage);
         cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
 
-        
+        std::vector<BlockInfo> blockAngles;
         for (Block block : cameraImageData.blocks) {
-            float blockAngle = pixelToAngle(block.x, camWidth, 90, 65.0f);
-            cv::Scalar color;
-            if (block.color == RED) {
-                color = cv::Scalar(0, 0, 255);
-            } else {
-                color = cv::Scalar(0, 255, 0);
-            }
+            BlockInfo blockAngle;
+            blockAngle.angle = pixelToAngle(block.x, camWidth, 20, 88.0f);
+            blockAngle.size = block.size;
+            blockAngle.color = block.color;
+            blockAngles.push_back(blockAngle);
+            
+            // cv::Scalar color;
+            // if (blockAngle.color == RED) {
+            //     color = cv::Scalar(0, 0, 255);
+            // } else {
+            //     color = cv::Scalar(0, 255, 0);
+            // }
 
-            drawRadialLines(lidarOutputImage, CENTER, blockAngle, 800, color, 2);
-            // printf("color: %d, blockAngle: %.2f\n", block.color, blockAngle);
+            // drawRadialLines(lidarOutputImage, CENTER, blockAngle.angle, 800, color, 2);
+        }
+        auto processedTrafficLights = processTrafficLight(trafficLightPoints, blockAngles, CENTER);
+
+        drawTrafficLights(lidarOutputImage, processedTrafficLights);
+
+        auto test = detectParkingZone(binaryImage, combinedLines, wallDirections, CLOCKWISE, direction);
+
+        for (const auto& line : test) {
+            cv::line(lidarOutputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), cv::Scalar(0, 255, 255), 2, cv::LINE_AA);
         }
 
 
-        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
+        cv::imshow("LIDAR Hough Lines", processedImage);
 
         // printf("turnDirection: %d\n", turnDirection);
 

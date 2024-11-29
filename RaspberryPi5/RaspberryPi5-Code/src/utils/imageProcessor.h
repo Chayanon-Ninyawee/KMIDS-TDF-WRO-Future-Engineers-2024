@@ -10,23 +10,25 @@ const float CROP_PERCENT = 0.50;
 // Define constants for color ranges and minimum contour areas
 const cv::Scalar lowerBlueLine(100, 100, 150);
 const cv::Scalar upperBlueLine(140, 220, 220);
-const cv::Scalar lowerOrangeLine(4, 120, 180);
+const cv::Scalar lowerOrangeLine(6, 120, 180);
 const cv::Scalar upperOrangeLine(16, 230, 255);
-const cv::Scalar lowerRed1Light(0, 180, 200);
-const cv::Scalar upperRed1Light(1, 220, 255);
-const cv::Scalar lowerRed2Light(177, 180, 200);
-const cv::Scalar upperRed2Light(180, 255, 255);
-const cv::Scalar lowerGreenLight(34, 70, 90);
-const cv::Scalar upperGreenLight(50, 190, 250);
+const cv::Scalar lowerRed1Light(0, 135, 160);
+const cv::Scalar upperRed1Light(2, 205, 255);
+const cv::Scalar lowerRed2Light(175, 135, 160);
+const cv::Scalar upperRed2Light(180, 205, 255);
+const cv::Scalar lowerGreen1Light(55, 70, 120);
+const cv::Scalar upperGreen1Light(84, 175, 195);
+const cv::Scalar lowerGreen2Light(84, 175, 195);
+const cv::Scalar upperGreen2Light(84, 175, 195);
 const cv::Scalar lowerPinkLight(165, 244, 200);
 const cv::Scalar upperPinkLight(171, 255, 255);
 
-const int minBlueLineArea = 150;
-const int minOrangeLineArea = 150;
-const int minRedLineArea = 500;
-const int minGreenLineArea = 500;
+const int minBlueLineArea = 37;
+const int minOrangeLineArea = 37;
+const int minRedLineArea = 300;
+const int minGreenLineArea = 300;
 
-enum Color {
+enum class Color {
     BLUE,
     ORANGE,
     RED,

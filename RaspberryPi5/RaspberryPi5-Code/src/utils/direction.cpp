@@ -18,20 +18,20 @@ Direction calculateRelativeDirection(Direction currentDirection, RelativeDirecti
 // Helper function to convert Direction enum to string for display
 std::string directionToString(Direction direction) {
     switch (direction) {
-        case NORTH: return "NORTH";
-        case EAST: return "EAST";
-        case SOUTH: return "SOUTH";
-        case WEST: return "WEST";
+        case Direction::NORTH: return "Direction::NORTH";
+        case Direction::EAST: return "Direction::EAST";
+        case Direction::SOUTH: return "Direction::SOUTH";
+        case Direction::WEST: return "Direction::WEST";
     }
     return "UNKNOWN";
 }
 
 float directionToHeading(Direction direction) {
     switch (direction) {
-        case NORTH: return 0.0f;
-        case EAST: return 90.0f;
-        case SOUTH: return 180.0f;
-        case WEST: return 270.0f;
+        case Direction::NORTH: return 0.0f;
+        case Direction::EAST: return 90.0f;
+        case Direction::SOUTH: return 180.0f;
+        case Direction::WEST: return 270.0f;
     }
     return 0.0f;
 }

@@ -1149,7 +1149,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-18T02:27:20Z"/>
+      <String value="2024-11-10T18:59:28Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -1321,7 +1321,7 @@
       <Dep Name="Hole"/>
       <Dep Name="Link001"/>
     </ObjectDeps>
-    <Object type="PartDesign::Body" name="Body" id="1166" revision="548" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="1166" revision="549" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="1167" revision="6" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="1168" revision="4" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="1169" revision="5" file="Y_Axis.xml" />
@@ -1349,9 +1349,9 @@
     <Object type="Sketcher::SketchObject" name="Sketch003" id="1231" revision="967" file="Sketch003.xml" />
     <Object type="PartDesign::Pad" name="Pad006" id="1232" revision="51" file="Pad006.xml" />
     <Object type="PartDesign::Chamfer" name="Chamfer001" id="1233" revision="27" file="Chamfer001.xml" />
-    <Object type="PartDesign::Hole" name="Hole" id="1235" revision="87" file="Hole.xml" />
-    <Object type="App::Link" name="Link001" id="1236" revision="18" file="Link001.xml" />
-    <Object type="PartDesign::Hole" name="Hole001" id="1238" revision="33" file="Hole001.xml" />
+    <Object type="PartDesign::Hole" name="Hole" id="1235" revision="91" file="Hole.xml" />
+    <Object type="App::Link" name="Link001" id="1236" revision="19" file="Link001.xml" />
+    <Object type="PartDesign::Hole" name="Hole001" id="1238" revision="36" file="Hole001.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

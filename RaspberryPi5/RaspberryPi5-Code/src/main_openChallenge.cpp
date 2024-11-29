@@ -9,15 +9,17 @@
 #include <opencv2/highgui.hpp>
 #include <thread>
 #include <vector>
+#include <wiringPi.h>
 
 #include "challenges/openChallenge.h"
 
 #include "utils/i2c_master.h"
-#include "utils/libCamera.h"
+// #include "utils/lccv.hpp"
 #include "utils/lidarController.h"
 #include "utils/lidarDataProcessor.h"
 #include "utils/dataSaver.h"
 
+const int BUTTON_PIN = 23;
 const uint8_t PICO_ADDRESS = 0x39;
 
 float motorPercent = 0.0f;
@@ -31,11 +33,12 @@ const float LIDAR_SCALE = 180.0;
 const cv::Point CENTER(WIDTH/2, HEIGHT/2);
 
 
-LibCamera cam;
-uint32_t camWidth = 1280;
-uint32_t camHeight = 720;
-uint32_t camStride;
+uint32_t camWidth = 1296;
+uint32_t camHeight = 972;
 
+
+float lastGyroYaw = 0.0f;
+float accumulateGyroYaw = 0.0f;
 
 bool isRunning = true;
 
@@ -77,26 +80,25 @@ int main() {
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
 
-    int ret = cam.initCamera();
-    cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
-    ControlList controls_;
-    int64_t frame_time = 1000000 / 10;
-	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
-    controls_.set(controls::Brightness, 0.1); // Adjust the brightness of the output images, in the range -1.0 to 1.0
-    controls_.set(controls::Contrast, 1.0); // Adjust the contrast of the output image, where 1.0 = normal contrast
-    controls_.set(controls::ExposureTime, 20000);
-    cam.set(controls_);
+    // lccv::PiCamera cam;
+    // cam.options->video_width = camWidth;
+    // cam.options->video_height = camHeight;
+    // cam.options->framerate = 10;
+    // cam.options->brightness = 0.2;
+    // cam.options->contrast = 1.6;
+    // cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
+    // cam.options->verbose = true;
+    // cam.startVideo();
 
-    if (ret) {
-        cam.closeCamera();
-        printf("Camera no working!");
+
+    if (wiringPiSetupGpio() == -1) { // Use GPIO numbering
+        printf("WiringPi setup failed.\n");
         return -1;
     }
 
-    bool flag;
-    LibcameraOutData frameData;
-    cam.startCamera();
-    cam.VideoStream(&camWidth, &camHeight, &camStride);
+    // Set up GPIO 23 as input with pull-up resistor
+    pinMode(BUTTON_PIN, INPUT);
+    pullUpDnControl(BUTTON_PIN, PUD_UP); // Enable pull-up resistor
 
 
 
@@ -112,12 +114,13 @@ int main() {
     uint8_t calib[22];
     bool isCalibDataExist = DataSaver::loadData("config/calibData.bin", calib);
 
-    if (isCalibDataExist) {
-        i2c_master_send_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
-        i2c_master_send_command(fd, Command::CALIB_WITH_OFFSET);
-    } else {
-        i2c_master_send_command(fd, Command::CALIB_NO_OFFSET);
-    }
+    // if (isCalibDataExist) {
+    //     i2c_master_send_data(fd, i2c_slave_mem_addr::BNO055_CALIB_ADDR, calib, sizeof(calib));
+    //     i2c_master_send_command(fd, Command::CALIB_WITH_OFFSET);
+    // } else {
+    //     i2c_master_send_command(fd, Command::CALIB_NO_OFFSET);
+    // }
+    i2c_master_send_command(fd, Command::SKIP_CALIB);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
@@ -131,15 +134,15 @@ int main() {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
-    uint8_t new_calib[22];
-    i2c_master_read_bno055_calibration(fd, new_calib);
+    // uint8_t new_calib[22];
+    // i2c_master_read_bno055_calibration(fd, new_calib);
 
-    DataSaver::saveData("config/calibData.bin", new_calib, false);
+    // DataSaver::saveData("config/calibData.bin", new_calib, false);
 
-    for (int i = 0; i < sizeof(new_calib); i++) {
-        printf("%x, ", new_calib[i]);
-    }
-    printf("\n");
+    // for (int i = 0; i < sizeof(new_calib); i++) {
+    //     printf("%x, ", new_calib[i]);
+    // }
+    // printf("\n");
 
 
 
@@ -152,28 +155,44 @@ int main() {
         return -1;
     }
 
-    printf("Press Any Key to Start\n");  
-    getchar();
+    while (digitalRead(BUTTON_PIN) == HIGH) {
+        delay(10); // Small delay to reduce CPU usage
+    }
+    delay(500);
 
     bno055_accel_float_t initial_accel_data;
     bno055_euler_float_t initial_euler_data;
     i2c_master_read_bno055_accel_and_euler(fd, &initial_accel_data, &initial_euler_data);
 
-    OpenChallenge challenge = OpenChallenge (LIDAR_SCALE, CENTER, fmod(initial_euler_data.h + 6.0f + 360.0f, 360.0f));
+    lastGyroYaw = initial_euler_data.h;
+
+    OpenChallenge challenge = OpenChallenge(LIDAR_SCALE, CENTER);
 
     while (isRunning) {
-        flag = cam.readFrame(&frameData);
-        if (!flag) {
-            continue;
-        }
-
-        cv::Mat im(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
+        // cv::Mat rawCameraImage;
+        // if(!cam.getVideoFrame(rawCameraImage, 1000)){
+        //     std::cout<<"Timeout error"<<std::endl;
+        // }
+        // cv::Mat cameraImage;
+        // cv::flip(rawCameraImage, cameraImage, -1);
  
 
 
         bno055_accel_float_t accel_data;
         bno055_euler_float_t euler_data;
         i2c_master_read_bno055_accel_and_euler(fd, &accel_data, &euler_data);
+
+        float deltaYaw = euler_data.h - lastGyroYaw;
+        if (deltaYaw > 180.0f) {
+            deltaYaw -= 360.0f;
+        } else if (deltaYaw < -180.0f) {
+            deltaYaw += 360.0f;
+        }
+        accumulateGyroYaw += deltaYaw;
+        lastGyroYaw = euler_data.h;
+
+        // printf("accumulateGyroYaw: %.2f, test: %.2f, ", accumulateGyroYaw, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f));
+
 
         i2c_master_read_logs(fd, logs);
         i2c_master_print_logs(logs, sizeof(logs));
@@ -189,10 +208,21 @@ int main() {
         // drawAllLines(combined_lines, outputImage, fmod(euler_data.h - initial_euler_data.h + 360.0f, 360.0f));
         
 
-        challenge.update(combined_lines, euler_data.h, motorPercent, steeringPercent);
+        challenge.update(binaryImage, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f), motorPercent, steeringPercent);
 
 
+        // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
+        // cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
+        // cv::Mat croppedImage = cameraImage(cropRegion);
+        // if (DataSaver::saveLogData("log/logData1.bin", lidarScanData, accel_data, euler_data, croppedImage)) {
+        //     // std::cout << "Log data saved to file successfully." << std::endl;
+        // } else {
+        //     std::cerr << "Failed to save log data to file." << std::endl;
+        // }
 
+
+        // motorPercent = 0.0f;
+        // steeringPercent = 0.0f;
         // Send movement data via I2C
         uint8_t movement[sizeof(motorPercent) + sizeof(steeringPercent)];
 
@@ -201,22 +231,14 @@ int main() {
         i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
 
-        // if (DataSaver::saveLogData("log/logData4.bin", lidarScanData, accel_data, euler_data, im)) {
-        //     std::cout << "Log data saved to file successfully." << std::endl;
-        // } else {
-        //     std::cerr << "Failed to save log data to file." << std::endl;
-        // }
 
-
-        // cv::imshow("libcamera-demo", im);
+        // cv::imshow("libcamera-demo", cameraImage);
         // cv::imshow("LIDAR Hough Lines", outputImage);
 
         // char key = cv::waitKey(1);
         // if (key == 'q') {
         //     break;
         // }
-
-        cam.returnFrameBuffer(frameData);
     }
 
     motorPercent = 0.0f;
@@ -229,8 +251,7 @@ int main() {
     memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
     i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
-    cam.stopCamera();
-    cam.closeCamera();
+    // cam.stopVideo();
 
     lidar.shutdown();
 

@@ -4,7 +4,7 @@
 -->
 <Document SchemaVersion="4" ProgramVersion="2024.1003R14555 (Git shallow)" FileVersion="2" Uid="ae46f750-63b6-4dce-a1d7-6e167b69a8d4" StringHasher="1">
   <StringHasher saveall="0" threshold="0" count="0" new="1"/>
-  <StringHasher2  count="192">
+  <StringHasher2  count="191">
 <![CDATA[
 -2.0 0:;SKT;:H97f,E
 -1.c.1 g2
@@ -159,8 +159,7 @@
 -1.2c.0.1
 -1.2c.0.1
 -1.2c.0.1
--17.0 0:Shape cache
--8.c.148 g8
+-1f.c.-123 g8
 -1.c.3 g8v1
 -1.2c.6.2
 -1.2c.4.0
@@ -229,7 +228,7 @@
       <String value=""/>
     </Property>
     <Property name="LastModifiedDate" type="App::PropertyString" status="16777217">
-      <String value="2024-10-18T02:26:06Z"/>
+      <String value="2024-11-10T18:58:45Z"/>
     </Property>
     <Property name="License" type="App::PropertyString" status="1">
       <String value="All rights reserved"/>
@@ -314,7 +313,7 @@
       <Dep Name="Pad001"/>
     </ObjectDeps>
     <ObjectDeps Name="Link" Count="0"/>
-    <Object type="PartDesign::Body" name="Body" id="2423" revision="83" file="Body.xml" />
+    <Object type="PartDesign::Body" name="Body" id="2423" revision="84" file="Body.xml" />
     <Object type="App::Origin" name="Origin" id="2424" revision="0" file="Origin.xml" />
     <Object type="App::Line" name="X_Axis" id="2425" revision="1" file="X_Axis.xml" />
     <Object type="App::Line" name="Y_Axis" id="2426" revision="2" file="Y_Axis.xml" />
@@ -324,10 +323,10 @@
     <Object type="App::Plane" name="YZ_Plane" id="2430" revision="2" file="YZ_Plane.xml" />
     <Object type="Sketcher::SketchObject" name="Sketch" id="2431" revision="504" file="Sketch.xml" />
     <Object type="PartDesign::Pad" name="Pad" id="2432" revision="110" file="Pad.xml" />
-    <Object type="Sketcher::SketchObject" name="Sketch001" id="2433" revision="463" file="Sketch001.xml" />
-    <Object type="PartDesign::Pad" name="Pad001" id="2434" revision="102" file="Pad001.xml" />
-    <Object type="PartDesign::Fillet" name="Fillet" id="2435" revision="44" file="Fillet.xml" />
-    <Object type="App::Link" name="Link" id="2436" revision="15" file="Link.xml" />
+    <Object type="Sketcher::SketchObject" name="Sketch001" id="2433" revision="465" file="Sketch001.xml" />
+    <Object type="PartDesign::Pad" name="Pad001" id="2434" revision="110" file="Pad001.xml" />
+    <Object type="PartDesign::Fillet" name="Fillet" id="2435" revision="46" file="Fillet.xml" />
+    <Object type="App::Link" name="Link" id="2436" revision="16" file="Link.xml" />
   </Objects>
   <ObjectData Count="0">
   </ObjectData>

@@ -9,7 +9,7 @@
 #include "utils/i2c_master.h"
 #include "utils/lidarController.h"
 #include "utils/lidarDataProcessor.h"
-#include "utils/libCamera.h"
+#include "utils/lccv.hpp"
 #include "utils/imageProcessor.h"
 #include "utils/dataSaver.h"
 
@@ -21,10 +21,8 @@ const float LIDAR_SCALE = 180.0;
 
 const cv::Point CENTER(LIDAR_WIDTH/2, LIDAR_HEIGHT/2);
 
-LibCamera cam;
-uint32_t camWidth = 1280;
-uint32_t camHeight = 720;
-uint32_t camStride;
+uint32_t camWidth = 648;
+uint32_t camHeight = 486;
 
 
 float motorPercent = 0.0f;
@@ -85,26 +83,18 @@ int main(int argc, char **argv) {
 
     // Set up camera
 
-    int ret = cam.initCamera();
-    cam.configureStill(camWidth, camHeight, formats::RGB888, 1, Orientation::Rotate180);
-    ControlList controls_;
-    int64_t frame_time = 1000000 / 20;
-	controls_.set(controls::FrameDurationLimits, libcamera::Span<const int64_t, 2>({ frame_time, frame_time })); // Set frame rate
-    controls_.set(controls::Brightness, 0.2); // Adjust the brightness of the output images, in the range -1.0 to 1.0
-    controls_.set(controls::Contrast, 1.6); // Adjust the contrast of the output image, where 1.0 = normal contrast
-    controls_.set(controls::ExposureTime, 20000);
-    cam.set(controls_);
+    lccv::PiCamera cam;
+    cam.options->video_width = camWidth;
+    cam.options->video_height = camHeight;
+    cam.options->framerate = 30; // Increase frame rate for reduced blur
+    cam.options->brightness = 0.2;
+    cam.options->contrast = 1.0;
+    cam.options->shutter = 10000; // Set shutter speed to 500 µs (adjust as needed)
+    cam.options->gain = 10.0; // Increase gain for brightness compensation
+    cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
+    cam.options->verbose = true;
+    cam.startVideo();
 
-    if (ret) {
-        cam.closeCamera();
-        printf("Camera not working!\n");
-        return -1;
-    }
-
-    bool flag;
-    LibcameraOutData frameData;
-    cam.startCamera();
-    cam.VideoStream(&camWidth, &camHeight, &camStride);
 
 
 
@@ -199,13 +189,12 @@ int main(int argc, char **argv) {
 
     int64 start = cv::getTickCount();
     while (isRunning) {
-        flag = cam.readFrame(&frameData);
-        if (!flag) {
-            continue;
+        cv::Mat rawCameraImage;
+        if(!cam.getVideoFrame(rawCameraImage, 1000)){
+            std::cout<<"Timeout error"<<std::endl;
         }
-
-        cv::Mat cameraImage(camHeight, camWidth, CV_8UC3, frameData.imageData, camStride);
-        cam.returnFrameBuffer(frameData);
+        cv::Mat cameraImage;
+        cv::flip(rawCameraImage, cameraImage, -1);
 
 
         bno055_accel_float_t accelData;
@@ -250,7 +239,7 @@ int main(int argc, char **argv) {
 
 
 
-        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, angle);
+        auto trafficLightPoints = detectTrafficLight(binaryImage, combinedLines, wallDirections, COUNTER_CLOCKWISE, direction);
 
 
 
@@ -263,24 +252,33 @@ int main(int argc, char **argv) {
 
         // cv::Mat filteredCameraImage = filterAllColors(cameraImage);
         auto cameraImageData = processImage(cameraImage);
+        auto filteredImage = filterAllColors(cameraImage);
         cv::Mat processedImage = drawImageProcessingResult(cameraImageData, cameraImage);
 
         
+        std::vector<BlockInfo> blockAngles;
         for (Block block : cameraImageData.blocks) {
-            float blockAngle = pixelToAngle(block.x, camWidth, 90, 65.0f);
-            cv::Scalar color;
-            if (block.color == RED) {
-                color = cv::Scalar(0, 0, 255);
-            } else {
-                color = cv::Scalar(0, 255, 0);
-            }
+            BlockInfo blockAngle;
+            blockAngle.angle = pixelToAngle(block.x, camWidth, 20, 88.0f);
+            blockAngle.size = block.size;
+            blockAngle.color = block.color;
+            blockAngles.push_back(blockAngle);
+            
+            // cv::Scalar color;
+            // if (blockAngle.color == RED) {
+            //     color = cv::Scalar(0, 0, 255);
+            // } else {
+            //     color = cv::Scalar(0, 255, 0);
+            // }
 
-            drawRadialLines(lidarOutputImage, CENTER, blockAngle, 800, color, 2);
-            // printf("color: %d, blockAngle: %.2f\n", block.color, blockAngle);
+            // drawRadialLines(lidarOutputImage, CENTER, blockAngle.angle, 800, color, 2);
         }
+        auto processedTrafficLights = processTrafficLight(trafficLightPoints, blockAngles, CENTER);
+
+        drawTrafficLights(lidarOutputImage, processedTrafficLights);
 
 
-        cv::imshow("LIDAR Hough Lines", lidarOutputImage);
+        cv::imshow("LIDAR Hough Lines", processedImage);
 
 
 
@@ -329,8 +327,7 @@ int main(int argc, char **argv) {
         start = cv::getTickCount();
     }
 
-    cam.stopCamera();
-    cam.closeCamera();
+    cam.stopVideo();
 
     lidar.shutdown();
     cv::destroyAllWindows();
