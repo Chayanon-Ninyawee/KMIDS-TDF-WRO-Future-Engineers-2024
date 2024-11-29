@@ -11,10 +11,10 @@
 #include <vector>
 #include <wiringPi.h>
 
-#include "challenges/openChallenge.h"
+#include "challenges/obstacleChallenge.h"
 
 #include "utils/i2c_master.h"
-// #include "utils/lccv.hpp"
+#include "utils/lccv.hpp"
 #include "utils/lidarController.h"
 #include "utils/lidarDataProcessor.h"
 #include "utils/dataSaver.h"
@@ -77,18 +77,29 @@ void drawAllLines(const std::vector<cv::Vec4i> &lines, cv::Mat &outputImage, dou
 int main() {
     signal(SIGINT, interuptHandler);
 
+    std::time_t now = std::time(nullptr);
+    std::tm localTime;
+    localtime_r(&now, &localTime); // Use `localtime_r` for thread-safe conversion
+
+    std::ostringstream timestampStream;
+    timestampStream << std::put_time(&localTime, "%Y%m%d_%H%M%S"); // Format: YYYYMMDD_HHMMSS
+    std::string timestamp = timestampStream.str();
+
     // cv::namedWindow("LIDAR Hough Lines", cv::WINDOW_AUTOSIZE);
 
 
-    // lccv::PiCamera cam;
-    // cam.options->video_width = camWidth;
-    // cam.options->video_height = camHeight;
-    // cam.options->framerate = 10;
-    // cam.options->brightness = 0.2;
-    // cam.options->contrast = 1.6;
-    // cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
-    // cam.options->verbose = true;
-    // cam.startVideo();
+    lccv::PiCamera cam;
+    cam.options->video_width = camWidth;
+    cam.options->video_height = camHeight;
+    cam.options->framerate = 30; // Increase frame rate for reduced blur
+    cam.options->brightness = 0.2;
+    cam.options->contrast = 1.0;
+    cam.options->shutter = 10000; // Set shutter speed to 500 µs (adjust as needed)
+    cam.options->gain = 10.0; // Increase gain for brightness compensation
+    cam.options->setExposureMode(Exposure_Modes::EXPOSURE_SHORT);
+    // cam.options->setWhiteBalance(WhiteBalance_Modes::WB_DAYLIGHT);
+    cam.options->verbose = true;
+    cam.startVideo();
 
 
     if (wiringPiSetupGpio() == -1) { // Use GPIO numbering
@@ -99,7 +110,6 @@ int main() {
     // Set up GPIO 23 as input with pull-up resistor
     pinMode(BUTTON_PIN, INPUT);
     pullUpDnControl(BUTTON_PIN, PUD_UP); // Enable pull-up resistor
-
 
 
     int fd = i2c_master_init(PICO_ADDRESS);
@@ -166,15 +176,16 @@ int main() {
 
     lastGyroYaw = initial_euler_data.h;
 
-    OpenChallenge challenge = OpenChallenge(LIDAR_SCALE, CENTER);
+    ObstacleChallenge challenge = ObstacleChallenge(LIDAR_SCALE, CENTER);
+
 
     while (isRunning) {
-        // cv::Mat rawCameraImage;
-        // if(!cam.getVideoFrame(rawCameraImage, 1000)){
-        //     std::cout<<"Timeout error"<<std::endl;
-        // }
-        // cv::Mat cameraImage;
-        // cv::flip(rawCameraImage, cameraImage, -1);
+        cv::Mat rawCameraImage;
+        if(!cam.getVideoFrame(rawCameraImage, 1000)){
+            std::cout<<"Timeout error"<<std::endl;
+        }
+        cv::Mat cameraImage;
+        cv::flip(rawCameraImage, cameraImage, -1);
  
 
 
@@ -199,26 +210,19 @@ int main() {
 
         auto lidarScanData = lidar.getScanData();
         cv::Mat binaryImage = lidarDataToImage(lidarScanData, WIDTH, HEIGHT, LIDAR_SCALE);
-        auto lines = detectLines(binaryImage);
-        auto combined_lines = combineAlignedLines(lines);
+
+        challenge.update(binaryImage, cameraImage, fmod(accumulateGyroYaw*1.0065+ 360.0f*20, 360.0f), motorPercent, steeringPercent);
+        steeringPercent = std::clamp(steeringPercent, -1.0f, 1.0f);
 
 
-        // cv::Mat outputImage = cv::Mat::zeros(HEIGHT, WIDTH, CV_8UC3);
-        // cv::cvtColor(binaryImage, outputImage, cv::COLOR_GRAY2BGR);
-        // drawAllLines(combined_lines, outputImage, fmod(euler_data.h - initial_euler_data.h + 360.0f, 360.0f));
-        
-
-        challenge.update(binaryImage, fmod(accumulateGyroYaw*1.007274762 + 360.0f*20, 360.0f), motorPercent, steeringPercent);
-
-
-        // int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
-        // cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
-        // cv::Mat croppedImage = cameraImage(cropRegion);
-        // if (DataSaver::saveLogData("log/logData1.bin", lidarScanData, accel_data, euler_data, croppedImage)) {
-        //     // std::cout << "Log data saved to file successfully." << std::endl;
-        // } else {
-        //     std::cerr << "Failed to save log data to file." << std::endl;
-        // }
+        int cropHeight = static_cast<int>(cameraImage.rows * 0.50);
+        cv::Rect cropRegion(0, cropHeight, cameraImage.cols, cameraImage.rows - cropHeight);
+        cv::Mat croppedImage = cameraImage(cropRegion);
+        if (DataSaver::saveLogData("log/obstacle_" + timestamp + ".bin", lidarScanData, accel_data, euler_data, croppedImage)) {
+            // std::cout << "Log data saved to file successfully." << std::endl;
+        } else {
+            std::cerr << "Failed to save log data to file." << std::endl;
+        }
 
 
         // motorPercent = 0.0f;
@@ -233,7 +237,7 @@ int main() {
 
 
         // cv::imshow("libcamera-demo", cameraImage);
-        // cv::imshow("LIDAR Hough Lines", outputImage);
+        // cv::imshow("LIDAR Hough Lines", filterAllColors(cameraImage));
 
         // char key = cv::waitKey(1);
         // if (key == 'q') {
@@ -251,7 +255,7 @@ int main() {
     memcpy(movement + sizeof(motorPercent), &steeringPercent, sizeof(steeringPercent));
     i2c_master_send_data(fd, i2c_slave_mem_addr::MOVEMENT_INFO_ADDR, movement, sizeof(movement));
 
-    // cam.stopVideo();
+    cam.stopVideo();
 
     lidar.shutdown();
 

@@ -166,6 +166,12 @@ void LibCamera::requestComplete(Request *request) {
 }
 
 void LibCamera::processRequest(Request *request) {
+    // Clear the queue to ensure it only contains one element
+    while (!requestQueue.empty()) {
+        requestQueue.pop();
+    }
+
+    // Push the new request into the queue
     requestQueue.push(request);
 }
 

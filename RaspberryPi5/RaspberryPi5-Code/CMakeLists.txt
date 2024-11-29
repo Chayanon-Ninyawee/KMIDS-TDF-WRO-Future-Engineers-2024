@@ -13,17 +13,43 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/../bin")
 include(CTest)
 enable_testing()
 
+
 find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(CAMERA REQUIRED libcamera)
 
-find_library(LIBCAMERA_LIBRARY libcamera.so REQUIRED)
-find_library(LIBCAMERA_BASE_LIBRARY libcamera-base.so REQUIRED)
-message(STATUS ${CAMERA_INCLUDE_DIRS})
-message(STATUS ${LIBCAMERA_LIBRARY})
-message(STATUS ${LIBCAMERA_BASE_LIBRARY})
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(CAMERA libcamera)
+
+if (CAMERA_FOUND)
+    find_library(LIBCAMERA_LIBRARY libcamera.so)
+    find_library(LIBCAMERA_BASE_LIBRARY libcamera-base.so)
+
+    if (LIBCAMERA_LIBRARY AND LIBCAMERA_BASE_LIBRARY)
+        set(LIBCAMERA_FOUND TRUE)
+        include_directories(${CAMERA_INCLUDE_DIRS})
+        set(LIBCAMERA_LIBRARIES "${LIBCAMERA_LIBRARY}" "${LIBCAMERA_BASE_LIBRARY}")
+        message(STATUS "libCamera found: ${CAMERA_INCLUDE_DIRS}")
+        message(STATUS "libCamera libraries: ${LIBCAMERA_LIBRARIES}")
+    else()
+        set(LIBCAMERA_FOUND FALSE)
+        message(WARNING "libCamera libraries not found, skipping executables requiring libCamera.")
+    endif()
+else()
+    set(LIBCAMERA_FOUND FALSE)
+    message(WARNING "libCamera module not found, skipping executables requiring libCamera.")
+endif()
+
+
+find_library(WIRINGPI_LIBRARY wiringPi)
+if (WIRINGPI_LIBRARY)
+    set(WIRINGPI_FOUND TRUE)
+    message(STATUS "wiringPi library found: ${WIRINGPI_LIBRARY}")
+else()
+    set(WIRINGPI_FOUND FALSE)
+    message(WARNING "wiringPi library not found, skipping executables requiring wiringPi.")
+endif()
+
 
 set(RPLIDAR_SDK_PATH ${CMAKE_SOURCE_DIR}/external/rplidar_sdk/sdk)
 include_directories(${RPLIDAR_SDK_PATH}/include)
@@ -33,33 +59,131 @@ list(FILTER RPLIDAR_SDK_SOURCES EXCLUDE REGEX ".*macOS.*")
 list(FILTER RPLIDAR_SDK_SOURCES EXCLUDE REGEX ".*win32.*")
 add_library(rplidar_sdk STATIC ${RPLIDAR_SDK_SOURCES})
 
-include_directories(. "${CAMERA_INCLUDE_DIRS}")
-set(LIBCAMERA_LIBRARIES "${LIBCAMERA_LIBRARY}" "${LIBCAMERA_BASE_LIBRARY}")
 
-# Glob all .cpp files in the src directory
-file(GLOB_RECURSE ALL_SOURCES "src/*.cpp")
 
-# Glob only the main files
-file(GLOB MAIN_FILES "src/main_*.cpp")
+add_library(DataSaverUtils STATIC
+    src/utils/dataSaver.cpp
+)
+target_include_directories(DataSaverUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(DataSaverUtils ${OpenCV_LIBS})
 
-# Get the common sources by excluding the main files
-set(COMMON_SOURCES ${ALL_SOURCES})
-list(REMOVE_ITEM COMMON_SOURCES ${MAIN_FILES})
 
-add_executable(OpenChallenge src/main_openChallenge.cpp ${COMMON_SOURCES})
-target_link_libraries(OpenChallenge wiringPi pthread rt ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+add_library(DirectionUtils STATIC
+    src/utils/direction.cpp
+)
+target_include_directories(DirectionUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_executable(LidarTestV1 src/main_lidar_testv1.cpp ${COMMON_SOURCES})
-target_link_libraries(LidarTestV1 wiringPi pthread rt ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
 
-add_executable(CamTestV1 src/main_cam_testv1.cpp ${COMMON_SOURCES})
-target_link_libraries(CamTestV1 wiringPi ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+if (WIRINGPI_FOUND)
+    add_library(I2CMasterUtils STATIC
+        src/utils/i2c_master.cpp
+    )
+    target_include_directories(I2CMasterUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    target_link_libraries(I2CMasterUtils wiringPi)
+else()
+    message(WARNING "Skipping I2CMasterUtils as wiringPi is not available.")
+endif()
 
-add_executable(MoveTestV1 src/main_move_testv1.cpp ${COMMON_SOURCES})
-target_link_libraries(MoveTestV1 wiringPi SDL2  ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
 
-add_executable(LoadLidarFile src/main_load_lidar_file.cpp ${COMMON_SOURCES})
-target_link_libraries(LoadLidarFile wiringPi pthread ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+add_library(ImageProcessorUtils STATIC
+    src/utils/imageProcessor.cpp
+)
+target_include_directories(ImageProcessorUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(ImageProcessorUtils ${OpenCV_LIBS})
 
-add_executable(RecordTestV1 src/main_record_testv1.cpp ${COMMON_SOURCES})
-target_link_libraries(RecordTestV1 wiringPi pthread rt SDL2 ${OpenCV_LIBS} rplidar_sdk "${LIBCAMERA_LIBRARIES}")
+
+if (LIBCAMERA_FOUND)
+    add_library(LibCameraUtils STATIC
+        src/utils/libCamera.cpp
+    )
+    target_include_directories(LibCameraUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    target_link_libraries(LibCameraUtils ${LIBCAMERA_LIBRARIES})
+
+    add_library(liblccv STATIC
+        src/utils/lccv.cpp
+        src/utils/libcamera_app_options.cpp
+        src/utils/libcamera_app.cpp
+    )
+    target_include_directories(liblccv PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    target_link_libraries(liblccv ${LIBCAMERA_LIBRARIES})
+else()
+    message(WARNING "Skipping LibCameraUtils as libCamera is not available.")
+    message(WARNING "Skipping liblccv as libCamera is not available.")
+endif()
+
+
+add_library(LidarControllerUtils STATIC
+    src/utils/lidarController.cpp
+)
+target_include_directories(LidarControllerUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(LidarControllerUtils rplidar_sdk)
+
+
+add_library(LidarDataProcessorUtils STATIC
+    src/utils/lidarDataProcessor.cpp
+    src/utils/direction.cpp
+)
+target_include_directories(LidarDataProcessorUtils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(LidarDataProcessorUtils LidarControllerUtils ${OpenCV_LIBS})
+
+
+
+
+# Helper function to verify libraries are available before linking
+function(verify_and_add_executable target_name source_files dependencies)
+    # Check if dependency verification should be ignored
+    if (DEFINED IGNORE_DEPENDENCY_CHECK AND IGNORE_DEPENDENCY_CHECK)
+        message(STATUS "Dependency check is ignored for target: ${target_name}")
+    else()
+        foreach(dep ${dependencies})
+            # Check if the dependency is a valid library or target
+            if (NOT TARGET ${dep})
+                find_library(LIB_PATH ${dep})
+                if (NOT LIB_PATH)
+                    message(WARNING "Skipping ${target_name} because dependency ${dep} is missing.")
+                    return()
+                endif()
+            endif()
+        endforeach()
+    endif()
+
+    # Add the executable and link libraries
+    add_executable(${target_name} ${source_files})
+    target_link_libraries(${target_name} ${dependencies})
+endfunction()
+
+# OpenChallenge executable
+verify_and_add_executable(OpenChallenge 
+    "src/main_openChallenge.cpp;src/challenges/openChallenge.cpp" 
+    "I2CMasterUtils;LidarControllerUtils;LidarDataProcessorUtils;DataSaverUtils"
+)
+
+# ObstacleChallenge executable
+verify_and_add_executable(ObstacleChallenge 
+    "src/main_obstacleChallenge.cpp;src/challenges/obstacleChallenge.cpp" 
+    "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
+)
+
+# LidarTestV1 executable
+verify_and_add_executable(LidarTestV1 
+    "src/main_lidar_testv1.cpp" 
+    "I2CMasterUtils;liblccv;LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
+)
+
+# CamTestV1 executable
+verify_and_add_executable(CamTestV1 
+    "src/main_cam_testv1.cpp" 
+    "${OpenCV_LIBS};LibCameraUtils"
+)
+
+# MoveTestV1 executable
+verify_and_add_executable(MoveTestV1 
+    "src/main_move_testv1.cpp" 
+    "SDL2;I2CMasterUtils"
+)
+
+# LoadLidarFile executable
+verify_and_add_executable(LoadLidarFile 
+    "src/main_load_lidar_file.cpp" 
+    "LidarControllerUtils;LidarDataProcessorUtils;ImageProcessorUtils;DataSaverUtils"
+)

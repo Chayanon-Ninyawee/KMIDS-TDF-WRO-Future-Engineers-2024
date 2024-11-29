@@ -28,7 +28,7 @@ cv::Mat lidarDataToImage(const std::vector<lidarController::NodeData>& data, int
     return image;
 }
 
-float convertLidarDistanceToActualDistance(int scale, double lidarDistance) {
+float toMeter(int scale, double lidarDistance) {
     return lidarDistance / (float)scale;
 }
 
@@ -225,11 +225,11 @@ std::vector<cv::Vec4i> combineAlignedLines(std::vector<cv::Vec4i> lines, double 
     return lines;
 }
 
-// Function to analyze the combined lines with gyro data and classify them as NORTH, EAST, SOUTH, WEST
+// Function to analyze the combined lines with gyro data and classify them as Direction::NORTH, Direction::EAST, Direction::SOUTH, Direction::WEST
 std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combinedLines, float gyroYaw, const cv::Point& center) {
     std::vector<Direction> wallDirections;
 
-    // Gyro yaw is assumed to be in degrees with 0° = NORTH, 90° = EAST, 180° = SOUTH, 270° = WEST
+    // Gyro yaw is assumed to be in degrees with 0° = Direction::NORTH, 90° = Direction::EAST, 180° = Direction::SOUTH, 270° = Direction::WEST
     // Adjust the combined line angles based on the gyro data.
     for (const auto& line : combinedLines) {
         // double lineAngle = calculateAngle(line);
@@ -238,11 +238,11 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
         // double relativeLineAngle = fmod(lineAngle + gyroYaw + 360.0f, 360.0f);
         double relativePerpendicularLineDirection = fmod(perpendicularLineDirection + gyroYaw - 90.0f + 360.0f, 360.0f);
 
-        Direction direction = NORTH;
-        if (relativePerpendicularLineDirection >= 315 || relativePerpendicularLineDirection < 45) direction = NORTH;
-        else if (relativePerpendicularLineDirection >= 45 && relativePerpendicularLineDirection < 135) direction = EAST;
-        else if (relativePerpendicularLineDirection >= 135 && relativePerpendicularLineDirection < 225) direction = SOUTH;
-        else if (relativePerpendicularLineDirection >= 225 && relativePerpendicularLineDirection < 315) direction = WEST;
+        Direction direction = Direction::NORTH;
+        if (relativePerpendicularLineDirection >= 315 || relativePerpendicularLineDirection < 45) direction = Direction::NORTH;
+        else if (relativePerpendicularLineDirection >= 45 && relativePerpendicularLineDirection < 135) direction = Direction::EAST;
+        else if (relativePerpendicularLineDirection >= 135 && relativePerpendicularLineDirection < 225) direction = Direction::SOUTH;
+        else if (relativePerpendicularLineDirection >= 225 && relativePerpendicularLineDirection < 315) direction = Direction::WEST;
 
         // Add the classified direction to the list
         wallDirections.push_back(direction);
@@ -251,7 +251,7 @@ std::vector<Direction> analyzeWallDirection(const std::vector<cv::Vec4i>& combin
     return wallDirections;
 }
 
-std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, float gyroYaw) {
+std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction) {
     cv::Mat dilatedBinaryImage = binaryImage.clone();
     cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(20, 20));
     cv::dilate(binaryImage, dilatedBinaryImage, kernel);
@@ -271,52 +271,131 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
 
             cv::Point point(centroidX, centroidY);
 
-            double frontDistance = 0;
-            cv::Point2f frontMidPoint(-1.0f, -1.0f); // Initialize with a sentinel value (-1, -1)
-            double outerDistance = 0;
+            cv::Vec4i frontLine(-1.0f, -1.0f, -1.0f, -1.0f); // Initialize with a sentinel value (-1, -1, -1, -1)
+            std::vector<cv::Vec4i> leftLines;
+            std::vector<cv::Vec4i> rightLines;
+
             for (size_t i = 0; i < combinedLines.size(); ++i) {
                 cv::Vec4i line = combinedLines[i];
                 Direction wallDirection = wallDirections[i];
 
-                Direction direction = NORTH;
-                if (gyroYaw >= 315 || gyroYaw < 45) direction = NORTH;
-                else if (gyroYaw >= 45 && gyroYaw < 135) direction = EAST;
-                else if (gyroYaw >= 135 && gyroYaw < 225) direction = SOUTH;
-                else if (gyroYaw >= 225 && gyroYaw < 315) direction = WEST;
-
-                RelativeDirection outerWallRelativeDirection;
-                if (turnDirection == CLOCKWISE) {
-                    outerWallRelativeDirection = LEFT;
-                } else if (turnDirection == COUNTER_CLOCKWISE) {
-                    outerWallRelativeDirection = RIGHT;
-                } else {
-                    outerWallRelativeDirection = RIGHT;
-                }
                 if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
-                    if (not (frontMidPoint == cv::Point2f(-1.0f, -1.0f))) {
+                    if (not (frontLine == cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
                         cv::Point2f start(line[0], line[1]);
                         cv::Point2f end(line[2], line[3]);
                         cv::Point2f newFrontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+
+                        cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                        cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+                        cv::Point2f frontMidPoint = cv::Point2f((frontStart.x + frontEnd.x) / 2, (frontStart.y + frontEnd.y) / 2);
+
                         if (frontMidPoint.y > newFrontMidPoint.y) { // Check if new midpoint is higher
-                            frontDistance = pointLinePerpendicularDistance(point, line);
-                            frontMidPoint = newFrontMidPoint;
+                            frontLine = line;
                         }
                     } else {
-                        frontDistance = pointLinePerpendicularDistance(point, line);
-                        cv::Point2f start(line[0], line[1]);
-                        cv::Point2f end(line[2], line[3]);
-                        frontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+                        frontLine = line;
                     }
-                } else if (wallDirection == calculateRelativeDirection(direction, outerWallRelativeDirection)) {
-                    outerDistance = pointLinePerpendicularDistance(point, line);
+                } else if (wallDirection == calculateRelativeDirection(direction, LEFT)) {
+                    leftLines.push_back(line);
+                } else if (wallDirection == calculateRelativeDirection(direction, RIGHT)) {
+                    rightLines.push_back(line);
                 }
             }
 
+
+            double frontDistance = 0;
+            double outerDistance = 0;
+            double outerFarDistance = -1; // Initialize with a sentinel value -1
+
+            if (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f)) frontDistance = pointLinePerpendicularDistance(point, frontLine);
+            
+            if (turnDirection == CLOCKWISE) {
+                if (not leftLines.empty()) {
+                    outerDistance = pointLinePerpendicularDistance(point, leftLines[0]);
+                }
+                if ((not rightLines.empty()) && (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                    cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                    cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+
+                    cv::Point2f frontLefter;
+                    cv::Point2f frontRighter;
+
+                    if (frontStart.x < frontEnd.x) {
+                        frontLefter = frontStart;
+                        frontRighter = frontEnd;
+                    } else {
+                        frontLefter = frontEnd;
+                        frontRighter = frontStart;
+                    }
+
+                    for (auto rightLine : rightLines) {
+                        cv::Point2f rightStart(rightLine[0], rightLine[1]);
+                        cv::Point2f rightEnd(rightLine[2], rightLine[3]);
+
+                        cv::Point2f rightHigher;
+                        if (rightStart.y < rightEnd.y) {
+                            rightHigher = rightStart;
+                        } else {
+                            rightHigher = rightEnd;
+                        }
+
+                        if (rightHigher.x - 30 /* TODO: Remove this magic nubmer */ > frontRighter.x) {
+                            if (rightHigher.x > 1200 - 120 /* TODO: Remove this magic nubmer */) {
+                                outerFarDistance = pointLinePerpendicularDistance(point, rightLine);
+                            }
+                        }
+                    }
+                }
+            } else if (turnDirection == COUNTER_CLOCKWISE || turnDirection == UNKNOWN) {
+                if (not rightLines.empty()) {
+                    outerDistance = pointLinePerpendicularDistance(point, rightLines[0]);
+                }
+                if ((not leftLines.empty()) && (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                    cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                    cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+
+                    cv::Point2f frontLefter;
+                    cv::Point2f frontRighter;
+
+                    if (frontStart.x < frontEnd.x) {
+                        frontLefter = frontStart;
+                        frontRighter = frontEnd;
+                    } else {
+                        frontLefter = frontEnd;
+                        frontRighter = frontStart;
+                    }
+
+                    for (auto leftLine : leftLines) {
+                        cv::Point2f leftStart(leftLine[0], leftLine[1]);
+                        cv::Point2f leftEnd(leftLine[2], leftLine[3]);
+
+                        cv::Point2f leftHigher;
+                        if (leftStart.y < leftEnd.y) {
+                            leftHigher = leftStart;
+                        } else {
+                            leftHigher = leftEnd;
+                        }
+
+                        if (leftHigher.x + 30 /* TODO: Remove this magic nubmer */ < frontLefter.x) {
+                            if (leftHigher.x < 120 /* TODO: Remove this magic nubmer */) {
+                                outerFarDistance = pointLinePerpendicularDistance(point, leftLine);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Put these thing in the header files
             const double outerEdge = 40;
             const double innerEdge = 140;
 
-            if (frontDistance < outerEdge or outerDistance < outerEdge) continue;
-            if (frontDistance > innerEdge and outerDistance > innerEdge) continue;
+            if (outerFarDistance != -1) {
+                if (frontDistance < outerEdge or outerDistance < outerEdge or outerFarDistance < outerEdge) continue;
+                if (frontDistance > innerEdge and outerDistance > innerEdge and outerFarDistance > innerEdge) continue;
+            } else {
+                if (frontDistance < outerEdge or outerDistance < outerEdge) continue;
+                if (frontDistance > innerEdge and outerDistance > innerEdge) continue;
+            }
 
             trafficLightPoints.push_back(point);
         }
@@ -325,7 +404,243 @@ std::vector<cv::Point> detectTrafficLight(const cv::Mat& binaryImage, const std:
     return trafficLightPoints;
 }
 
-TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, float gyroYaw) {
+std::vector<cv::Vec4i> detectParkingZone(const cv::Mat& binaryImage, const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, TurnDirection turnDirection, Direction direction) {
+    std::vector<cv::Vec4i> lines;
+    cv::HoughLinesP(binaryImage, lines, 1, CV_PI / 180, 20, 30, 30);
+
+    // Filter lines based on length and proximity to combinedLines
+    const double MAX_LENGTH = 60.0;
+    const double MAX_DISTANCE = 10.0; // Distance threshold for proximity
+    std::vector<cv::Vec4i> filteredLines;
+
+    for (const auto& line : lines) {
+        // Calculate the length of the line
+        double length = std::sqrt(std::pow(line[2] - line[0], 2) + std::pow(line[3] - line[1], 2));
+        if (length > MAX_LENGTH) continue;
+
+        // Check proximity of both endpoints to the combined lines
+        cv::Point p1(line[0], line[1]);
+        cv::Point p2(line[2], line[3]);
+
+        cv::Vec4i frontLine(-1.0f, -1.0f, -1.0f, -1.0f);  // Initialize with a sentinel value (-1, -1, -1, -1)
+        std::vector<cv::Vec4i> leftLines;
+        std::vector<cv::Vec4i> rightLines;
+
+        for (size_t i = 0; i < combinedLines.size(); ++i) {
+            cv::Vec4i line = combinedLines[i];
+            Direction wallDirection = wallDirections[i];
+
+            if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
+                if (not(frontLine == cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                    cv::Point2f start(line[0], line[1]);
+                    cv::Point2f end(line[2], line[3]);
+                    cv::Point2f newFrontMidPoint = cv::Point2f((start.x + end.x) / 2, (start.y + end.y) / 2);
+
+                    cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                    cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+                    cv::Point2f frontMidPoint = cv::Point2f((frontStart.x + frontEnd.x) / 2, (frontStart.y + frontEnd.y) / 2);
+
+                    if (frontMidPoint.y > newFrontMidPoint.y) {  // Check if new midpoint is higher
+                        frontLine = line;
+                    }
+                } else {
+                    frontLine = line;
+                }
+            } else if (wallDirection == calculateRelativeDirection(direction, LEFT)) {
+                leftLines.push_back(line);
+            } else if (wallDirection == calculateRelativeDirection(direction, RIGHT)) {
+                rightLines.push_back(line);
+            }
+        }
+
+        double frontDistance1 = 0;
+        double frontDistance2 = 0;
+        double outerDistance1 = 0;
+        double outerDistance2 = 0;
+        double outerFarDistance1 = -1;  // Initialize with a sentinel value -1
+        double outerFarDistance2 = -1;  // Initialize with a sentinel value -1
+
+        if (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f)) {
+            frontDistance1 = pointLinePerpendicularDistance(p1, frontLine);
+            frontDistance2 = pointLinePerpendicularDistance(p2, frontLine);
+        }
+
+        if (turnDirection == CLOCKWISE) {
+            if (not leftLines.empty()) {
+                outerDistance1 = pointLinePerpendicularDistance(p1, leftLines[0]);
+                outerDistance2 = pointLinePerpendicularDistance(p2, leftLines[0]);
+            }
+            if ((not rightLines.empty()) && (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+
+                cv::Point2f frontLefter;
+                cv::Point2f frontRighter;
+
+                if (frontStart.x < frontEnd.x) {
+                    frontLefter = frontStart;
+                    frontRighter = frontEnd;
+                } else {
+                    frontLefter = frontEnd;
+                    frontRighter = frontStart;
+                }
+
+                for (auto rightLine : rightLines) {
+                    cv::Point2f rightStart(rightLine[0], rightLine[1]);
+                    cv::Point2f rightEnd(rightLine[2], rightLine[3]);
+
+                    cv::Point2f rightHigher;
+                    if (rightStart.y < rightEnd.y) {
+                        rightHigher = rightStart;
+                    } else {
+                        rightHigher = rightEnd;
+                    }
+
+                    if (rightHigher.x - 30 /* TODO: Remove this magic nubmer */ > frontRighter.x) {
+                        if (rightHigher.x > 1200 - 120 /* TODO: Remove this magic nubmer */) {
+                            outerFarDistance1 = pointLinePerpendicularDistance(p1, rightLine);
+                            outerFarDistance2 = pointLinePerpendicularDistance(p2, rightLine);
+                        }
+                    }
+                }
+            }
+        } else if (turnDirection == COUNTER_CLOCKWISE || turnDirection == UNKNOWN) {
+            if (not rightLines.empty()) {
+                outerDistance1 = pointLinePerpendicularDistance(p1, rightLines[0]);
+                outerDistance2 = pointLinePerpendicularDistance(p2, rightLines[0]);
+            }
+            if ((not leftLines.empty()) && (frontLine != cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
+                cv::Point2f frontStart(frontLine[0], frontLine[1]);
+                cv::Point2f frontEnd(frontLine[2], frontLine[3]);
+
+                cv::Point2f frontLefter;
+                cv::Point2f frontRighter;
+
+                if (frontStart.x < frontEnd.x) {
+                    frontLefter = frontStart;
+                    frontRighter = frontEnd;
+                } else {
+                    frontLefter = frontEnd;
+                    frontRighter = frontStart;
+                }
+
+                for (auto leftLine : leftLines) {
+                    cv::Point2f leftStart(leftLine[0], leftLine[1]);
+                    cv::Point2f leftEnd(leftLine[2], leftLine[3]);
+
+                    cv::Point2f leftHigher;
+                    if (leftStart.y < leftEnd.y) {
+                        leftHigher = leftStart;
+                    } else {
+                        leftHigher = leftEnd;
+                    }
+
+                    if (leftHigher.x + 30 /* TODO: Remove this magic nubmer */ < frontLefter.x) {
+                        if (leftHigher.x < 120 /* TODO: Remove this magic nubmer */) {
+                            outerFarDistance1 = pointLinePerpendicularDistance(p1, leftLine);
+                            outerFarDistance2 = pointLinePerpendicularDistance(p2, leftLine);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Put these thing in the header files
+        const double frontOuterEdge = 40;
+        const double outerEdge = 20;
+        const double innerEdge = 160;
+
+        bool isDistanceClose1 = false;
+        bool isDistanceClose2 = false;
+
+        if (outerFarDistance1 != -1) {
+            if (frontDistance1 < frontOuterEdge or frontDistance1 > 540 - frontOuterEdge or outerDistance1 < outerEdge or outerFarDistance1 < outerEdge) isDistanceClose1 = true;
+            if (frontDistance1 > innerEdge and outerDistance1 > innerEdge and outerFarDistance1 > innerEdge) isDistanceClose1 = true;
+        } else {
+            if (frontDistance1 < frontOuterEdge or frontDistance1 > 540 - frontOuterEdge or outerDistance1 < outerEdge) isDistanceClose1 = true;
+            if (frontDistance1 > innerEdge and outerDistance1 > innerEdge) isDistanceClose1 = true;
+        }
+
+        if (outerFarDistance2 != -1) {
+            if (frontDistance2 < frontOuterEdge or frontDistance2 > 540 - frontOuterEdge or outerDistance2 < outerEdge or outerFarDistance2 < outerEdge) isDistanceClose2 = true;
+            if (frontDistance2 > innerEdge and outerDistance2 > innerEdge and outerFarDistance2 > innerEdge) isDistanceClose2 = true;
+        } else {
+            if (frontDistance2 < frontOuterEdge or frontDistance2 > 540 - frontOuterEdge or outerDistance2 < outerEdge) isDistanceClose2 = true;
+            if (frontDistance2 > innerEdge and outerDistance2 > innerEdge) isDistanceClose2 = true;
+        }
+
+        if (not (isDistanceClose1 && isDistanceClose2)) {
+            filteredLines.push_back(line);
+        }
+    }
+
+    return filteredLines;
+}
+
+std::vector<ProcessedTrafficLight> processTrafficLight(
+    const std::vector<cv::Point>& trafficLightPoints, 
+    const std::vector<BlockInfo>& blockInfos,
+    const cv::Point& center
+) {
+    constexpr int BLOCK_SIZE_TO_PRIORITIZE_DISTANCE = 3000;
+    constexpr int MIN_BLOCK_SIZE = 0;
+    constexpr float MAX_LIDAR_CAM_ANGLE_DIFFERENCE = 8.0f;
+
+    std::vector<ProcessedTrafficLight> processedBlocks;
+
+    for (const BlockInfo& blockInfo : blockInfos) {
+        if (blockInfo.size < MIN_BLOCK_SIZE) continue;
+
+        ProcessedTrafficLight processedBlock;
+        processedBlock.color = blockInfo.color;
+        processedBlock.size = blockInfo.size;
+
+        float correspondingAngle = blockInfo.angle;
+
+        cv::Point closestPoint;
+        float minAngleDifference = std::numeric_limits<float>::max();
+        float minDistance = std::numeric_limits<float>::max();
+
+        for (const cv::Point& point : trafficLightPoints) {
+            // Calculate the angle between the center and the traffic light point in radians
+            float angleRadians = std::atan2(-(point.y - center.y), point.x - center.x);
+            float angleDegrees = angleRadians * (180 / M_PI);  // Convert to degrees
+            angleDegrees = fmod(90.0f - angleDegrees + 720.0f, 360.0f);
+
+            if (not ((angleDegrees > 320 && angleDegrees <= 360) || (angleDegrees >= 0 && angleDegrees < 40))) continue; // TODO: Remove this magic numbers
+
+            // Calculate the absolute difference between angles
+            float angleDifference = std::fmod(std::abs(angleDegrees - correspondingAngle), 360.0f);
+            angleDifference = std::min(angleDifference, 360.0f - angleDifference);
+
+            float distance = cv::norm(point - center);
+
+            if (angleDifference > MAX_LIDAR_CAM_ANGLE_DIFFERENCE) continue;
+
+            if (blockInfo.size >= BLOCK_SIZE_TO_PRIORITIZE_DISTANCE) {
+                if (distance < minDistance) {
+                    minAngleDifference = angleDifference;
+                    minDistance = distance;
+                    closestPoint = point;
+                }
+            } else if (angleDifference < minAngleDifference) {
+                minAngleDifference = angleDifference;
+                closestPoint = point;
+            }
+        }
+
+        if (minAngleDifference == std::numeric_limits<float>::max()) continue;
+
+        // Assign the selected point
+        processedBlock.point = closestPoint;
+        processedBlocks.push_back(processedBlock);
+    }
+
+    return processedBlocks;
+}
+
+
+TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLines, const std::vector<Direction>& wallDirections, Direction direction) {
     cv::Vec4i frontLine(-1.0f, -1.0f, -1.0f, -1.0f); // Initialize with a sentinel value (-1, -1, -1, -1)
     std::vector<cv::Vec4i> leftLines;
     std::vector<cv::Vec4i> rightLines;
@@ -333,12 +648,6 @@ TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLin
     for (size_t i = 0; i < combinedLines.size(); ++i) {
         cv::Vec4i line = combinedLines[i];
         Direction wallDirection = wallDirections[i];
-
-        Direction direction = NORTH;
-        if (gyroYaw >= 315 || gyroYaw < 45) direction = NORTH;
-        else if (gyroYaw >= 45 && gyroYaw < 135) direction = EAST;
-        else if (gyroYaw >= 135 && gyroYaw < 225) direction = SOUTH;
-        else if (gyroYaw >= 225 && gyroYaw < 315) direction = WEST;
 
         if (wallDirection == calculateRelativeDirection(direction, FRONT)) {
             if (not (frontLine == cv::Vec4i(-1.0f, -1.0f, -1.0f, -1.0f))) {
@@ -380,9 +689,9 @@ TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLin
         frontRighter = frontStart;
     }
 
-    for (auto leftLines : leftLines) {
-        cv::Point2f leftStart(leftLines[0], leftLines[1]);
-        cv::Point2f leftEnd(leftLines[2], leftLines[3]);
+    for (auto leftLine : leftLines) {
+        cv::Point2f leftStart(leftLine[0], leftLine[1]);
+        cv::Point2f leftEnd(leftLine[2], leftLine[3]);
 
         cv::Point2f leftHigher;
         if (leftStart.y < leftEnd.y) {
@@ -391,12 +700,13 @@ TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLin
             leftHigher = leftEnd;
         }
 
-        if (leftHigher.x + 30 < frontLefter.x) {
-            if (leftHigher.x < 120) return TurnDirection::COUNTER_CLOCKWISE;
+        if (leftHigher.x + 30 /* TODO: Remove this magic nubmer */ < frontLefter.x) {
+            if (leftHigher.x < 120 /* TODO: Remove this magic nubmer */) return TurnDirection::COUNTER_CLOCKWISE;
             continue;
         }
 
         if (abs(frontLefter.y - leftHigher.y) < 60) return TurnDirection::CLOCKWISE;
+        if (leftHigher.x - 40 /* TODO: Remove this magic nubmer */ > frontLefter.x) return TurnDirection::COUNTER_CLOCKWISE;
     }
 
     for (auto rightLine : rightLines) {
@@ -410,12 +720,13 @@ TurnDirection lidarDetectTurnDirection(const std::vector<cv::Vec4i>& combinedLin
             rightHigher = rightEnd;
         }
 
-        if (rightHigher.x - 30 > frontRighter.x) {
-            if (rightHigher.x > 1200 - 120) return TurnDirection::CLOCKWISE;
+        if (rightHigher.x - 30 /* TODO: Remove this magic nubmer */ > frontRighter.x) {
+            if (rightHigher.x > 1200 - 120 /* TODO: Remove this magic nubmer */) return TurnDirection::CLOCKWISE;
             continue;
         }
 
-        if (abs(frontRighter.y - rightHigher.y) < 60) return TurnDirection::COUNTER_CLOCKWISE;
+        if (abs(frontRighter.y - rightHigher.y) < 60 /* TODO: Remove this magic nubmer */) return TurnDirection::COUNTER_CLOCKWISE;
+        if (rightHigher.x + 40 /* TODO: Remove this magic nubmer */ < frontRighter.x) return TurnDirection::CLOCKWISE;
     }
 
     return TurnDirection::UNKNOWN;
@@ -429,17 +740,32 @@ void drawAllLines(cv::Mat &outputImage, const std::vector<cv::Vec4i> &lines, con
 
         // Determine the color based on the direction
         cv::Scalar color;
-        if (direction == NORTH) {
-            color = cv::Scalar(0, 0, 255); // Red for NORTH
-        } else if (direction == EAST) {
-            color = cv::Scalar(0, 255, 0); // Green for EAST
-        } else if (direction == SOUTH) {
-            color = cv::Scalar(255, 0, 0); // Blue for SOUTH
-        } else if (direction == WEST) {
-            color = cv::Scalar(255, 255, 0); // Yellow for WEST
+        if (direction == Direction::NORTH) {
+            color = cv::Scalar(0, 0, 255); // Red for Direction::NORTH
+        } else if (direction == Direction::EAST) {
+            color = cv::Scalar(0, 255, 0); // Green for Direction::EAST
+        } else if (direction == Direction::SOUTH) {
+            color = cv::Scalar(255, 0, 0); // Blue for Direction::SOUTH
+        } else if (direction == Direction::WEST) {
+            color = cv::Scalar(255, 255, 0); // Yellow for Direction::WEST
         }
 
         // Draw the line with the determined color
         cv::line(outputImage, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 2, cv::LINE_AA);
+    }
+}
+
+void drawTrafficLights(cv::Mat& outputImage, const std::vector<ProcessedTrafficLight>& processedBlocks) {
+    // Iterate through the processed blocks and draw the traffic light points
+    for (const ProcessedTrafficLight& block : processedBlocks) {
+        // Draw the point (circle) at the traffic light location
+        cv::Scalar color;
+        switch (block.color) {
+            case Color::RED:    color = cv::Scalar(0, 0, 255); break;   // Red
+            case Color::GREEN:  color = cv::Scalar(0, 255, 0); break;   // Green
+        }
+
+        // Draw a circle at the traffic light's position
+        cv::circle(outputImage, block.point, 10, color, -1);  // Filled circle with radius 10
     }
 }
